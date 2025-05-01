@@ -17,7 +17,7 @@ DigitalDash transforms regular walks into amazing adventures, Digital Dash's imm
 - [ ] Add Logo
 - [ ] Add Copyright Notice
 - [ ] Add Newsletter
-- [ ] Add Terms & Services
+- [ ] Add Terms & Conditions
 - [ ] Add Privacy Policy
 
 ### Database
