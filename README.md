@@ -23,7 +23,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 ### Database
 
 - [ ] Change Database Configuration Settings
-- [ ] Add new field names for the privacy policy and terms and conditions
+- [x] Add new field names for the privacy policy and terms and conditions
 
 ## User Authentication
 
