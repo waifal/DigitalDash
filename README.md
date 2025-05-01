@@ -2,7 +2,7 @@
 
 ## Mission Statement
 
-DigitalDash transforms regular walks into amazing adventures, Digital Dash's immersive virtual walking experiences enable people to travel the world and improve their well-being digitally.
+DigitalDash transforms regular walks into amazing adventures, DigitalDash's immersive virtual walking experiences enable people to travel the world and improve their well-being digitally.
 
 ## TODO List
 
