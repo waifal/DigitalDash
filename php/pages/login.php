@@ -31,7 +31,7 @@
 					<!-- Password -->
 					<div>
 						<label>Your Password
-							<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your Password" required>
+							<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
 						</label>
 					</div>
 					<!-- Buttons -->
