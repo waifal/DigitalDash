@@ -19,7 +19,7 @@
 		<section class='auth__container'>
 			<!-- Form -->
 			<div>
-				<h2>Explore the Wild, Anywhere.</h2>
+				<h2>Your Adventure Resumes Here</h2>
 				<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
 				<form id="loginfrm" action="../includes/login.inc.php" method="POST">
 					<!-- Email Address -->
