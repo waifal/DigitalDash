@@ -59,7 +59,7 @@
 					</div>
 					<!-- Buttons -->
 					<div class='button__container'>
-						<a href="../includes/signup.inc.php">Sign up</a>
+						<button type="submit">Sign up</button>
 						<a href="../pages/login.php">Login</a>
 					</div>
 				</form>
