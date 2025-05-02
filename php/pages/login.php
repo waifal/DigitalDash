@@ -34,6 +34,9 @@
 							<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
 						</label>
 					</div>
+					<div>
+						<a href="../pages/reset-password.php">Forgot Password?</a>
+					</div>
 					<!-- Buttons -->
 					<div class='button__container'>
 						<button type="submit">Login</button>
