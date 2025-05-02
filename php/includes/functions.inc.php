@@ -1,18 +1,66 @@
 <?php
 
+require_once(__DIR__ . '/connection.inc.php');
+
 /**
- * Sanitizes and cleans user input, allowing only letters.
+ * Sanitizes and cleans user input, allowing only letters, spaces, apostrophes, and hyphens.
  *
- * @param ?string $userInput The input string, which may be null.
- * @return ?string The sanitized string or null if input is empty.
+ * @param string|null $userInput The input string to sanitize.
+ * @return string|null The sanitized string or null if input is empty.
  */
+
 
 function validateUser(?string $userInput): ?string {
 	if ($userInput === null) {
 		return null;
 	}
 
-	$userInput = preg_replace('/[^a-zA-Z]/', '', $userInput);
+	$sanitizedInput = preg_replace('/[^a-zA-Z\' -]/', '', trim($userInput));
 
-	return stripslashes(trim(htmlspecialchars($userInput, ENT_QUOTES, 'UTF-8')));
+	return stripslashes(trim(htmlspecialchars($sanitizedInput, ENT_QUOTES, 'UTF-8')));
+}
+
+/**
+ * Sanitizes and validates an email address, ensuring it has a valid format and domain.
+ *
+ * @param string|null $email The email input to validate.
+ * @return string|null The sanitized and verified email, or null if invalid.
+ */
+
+
+function validateEmail(?string $email): ?string {
+	if ($email === null) {
+		return null;
+	}
+
+	$sanitizedEmail = filter_var(trim($email), FILTER_SANITIZE_EMAIL);
+	$validatedEmail = filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL);
+
+	if ($validatedEmail && checkdnsrr(substr(strrchr($validatedEmail, "@"), 1), "MX")) {
+		return $validatedEmail;
+	}
+
+	return null;
+}
+
+/**
+ * Validates a password based on security requirements.
+ *
+ * Password must be at least 8 characters long and include:
+ * - At least one letter
+ * - At least one number
+ * - At least one special character (@$!%*?&)
+ *
+ * @param string|null $password The password to validate.
+ * @return string|null Valid password or null if invalid.
+ */
+
+function validatePassword(?string $password): ?string {
+	if ($password === null) {
+		return null;
+	}
+
+	$isValidPassword = preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
+
+	return $isValidPassword ? $password : null;
 }
