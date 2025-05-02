@@ -20,7 +20,7 @@
 			<!-- Form -->
 			<div>
 				<h2>Explore the Wild, Anywhere.</h2>
-				<p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
+				<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
 				<form id="loginfrm" action="../includes/login.inc.php" method="POST">
 					<!-- Email Address -->
 					<div>
