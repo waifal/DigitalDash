@@ -4,13 +4,13 @@ session_start();
 
 /* 
  * Ensure session login state is properly set:
- * - Check if 'logged_in' is unset
+ * - Check if 'user_id' is unset
  * - Verify if 'logged_in' is explicitly set to false
  * - Ensure 'logged_in' is not empty
  * - Default to false for consistency
  */
 
-if (!isset($_SESSION["logged_in"]) || isset($_SESSION["logged_in"]) === false || empty($_SESSION["logged_in"])) {
+if (!isset($_SESSION["user_id"]) || isset($_SESSION["logged_in"]) === false || empty($_SESSION["logged_in"])) {
 	$_SESSION["logged_in"] = false;
 }
 
