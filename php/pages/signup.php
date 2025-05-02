@@ -49,11 +49,11 @@
 					<!-- Agreements -->
 					<div>
 						<label>
-							<input type="checkbox" name="terms_and_conditions" id="terms_and_conditions" required>
+							<input type="checkbox" name="terms_and_conditions" id="terms_and_conditions" value="agree" required>
 							<a href="#">Terms & Conditions</a>
 						</label>
 						<label>
-							<input type="checkbox" name="privacy_policy" id="privacy_policy" required>
+							<input type="checkbox" name="privacy_policy" id="privacy_policy" value="agree" required>
 							<a href="#">Privacy Policy</a>
 						</label>
 					</div>
