@@ -18,7 +18,29 @@
 	<main>
 		<section class='auth__container'>
 			<!-- Form -->
-			<div></div>
+			<div>
+				<h2>Explore the Wild, Anywhere.</h2>
+				<p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
+				<form id="loginfrm" action="../includes/login.inc.php" method="POST">
+					<!-- Email Address -->
+					<div>
+						<label>Email Address
+							<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your Email Address" required>
+						</label>
+					</div>
+					<!-- Password -->
+					<div>
+						<label>Your Password
+							<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your Password" required>
+						</label>
+					</div>
+					<!-- Buttons -->
+					<div class='button__container'>
+						<a href="../includes/login.inc.php">Login</a>
+						<a href="../pages/signup.php">Sign up</a>
+					</div>
+				</form>
+			</div>
 			<!-- Background -->
 			<div class='auth-col-bg'></div>
 		</section>
