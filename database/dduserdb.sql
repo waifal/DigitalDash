@@ -1,5 +1,7 @@
 CREATE DATABASE dduserdb;
 
+USE dduserdb;
+
 CREATE TABLE tbluser (
     userid INT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(30) NOT NULL,
