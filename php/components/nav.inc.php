@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] === false || empty($_
 			<li><a href="#">Contact</a></li>
 		</ul>
 		<div>
-			<button type="button"><i class="fa-solid fa-user"></i></button>
+			<button type="button" class="profile__menu"><i class="fa-solid fa-user"></i></button>
 			<button type="button"><i class="fa-solid fa-moon"></i></button>
 		</div>
 	</nav>
