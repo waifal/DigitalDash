@@ -36,7 +36,7 @@
 					</div>
 					<!-- Buttons -->
 					<div class='button__container'>
-						<a href="../includes/login.inc.php">Login</a>
+						<button type="submit">Login</button>
 						<a href="../pages/signup.php">Sign up</a>
 					</div>
 				</form>
