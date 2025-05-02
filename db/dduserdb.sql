@@ -7,7 +7,7 @@ CREATE TABLE tbluser (
     firstname VARCHAR(30) NOT NULL,
     lastname VARCHAR(30) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
-    agreed_terms BOOLEAN NOT NULL DEFAULT FALSE,
-    agreed_privacy BOOLEAN NOT NULL DEFAULT FALSE
+    password VARCHAR(255) NOT NULL, 
+    agreed_terms TINYINT(1) NOT NULL DEFAULT 0,
+    agreed_privacy TINYINT(1) NOT NULL DEFAULT 0
 );
