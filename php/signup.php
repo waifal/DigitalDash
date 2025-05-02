@@ -30,3 +30,5 @@ switch ($_SESSION["logged_in"]) {
 	default:
 		$_SESSION["logged_in"] = false;
 }
+
+require_once(__DIR__ . '/includes/functions.inc.php');
