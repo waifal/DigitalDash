@@ -64,3 +64,17 @@ function validatePassword(?string $password): ?string {
 
 	return $isValidPassword ? $password : null;
 }
+
+/**
+ * Validates whether a checkbox has been checked in the submitted form.
+ *
+ * This function checks if a specified checkbox exists in the $_POST array
+ * and verifies if its value matches "agree".
+ *
+ * @param string $checkboxName The name attribute of the checkbox input field.
+ * @return bool Returns true if the checkbox is checked and its value is "agree", otherwise false.
+ */
+
+function validateCheckbox($checkboxName) {
+	return isset($_POST[$checkboxName]) && $_POST[$checkboxName] === "agree";
+}
