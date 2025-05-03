@@ -52,9 +52,9 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ### 🚪 Sign-out Script
 
-- [ ] Create a logout mechanism using `session_destroy()` and `session_unset()`
-- [ ] Redirect user to the `index.html` page after signing out
-- [ ] Clear all stored session data upon logout
+- [x] Create a logout mechanism using `session_destroy()` and `session_unset()`
+- [x] Redirect user to the `index.html` page after signing out
+- [x] Clear all stored session data upon logout
 
 ---
 
