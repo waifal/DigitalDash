@@ -296,7 +296,7 @@ function add_new_user(
 		$_SESSION["user_id"] = $user_id;
 		$_SESSION["logged_in"] = true;
 
-		header("Location: ../../public/php/index.php");
+		header("Location: ../public/php/index.php");
 		exit;
 	} else {
 		error_log("Insert failed: " . $stmt->error);
