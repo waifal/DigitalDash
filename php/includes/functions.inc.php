@@ -128,6 +128,42 @@ function is_valid_email_domain(string $email, string $message): ?string {
 }
 
 /**
+ * Checks if an email is already registered in the database.
+ *
+ * This function queries the `tbluser` table to determine whether
+ * the provided email exists, preventing duplicate registrations.
+ *
+ * @param string $email The email address to check.
+ * @return bool Returns true if the email is registered, false otherwise.
+ */
+
+function is_email_registered(string $email): bool {
+	global $connection;
+
+	if (!$connection) {
+		error_log("Database connection error: Connection not established.");
+		return false;
+	}
+
+	$query = "SELECT user_id FROM tbluser WHERE email = ?";
+	$stmt = $connection->prepare($query);
+
+	if (!$stmt) {
+		error_log("Failed to prepare email check statement: " . $connection->error);
+		return false;
+	}
+
+	$stmt->bind_param("s", $email);
+	$stmt->execute();
+	$stmt->store_result();
+
+	$isRegistered = $stmt->num_rows > 0;
+
+	$stmt->close();
+	return $isRegistered;
+}
+
+/**
  * Checks if the password matches the confirmation input.
  *
  * @param string $password The original password.
@@ -186,6 +222,11 @@ function validate_user_input(
 	if ($error = is_email_invalid($email, "Please enter a valid email address")) $errors[] = $error;
 	if ($error = is_valid_email_domain($email, "Please enter a valid domain name")) $errors[] = $error;
 
+	// Check if email is registered
+	if (is_email_registered($email)) {
+		$errors[] = "This email is already registered. Please use a different email.";
+	}
+
 	// Handle Password Match
 	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match")) $errors[] = $error;
 
@@ -200,5 +241,49 @@ function validate_user_input(
 	if (!empty($errors)) {
 		echo error_response($errors);
 		exit;
+	}
+}
+
+function add_new_user(
+	string $firstname,
+	string $lastname,
+	string $email,
+	string $password,
+	bool $terms_and_conditions,
+	bool $privacy_policy
+): string|bool {
+	global $connection;
+
+	if (!$connection) {
+		error_log("Database connection error: Connection not established.");
+		return "Database connection error. Please try again later.";
+	}
+
+	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+	$query = "INSERT INTO tbluser (firstname, lastname, email, password, agreed_terms, agreed_privacy) VALUES (?, ?, ?, ?, ?, ?)";
+	$stmt = $connection->prepare($query);
+
+	if (!$stmt) {
+		error_log("Failed to prepare statement: " . $connection->error);
+		return "An internal error occurred. Please try again.";
+	}
+
+	if (!$stmt->bind_param("ssssii", $firstname, $lastname, $email, $hashed_password, $terms_and_conditions, $privacy_policy)) {
+		error_log("Binding parameters failed: " . $stmt->error);
+		$stmt->close();
+		return "Failed to process user data. Please try again.";
+	}
+
+	if ($stmt->execute()) {
+		$user_id = $stmt->insert_id;
+		$_SESSION["user_id"] = $user_id;
+		$_SESSION["logged_in"] = true;
+		$stmt->close();
+		return $user_id;
+	} else {
+		error_log("Insert failed: " . $stmt->error);
+		$stmt->close();
+		return "Failed to insert user data. Please try again later.";
 	}
 }
