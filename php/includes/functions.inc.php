@@ -80,22 +80,29 @@ function validate_checkbox($checkboxName) {
 }
 
 /**
- * Checks if an input is empty and returns a JSON-encoded error response if so.
+ * Generates a JSON-encoded error response.
  *
- * @param string|null $input User input to validate.
- * @param string|null $message Error message if input is empty.
- *
- * @return string|null JSON error response or null if input is valid.
+ * @param string|null $message The error message to include in the response.
+ * @return string|null JSON-encoded error response if a message exists, or null if no errors.
  */
 
-function is_input_empty(?string $input, ?string $message): string|null {
+function error_response(?string $message): ?string {
 	$errorResponse = ["status" => "error", "messages" => []];
-
-	if (empty($input)) {
-		$errorResponse["messages"][] = $message;
-	}
+	$errorResponse["messages"][] = $message;
 
 	return !empty($errorResponse["messages"]) ? json_encode($errorResponse, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) : null;
+}
+
+/**
+ * Checks if input is empty and returns an error response if so.
+ *
+ * @param string|null $input The user input to validate.
+ * @param string|null $message The error message to return if input is empty.
+ * @return string|null JSON-encoded error response if input is empty, or null if valid.
+ */
+
+function is_input_empty(?string $input, ?string $message): ?string {
+	return empty($input) ? error_response($message) : null;
 }
 
 /**
@@ -123,10 +130,10 @@ function validate_user_input(
 ): string|bool|null {
 
 
-	is_input_empty($firstname, "Please enter your first name");
-	is_input_empty($lastname, "Please enter your last name");
-	is_input_empty($email, "Please enter your email address");
-	is_input_empty($password, "Please enter your password");
+	error_response($firstname, "Please enter your first name");
+	error_response($lastname, "Please enter your last name");
+	error_response($email, "Please enter your email address");
+	error_response($password, "Please enter your password");
 
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$errorResponse["messages"][] = "Invalid email format.";
