@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once(__DIR__ . '/connection.inc.php');
 
 /**
@@ -122,7 +120,7 @@ function is_email_invalid(?string $email, string $message): ?string {
  * @return string|null The error message or null if the domain is valid.
  */
 
-function is_valid_email_domain(string $email, string $message): ?string {
+function is_valid_email_domain(?string $email, string $message): ?string {
 	$domain = strtolower(trim(substr(strrchr($email, "@"), 1)));
 	return (!$domain || !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) ? $message : null;
 }
@@ -137,7 +135,7 @@ function is_valid_email_domain(string $email, string $message): ?string {
  * @return bool Returns true if the email is registered, false otherwise.
  */
 
-function is_email_registered(string $email): bool {
+function is_email_registered(?string $email): bool {
 	global $connection;
 
 	if (!$connection) {
@@ -178,7 +176,7 @@ function is_email_registered(string $email): bool {
  * @return string|null The error message or null if the passwords match.
  */
 
-function does_password_match(string $password, string $pwd_confirm, string $message): ?string {
+function does_password_match(?string $password, ?string $pwd_confirm, string $message): ?string {
 	return $pwd_confirm !== $password ? $message : null;
 }
 
