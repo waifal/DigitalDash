@@ -180,6 +180,12 @@ function does_password_match(?string $password, ?string $pwd_confirm, string $me
 	return $pwd_confirm !== $password ? $message : null;
 }
 
+function does_password_meet_criteria(?string $password, string $message): ?string {
+	$isValidPassword = preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password);
+
+	return !$isValidPassword ? $message : null;
+}
+
 /**
  * Validates whether the user has agreed to the terms and conditions.
  *
@@ -233,6 +239,9 @@ function validate_user_input(
 
 	// Handle Password Match
 	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match")) $errors[] = $error;
+
+	// Handle Password Validation
+	if ($error = does_password_meet_criteria($password, "Your password must be at least 8 characters long and include a letter, a number, and a special character")) $errors[] = $error;
 
 	// Handle User Agreements
 	if ($error = does_user_agree_with_terms_and_conditions($terms_and_conditions, "You must agree to the terms and conditions")) {
