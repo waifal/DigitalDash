@@ -23,11 +23,11 @@ switch ($_SESSION["logged_in"]) {
 	case true:
 		exit;
 	case false:
-		header("Location: ../public/index.html");
+		header("Location: ../index.html");
 		exit;
 	default:
 		$_SESSION["logged_in"] = false;
-		header("Location: ../public/index.html");
+		header("Location: ../index.html");
 		exit;
 }
 ?>
