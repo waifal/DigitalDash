@@ -79,45 +79,13 @@ function validate_checkbox($checkboxName) {
 	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName]) === "agree";
 }
 
-/**
- * Generates a JSON-encoded error response.
- *
- * @param string|null $message The error message to include in the response.
- * @return string|null JSON-encoded error response if a message exists, or null if no errors.
- */
-
-function error_response(?string $message): ?string {
-	$errorResponse = ["status" => "error", "messages" => []];
-	$errorResponse["messages"][] = $message;
-
-	return !empty($errorResponse["messages"]) ? json_encode($errorResponse, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) : null;
+function error_response(array $messages): string {
+	return json_encode(["status" => "error", "messages" => $messages]);
 }
-
-/**
- * Checks if input is empty and returns an error response if so.
- *
- * @param string|null $input The user input to validate.
- * @param string|null $message The error message to return if input is empty.
- * @return string|null JSON-encoded error response if input is empty, or null if valid.
- */
 
 function is_input_empty(?string $input, ?string $message): ?string {
-	return empty($input) ? error_response($message) : null;
+	return empty($input) ? $message : null;
 }
-
-/**
- * Validates user input and returns error messages if any validation fails.
- *
- * @param string $firstname The user's first name.
- * @param string $lastname The user's last name.
- * @param string $email The user's email address.
- * @param string $password The user's password.
- * @param string $pwd_confirm The password confirmation.
- * @param bool $terms_and_conditions Whether the user agreed to the terms and conditions.
- * @param bool $privacy_policy Whether the user accepted the privacy policy.
- *
- * @return string|bool JSON-encoded error response if validation fails, or true if input is valid.
- */
 
 function validate_user_input(
 	?string $firstname,
@@ -127,31 +95,19 @@ function validate_user_input(
 	?string $pwd_confirm,
 	bool $terms_and_conditions,
 	bool $privacy_policy
-): string|bool|null {
+): void {
 
+	// Handle Empty Inputs
 
-	error_response($firstname, "Please enter your first name");
-	error_response($lastname, "Please enter your last name");
-	error_response($email, "Please enter your email address");
-	error_response($password, "Please enter your password");
+	$errors = [];
 
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$errorResponse["messages"][] = "Invalid email format.";
+	if ($error = is_input_empty($firstname, "Please enter your first name")) $errors[] = $error;
+	if ($error = is_input_empty($lastname, "Please enter your last name")) $errors[] = $error;
+	if ($error = is_input_empty($email, "Please enter your email address")) $errors[] = $error;
+	if ($error = is_input_empty($password, "Please enter your password")) $errors[] = $error;
+
+	if (!empty($errors)) {
+		echo error_response($errors);
+		exit;
 	}
-
-	if ($pwd_confirm !== $password) {
-		$errorResponse["messages"][] = "Passwords do not match.";
-	} elseif (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password)) {
-		$errorResponse["messages"][] = "Password must be at least 8 characters long and include letters, numbers, and special characters.";
-	}
-
-	if (!$terms_and_conditions) {
-		$errorResponse["messages"][] = "You must agree to the terms and conditions.";
-	}
-
-	if (!$privacy_policy) {
-		$errorResponse["messages"][] = "You must accept the privacy policy.";
-	}
-
-	return true;
 }
