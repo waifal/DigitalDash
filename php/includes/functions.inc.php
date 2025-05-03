@@ -92,11 +92,8 @@ function is_email_invalid(?string $email, string $message): ?string {
 }
 
 function is_valid_email_domain(string $email, string $message): ?string {
-	$domain = substr(strrchr($email, "@"), 1);
-
-	if (!$domain || !checkdnsrr($domain, "MX")) return $message;
-
-	return null;
+	$domain = strtolower(trim(substr(strrchr($email, "@"), 1)));
+	return (!$domain || !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) ? $message : null;
 }
 
 function does_password_match(string $password, string $pwd_confirm, string $message): ?string {
