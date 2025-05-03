@@ -141,11 +141,11 @@ function is_email_registered(string $email): bool {
 	global $connection;
 
 	if (!$connection) {
-		error_log("Database connection error: Connection not established.");
+		error_log("Database connection error: " . $connection->error);
 		return false;
 	}
 
-	$query = "SELECT user_id FROM tbluser WHERE email = ?";
+	$query = "SELECT user_id FROM tbluser WHERE email = ? LIMIT 1";
 	$stmt = $connection->prepare($query);
 
 	if (!$stmt) {
@@ -154,12 +154,18 @@ function is_email_registered(string $email): bool {
 	}
 
 	$stmt->bind_param("s", $email);
-	$stmt->execute();
-	$stmt->store_result();
 
+	if (!$stmt->execute()) {
+		error_log("Failed to execute email check statement: " . $stmt->error);
+		$stmt->close();
+		return false;
+	}
+
+	$stmt->store_result();
 	$isRegistered = $stmt->num_rows > 0;
 
 	$stmt->close();
+
 	return $isRegistered;
 }
 
