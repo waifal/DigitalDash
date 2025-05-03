@@ -76,7 +76,7 @@ function validate_password(?string $password): ?string {
  */
 
 function validate_checkbox($checkboxName) {
-	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName] === "agree");
+	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName]) === "agree";
 }
 
 function custom_error_message(
