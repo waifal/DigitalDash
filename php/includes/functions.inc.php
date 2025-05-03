@@ -113,22 +113,18 @@ function is_input_empty(?string $input, ?string $message): string|null {
  */
 
 function validate_user_input(
-	string $firstname,
-	string $lastname,
-	string $email,
-	string $password,
-	string $pwd_confirm,
+	?string $firstname,
+	?string $lastname,
+	?string $email,
+	?string $password,
+	?string $pwd_confirm,
 	bool $terms_and_conditions,
 	bool $privacy_policy
-): string|bool {
+): string|bool|null {
 
 
 	is_input_empty($firstname, "Please enter your first name");
 	is_input_empty($lastname, "Please enter your last name");
-
-	if (empty($lastname)) {
-		$errorResponse["messages"][] = "Please enter your last name.";
-	}
 
 	if (empty($email)) {
 		$errorResponse["messages"][] = "Please enter your email address.";
