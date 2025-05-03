@@ -1,3 +1,37 @@
+<?php
+
+session_start();
+
+/* 
+ * Verify session authentication state:
+ * - Check if 'user_id' and 'logged_in' are both set
+ * - Exit if authentication is confirmed 
+ */
+
+if (!empty($_SESSION["user_id"]) && !empty($_SESSION["logged_in"])) {
+	exit;
+}
+
+/* 
+ * Handle user authentication state:
+ * - Exit for logged-in users
+ * - Redirect unauthenticated users to the homepage
+ * - Default to 'false' and enforce redirection for undefined states
+ */
+
+switch ($_SESSION["logged_in"]) {
+	case true:
+		exit;
+	case false:
+		header("Location: ../public/index.html");
+		exit;
+	default:
+		$_SESSION["logged_in"] = false;
+		header("Location: ../public/index.html");
+		exit;
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
