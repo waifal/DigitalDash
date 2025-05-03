@@ -79,5 +79,13 @@ function validate_checkbox($checkboxName) {
 	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName] === "agree");
 }
 
-function custom_error_message($firstname, $lastname, $email, $password, $pwd_confirm, $terms_and_conditions, $privacy_policy) {
+function custom_error_message(
+	string $firstname,
+	string $lastname,
+	string $email,
+	string $password,
+	string $pwd_confirm,
+	bool $terms_and_conditions,
+	bool $privacy_policy
+): string|bool {
 }
