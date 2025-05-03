@@ -88,4 +88,42 @@ function custom_error_message(
 	bool $terms_and_conditions,
 	bool $privacy_policy
 ): string|bool {
+
+	$errorResponse = ["status" => "error", "messages" => []];
+
+	if (empty($firstname)) {
+		$errorResponse["messages"][] = "Please enter your first name.";
+	}
+
+	if (empty($lastname)) {
+		$errorResponse["messages"][] = "Please enter your last name.";
+	}
+
+	if (empty($email)) {
+		$errorResponse["messages"][] = "Please enter your email address.";
+	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$errorResponse["messages"][] = "Invalid email format.";
+	}
+
+	if (empty($password)) {
+		$errorResponse["messages"][] = "Please enter your password.";
+	} elseif ($pwd_confirm !== $password) {
+		$errorResponse["messages"][] = "Passwords do not match.";
+	} elseif (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password)) {
+		$errorResponse["messages"][] = "Password must be at least 8 characters long and include letters, numbers, and special characters.";
+	}
+
+	if (!$terms_and_conditions) {
+		$errorResponse["messages"][] = "You must agree to the terms and conditions.";
+	}
+
+	if (!$privacy_policy) {
+		$errorResponse["messages"][] = "You must accept the privacy policy.";
+	}
+
+	if (!empty($errorResponse["messages"])) {
+		return json_encode($errorResponse);
+	}
+
+	return true;
 }
