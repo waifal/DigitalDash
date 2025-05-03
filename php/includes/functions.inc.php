@@ -100,6 +100,14 @@ function does_password_match(string $password, string $pwd_confirm, string $mess
 	return $pwd_confirm !== $password ? $message : null;
 }
 
+function does_user_agree_with_terms_and_conditions(bool $terms_and_conditions, string $message): ?string {
+	return $terms_and_conditions ? null : $message;
+}
+
+function does_user_accept_privacy_policy(bool $privacy_policy, string $message): ?string {
+	return $privacy_policy ? null : $message;
+}
+
 function validate_user_input(
 	?string $firstname,
 	?string $lastname,
@@ -124,6 +132,14 @@ function validate_user_input(
 
 	// Handle Password Match
 	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match.")) $errors[] = $error;
+
+	// Handle User Agreements
+	if ($error = does_user_agree_with_terms_and_conditions($terms_and_conditions, "You must agree to the terms and conditions.")) {
+		$errors[] = $error;
+	}
+	if ($error = does_user_accept_privacy_policy($privacy_policy, "You must accept our privacy policy.")) {
+		$errors[] = $error;
+	}
 
 	if (!empty($errors)) {
 		echo error_response($errors);
