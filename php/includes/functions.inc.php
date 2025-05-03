@@ -93,7 +93,7 @@ function validate_checkbox($checkboxName) {
  * @return string|bool JSON-encoded error response if validation fails, or true if input is valid.
  */
 
-function custom_error_message(
+function validate_user_input(
 	string $firstname,
 	string $lastname,
 	string $email,
