@@ -10,7 +10,7 @@ require_once(__DIR__ . '/connection.inc.php');
  */
 
 
-function validateUser(?string $userInput): ?string {
+function validate_user(?string $userInput): ?string {
 	if ($userInput === null) {
 		return null;
 	}
@@ -28,7 +28,7 @@ function validateUser(?string $userInput): ?string {
  */
 
 
-function validateEmail(?string $email): ?string {
+function validate_email(?string $email): ?string {
 	if ($email === null) {
 		return null;
 	}
@@ -55,7 +55,7 @@ function validateEmail(?string $email): ?string {
  * @return string|null Valid password or null if invalid.
  */
 
-function validatePassword(?string $password): ?string {
+function validate_password(?string $password): ?string {
 	if ($password === null) {
 		return null;
 	}
@@ -75,6 +75,6 @@ function validatePassword(?string $password): ?string {
  * @return bool Returns true if the checkbox is checked and its value is "agree", otherwise false.
  */
 
-function validateCheckbox($checkboxName) {
+function validate_checkbox($checkboxName) {
 	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName] === "agree");
 }
