@@ -131,13 +131,13 @@ function validate_user_input(
 	if ($error = is_valid_email_domain($email, "Please enter a valid domain name")) $errors[] = $error;
 
 	// Handle Password Match
-	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match.")) $errors[] = $error;
+	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match")) $errors[] = $error;
 
 	// Handle User Agreements
-	if ($error = does_user_agree_with_terms_and_conditions($terms_and_conditions, "You must agree to the terms and conditions.")) {
+	if ($error = does_user_agree_with_terms_and_conditions($terms_and_conditions, "You must agree to the terms and conditions")) {
 		$errors[] = $error;
 	}
-	if ($error = does_user_accept_privacy_policy($privacy_policy, "You must accept our privacy policy.")) {
+	if ($error = does_user_accept_privacy_policy($privacy_policy, "You must accept our privacy policy")) {
 		$errors[] = $error;
 	}
 
