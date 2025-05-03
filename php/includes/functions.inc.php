@@ -123,9 +123,8 @@ function validate_user_input(
 ): string|bool {
 
 
-	if (empty($firstname)) {
-		$errorResponse["messages"][] = "Please enter your first name.";
-	}
+	is_input_empty($firstname, "Please enter your first name");
+	is_input_empty($lastname, "Please enter your last name");
 
 	if (empty($lastname)) {
 		$errorResponse["messages"][] = "Please enter your last name.";
