@@ -1,5 +1,12 @@
-<!-- Navigation -->
-<?php require_once(__DIR__ . '/../components/nav.inc.php'); ?>
+<?php
+
+session_start();
+
+?>
+<?php
+require_once(__DIR__ . '/../components/header.inc.php');
+require_once(__DIR__ . '/../components/nav.inc.php');
+?>
 
 <main>
 	<section class='auth__container'>
@@ -55,8 +62,4 @@
 	</section>
 </main>
 
-<!-- Footer -->
 <?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
-</body>
-
-</html>
