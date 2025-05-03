@@ -1,56 +1,46 @@
-<!DOCTYPE html>
+<?php
 
-<html lang="en">
+session_start();
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>DigitalDash</title>
+$_SESSION['sign_in_page'] = false;
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-	<link rel="stylesheet" href="../../css/styles.css">
-</head>
+require_once(__DIR__ . '/../components/header.inc.php');
+require_once(__DIR__ . '/../components/nav.inc.php');
 
-<body>
-	<!-- Navigation -->
-	<?php require_once(__DIR__ . '/../components/nav.inc.php'); ?>
+?>
+<main>
+	<section class='auth__container'>
+		<!-- Form -->
+		<div>
+			<h2>Your Adventure Resumes Here</h2>
+			<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
+			<form id="loginfrm" action="../../../php/login.php" method="POST">
+				<!-- Email Address -->
+				<div>
+					<label>Email Address
+						<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your Email Address" required>
+					</label>
+				</div>
+				<!-- Password -->
+				<div>
+					<label>Your Password
+						<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
+					</label>
+				</div>
+				<div>
+					<a href="../pages/reset-password.php">Forgot Password?</a>
+				</div>
+				<!-- Buttons -->
+				<div class='button__container'>
+					<button type="submit">Login</button>
+					<a href="../pages/signup.php">Sign up</a>
+				</div>
+			</form>
+		</div>
+		<!-- Background -->
+		<div class='auth-col-bg'></div>
+	</section>
+</main>
 
-	<main>
-		<section class='auth__container'>
-			<!-- Form -->
-			<div>
-				<h2>Your Adventure Resumes Here</h2>
-				<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
-				<form id="loginfrm" action="../../../php/login.php" method="POST">
-					<!-- Email Address -->
-					<div>
-						<label>Email Address
-							<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your Email Address" required>
-						</label>
-					</div>
-					<!-- Password -->
-					<div>
-						<label>Your Password
-							<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
-						</label>
-					</div>
-					<div>
-						<a href="../pages/reset-password.php">Forgot Password?</a>
-					</div>
-					<!-- Buttons -->
-					<div class='button__container'>
-						<button type="submit">Login</button>
-						<a href="../pages/signup.php">Sign up</a>
-					</div>
-				</form>
-			</div>
-			<!-- Background -->
-			<div class='auth-col-bg'></div>
-		</section>
-	</main>
-
-	<!-- Footer -->
-	<?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
-</body>
-
-</html>
+<!-- Footer -->
+<?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
