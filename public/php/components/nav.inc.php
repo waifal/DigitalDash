@@ -1,6 +1,6 @@
 <?php
 
-if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] === false || empty($_SESSION['logged_in'])):
+if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 
 ?>
 
