@@ -9,7 +9,6 @@ require_once(__DIR__ . '/connection.inc.php');
  * @return string|null The sanitized string or null if input is empty.
  */
 
-
 function validate_user(?string $userInput): ?string {
 	if ($userInput === null) {
 		return null;
@@ -26,7 +25,6 @@ function validate_user(?string $userInput): ?string {
  * @param string|null $email The email input to validate.
  * @return string|null The sanitized and verified email, or null if invalid.
  */
-
 
 function validate_email(?string $email): ?string {
 	if ($email === null) {
@@ -159,7 +157,6 @@ function does_user_agree_with_terms_and_conditions(bool $terms_and_conditions, s
  * @param string $message The error message if not accepted.
  * @return string|null The error message or null if accepted.
  */
-
 
 function does_user_accept_privacy_policy(bool $privacy_policy, string $message): ?string {
 	return $privacy_policy ? null : $message;
