@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once(__DIR__ . '/connection.inc.php');
 
 /**
@@ -295,6 +297,8 @@ function add_new_user(
 
 		$_SESSION["user_id"] = $user_id;
 		$_SESSION["logged_in"] = true;
+
+		session_regenerate_id(true);
 
 		header("Location: ../public/php/index.php");
 		exit;
