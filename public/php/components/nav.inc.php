@@ -15,7 +15,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] === false || empty($_
 			<li><a href="#">Contact</a></li>
 		</ul>
 		<div>
-			<a href="#">Sign in</a>
+			<?php if ($_SESSION['sign_in_page']): ?>
+				<a href="../pages/login.php">Login</a>
+			<?php else: ?>
+				<a href="../pages/signup.php">Sign in</a>
+			<?php endif; ?>
 			<button type="button"><i class="fa-solid fa-moon"></i></button>
 		</div>
 	</nav>
