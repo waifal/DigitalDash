@@ -2,10 +2,11 @@
 
 session_start();
 
-?>
-<?php
+$_SESSION['sign_in_page'] = true;
+
 require_once(__DIR__ . '/../components/header.inc.php');
 require_once(__DIR__ . '/../components/nav.inc.php');
+
 ?>
 
 <main>
