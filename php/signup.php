@@ -41,4 +41,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$pwd_confirm = $_POST['pwd_confirm'];
 	$terms_and_conditions = validate_checkbox('terms_and_conditions');
 	$privacy_policy = validate_checkbox('privacy_policy');
+
+	validate_user_input($fname, $lname, $email, $password, $pwd_confirm, $terms_and_conditions, $privacy_policy);
 }
