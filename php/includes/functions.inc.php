@@ -83,8 +83,24 @@ function error_response(array $messages): string {
 	return json_encode(["status" => "error", "messages" => $messages]);
 }
 
-function is_input_empty(?string $input, ?string $message): ?string {
+function is_input_empty(?string $input, string $message): ?string {
 	return empty($input) ? $message : null;
+}
+
+function is_email_invalid(?string $email, string $message): ?string {
+	return !filter_var($email, FILTER_VALIDATE_EMAIL) ? $message : null;
+}
+
+function is_valid_email_domain(string $email, string $message): ?string {
+	$domain = substr(strrchr($email, "@"), 1);
+
+	if (!$domain || !checkdnsrr($domain, "MX")) return $message;
+
+	return null;
+}
+
+function does_password_match(string $password, string $pwd_confirm, string $message): ?string {
+	return $pwd_confirm !== $password ? $message : null;
 }
 
 function validate_user_input(
@@ -97,14 +113,20 @@ function validate_user_input(
 	bool $privacy_policy
 ): void {
 
-	// Handle Empty Inputs
-
 	$errors = [];
 
+	// Handle Empty Inputs
 	if ($error = is_input_empty($firstname, "Please enter your first name")) $errors[] = $error;
 	if ($error = is_input_empty($lastname, "Please enter your last name")) $errors[] = $error;
 	if ($error = is_input_empty($email, "Please enter your email address")) $errors[] = $error;
 	if ($error = is_input_empty($password, "Please enter your password")) $errors[] = $error;
+
+	// Handle Email Validation
+	if ($error = is_email_invalid($email, "Please enter a valid email address")) $errors[] = $error;
+	if ($error = is_valid_email_domain($email, "Please enter a valid domain name")) $errors[] = $error;
+
+	// Handle Password Match
+	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match.")) $errors[] = $error;
 
 	if (!empty($errors)) {
 		echo error_response($errors);
