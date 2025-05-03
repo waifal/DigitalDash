@@ -10,7 +10,7 @@ session_start();
  * - Default to false for consistency
  */
 
-if (!isset($_SESSION["user_id"]) || isset($_SESSION["logged_in"]) === false || empty($_SESSION["logged_in"])) {
+if (empty($_SESSION["user_id"]) || empty($_SESSION["logged_in"])) {
 	$_SESSION["logged_in"] = false;
 }
 
@@ -43,4 +43,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	$privacy_policy = validate_checkbox('privacy_policy');
 
 	validate_user_input($fname, $lname, $email, $password, $pwd_confirm, $terms_and_conditions, $privacy_policy);
+	add_new_user($fname, $lname, $email, $password, $pwd_confirm, $terms_and_conditions, $privacy_policy);
 }
