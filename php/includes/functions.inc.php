@@ -125,16 +125,14 @@ function validate_user_input(
 
 	is_input_empty($firstname, "Please enter your first name");
 	is_input_empty($lastname, "Please enter your last name");
+	is_input_empty($email, "Please enter your email address");
+	is_input_empty($password, "Please enter your password");
 
-	if (empty($email)) {
-		$errorResponse["messages"][] = "Please enter your email address.";
-	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$errorResponse["messages"][] = "Invalid email format.";
 	}
 
-	if (empty($password)) {
-		$errorResponse["messages"][] = "Please enter your password.";
-	} elseif ($pwd_confirm !== $password) {
+	if ($pwd_confirm !== $password) {
 		$errorResponse["messages"][] = "Passwords do not match.";
 	} elseif (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password)) {
 		$errorResponse["messages"][] = "Password must be at least 8 characters long and include letters, numbers, and special characters.";
