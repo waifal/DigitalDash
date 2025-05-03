@@ -245,6 +245,7 @@ function validate_user_input(
 	}
 
 	if (!empty($errors)) {
+		header("Content-Type: application/json");
 		echo error_response($errors);
 		exit;
 	}
@@ -283,10 +284,13 @@ function add_new_user(
 
 	if ($stmt->execute()) {
 		$user_id = $stmt->insert_id;
+		$stmt->close();
+
 		$_SESSION["user_id"] = $user_id;
 		$_SESSION["logged_in"] = true;
-		$stmt->close();
-		return $user_id;
+
+		header("Location: ../../public/php/index.php");
+		exit;
 	} else {
 		error_log("Insert failed: " . $stmt->error);
 		$stmt->close();
