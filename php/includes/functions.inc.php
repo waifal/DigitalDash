@@ -80,6 +80,25 @@ function validate_checkbox($checkboxName) {
 }
 
 /**
+ * Checks if an input is empty and returns a JSON-encoded error response if so.
+ *
+ * @param string|null $input User input to validate.
+ * @param string|null $message Error message if input is empty.
+ *
+ * @return string|null JSON error response or null if input is valid.
+ */
+
+function is_input_empty(?string $input, ?string $message): string|null {
+	$errorResponse = ["status" => "error", "messages" => []];
+
+	if (empty($input)) {
+		$errorResponse["messages"][] = $message;
+	}
+
+	return !empty($errorResponse["messages"]) ? json_encode($errorResponse, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) : null;
+}
+
+/**
  * Validates user input and returns error messages if any validation fails.
  *
  * @param string $firstname The user's first name.
@@ -103,7 +122,6 @@ function validate_user_input(
 	bool $privacy_policy
 ): string|bool {
 
-	$errorResponse = ["status" => "error", "messages" => []];
 
 	if (empty($firstname)) {
 		$errorResponse["messages"][] = "Please enter your first name.";
@@ -133,10 +151,6 @@ function validate_user_input(
 
 	if (!$privacy_policy) {
 		$errorResponse["messages"][] = "You must accept the privacy policy.";
-	}
-
-	if (!empty($errorResponse["messages"])) {
-		return json_encode($errorResponse);
 	}
 
 	return true;
