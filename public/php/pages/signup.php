@@ -21,7 +21,7 @@
 			<div>
 				<h2>Explore the Wild, Anywhere.</h2>
 				<p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
-				<form id="signupfrm" action="../../../php/signup.php" method="POST">
+				<form id="signupfrm" action="../../../php/signup.php" method="POST" novalidate>
 					<!-- Names -->
 					<div>
 						<label>First Name
