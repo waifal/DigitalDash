@@ -79,6 +79,20 @@ function validate_checkbox($checkboxName) {
 	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName]) === "agree";
 }
 
+/**
+ * Validates user input and returns error messages if any validation fails.
+ *
+ * @param string $firstname The user's first name.
+ * @param string $lastname The user's last name.
+ * @param string $email The user's email address.
+ * @param string $password The user's password.
+ * @param string $pwd_confirm The password confirmation.
+ * @param bool $terms_and_conditions Whether the user agreed to the terms and conditions.
+ * @param bool $privacy_policy Whether the user accepted the privacy policy.
+ *
+ * @return string|bool JSON-encoded error response if validation fails, or true if input is valid.
+ */
+
 function custom_error_message(
 	string $firstname,
 	string $lastname,
