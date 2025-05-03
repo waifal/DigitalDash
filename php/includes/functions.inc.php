@@ -79,30 +79,87 @@ function validate_checkbox($checkboxName) {
 	return isset($_POST[$checkboxName]) && strtolower($_POST[$checkboxName]) === "agree";
 }
 
+/**
+ * Returns a JSON error response.
+ *
+ * @param array $messages Error messages.
+ * @return string JSON-formatted error response.
+ */
+
 function error_response(array $messages): string {
 	return json_encode(["status" => "error", "messages" => $messages]);
 }
+
+/**
+ * Checks if the input is empty and returns an error message if true.
+ *
+ * @param string|null $input The input to validate.
+ * @param string $message The error message to return if empty.
+ * @return string|null The error message or null if input is valid.
+ */
 
 function is_input_empty(?string $input, string $message): ?string {
 	return empty($input) ? $message : null;
 }
 
+/**
+ * Validates the email format.
+ *
+ * @param string|null $email The email to validate.
+ * @param string $message The error message if invalid.
+ * @return string|null The error message or null if the email is valid.
+ */
+
 function is_email_invalid(?string $email, string $message): ?string {
 	return !filter_var($email, FILTER_VALIDATE_EMAIL) ? $message : null;
 }
+
+/**
+ * Validates the email domain by checking DNS records.
+ *
+ * @param string $email The email address to validate.
+ * @param string $message The error message if the domain is invalid.
+ * @return string|null The error message or null if the domain is valid.
+ */
 
 function is_valid_email_domain(string $email, string $message): ?string {
 	$domain = strtolower(trim(substr(strrchr($email, "@"), 1)));
 	return (!$domain || !(checkdnsrr($domain, "MX") || checkdnsrr($domain, "A"))) ? $message : null;
 }
 
+/**
+ * Checks if the password matches the confirmation input.
+ *
+ * @param string $password The original password.
+ * @param string $pwd_confirm The confirmation password.
+ * @param string $message The error message if passwords do not match.
+ * @return string|null The error message or null if the passwords match.
+ */
+
 function does_password_match(string $password, string $pwd_confirm, string $message): ?string {
 	return $pwd_confirm !== $password ? $message : null;
 }
 
+/**
+ * Validates whether the user has agreed to the terms and conditions.
+ *
+ * @param bool $terms_and_conditions Whether the user accepted the terms.
+ * @param string $message The error message if not accepted.
+ * @return string|null The error message or null if accepted.
+ */
+
 function does_user_agree_with_terms_and_conditions(bool $terms_and_conditions, string $message): ?string {
 	return $terms_and_conditions ? null : $message;
 }
+
+/**
+ * Validates whether the user has accepted the privacy policy.
+ *
+ * @param bool $privacy_policy Whether the user agreed to the privacy policy.
+ * @param string $message The error message if not accepted.
+ * @return string|null The error message or null if accepted.
+ */
+
 
 function does_user_accept_privacy_policy(bool $privacy_policy, string $message): ?string {
 	return $privacy_policy ? null : $message;
