@@ -120,43 +120,44 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 ---
 
-## Modals
+# 📦 Reusable Components
+
+## ⬜ Modals
 
 ![Modal Example](md_files/modal_ui.gif)
 
-This guide explains how to use the `Modal` class to create dynamic modals in a web application. The `Modal` class is designed to be reusable, allowing modals to be triggered by buttons with custom content.
+This guide explains how to use the `Modal` class to create dynamic modals in a web application. The `Modal` class is reusable, allowing modals to be triggered by buttons with custom content, making it a flexible solution for enhancing user interaction.
 
-Heres the syntax:
+### Syntax
 
 ```JavaScript
-onclick="initModal(param1, param2)"
+onclick="initModal(target, string)"
 ```
 
-> **param1**: *A reference to the button that triggered the modal.*
+### Parameters
 
-> **param2**: *A structured object that can parse HTML into the modal*
+> **target**: *A reference to the button that triggered the modal.*
 
----
-
-> ⚠️ Note: It is **important** to know that the `Modal` class will not work if you do not have this line of code in your HTML page:
-
-> ```HTML
-> <script src="js/scripts.js" type="module"></script>
-> ```
+> **string**: *A structured object that can parse HTML into the modal*
 
 ---
 
 ### Usage
 
-- Pass the `this` keyword as `param1` to reference the triggering element.
+- Pass the `this` keyword as `target` to reference the triggering element.
 
-- `param2` can accept either plain text or HTML content, as shown below:
+- `string` can accept either plain text or HTML content, as shown below:
+
+#### Example with normal text
 
 ```HTML
 <!-- Passing Normal Text -->
 <button onclick="initModal(this, 'This is normal text!')">Modal</button>
 ```
+
 or
+
+#### Example with HTML Markup
 
 ```HTML
 <!-- Passing HTML --> 
@@ -165,13 +166,17 @@ or
 
 This enhances the flexibility and interactivity of your modal container, allowing for a more dynamic user experience.
 
-> ⚠️ Note: If your modal needs to accommodate more content, it’s essential to follow proper coding standards for maintainability and readability.
+---
+
+> ⚠️ Note: If your modal requires more complex content, follow best coding practices to ensure maintainability and readability.
+
+---
 
 ### Using Template Literals for New Lines
 
 To improve readability and organization, use `template literals` (backticks ``) instead of single or double quotes. Template literals preserve formatting and make HTML easier to manage.
 
-As follows:
+#### Example with Template Literals
 
 ```HTML
 <button onclick="initModal(this, `
@@ -182,6 +187,72 @@ As follows:
 ```
 
 This approach ensures a clean structure and enhances maintainability in your code.
+
+---
+
+## 📜 Accordions
+
+![Accordion Example](md_files/accordion_ui.gif)
+
+This guide explains how to use the `Accordion` class to create dynamic, interactive accordions in a web application. The class is designed for reusability, allowing you to trigger accordions with buttons and include custom content.
+
+### Syntax
+
+```JavaScript
+onclick="initModal(target, id, height, string)"
+```
+
+### Parameters
+
+> **target**: *A reference to the DOM element (button) that triggered the accordion.*
+
+> **id**: *A unique identifier for the accordion element to ensure it can be targeted and accessed individually.*
+
+> **height**: *A boolean value indicating whether the accordion should animate its height or use static display properties.*
+
+> **string**: *The content (HTML string or structured object) that will be parsed and displayed inside the accordion.*
+
+### Setup
+
+Before initializing the accordion, add the following custom data attribute to the target button element:
+
+```HTML
+data-accordion="true"
+```
+### Example
+
+The full implementation would look like this:
+
+```HTML
+<button data-accordion="true" onclick="initAccordion(
+    this, 
+    'unique_accordion_id', 
+    true, 
+    'This is the content of the accordion!'
+)">My Accordion</button>
+```
+
+### Usage
+
+- When passing values to the `id` and `string` parameters, ensure they are wrapped in either single or double quotes.
+
+- The accordion can parse and display HTML markup inside the content parameter. For multiline strings, it’s recommended to use `template literals` (backticks ``) for better readability and handling of complex content.
+
+### Example with HTML Markup
+
+```HTML
+<button data-accordion="true" onclick="initAccordion(
+    this, 
+    'my_custom_id', 
+    true, 
+    `
+        <h2>My Accordion</h2>
+        <p>I am HTML markup inside the accordion!</p>
+    `
+)">My Accordion</button>
+```
+
+---
 
 ---
 
