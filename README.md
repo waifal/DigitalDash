@@ -199,7 +199,7 @@ This guide explains how to use the `Accordion` class to create dynamic, interact
 ### Syntax
 
 ```JavaScript
-onclick="initModal(target, id, height, string)"
+onclick="initAccordion(target, id, height, string)"
 ```
 
 ### Parameters
