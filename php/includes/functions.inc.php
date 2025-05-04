@@ -364,7 +364,7 @@ function check_user_email($user_id, $email) {
 		return false;
 	}
 
-	$query = "SELECT email FROM users WHERE user_id = ?";
+	$query = "SELECT email FROM tbluser WHERE user_id = ?";
 
 	if ($stmt = $connection->prepare($query)) {
 		$stmt->bind_param("i", $user_id);
@@ -380,7 +380,9 @@ function check_user_email($user_id, $email) {
 
 		$stmt->close();
 
-		return ($stored_email !== '') && hash_equals($stored_email, $email);
+		$email = $email ?? '';
+
+		return ($stored_email !== '') && hash_equals((string) $stored_email, (string) $email);
 	}
 
 	error_log("Database query preparation failed.");
