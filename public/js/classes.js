@@ -42,34 +42,35 @@ class Accordion {
 
     showAccordion() {
         const parent = this.button.parentNode;
-        const div = document.createElement("div");
+        const existingDiv = document.getElementById(this.id);
 
+        if (existingDiv) {
+            existingDiv.style.display = "block";
+            return existingDiv;
+        }
+
+        const div = document.createElement("div");
         div.id = this.id;
         div.className = "accordion__container";
         div.innerHTML = `<div class="accordion__content">${this.text}</div>`;
         div.style.overflow = "hidden";
         this.div = div;
 
+        const sibling = this.button.nextSibling;
+        sibling ? parent.insertBefore(div, sibling) : parent.appendChild(div);
+
         if (this.height) {
             div.style.height = "0px";
-            this.button.nextSibling
-                ? parent.insertBefore(div, this.button.nextSibling)
-                : parent.appendChild(div);
-
             requestAnimationFrame(() => {
                 div.style.transition = "height 0.3s ease";
                 div.style.height = div.scrollHeight + "px";
             });
         } else {
             div.style.display = "none";
-            this.button.nextSibling
-                ? parent.insertBefore(div, this.button.nextSibling)
-                : parent.appendChild(div);
             div.style.display = "block";
         }
 
-        currentlyOpenAccordion = div;
-        currentlyOpenButton = this.button;
+        return div;
     }
 
     hideAccordion(div) {
@@ -84,11 +85,8 @@ class Accordion {
                 if (div.parentNode) div.parentNode.removeChild(div);
             }, { once: true });
         } else {
-            if (div.parentNode) div.parentNode.removeChild(div);
+            div.style.display = "none";
         }
-
-        currentlyOpenAccordion = null;
-        currentlyOpenButton = null;
     }
 }
 
