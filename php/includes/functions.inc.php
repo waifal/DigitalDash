@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['csrf_token'])) {
+	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 require_once(__DIR__ . '/connection.inc.php');
 
 /**
@@ -252,6 +256,15 @@ function validate_user_input(
 	if ($error = does_user_accept_privacy_policy($privacy_policy, "You must accept our privacy policy")) {
 		$errors[] = $error;
 	}
+
+	// Handle CSFR Token
+	if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+		header('Content-Type: application/json');
+		echo json_encode(["status" => "error", "message" => "Oops! Something went wrong. Please refresh and try again."]);
+		exit;
+	}
+
+	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 
 	if (!empty($errors)) {
 		header("Content-Type: application/json");
