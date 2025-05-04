@@ -1,6 +1,6 @@
 class Modal {
-    constructor(targetId, text) {
-        this.button = document.getElementById(targetId);
+    constructor(button, text) {
+        this.button = button;
         this.text = text;
     }
 
