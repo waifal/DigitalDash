@@ -89,7 +89,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
     <!-- JavaScript -->
     <script src="/js/components.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="/js/scripts.js" type="module"></script>
 </body>
 
 </html>
