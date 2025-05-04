@@ -216,6 +216,23 @@ function does_user_accept_privacy_policy(bool $privacy_policy, string $message):
 	return $privacy_policy ? null : $message;
 }
 
+/**
+ * Validates user input for account registration.
+ *
+ * Checks for empty fields, email validity, password strength and matching,
+ * agreement to terms and privacy policy, and CSRF token validation.
+ *
+ * @param string|null $firstname User's first name.
+ * @param string|null $lastname User's last name.
+ * @param string|null $email User's email address.
+ * @param string|null $password User's password.
+ * @param string|null $pwd_confirm Confirmation of the password.
+ * @param bool $terms_and_conditions Whether user agreed to terms and conditions.
+ * @param bool $privacy_policy Whether user accepted the privacy policy.
+ *
+ * @return void Outputs JSON error response and halts execution if validation fails.
+ */
+
 function validate_user_input(
 	?string $firstname,
 	?string $lastname,
@@ -272,6 +289,23 @@ function validate_user_input(
 		exit;
 	}
 }
+
+/**
+ * Adds a new user to the database and initializes the user session.
+ *
+ * Hashes the user's password, inserts their data into the `tbluser` table, and sets session variables upon success.
+ * Handles database connection issues, SQL preparation errors, and execution failures.
+ * Redirects the user upon successful registration.
+ *
+ * @param string $firstname            User's first name.
+ * @param string $lastname             User's last name.
+ * @param string $email                User's email address.
+ * @param string $password             User's plaintext password.
+ * @param bool   $terms_and_conditions Whether the user agreed to the terms and conditions.
+ * @param bool   $privacy_policy       Whether the user accepted the privacy policy.
+ *
+ * @return string|bool Returns false on success (due to redirection), or an error message string on failure.
+ */
 
 function add_new_user(
 	string $firstname,
