@@ -356,7 +356,6 @@ function add_new_user(
 	}
 }
 
-
 function check_user_email($user_id, $email) {
 	global $connection;
 
