@@ -38,7 +38,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					</div>
 				</form>
 			<?php else: ?>
-				<form id="resetpwdfrm" action="../../../php/reset-password.php" method="POST" novalidate>
+				<form id="resetpwdfrm" action="../../../php/reset-password.inc.php" method="POST" novalidate>
 					<!-- CSRF Token -->
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 					<!-- Password -->
