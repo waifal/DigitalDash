@@ -99,7 +99,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 ## Navigation and Footer Integration
 
-> ⚠️: No additional markup is required for the `<nav>` or `<footer>` elements unless explicitly modified within the component files. Any necessary changes should be handled within the respective component files for consistency and functionality.
+> ⚠️ Note: No additional markup is required for the `<nav>` or `<footer>` elements unless explicitly modified within the component files. Any necessary changes should be handled within the respective component files for consistency and functionality.
 
 > JavaScript will automatically insert the content into the relevant tags, so you don't need to add anything manually. Any future updates to these components will reflect across all pages, making maintence easier. Also when you do modify the component some changes may need to be made to the fallback functions within the `components.js` file.
 
@@ -115,31 +115,42 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 ### JS Script
 ```HTML
-   <script src="/js/components.js"></script>
+<script src="/js/components.js"></script>
 ```
 
 ---
 
 ## Modals
 
-This guide explains how to use the `Modal` class to create dynamic modals in a web application. The `Modal` class is designed to be reusable, allowing modals to be triggered by buttons with custom content.
+![Modal Example](md_files/modal_ui.gif)
 
+This guide explains how to use the `Modal` class to create dynamic modals in a web application. The `Modal` class is designed to be reusable, allowing modals to be triggered by buttons with custom content.
 
 Heres the syntax:
 
 ```JavaScript
 onclick="initModal(param1, param2)"
 ```
+
 > **param1**: *A reference to the button that triggered the modal.*
 
 > **param2**: *A structured object that can parse HTML into the modal*
+
+---
+
+> ⚠️ Note: It is **important** to know that the `Modal` class will not work if you do not have this line of code in your HTML page:
+
+> ```HTML
+> <script src="js/scripts.js" type="module"></script>
+> ```
+
+---
 
 ### Usage
 
 - Pass the `this` keyword as `param1` to reference the triggering element.
 
 - `param2` can accept either plain text or HTML content, as shown below:
-
 
 ```HTML
 <!-- Passing Normal Text -->
@@ -151,6 +162,7 @@ or
 <!-- Passing HTML --> 
 <button onclick="initModal(this, '<p>This is <b>HTML</b> content!</p>')">Modal</button>
 ```
+
 This enhances the flexibility and interactivity of your modal container, allowing for a more dynamic user experience.
 
 > ⚠️ Note: If your modal needs to accommodate more content, it’s essential to follow proper coding standards for maintainability and readability.
