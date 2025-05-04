@@ -2,6 +2,10 @@
 
 session_start();
 
+if (!isset($_SESSION['csrf_token'])) {
+	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 $_SESSION['sign_in_page'] = false;
 
 require_once(__DIR__ . '/../components/header.inc.php');
@@ -14,7 +18,9 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 		<div>
 			<h2>Your Adventure Resumes Here</h2>
 			<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
-			<form id="loginfrm" action="../../../php/login.php" method="POST">
+			<form id="loginfrm" action="../../../php/login.inc.php" method="POST">
+				<!-- CSRF Token -->
+				<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 				<!-- Email Address -->
 				<div>
 					<label>Email Address
