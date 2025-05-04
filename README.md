@@ -251,9 +251,6 @@ The full implementation would look like this:
     `
 )">My Accordion</button>
 ```
-
----
-
 ---
 
 <p style='text-align: center'>© 2025 DigitalDash. All rights reserved.</p>
