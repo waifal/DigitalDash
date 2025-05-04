@@ -31,6 +31,5 @@ function initAccordion(clickedButton, id, height, text) {
     currentlyOpenButton = clickedButton;
 }
 
-
 window.initModal = initModal;
 window.initAccordion = initAccordion;
