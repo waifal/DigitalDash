@@ -2,6 +2,10 @@
 
 	session_start();
 
+	if (!isset($_SESSION['csrf_token'])) {
+		$_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Secure random token
+	}
+
 	if (!isset($_SESSION['logged_in'])) {
 		$_SESSION['logged_in'] = false;
 	}
@@ -12,11 +16,6 @@
 	}
 
 	$_SESSION['sign_in_page'] = true;
-
-	if (!isset($_SESSION['csrf_token'])) {
-		$_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Secure random token
-	}
-
 
 	require_once(__DIR__ . '/../components/header.inc.php');
 	require_once(__DIR__ . '/../components/nav.inc.php');
