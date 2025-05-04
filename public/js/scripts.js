@@ -1,6 +1,8 @@
-import { Modal } from "./classes";
+import { Modal } from "./classes.js";
 
-function initModal(targetId, text) {
-    const modal = new Modal(targetId, text);
+function initModal(button, text) {
+    const modal = new Modal(button, text);
     modal.showModal();
 }
+
+window.initModal = initModal;
