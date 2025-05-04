@@ -355,3 +355,36 @@ function add_new_user(
 		return "Failed to insert user data. Please try again later.";
 	}
 }
+
+
+function check_user_email($user_id, $email) {
+	global $connection;
+
+	// Ensure connection is established
+	if (!$connection) {
+		error_log("Database connection error.");
+		return false;
+	}
+
+	$query = "SELECT email FROM users WHERE user_id = ?";
+
+	if ($stmt = $connection->prepare($query)) {
+		$stmt->bind_param("i", $user_id);
+		$stmt->execute();
+		$stmt->store_result();
+
+		$stored_email = '';
+
+		if ($stmt->num_rows > 0) {
+			$stmt->bind_result($stored_email);
+			$stmt->fetch();
+		}
+
+		$stmt->close();
+
+		return ($stored_email !== '') && hash_equals($stored_email, $email);
+	}
+
+	error_log("Database query preparation failed.");
+	return false;
+}
