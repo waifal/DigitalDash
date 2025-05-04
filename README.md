@@ -115,7 +115,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 ### JS Script
 ```HTML
-<script src="assets/js/components.js"></script>
+   <script src="/js/components.js"></script>
 ```
 
 ---
