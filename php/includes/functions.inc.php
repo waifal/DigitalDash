@@ -356,7 +356,7 @@ function add_new_user(
 	}
 }
 
-function check_user_email($user_id, $email) {
+function send_reset_link($email) {
 	global $connection;
 
 	if (!$connection) {
@@ -364,27 +364,59 @@ function check_user_email($user_id, $email) {
 		return false;
 	}
 
-	$query = "SELECT email FROM tbluser WHERE user_id = ?";
-
+	// Check if email exists and fetch user_id
+	$query = "SELECT user_id FROM tbluser WHERE email = ?";
 	if ($stmt = $connection->prepare($query)) {
-		$stmt->bind_param("i", $user_id);
+		$stmt->bind_param("s", $email);
 		$stmt->execute();
 		$stmt->store_result();
 
-		$stored_email = '';
-
-		if ($stmt->num_rows > 0) {
-			$stmt->bind_result($stored_email);
-			$stmt->fetch();
+		if ($stmt->num_rows === 0) {
+			error_log("Email not found.");
+			$stmt->close();
+			return false;
 		}
 
+		$stmt->bind_result($user_id);
+		$stmt->fetch();
 		$stmt->close();
-
-		$email = $email ?? '';
-
-		return ($stored_email !== '') && hash_equals((string) $stored_email, (string) $email);
 	}
 
-	error_log("Database query preparation failed.");
-	return false;
+	// Ensure user_id was successfully retrieved
+	if (!$user_id) {
+		error_log("Failed to fetch user_id.");
+		return false;
+	}
+
+	error_log("User ID retrieved: " . $user_id);
+
+	// Delete any existing password reset tokens for this user
+	$query = "DELETE FROM password_resets WHERE user_id = ?";
+	if ($stmt = $connection->prepare($query)) {
+		$stmt->bind_param("i", $user_id);
+		$stmt->execute();
+		$stmt->close();
+	}
+
+	// Generate secure token
+	$token = bin2hex(random_bytes(32));
+
+	$expires_at = time() + 3600; // Set expiration for 1 hour from now
+
+	$query = "INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)";
+	if ($stmt = $connection->prepare($query)) {
+		$stmt->bind_param("iss", $user_id, $token, $expires_at);
+		$stmt->execute();
+		$stmt->close();
+	}
+
+	error_log("✅ Stored token: " . $token . " (Expires at: " . date("Y-m-d H:i:s", $expires_at) . ")");
+
+	error_log("✅ Stored token: " . $token . " (Expires at: " . date("Y-m-d H:i:s", $expires_at) . ")");
+
+	$_SESSION['token'] = $token;
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['logged_in'] = false;
+
+	return true;
 }
