@@ -45,10 +45,9 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 ?>
 
 <main>
-	<section class='auth__container'>
+	<section class='auth__container col-2'>
 		<div>
 			<h2>Reset Password</h2>
-
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
@@ -60,12 +59,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							</label>
 						</div>
 						<div class='button__container'>
-							<button type="submit">Confirm</button>
+							<button type="submit" class="primary-btn">Confirm</button>
+							<a href="login.php">Go back</a>
 						</div>
 					<?php elseif ($_GET['error'] ?? '' === "invalid_token"): ?>
 						<p class="error">Invalid or expired token! <a href="reset-password.php">Please request a new reset link.</a></p>
 					<?php elseif ($_GET['success'] ?? '' === "email_sent"): ?>
-						<p class="success">Email sent successfully! Click the link in your email to proceed.</p>
+						<p class="success">Email sent successfully! Please check your spam folder.</p>
 					<?php else: ?>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div>
@@ -74,7 +74,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							</label>
 						</div>
 						<div class='button__container'>
-							<button type="submit">Confirm</button>
+							<button type="submit" class="primary-btn">Confirm</button>
+							<a href="login.php">Go back</a>
 						</div>
 					<?php endif; ?>
 				</form>
@@ -104,6 +105,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<p class="error">Token validation failed. <a href="reset-password.php">Please request a new reset link.</a></p>
 			<?php endif; ?>
 		</div>
+		<div id="reset-pw-bg" class="auth-col-bg"></div>
 	</section>
 </main>
 
