@@ -23,7 +23,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 ?>
 
 <main>
-	<section class='auth__container'>
+	<section class='auth__container col-2'>
 		<!-- Form -->
 		<div>
 			<h2>Explore the Wild, Anywhere.</h2>
@@ -49,10 +49,16 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<!-- Password -->
 				<div>
 					<label>Your Password
-						<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your Password" required>
+						<div class="password__container">
+							<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your Password" required>
+							<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+						</div>
 					</label>
 					<label>Confirm Password
-						<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your Password" required>
+						<div class="password__container">
+							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your Password" required>
+							<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+						</div>
 					</label>
 				</div>
 				<!-- Agreements -->
@@ -68,13 +74,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				</div>
 				<!-- Buttons -->
 				<div class='button__container'>
-					<button type="submit">Sign up</button>
-					<a href="../pages/login.php">Login</a>
+					<button type="submit" class="button">Sign up</button>
+					<a href="../pages/login.php" class="button">Login</a>
 				</div>
 			</form>
 		</div>
 		<!-- Background -->
-		<div class='auth-col-bg'></div>
+		<div id="signup-bg" class='auth-col-bg'></div>
 	</section>
 </main>
 

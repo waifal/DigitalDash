@@ -30,7 +30,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 ?>
 <main>
-	<section class='auth__container'>
+	<section class='auth__container col-2'>
 		<!-- Form -->
 		<div>
 			<h2>Your Adventure Resumes Here</h2>
@@ -54,7 +54,10 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<!-- Password -->
 				<div>
 					<label>Your Password
-						<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
+						<div class="password__container">
+							<input type="password" name="password" id="password" autocomplete="current-password" placeholder="Enter your Password" required>
+							<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+						</div>
 					</label>
 				</div>
 				<div>
@@ -62,13 +65,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				</div>
 				<!-- Buttons -->
 				<div class='button__container'>
-					<button type="submit">Login</button>
-					<a href="../pages/signup.php">Sign up</a>
+					<button type="submit" class="button">Login</button>
+					<a href="../pages/signup.php" class="button">Sign up</a>
 				</div>
 			</form>
 		</div>
 		<!-- Background -->
-		<div class='auth-col-bg'></div>
+		<div id="login-bg" class='auth-col-bg'></div>
 	</section>
 </main>
 
