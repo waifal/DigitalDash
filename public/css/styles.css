@@ -5,6 +5,9 @@
     --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
+
+    --universal-padding: 100px 150px;
+    --nav-height: 90px;
 }
 
 * {
@@ -39,6 +42,51 @@ button {
     font: inherit;
     font-size: 0.9rem;
 }
+
+/* ================== Navigation ================== */
+
+nav {
+    height: var(--nav-height);
+    padding: 0 150px;
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-clr);
+}
+
+nav>* {
+    flex: 1;
+}
+
+nav>ul {
+    margin: auto;
+    display: flex;
+    column-gap: 3vh;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style-type: none;
+}
+
+nav a {
+    color: var(--secondary-clr);
+    text-decoration-line: none;
+}
+
+nav>div:last-child {
+    display: flex;
+    column-gap: 1vw;
+    justify-content: flex-end;
+}
+
+nav img {
+    max-width: 100%;
+    width: 130px;
+    height: auto;
+}
+
+/* ================== Main ================== */
+
 
 /* ================== GLOBAL STYLES - DO NOT EDIT ABOVE ================== */
 
