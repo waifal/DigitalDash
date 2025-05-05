@@ -24,6 +24,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 - [ ] Change Database Configuration Settings
 - [x] Add new field names for the privacy policy and terms and conditions
+- [x] Create new table for the `reset` functionality
 
 ## User Authentication
 
