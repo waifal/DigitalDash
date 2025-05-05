@@ -6,8 +6,10 @@
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
 
-    --universal-padding: 100px 150px;
     --nav-height: 90px;
+    --container-padding: 0 150px;
+
+    --image-overlay: fill 1 linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 * {
@@ -39,6 +41,7 @@ p {
 }
 
 button {
+    cursor: pointer;
     font: inherit;
     font-size: 0.9rem;
 }
@@ -85,77 +88,159 @@ nav img {
     height: auto;
 }
 
-/* ================== Main ================== */
+nav .primary-btn {
+    align-self: center;
+    max-width: 120px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: 0.9rem;
+    align-content: center;
+    border-radius: 50px;
+    background-color: var(--accent-clr);
+}
 
+/* Theme Switcher */
+nav .primary-btn+button {
+    padding: 0 15px;
+    color: var(--secondary-clr);
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    background-color: transparent;
+    transition: background-color 0.2s linear;
+}
+
+nav .primary-btn+button:hover {
+    background-color: #181818;
+}
 
 /* ================== GLOBAL STYLES - DO NOT EDIT ABOVE ================== */
 
+/* ================== Login & Sign up ================== */
 
-/*
- *
- * ██   ██  ██████  ███    ███ ███████ 
- * ██   ██ ██    ██ ████  ████ ██      
- * ███████ ██    ██ ██ ████ ██ █████   
- * ██   ██ ██    ██ ██  ██  ██ ██      
- * ██   ██  ██████  ██      ██ ███████                                
- *
- * Page: Home
- * Assigned: Sharmake
- *                                  
-*/
+a[href="../pages/reset-password.php"] {
+    font-size: 0.9rem;
+}
 
-/* Add Styles Here */
+.auth__container {
+    height: calc(100svh - var(--nav-height));
+}
 
+.auth__container.col-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
 
-/* ====================================================================== */
+.auth__container>div {
+    padding: var(--container-padding);
+}
 
-/* 
- *
- * ██    ██ ██ ██████  ████████ ██    ██  █████  ██          ██     ██  █████  ██      ██   ██ ███████ 
- * ██    ██ ██ ██   ██    ██    ██    ██ ██   ██ ██          ██     ██ ██   ██ ██      ██  ██  ██      
- * ██    ██ ██ ██████     ██    ██    ██ ███████ ██          ██  █  ██ ███████ ██      █████   ███████ 
- *  ██  ██  ██ ██   ██    ██    ██    ██ ██   ██ ██          ██ ███ ██ ██   ██ ██      ██  ██       ██ 
- *   ████   ██ ██   ██    ██     ██████  ██   ██ ███████      ███ ███  ██   ██ ███████ ██   ██ ███████ 
- *
- * Page: Virtual Walks
- * Assigned: Wai
- *
-*/
+.auth__container>div:first-child {
+    align-self: center;
+}
 
-/* Add Styles Here */
+.auth-col-bg {
+    background-color: rgb(212, 23, 23);
+}
 
+#login-bg.auth-col-bg {
+    border-image: var(--image-overlay);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../assets/images/backgrounds/iceland_photo_of_bridge.jpg');
+}
 
-/* ====================================================================== */
+#signup-bg.auth-col-bg {
+    border-image: var(--image-overlay);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
+}
 
-/*
- *
- *  █████  ██████   ██████  ██    ██ ████████ 
- * ██   ██ ██   ██ ██    ██ ██    ██    ██    
- * ███████ ██████  ██    ██ ██    ██    ██    
- * ██   ██ ██   ██ ██    ██ ██    ██    ██    
- * ██   ██ ██████   ██████   ██████     ██    
- *                                       
- * Page: About
- * Assigned: Troy
- *
-*/
+.auth__container form label {
+    font-size: 0.9rem;
+    position: relative;
+}
 
-/* Add Styles Here */
+.auth__container form label:not(label:has(input[type="checkbox"])) {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+}
 
+.auth__container form label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    column-gap: 1vh;
+}
 
-/* ====================================================================== */
+.auth__container form label:has(input[type="checkbox"]) a {
+    font-size: 0.9rem;
+}
 
-/* 
- *
- *  ██████  ██████  ███    ██ ████████  █████   ██████ ████████ 
- * ██      ██    ██ ████   ██    ██    ██   ██ ██         ██    
- * ██      ██    ██ ██ ██  ██    ██    ███████ ██         ██    
- * ██      ██    ██ ██  ██ ██    ██    ██   ██ ██         ██    
- *  ██████  ██████  ██   ████    ██    ██   ██  ██████    ██    
- *                                                             
- * Page: Contact
- * Assigned: Cooper
- *
-*/
+.auth__container form label input {
+    font: inherit;
+    font-size: 0.9rem;
+    height: 38px;
+    padding: 0 8px;
+}
 
-/* Add Styles Here */
+.auth__container form label input:not([type="checkbox"]) {
+    margin-top: 1px;
+}
+
+.auth__container .button__container {
+    display: flex;
+    margin: 18px 0;
+    column-gap: 1vw;
+}
+
+.auth__container .button__container>* {
+    flex: 1;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    text-decoration-line: none;
+}
+
+.auth__container .button__container>*:first-child {
+    color: var(--secondary-clr);
+    background-color: var(--accent-clr);
+}
+
+.auth__container .button__container>*:last-child {
+    flex: 1;
+    padding: 8px;
+    color: var(--primary-clr);
+    border-radius: 50px;
+    border: 1px solid var(--primary-clr);
+    text-align: center;
+    text-decoration-line: none;
+    background-color: var(--secondary-clr);
+}
+
+.auth__container .password__container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.auth__container .password__container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.auth__container .password__container button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-40%);
+    border: none;
+    background-color: transparent;
+}
