@@ -52,7 +52,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
-						<p class="error">Invalid email address! Please try again.</p>
+						<p class="error">Oh oh! We don't seem to recognize that email!</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div>
 							<label>Enter your email address
@@ -84,10 +84,16 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
 					<div>
 						<label>New Password
-							<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your New Password" required>
+							<div class="password__container">
+								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your New Password" required>
+								<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+							</div>
 						</label>
 						<label>Confirm Password
-							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your New Password" required>
+							<div class="password__container">
+								<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your New Password" required>
+								<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+							</div>
 						</label>
 					</div>
 					<div class='button__container'>
