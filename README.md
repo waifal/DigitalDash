@@ -1,59 +1,8 @@
 # DigitalDash
 
-## Mission Statement
+## 🚀 Mission Statement
 
 DigitalDash transforms regular walks into amazing adventures, DigitalDash's immersive virtual walking experiences enable people to travel the world and improve their well-being digitally.
-
-## TODO List
-
-### Navigation
-
-- [ ] Add Logo
-- [ ] Create links including call to action (Sign up).
-    - [ ] Ensure they're linked to their respective URLs.
-    
-### Footer
-
-- [ ] Add Logo
-- [ ] Add Copyright Notice
-- [ ] Add Newsletter
-- [ ] Add Terms & Conditions
-- [ ] Add Privacy Policy
-
-### Database
-
-- [ ] Change Database Configuration Settings
-- [x] Add new field names for the privacy policy and terms and conditions
-- [x] Create new table for the `reset` functionality
-
-## User Authentication
-
-### 🚀 Login Script
-
-- [ ] Create PHP script to process login requests
-- [ ] Validate user input (email and password)
-- [ ] Check if user exists in the database
-- [ ] Verify hashed password using `password_verify()`
-- [ ] Store session data upon successful login
-- [ ] Redirect user to `index.php` upon successful authentication
-- [ ] Display error messages for incorrect login credentials
-- [ ] Implement password reset functionality
-
-### 📝 Sign-up Script
-
-- [x] Create PHP script to process sign-ups
-- [x] Validate email format and ensure password security
-- [x] Check if the email already exists in the database
-- [x] If email does not exist, allow user to proceed with sign-up
-- [x] Hash password using `password_hash()` before storing in the database
-- [x] Store user data securely in MySQL
-- [ ] Display error messages if any validation fails
-
-### 🚪 Sign-out Script
-
-- [x] Create a logout mechanism using `session_destroy()` and `session_unset()`
-- [x] Redirect user to the `index.html` page after signing out
-- [x] Clear all stored session data upon logout
 
 ---
 
