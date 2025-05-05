@@ -141,30 +141,22 @@ a[href="../pages/reset-password.php"] {
 }
 
 .auth-col-bg {
+    border-image: var(--image-overlay);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     background-color: rgb(212, 23, 23);
 }
 
 #login-bg.auth-col-bg {
-    border-image: var(--image-overlay);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-image: url('../assets/images/backgrounds/iceland_photo_of_bridge.jpg');
 }
 
 #signup-bg.auth-col-bg {
-    border-image: var(--image-overlay);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
 }
 
 #reset-pw-bg.auth-col-bg {
-    border-image: var(--image-overlay);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     background-image: url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
 }
 
