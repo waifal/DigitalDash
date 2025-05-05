@@ -42,9 +42,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 - [x] Create PHP script to process sign-ups
 - [x] Validate email format and ensure password security
-- [ ] Check if the email already exists in the database
-    - [ ] If **email exists**, deny registration and prompt login
-    - [ ] If **password is incorrect**, prompt for the correct password
+- [x] Check if the email already exists in the database
 - [x] If email does not exist, allow user to proceed with sign-up
 - [x] Hash password using `password_hash()` before storing in the database
 - [x] Store user data securely in MySQL
