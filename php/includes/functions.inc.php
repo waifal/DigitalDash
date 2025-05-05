@@ -356,6 +356,17 @@ function add_new_user(
 	}
 }
 
+/**
+ * Generates and stores a secure password reset token for a given email.
+ *
+ * This function checks if the email exists, retrieves the associated user ID,
+ * deletes any previous reset tokens, generates a new secure token, and stores
+ * it in the database with an expiration timestamp.
+ *
+ * @param string $email The email address of the user requesting a password reset.
+ * @return bool Returns true if the reset token was successfully created, false otherwise.
+ */
+
 function send_reset_link($email) {
 	global $connection;
 
@@ -364,7 +375,8 @@ function send_reset_link($email) {
 		return false;
 	}
 
-	// Check if email exists and fetch user_id
+	$user_id = null;
+
 	$query = "SELECT user_id FROM tbluser WHERE email = ?";
 	if ($stmt = $connection->prepare($query)) {
 		$stmt->bind_param("s", $email);
@@ -382,7 +394,6 @@ function send_reset_link($email) {
 		$stmt->close();
 	}
 
-	// Ensure user_id was successfully retrieved
 	if (!$user_id) {
 		error_log("Failed to fetch user_id.");
 		return false;
@@ -390,7 +401,6 @@ function send_reset_link($email) {
 
 	error_log("User ID retrieved: " . $user_id);
 
-	// Delete any existing password reset tokens for this user
 	$query = "DELETE FROM password_resets WHERE user_id = ?";
 	if ($stmt = $connection->prepare($query)) {
 		$stmt->bind_param("i", $user_id);
@@ -398,10 +408,9 @@ function send_reset_link($email) {
 		$stmt->close();
 	}
 
-	// Generate secure token
 	$token = bin2hex(random_bytes(32));
 
-	$expires_at = time() + 3600; // Set expiration for 1 hour from now
+	$expires_at = time() + 3600;
 
 	$query = "INSERT INTO password_resets (user_id, token, expires_at) VALUES (?, ?, ?)";
 	if ($stmt = $connection->prepare($query)) {
