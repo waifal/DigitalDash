@@ -62,7 +62,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 # 📦 Reusable Components
 
-<span style="color:rgb(255, 78, 29); font-weight: bold">Requirement:</span> Before proceeding, ensure your page includes the following line of code for the *components* to function correctly:
+**Requirement**: Before proceeding, ensure your page includes the following line of code for the *components* to function correctly:
 
 ```html
 <script src="js/scripts.js" type="module"></script>
