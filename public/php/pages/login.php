@@ -2,8 +2,24 @@
 
 session_start();
 
+require(__DIR__ . '/../../../php/includes/connection.inc.php');
+
+$query = "DELETE FROM password_resets WHERE token = ?";
+
+if ($stmt = $connection->prepare($query)) {
+	$stmt->bind_param("s", $_SESSION['token']);
+	$stmt->execute();
+	$stmt->close();
+}
+unset($_SESSION['token']);
+
 if (!isset($_SESSION['csrf_token'])) {
 	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+	header('Location: ../index.php');
+	exit;
 }
 
 $_SESSION['sign_in_page'] = false;
@@ -18,7 +34,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 		<div>
 			<h2>Your Adventure Resumes Here</h2>
 			<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
-			<form id="loginfrm" action="../../../php/login.inc.php" method="POST">
+			<form id="loginfrm" action="../../../php/login.inc.php" method="POST" novalidate>
 				<!-- CSRF Token -->
 				<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 				<!-- Email Address -->
