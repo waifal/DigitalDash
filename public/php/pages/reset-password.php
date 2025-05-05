@@ -87,13 +87,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<label>New Password
 							<div class="password__container">
 								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your New Password" required>
-								<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 							</div>
 						</label>
 						<label>Confirm Password
 							<div class="password__container">
 								<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your New Password" required>
-								<button type="button" class="show_password"><i class="fa-solid fa-eye-low-vision"></i></button>
+								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 							</div>
 						</label>
 					</div>
