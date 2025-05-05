@@ -16,9 +16,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 		</ul>
 		<div>
 			<?php if (isset($_SESSION['sign_in_page']) && $_SESSION['sign_in_page']): ?>
-				<a href="../pages/login.php">Login</a>
+				<a href="../pages/login.php" class="primary-btn">Login</a>
 			<?php else: ?>
-				<a href="../pages/signup.php">Sign up</a>
+				<a href="../pages/signup.php" class="primary-btn">Sign up</a>
 			<?php endif; ?>
 			<button type="button"><i class="fa-solid fa-moon"></i></button>
 		</div>
