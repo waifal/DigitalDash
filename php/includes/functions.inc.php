@@ -419,10 +419,6 @@ function send_reset_link($email) {
 		$stmt->close();
 	}
 
-	error_log("✅ Stored token: " . $token . " (Expires at: " . date("Y-m-d H:i:s", $expires_at) . ")");
-
-	error_log("✅ Stored token: " . $token . " (Expires at: " . date("Y-m-d H:i:s", $expires_at) . ")");
-
 	$_SESSION['token'] = $token;
 	$_SESSION['user_id'] = $user_id;
 	$_SESSION['logged_in'] = false;
