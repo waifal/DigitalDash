@@ -8,18 +8,16 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ## ⚙️ Web App Requirements
 
-```shell
-# Server & Environment
+### Server & Environment
 
 - PHP 8.0 or higher
 - Web Server (Apache or Nginx)
 - Composer
 
-# Required Libraries
+### Required Libraries
 
 - PHPMailer
 - PHPDotEnv
-```
 
 ---
 
