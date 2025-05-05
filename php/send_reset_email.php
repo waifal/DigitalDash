@@ -5,8 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-define("SMTP_USERNAME", "teswize1@gmail.com");
-define("SMTP_PASSWORD", "janq ldpn guyx bujs");
+define("SMTP_USERNAME", "teswize1@gmail.com");  // Use .env file
+define("SMTP_PASSWORD", "janq ldpn guyx bujs"); // Use .env file
 define("SMTP_HOST", "smtp.gmail.com");
 define("SMTP_PORT", 465);
 
@@ -51,7 +51,7 @@ function sendResetEmail($email, $token) {
 			return false;
 		}
 	} catch (Exception $e) {
-		error_log("❌ Exception: " . $e->getMessage());
+		error_log("Exception: " . $e->getMessage());
 		return false;
 	}
 }
