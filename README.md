@@ -21,6 +21,47 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ---
 
+## ⚖️ Development Guidelines
+
+1. **Webpage Placement**
+- All web pages must be created in the `public/` directory.
+2. **Assets & Resources**
+- Images should be stored and accessed in the `assets/` directory.
+3. **Navigation & Footer**
+- Found in the `components/` directory.
+- You can modify them, but ensure href URLs remain correct.
+4. **Stylesheets**
+- All CSS files belong in the `css/ directory`.
+- You may create your own or use the existing `styles.css`.
+5. **JavaScript Usage**
+- All JavaScript files go into the `js/` directory.
+- Internal JavaScript is allowed for webpage-specific elements.
+- Recommended:
+    - Define reusable functions in `scripts.js`.
+    - Use `classes.js` only if creating JavaScript classes.
+- If modifying nav or footer, ensure fallback behavior in `components.js`.
+6. **PHP Management**
+- All PHP files will be created and maintained by Wai
+
+```shell
+📁 Project_Name/
+    ├── 🚫 db
+    ├── 📂 github
+    ├── 🚫 php
+    ├── 📂 public
+        ├── 📂 assets
+        ├── 📂 components
+        ├── 📂 css
+        ├── 📂 js
+        ├── 🚫 php
+        ├── ➡️ !! INSERT YOUR WEBPAGE HERE !!
+        ├── 📄 index.html 
+    ├── 📄 .gitignore
+    ├── 📄 README.md
+```
+
+---
+
 ## 📝 HTML Boilerplate
 
 This HTML boilerplate establishes the essential structure for a webpage. The head section sets up encoding, viewport settings, and styling through an external CSS file. Within the body, a navigation bar and footer are included, along with a placeholder for content. JavaScript files handle UI components and additional functionality, creating a scalable foundation for further development.
