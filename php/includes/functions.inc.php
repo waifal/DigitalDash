@@ -501,7 +501,6 @@ function reset_password(int $user_id, string $token, ?string $new_password, ?str
 	return true;
 }
 
-
 /**
  * Authenticates a user using email and password.
  *
