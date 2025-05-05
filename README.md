@@ -23,21 +23,21 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
     <title>DigitalDash</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <nav id="nav"></nav>
 
-    <!--
-        Add Content Here
-    -->
+    <main>
+        <!-- Add Content Here -->
+    </main>
 
     <footer id="footer"></footer>
 
     <!-- JavaScript -->
-    <script src="/js/components.js"></script>
-    <script src="/js/scripts.js" type="module"></script>
+    <script src="js/components.js"></script>
+    <script src="js/scripts.js" type="module"></script>
 </body>
 
 </html>
