@@ -425,3 +425,125 @@ function send_reset_link($email) {
 
 	return true;
 }
+
+
+/**
+ * Resets the user's password after validating the reset token.
+ *
+ * @param int $user_id The ID of the user whose password is being reset.
+ * @param string $token The unique reset token associated with the user.
+ * @param string|null $new_password The new password provided by the user.
+ * @param string|null $pwd_confirmation The confirmation of the new password.
+ * 
+ * @return string|bool Returns a success message or an error message if validation fails.
+ */
+
+function reset_password(int $user_id, string $token, ?string $new_password, ?string $pwd_confirmation): string|bool {
+	global $connection;
+
+	if (!$connection) {
+		return "Database connection failed.";
+	}
+
+	$validated_password = validate_password($new_password);
+
+	if ($validated_password === null) {
+		return "Password does not meet security requirements.";
+	}
+
+	if ($pwd_confirmation !== $new_password) {
+		return "New password and confirmation do not match.";
+	}
+
+	$stmt = $connection->prepare("SELECT id FROM password_resets WHERE user_id = ? AND token = ? AND expires_at > ?");
+	if (!$stmt) {
+		return "Database error: " . $connection->error;
+	}
+
+	$current_time = time();
+	$stmt->bind_param("isi", $user_id, $token, $current_time);
+	$stmt->execute();
+
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+	$reset_id = $row['id'] ?? null;
+	$stmt->close();
+
+	if (!$reset_id) {
+		return "Invalid or expired token.";
+	}
+
+	$new_hash = password_hash($validated_password, PASSWORD_DEFAULT);
+
+	$stmt = $connection->prepare("UPDATE tbluser SET password = ? WHERE user_id = ?");
+	if (!$stmt) {
+		return "Database error: " . $connection->error;
+	}
+
+	$stmt->bind_param("si", $new_hash, $user_id);
+	$stmt->execute();
+
+	if ($stmt->affected_rows === 0) {
+		return "Password update failed—no changes made.";
+	}
+
+	$stmt->close();
+
+	$stmt = $connection->prepare("DELETE FROM password_resets WHERE id = ?");
+	if (!$stmt) {
+		return "Database error: " . $connection->error;
+	}
+
+	$stmt->bind_param("i", $reset_id);
+	$stmt->execute();
+	$stmt->close();
+
+	return true;
+}
+
+
+/**
+ * Authenticates a user using email and password.
+ *
+ * @param string $email The user's email address.
+ * @param string $password The user's password.
+ * 
+ * @return string|bool Returns true if login succeeds, otherwise an error message.
+ */
+
+function login_user(string $email, string $password): string|bool {
+	global $connection;
+
+	if (empty($email) || empty($password)) {
+		return "Email and password are required.";
+	}
+
+	$stmt = $connection->prepare("SELECT user_id, password FROM tbluser WHERE email = ?");
+	if (!$stmt) {
+		return "Database error: " . $connection->error;
+	}
+
+	$stmt->bind_param("s", $email);
+	$stmt->execute();
+
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+	$user_id = $row['user_id'] ?? null;
+	$hashed_password = $row['password'] ?? null;
+
+	$stmt->close();
+
+	if (!$user_id || !$hashed_password) {
+		return "Invalid email or password.";
+	}
+
+	if (!password_verify($password, $hashed_password)) {
+		return "Invalid email or password.";
+	}
+
+	$_SESSION['logged_in'] = true;
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['email'] = $email;
+
+	return true;
+}
