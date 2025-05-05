@@ -102,8 +102,6 @@ onclick="initModal(target, string)"
 <button onclick="initModal(this, 'This is normal text!')">Modal</button>
 ```
 
-or
-
 #### Example with HTML Markup
 
 ```HTML
