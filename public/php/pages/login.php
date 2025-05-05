@@ -34,6 +34,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 		<div>
 			<h2>Your Adventure Resumes Here</h2>
 			<p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
+			<?php
+			if (isset($_GET['password'])) {
+				if ($_GET['password'] === "success") {
+					echo "<p class='success'>Password has been changed!</p>";
+				}
+			}
+			?>
 			<form id="loginfrm" action="../../../php/login.inc.php" method="POST" novalidate>
 				<!-- CSRF Token -->
 				<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
