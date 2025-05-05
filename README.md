@@ -72,7 +72,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 
 ## ⬜ Modals
 
-![Modal Example](md_files/modal_ui.gif)
+![Modal Example](github/modal_ui.gif)
 
 This guide explains how to use the `Modal` class to create dynamic modals in a web application. The `Modal` class is reusable, allowing modals to be triggered by buttons with custom content, making it a flexible solution for enhancing user interaction.
 
@@ -140,7 +140,7 @@ This approach ensures a clean structure and enhances maintainability in your cod
 
 ## 📜 Accordions
 
-![Accordion Example](md_files/accordion_ui.gif)
+![Accordion Example](github/accordion_ui.gif)
 
 This guide explains how to use the `Accordion` class to create dynamic, interactive accordions in a web application. The class is designed for reusability, allowing you to trigger accordions with buttons and include custom content.
 
