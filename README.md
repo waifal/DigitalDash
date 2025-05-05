@@ -6,7 +6,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ---
 
-## Web App Requirements
+## ⚙️ Web App Requirements
 
 #### Server & Environment
 
