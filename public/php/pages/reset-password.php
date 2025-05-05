@@ -18,6 +18,7 @@ $token = $_GET['token'] ?? null;
 $current_time = time();
 
 $user_id = null;
+
 if ($token) {
 	$query = "SELECT user_id FROM password_resets WHERE token = ? AND expires_at > ?";
 	if ($stmt = $connection->prepare($query)) {
