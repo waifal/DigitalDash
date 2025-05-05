@@ -77,7 +77,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						</div>
 					<?php endif; ?>
 				</form>
-
 			<?php elseif (isset($_GET['token'], $user_id)): ?>
 				<form id="resetpwdfrm" action="../../../php/reset-password.inc.php" method="POST" novalidate>
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
