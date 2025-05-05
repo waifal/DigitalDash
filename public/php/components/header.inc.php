@@ -8,7 +8,15 @@
 	<title>DigitalDash</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-	<link rel="stylesheet" href="../../css/styles.css">
+	<?php
+	if (isset($_SESSION['index'])):
+		if ($_SESSION['index'] === true):
+			echo '<link rel="stylesheet" href="../css/styles.css">';
+		else:
+			echo '<link rel="stylesheet" href="../../css/styles.css">';
+		endif;
+	endif;
+	?>
 </head>
 
 <body>
