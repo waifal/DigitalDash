@@ -160,6 +160,14 @@ a[href="../pages/reset-password.php"] {
     background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
 }
 
+#reset-pw-bg.auth-col-bg {
+    border-image: var(--image-overlay);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+}
+
 .auth__container form label {
     font-size: 0.9rem;
     position: relative;
