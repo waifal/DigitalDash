@@ -37,6 +37,7 @@ if ($token) {
 	}
 }
 
+$_SESSION['index'] = false;
 $_SESSION['email_is_correct'] = $_SESSION['email_is_correct'] ?? false;
 
 require_once(__DIR__ . '/../components/header.inc.php');

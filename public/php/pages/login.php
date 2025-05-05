@@ -22,6 +22,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 	exit;
 }
 
+$_SESSION['index'] = false;
 $_SESSION['sign_in_page'] = false;
 
 require_once(__DIR__ . '/../components/header.inc.php');
