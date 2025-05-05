@@ -31,5 +31,31 @@ function initAccordion(clickedButton, id, height, text) {
     currentlyOpenButton = clickedButton;
 }
 
+function showPasswords() {
+    const buttons = document.getElementsByClassName('show_password');
+
+    Array.from(buttons).forEach(button => {
+        // button.addEventListener("click", (event) => {
+        //     const input = event.currentTarget.parentElement.firstElementChild;
+
+        //     input.type = input.type === "password" ? "text" : "password";
+        // });
+
+        button.addEventListener("mousedown", (event) => {
+            const input = event.currentTarget.parentElement.firstElementChild;
+
+            input.type = "text";
+        });
+
+        button.addEventListener("mouseup", (event) => {
+            const input = event.currentTarget.parentElement.firstElementChild;
+
+            input.type = "password";
+        });
+    });
+}
+
+showPasswords();
+
 window.initModal = initModal;
 window.initAccordion = initAccordion;
