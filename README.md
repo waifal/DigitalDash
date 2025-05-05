@@ -8,20 +8,22 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ## ⚙️ Web App Requirements
 
-#### Server & Environment
+```shell
+# Server & Environment
 
 - PHP 8.0 or higher
 - Web Server (Apache or Nginx)
 - Composer
 
-#### Required Libraries
+# Required Libraries
 
 - PHPMailer
 - PHPDotEnv
+```
 
 ---
 
-## HTML Boilerplate
+## 📝 HTML Boilerplate
 
 This HTML boilerplate establishes the essential structure for a webpage. The head section sets up encoding, viewport settings, and styling through an external CSS file. Within the body, a navigation bar and footer are included, along with a placeholder for content. JavaScript files handle UI components and additional functionality, creating a scalable foundation for further development.
 
@@ -56,29 +58,6 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 </body>
 
 </html>
-```
-
----
-
-## Navigation and Footer Integration
-
-> ⚠️ Note: No additional markup is required for the `<nav>` or `<footer>` elements unless explicitly modified within the component files. Any necessary changes should be handled within the respective component files for consistency and functionality.
-
-> JavaScript will automatically insert the content into the relevant tags, so you don't need to add anything manually. Any future updates to these components will reflect across all pages, making maintence easier. Also when you do modify the component some changes may need to be made to the fallback functions within the `components.js` file.
-
-### HTML 
-
-```HTML
-<nav id="nav"></nav>
-```
-
-```HTML
-<footer id="footer"></footer>
-```
-
-### JS Script
-```HTML
-<script src="/js/components.js"></script>
 ```
 
 ---
