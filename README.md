@@ -6,6 +6,21 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ---
 
+## Web App Requirements
+
+#### Server & Environment
+
+- PHP 8.0 or higher
+- Web Server (Apache or Nginx)
+- Composer
+
+#### Required Libraries
+
+- PHPMailer
+- PHPDotEnv
+
+---
+
 ## HTML Boilerplate
 
 This HTML boilerplate establishes the essential structure for a webpage. The head section sets up encoding, viewport settings, and styling through an external CSS file. Within the body, a navigation bar and footer are included, along with a placeholder for content. JavaScript files handle UI components and additional functionality, creating a scalable foundation for further development.
