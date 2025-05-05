@@ -15,7 +15,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 			<li><a href="#">Contact</a></li>
 		</ul>
 		<div>
-			<?php if ($_SESSION['sign_in_page']): ?>
+			<?php if (isset($_SESSION['sign_in_page']) && $_SESSION['sign_in_page']): ?>
 				<a href="../pages/login.php">Login</a>
 			<?php else: ?>
 				<a href="../pages/signup.php">Sign up</a>
