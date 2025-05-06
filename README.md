@@ -44,7 +44,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 - All PHP files will be created and maintained by Wai
 
 ```shell
-📁 Project_Name/
+📁 DigitalDash/
     ├── 🚫 db
     ├── 📂 github
     ├── 🚫 php
