@@ -9,7 +9,7 @@
     --nav-height: 90px;
     --container-padding: 0 150px;
 
-    --image-overlay: fill 1 linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
+    --image-overlay: fill 1 linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
 }
 
 * {
@@ -129,6 +129,7 @@ a[href="../pages/reset-password.php"] {
 
 .auth__container.col-2 {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -138,10 +139,6 @@ a[href="../pages/reset-password.php"] {
 
 .auth__container>div>form>div {
     margin: 12px 0;
-}
-
-.auth__container>div:first-child {
-    align-self: center;
 }
 
 #signupfrm div:first-of-type {
@@ -154,23 +151,15 @@ a[href="../pages/reset-password.php"] {
 }
 
 .auth-col-bg {
+    order: 1;
+    height: 100%;
+    align-content: center;
+    color: var(--secondary-clr);
     border-image: var(--image-overlay);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: rgb(212, 23, 23);
-}
-
-#login-bg.auth-col-bg {
-    background-image: url('../assets/images/backgrounds/iceland_photo_of_bridge.jpg');
-}
-
-#signup-bg.auth-col-bg {
-    background-image: url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
-}
-
-#reset-pw-bg.auth-col-bg {
-    background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
+    background-image: url('../assets/images/backgrounds/4k-green-forest.jpg');
 }
 
 .auth__container form label {
