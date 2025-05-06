@@ -24,33 +24,36 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main>
 	<section class='auth__container col-2'>
-		<!-- Form -->
-		<div>
+		<!-- Background -->
+		<div class='auth-col-bg'>
 			<h2>Explore the Wild, Anywhere.</h2>
 			<p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
+		</div>
+		<!-- Form -->
+		<div>
 			<form id="signupfrm" action="../../../php/signup.inc.php" method="POST" novalidate>
 				<!-- CSRF Token -->
 				<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 				<!-- Names -->
 				<div>
 					<label>First Name
-						<input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="Enter your First Name" required>
+						<input type="text" name="fname" id="fname" autocomplete="given-name" placeholder="Enter your first name" required>
 					</label>
 					<label>Last Name
-						<input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Enter your Last Name" required>
+						<input type="text" name="lname" id="lname" autocomplete="family-name" placeholder="Enter your last name" required>
 					</label>
 				</div>
 				<!-- Email Address -->
 				<div>
 					<label>Email Address
-						<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your Email Address" required>
+						<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 					</label>
 				</div>
 				<!-- Password -->
 				<div>
 					<label>Your Password
 						<div class="password__container">
-							<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your Password" required>
+							<input type="password" name="password" id="password" autocomplete="new-password" placeholder="Enter your password" required>
 							<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 						</div>
 					</label>
@@ -58,7 +61,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<label>Confirm Password
 						<div class="password__container">
-							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your Password" required>
+							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your password" required>
 							<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 						</div>
 					</label>
@@ -81,8 +84,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				</div>
 			</form>
 		</div>
-		<!-- Background -->
-		<div id="signup-bg" class='auth-col-bg'></div>
 	</section>
 </main>
 

@@ -46,15 +46,18 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main>
 	<section class='auth__container col-2'>
-		<div>
+		<div class="auth-col-bg">
 			<h2>Reset Password</h2>
+			<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
+		</div>
+		<div>
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
 						<p class="error">Oh oh! We don't seem to recognize that email!</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div>
-							<label>Enter your email address
+							<label>Email Address
 								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 							</label>
 						</div>
@@ -69,11 +72,11 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<?php else: ?>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div>
-							<label>Enter your email address
+							<label>Email Address
 								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 							</label>
 						</div>
-						<div class='button__container'>
+						<div style="margin-top: 22px;" class='button__container'>
 							<button type="submit" class="primary-btn">Confirm</button>
 							<a href="login.php">Go back</a>
 						</div>
@@ -86,13 +89,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<div>
 						<label>New Password
 							<div class="password__container">
-								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your New Password" required>
+								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your new password" required>
 								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 							</div>
 						</label>
 						<label>Confirm Password
 							<div class="password__container">
-								<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your New Password" required>
+								<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your new password" required>
 								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 							</div>
 						</label>
@@ -105,7 +108,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<p class="error">Token validation failed. <a href="reset-password.php">Please request a new reset link.</a></p>
 			<?php endif; ?>
 		</div>
-		<div id="reset-pw-bg" class="auth-col-bg"></div>
 	</section>
 </main>
 
