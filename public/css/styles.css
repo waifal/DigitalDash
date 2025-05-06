@@ -136,8 +136,21 @@ a[href="../pages/reset-password.php"] {
     padding: var(--container-padding);
 }
 
+.auth__container>div>form>div {
+    margin: 12px 0;
+}
+
 .auth__container>div:first-child {
     align-self: center;
+}
+
+#signupfrm div:first-of-type {
+    display: flex;
+    column-gap: 1vw;
+}
+
+#signupfrm div:first-of-type label {
+    flex: 1;
 }
 
 .auth-col-bg {
@@ -153,11 +166,11 @@ a[href="../pages/reset-password.php"] {
 }
 
 #signup-bg.auth-col-bg {
-    background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
+    background-image: url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
 }
 
 #reset-pw-bg.auth-col-bg {
-    background-image: url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+    background-image: url('../assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg');
 }
 
 .auth__container form label {
@@ -166,7 +179,6 @@ a[href="../pages/reset-password.php"] {
 }
 
 .auth__container form label:not(label:has(input[type="checkbox"])) {
-    margin: 12px 0;
     display: flex;
     flex-direction: column;
 }
@@ -194,7 +206,6 @@ a[href="../pages/reset-password.php"] {
 
 .auth__container .button__container {
     display: flex;
-    margin: 18px 0;
     column-gap: 1vw;
 }
 
