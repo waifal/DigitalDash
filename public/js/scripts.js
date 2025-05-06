@@ -52,6 +52,12 @@ function showPasswords() {
 
             input.type = "password";
         });
+
+        button.addEventListener("mouseleave", (event) => {
+            const input = event.currentTarget.parentElement.firstElementChild;
+
+            input.type = "password";
+        });
     });
 }
 
