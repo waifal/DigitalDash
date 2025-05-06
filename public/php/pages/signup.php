@@ -54,6 +54,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
 						</div>
 					</label>
+				</div>
+				<div>
 					<label>Confirm Password
 						<div class="password__container">
 							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your Password" required>
