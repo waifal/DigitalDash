@@ -70,11 +70,11 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<label>
 						<input type="checkbox" name="terms_and_conditions" id="terms_and_conditions" value="agree" required>
-						<a href="#">Terms & Conditions</a>
+						<a href="#" target="_blank">Terms & Conditions</a>
 					</label>
 					<label>
 						<input type="checkbox" name="privacy_policy" id="privacy_policy" value="agree" required>
-						<a href="#">Privacy Policy</a>
+						<a href="#" target="_blank">Privacy Policy</a>
 					</label>
 				</div>
 				<!-- Buttons -->
