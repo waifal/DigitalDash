@@ -53,7 +53,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
 					<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
-						<p class="error">Oh oh! We don't seem to recognize that email!</p>
+						<p class="error">We couldn't find an account with that email address. Please try again.</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div class="form-group">
 							<label>Email Address
