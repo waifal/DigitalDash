@@ -35,6 +35,12 @@ function showPasswords() {
     const buttons = document.getElementsByClassName('show_password');
 
     Array.from(buttons).forEach(button => {
+        button.style.display = "none";
+
+        button.parentElement.firstElementChild.addEventListener("input", (event) => {
+            button.style.display = event.currentTarget.value ? "block" : "none";
+        });
+
         button.addEventListener("click", (event) => {
             const input = event.currentTarget.parentElement.firstElementChild;
 
