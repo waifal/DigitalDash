@@ -242,50 +242,44 @@ function validate_user_input(
 	bool $terms_and_conditions,
 	bool $privacy_policy
 ): void {
-
-	$errors = [];
-
-	// Handle Empty Inputs
-	if ($error = is_input_empty($firstname, "Please enter your first name")) $errors[] = $error;
-	if ($error = is_input_empty($lastname, "Please enter your last name")) $errors[] = $error;
-	if ($error = is_input_empty($email, "Please enter your email address")) $errors[] = $error;
-	if ($error = is_input_empty($password, "Please enter your password")) $errors[] = $error;
-
-	// Handle Email Validation
-	if ($error = is_email_invalid($email, "Please enter a valid email address")) $errors[] = $error;
-	if ($error = is_valid_email_domain($email, "Please enter a valid domain name")) $errors[] = $error;
-
-	// Check if email is registered
-	if (is_email_registered($email)) {
-		$errors[] = "This email is already registered. Please use a different email.";
-	}
-
-	// Handle Password Match
-	if ($error = does_password_match($password, $pwd_confirm, "Passwords do not match")) $errors[] = $error;
-
-	// Handle Password Validation
-	if ($error = does_password_meet_criteria($password, "Your password must be at least 8 characters long and include a letter, a number, and a special character")) $errors[] = $error;
-
-	// Handle User Agreements
-	if ($error = does_user_agree_with_terms_and_conditions($terms_and_conditions, "You must agree to the terms and conditions")) {
-		$errors[] = $error;
-	}
-	if ($error = does_user_accept_privacy_policy($privacy_policy, "You must accept our privacy policy")) {
-		$errors[] = $error;
-	}
-
-	// Handle CSFR Token
 	if (!isset($_POST['csrf_token']) || !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-		header('Content-Type: application/json');
-		echo json_encode(["status" => "error", "message" => "Oops! Something went wrong. Please refresh and try again."]);
+		$_SESSION['error'] = "Oops! Something went wrong. Please refresh and try again.";
+		header('Location: ../public/signup.php');
 		exit;
 	}
 
-	$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+	if ($error = is_input_empty($firstname, "Please enter your first name")) {
+		$_SESSION['errors'] = ['fname' => $error];
+	} elseif ($error = is_input_empty($lastname, "Please enter your last name")) {
+		$_SESSION['errors'] = ['lname' => $error];
+	} elseif ($error = is_input_empty($email, "Please enter your email address")) {
+		$_SESSION['errors'] = ['email' => $error];
+	} elseif ($error = is_email_invalid($email, "Please enter a valid email address")) {
+		$_SESSION['errors'] = ['email' => $error];
+	} elseif ($error = is_valid_email_domain($email, "Please enter a valid domain name")) {
+		$_SESSION['errors'] = ['email' => $error];
+	} elseif (is_email_registered($email)) {
+		$_SESSION['errors'] = ['email' => "This email is already registered. Please use a different email."];
+	} elseif ($error = is_input_empty($password, "Please enter your password")) {
+		$_SESSION['errors'] = ['password' => $error];
+	} elseif ($error = does_password_meet_criteria($password, "Your password must be at least 8 characters long and include a letter, a number, and a special character")) {
+		$_SESSION['errors'] = ['password' => $error];
+	} elseif ($error = does_password_match($password, $pwd_confirm, "Passwords do not match")) {
+		$_SESSION['errors'] = ['pwd_confirm' => $error];
+	} elseif (!$terms_and_conditions) {
+		$_SESSION['errors'] = ['terms_and_conditions' => "You must agree to the terms and conditions"];
+	} elseif (!$privacy_policy) {
+		$_SESSION['errors'] = ['privacy_policy' => "You must accept our privacy policy"];
+	}
 
-	if (!empty($errors)) {
-		header("Content-Type: application/json");
-		echo error_response($errors);
+	if (isset($_SESSION['errors'])) {
+		$_SESSION['form_data'] = [
+			'fname' => $firstname,
+			'lname' => $lastname,
+			'email' => $email
+		];
+		$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+		header('Location: ../public/php/pages/signup.php');
 		exit;
 	}
 }
