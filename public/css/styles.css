@@ -275,6 +275,14 @@ a[href="../pages/reset-password.php"] {
     border-left: 4px solid #ff3b30;
 }
 
+div.error {
+    padding: 0;
+}
+
+div.error p {
+    padding: 0.6rem;
+}
+
 .error-message {
     display: none;
     color: #dc3545;
