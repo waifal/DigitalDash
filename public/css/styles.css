@@ -6,10 +6,10 @@
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
 
-    --nav-height: 90px;
-    --container-padding: 0 150px;
+    --nav-height: 70px;
+    --container-padding: 5rem 150px;
 
-    --image-overlay: fill 1 linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
+    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 * {
@@ -84,15 +84,15 @@ nav>div:last-child {
 
 nav img {
     max-width: 100%;
-    width: 130px;
+    width: 110px;
     height: auto;
 }
 
 nav .primary-btn {
     align-self: center;
-    max-width: 120px;
+    max-width: 110px;
     width: 100%;
-    height: 40px;
+    height: 35px;
     text-align: center;
     font-size: 0.9rem;
     align-content: center;
@@ -131,53 +131,42 @@ a[href="../pages/reset-password.php"] {
 }
 
 .auth__container {
-    min-height: calc(100svh - var(--nav-height));
+    padding: 2rem 0;
     width: 100%;
-}
-
-.auth__container.col-2 {
-    display: grid;
-    align-items: stretch;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.auth__container > div {
-    padding: var(--container-padding);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.auth-col-bg {
-    order: 1;
-    position: relative;
+    min-height: calc(100svh - var(--nav-height));
+    align-content: center;
     color: var(--secondary-clr);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    background: var(--image-overlay),
                 url('../assets/images/backgrounds/4k-green-forest.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.auth-col-bg h2 {
-    margin-bottom: 1rem;
+.auth__container > div {
+    zoom: 90%;
+    min-width: 600px;
+    width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--primary-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: var(--secondary-clr);
 }
 
 /* Form Styles */
-.auth__container form {
-    max-width: 550px;
-    width: 100%;
-    margin: 0 auto;
-}
-
 .auth__container form > div {
-    margin: 1.2rem 0;
+    margin: 1rem 0;
 }
 
 .auth__container form label {
+    user-select: none;
     font-size: 0.9rem;
     display: block;
-    margin-bottom: 0.5rem;
+    margin: 0.2rem 0;
 }
 
 .auth__container form input:not([type="checkbox"]) {
@@ -200,6 +189,11 @@ a[href="../pages/reset-password.php"] {
 
 .auth__container form .checkbox-wrapper label {
     margin: 0;
+}
+
+.agreements > .checkbox-wrapper {
+    flex: 1;
+    text-align: center;
 }
 
 .auth__container form input:focus {
@@ -225,12 +219,12 @@ a[href="../pages/reset-password.php"] {
 .auth__container .button__container {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    margin: 0;
 }
 
 .auth__container .button__container > * {
     flex: 1;
-    padding: 0.55rem 0;
+    padding: 0.45rem 0;
     font-weight: 600;
     font-size: 0.9rem;
     border-radius: 50px;
@@ -258,25 +252,44 @@ a[href="../pages/reset-password.php"] {
 /* Message Styles */
 .success,
 .error {
+    max-width: 100%;
     font-size: 0.9rem;
-    padding: 0.75rem;
+    padding: 0.6rem;
     border-radius: 6px;
-    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     line-height: 1.4;
 }
 
 .success {
+    display: block;
     color: #0a5132;
     background-color: #e8f6ed;
     border-left: 4px solid #34c759;
 }
 
 .error {
+    display: block;
     color: #7a1c1c;
     background-color: #fdf1f1;
     border-left: 4px solid #ff3b30;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: var(--primary-clr) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:autofill,
+input:autofill:hover,
+input:autofill:focus,
+input:autofill:active {
+    box-shadow: 0 0 0 30px white inset !important;
+    -webkit-text-fill-color: var(--primary-clr) !important;
 }
 
 /* ================== Terms & Conditions ================== */
@@ -364,4 +377,3 @@ a[href="../pages/reset-password.php"] {
     border-radius: 4px;
     margin-top: 0.5rem;
 }
-
