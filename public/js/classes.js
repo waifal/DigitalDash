@@ -279,7 +279,6 @@ class LoginFormValidator {
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
 
-        // Remove error messages on input
         this.emailInput.addEventListener('input', () => {
             this.validateField(this.emailInput);
             this.clearServerErrors();
@@ -570,7 +569,6 @@ class ResetPasswordForm {
     }
 }
 
-// Initialize the form when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('resetpwdfrm')) {
         new ResetPasswordForm('resetpwdfrm');
