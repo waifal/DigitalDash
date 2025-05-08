@@ -254,4 +254,118 @@ class SignupFormValidator {
     }
 }
 
-export { Modal, Accordion, SignupFormValidator };
+class LoginFormValidator {
+    constructor(formId) {
+        this.form = document.getElementById(formId);
+        if (this.form) {
+            this.emailInput = this.form.querySelector('#email');
+            this.passwordInput = this.form.querySelector('#password');
+            this.errorMessages = {
+                email: {
+                    valueMissing: 'Email address is required',
+                    typeMismatch: 'Please enter a valid email address',
+                    patternMismatch: 'Please enter a valid email address'
+                },
+                password: {
+                    valueMissing: 'Password is required'
+                }
+            };
+            this.initializeValidation();
+        }
+    }
+
+    initializeValidation() {
+        const emailPattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
+        this.emailInput.pattern = emailPattern;
+
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (this.validateForm()) {
+                this.form.submit();
+            }
+        });
+
+        this.emailInput.addEventListener('input', () => this.validateField(this.emailInput));
+        this.passwordInput.addEventListener('input', () => this.validateField(this.passwordInput));
+    }
+
+    validateForm() {
+        let isValid = true;
+        this.clearErrors();
+
+        this.validateField(this.emailInput);
+        this.validateField(this.passwordInput);
+
+        if (!this.emailInput.validity.valid || !this.passwordInput.validity.valid) {
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    validateField(input) {
+        const errorContainer = this.getErrorContainer(input);
+        
+        if (input.validity.valid) {
+            this.setValid(input, errorContainer);
+        } else {
+            this.setInvalid(input, errorContainer);
+        }
+    }
+
+    getErrorContainer(input) {
+        let errorContainer;
+        if (input.closest('.password__container')) {
+            const parentContainer = input.closest('.password__container');
+            errorContainer = parentContainer.nextElementSibling;
+            if (!errorContainer || !errorContainer.classList.contains('error-message')) {
+                errorContainer = document.createElement('div');
+                errorContainer.className = 'error-message';
+                errorContainer.setAttribute('aria-live', 'polite');
+                parentContainer.parentNode.insertBefore(errorContainer, parentContainer.nextSibling);
+            }
+        } else {
+            errorContainer = input.nextElementSibling;
+            if (!errorContainer || !errorContainer.classList.contains('error-message')) {
+                errorContainer = document.createElement('div');
+                errorContainer.className = 'error-message';
+                errorContainer.setAttribute('aria-live', 'polite');
+                input.parentNode.insertBefore(errorContainer, input.nextSibling);
+            }
+        }
+        return errorContainer;
+    }
+
+    setValid(input, errorContainer) {
+        input.setAttribute('aria-invalid', 'false');
+        errorContainer.textContent = '';
+        errorContainer.style.display = 'none';
+    }
+
+    setInvalid(input, errorContainer) {
+        input.setAttribute('aria-invalid', 'true');
+        const errorMessage = this.getErrorMessage(input);
+        errorContainer.textContent = errorMessage;
+        errorContainer.style.display = 'block';
+    }
+
+    getErrorMessage(input) {
+        const messages = this.errorMessages[input.name];
+        for (const [key, message] of Object.entries(messages)) {
+            if (input.validity[key]) {
+                return message;
+            }
+        }
+        return 'Please check this field';
+    }
+
+    clearErrors() {
+        const errors = this.form.querySelectorAll('.error-message');
+        errors.forEach(error => {
+            error.textContent = '';
+            error.style.display = 'none';
+        });
+    }
+}
+
+export { Modal, Accordion, SignupFormValidator, LoginFormValidator };
