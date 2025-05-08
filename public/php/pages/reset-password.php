@@ -105,7 +105,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					</div>
 				</form>
 			<?php else: ?>
-				<p class="error">Token validation failed. <a href="reset-password.php">Please request a new reset link.</a></p>
+				<p class="error">Your password reset link has expired or is no longer valid. <a href="reset-password.php">Please request a new reset link.</a></p>
 			<?php endif; ?>
 		</div>
 	</section>
