@@ -81,24 +81,27 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				</form>
 			<?php elseif (isset($_GET['token'], $user_id)): ?>
 				<form id="resetpwdfrm" action="../../../php/reset-password.inc.php" method="POST" novalidate>
+					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
+					<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 					<input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
 					<div class="form-group">
-						<label>New Password
-							<div class="password__container">
-								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your new password" required>
-								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
-							</div>
-						</label>
-						<label>Confirm Password
-							<div class="password__container">
-								<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your new password" required>
-								<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
-							</div>
-						</label>
+						<label for="new_password">New Password</label>
+						<div class="password__container">
+							<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your new password" required>
+							<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="pwd_confirm">Confirm Password</label>
+						<div class="password__container">
+							<input type="password" name="pwd_confirm" id="pwd_confirm" autocomplete="new-password" placeholder="Confirm your new password" required>
+							<button type="button" class="show_password" tabindex="-1"><i class="fa-solid fa-eye-low-vision"></i></button>
+						</div>
 					</div>
 					<div class='button__container'>
-						<button type="submit">Change Password</button>
+						<button type="submit" class="button">Change Password</button>
+						<input type="hidden" hidden></input>
 					</div>
 				</form>
 			<?php else: ?>
