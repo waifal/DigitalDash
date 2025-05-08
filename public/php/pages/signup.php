@@ -40,7 +40,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                 <input type="hidden" 
                        name="csrf_token" 
                        value="<?php echo htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8'); ?>">
-                
                 <!-- Names -->
                 <div class="form-group names-group">
                     <div class="form-group">
@@ -64,7 +63,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                aria-required="true">
                     </div>
                 </div>
-
                 <!-- Email Address -->
                 <div class="form-group">
                     <label for="email">Email Address</label>
@@ -76,7 +74,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                            required 
                            aria-required="true">
                 </div>
-
                 <!-- Password -->
                 <div class="form-group">
                     <label for="password">Your Password</label>
@@ -96,7 +93,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                         </button>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label for="pwd_confirm">Confirm Password</label>
                     <div class="password__container">
@@ -115,7 +111,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                         </button>
                     </div>
                 </div>
-
                 <!-- Agreements -->
                 <div class="form-group agreements">
                     <div class="checkbox-wrapper">
@@ -126,7 +121,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                required 
                                aria-required="true">
                         <label for="terms_and_conditions">
-                            I agree to the <a href="#" target="_blank">Terms & Conditions</a>
+                            I agree to the <a href="terms-and-conditions.php" target="_blank">Terms & Conditions</a>
                         </label>
                     </div>
                     <div class="checkbox-wrapper">
@@ -137,11 +132,10 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                required 
                                aria-required="true">
                         <label for="privacy_policy">
-                            I agree to the <a href="#" target="_blank">Privacy Policy</a>
+                            I agree to the <a href="privacy-policy.php" target="_blank">Privacy Policy</a>
                         </label>
                     </div>
                 </div>
-
                 <!-- Buttons -->
                 <div class="button__container">
                     <button type="submit" class="button">Sign up</button>
