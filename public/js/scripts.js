@@ -1,4 +1,9 @@
-import { Modal, Accordion, SignupFormValidator } from "./classes.js";
+import { 
+    Modal, 
+    Accordion, 
+    SignupFormValidator, 
+    LoginFormValidator 
+} from "./classes.js";
 
 function initModal(button, text) {
     const modal = new Modal(button, text);
@@ -54,5 +59,10 @@ window.initModal = initModal;
 window.initAccordion = initAccordion;
 
 document.addEventListener('DOMContentLoaded', () => {
-    new SignupFormValidator('signupfrm');
+    if (document.getElementById('signupfrm')) {
+        new SignupFormValidator('signupfrm');
+    }
+    if (document.getElementById('loginfrm')) {
+        new LoginFormValidator('loginfrm');
+    }
 });
