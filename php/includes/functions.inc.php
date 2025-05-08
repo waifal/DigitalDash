@@ -542,8 +542,15 @@ function login_user(string $email, string $password): void {
 
     $stmt->close();
 
-    if (!$user_id || !$hashed_password || !password_verify($password, $hashed_password)) {
+    if (!$user_id) {
         $_SESSION['errors'] = ['login' => "Invalid email or password."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
+
+    if (!password_verify($password, $hashed_password)) {
+        $_SESSION['errors'] = ['login' => "Invalid password."];
+        $_SESSION['form_data'] = ['email' => $email];
         header('Location: ../public/php/pages/login.php');
         exit;
     }
