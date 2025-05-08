@@ -46,17 +46,16 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main>
 	<section class='auth__container col-2'>
-		<div class="auth-col-bg">
-			<h2>Reset Password</h2>
-			<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
-		</div>
+		<div class="auth-col-bg"></div>
 		<div>
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
+					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
+					<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
 						<p class="error">Oh oh! We don't seem to recognize that email!</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-						<div>
+						<div class="form-group">
 							<label>Email Address
 								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 							</label>
@@ -71,12 +70,12 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<p class="success">Email sent successfully! Please check your spam folder.</p>
 					<?php else: ?>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-						<div>
+						<div class="form-group">
 							<label>Email Address
 								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 							</label>
 						</div>
-						<div style="margin-top: 22px;" class='button__container'>
+						<div class='button__container'>
 							<button type="submit" class="primary-btn">Confirm</button>
 							<a href="login.php">Go back</a>
 						</div>
@@ -86,7 +85,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<form id="resetpwdfrm" action="../../../php/reset-password.inc.php" method="POST" novalidate>
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 					<input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
-					<div>
+					<div class="form-group">
 						<label>New Password
 							<div class="password__container">
 								<input type="password" name="new_password" id="new_password" autocomplete="new-password" placeholder="Enter your new password" required>
