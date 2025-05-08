@@ -257,11 +257,26 @@ a[href="../pages/reset-password.php"] {
     opacity: 0.9;
 }
 
-/* Success Message */
+/* Message Styles */
+.success,
+.error {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
 .success {
-    padding: 1rem;
-    background-color: #d4edda;
-    color: #155724;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+    color: #0a5132;
+    background-color: #e8f6ed;
+    border-left: 4px solid #34c759;
+}
+
+.error {
+    color: #7a1c1c;
+    background-color: #fdf1f1;
+    border-left: 4px solid #ff3b30;
 }
