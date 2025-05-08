@@ -76,6 +76,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../public/assets/images/logo/logo_color_transparent_logo.png">
     <title>DigitalDash</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -86,9 +87,7 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
     <nav id="nav"></nav>
 
     <main>
-    	<section class="col-2">
-            <!-- Add Content Here -->
-        </section>
+        <!-- Add Content Here -->
     </main>
 
     <footer id="footer"></footer>
