@@ -35,28 +35,10 @@ function showPasswords() {
     const buttons = document.getElementsByClassName('show_password');
 
     Array.from(buttons).forEach(button => {
-        // button.addEventListener("click", (event) => {
-        //     const input = event.currentTarget.parentElement.firstElementChild;
-
-        //     input.type = input.type === "password" ? "text" : "password";
-        // });
-
-        button.addEventListener("mousedown", (event) => {
+        button.addEventListener("click", (event) => {
             const input = event.currentTarget.parentElement.firstElementChild;
 
-            input.type = "text";
-        });
-
-        button.addEventListener("mouseup", (event) => {
-            const input = event.currentTarget.parentElement.firstElementChild;
-
-            input.type = "password";
-        });
-
-        button.addEventListener("mouseleave", (event) => {
-            const input = event.currentTarget.parentElement.firstElementChild;
-
-            input.type = "password";
+            input.type = input.type === "password" ? "text" : "password";
         });
     });
 }
