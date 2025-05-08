@@ -21,7 +21,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
 
 ---
 
-## ⚖️ Development Guidelines
+<!-- ## ⚖️ Development Guidelines
 
 1. **Webpage Placement**
 - All web pages must be created in the `public/` directory.
@@ -60,7 +60,7 @@ DigitalDash transforms regular walks into amazing adventures, DigitalDash's imme
     ├── 📄 README.md
 ```
 
----
+--- -->
 
 ## 📝 HTML Boilerplate
 
