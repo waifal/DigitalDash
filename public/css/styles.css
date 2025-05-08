@@ -123,124 +123,145 @@ a[href="../pages/reset-password.php"] {
     font-size: 0.9rem;
 }
 
+.names-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.names-group > * {
+    flex: 1;
+}
+
 .auth__container {
-    height: calc(100svh - var(--nav-height));
+    min-height: calc(100svh - var(--nav-height));
+    width: 100%;
 }
 
 .auth__container.col-2 {
     display: grid;
-    align-items: center;
+    align-items: stretch;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.auth__container>div {
+.auth__container > div {
     padding: var(--container-padding);
-}
-
-.auth__container>div>form>div {
-    margin: 12px 0;
-}
-
-#signupfrm div:first-of-type {
     display: flex;
-    column-gap: 1vw;
-}
-
-#signupfrm div:first-of-type label {
-    flex: 1;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .auth-col-bg {
     order: 1;
-    height: 100%;
-    align-content: center;
+    position: relative;
     color: var(--secondary-clr);
-    border-image: var(--image-overlay);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                url('../assets/images/backgrounds/4k-green-forest.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('../assets/images/backgrounds/4k-green-forest.jpg');
+}
+
+.auth-col-bg h2 {
+    margin-bottom: 1rem;
+}
+
+/* Form Styles */
+.auth__container form {
+    max-width: 550px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.auth__container form > div {
+    margin: 1.2rem 0;
 }
 
 .auth__container form label {
     font-size: 0.9rem;
-    position: relative;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
-.auth__container form label:not(label:has(input[type="checkbox"])) {
-    display: flex;
-    flex-direction: column;
-}
-
-.auth__container form label:has(input[type="checkbox"]) {
-    display: flex;
-    align-items: center;
-    column-gap: 1vh;
-}
-
-.auth__container form label:has(input[type="checkbox"]) a {
-    font-size: 0.9rem;
-}
-
-.auth__container form label input {
+.auth__container form input:not([type="checkbox"]) {
+    width: 100%;
+    height: 38px;
+    padding: 0.5rem 1rem;
     font: inherit;
     font-size: 0.9rem;
-    height: 38px;
-    padding: 0 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.2s ease;
 }
 
-.auth__container form label input:not([type="checkbox"]) {
-    margin-top: 1px;
-}
-
-.auth__container .button__container {
+.auth__container form .checkbox-wrapper {
     display: flex;
-    column-gap: 1vw;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
 }
 
-.auth__container .button__container>* {
-    flex: 1;
-    padding: 8px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    border-radius: 50px;
-    border: none;
-    text-align: center;
-    text-decoration-line: none;
+.auth__container form .checkbox-wrapper label {
+    margin: 0;
 }
 
-.auth__container .button__container>*:first-child {
-    color: var(--secondary-clr);
-    background-color: var(--accent-clr);
-}
-
-.auth__container .button__container>*:last-child {
-    flex: 1;
-    padding: 8px;
-    color: var(--primary-clr);
-    border-radius: 50px;
-    border: 1px solid var(--primary-clr);
-    text-align: center;
-    text-decoration-line: none;
-    background-color: var(--secondary-clr);
+.auth__container form input:focus {
+    outline: none;
+    border-color: var(--accent-clr);
 }
 
 .auth__container .password__container {
     position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.auth__container .password__container input {
-    width: 100%;
-    padding-right: 40px;
 }
 
 .auth__container .password__container button {
     position: absolute;
     right: 10px;
-    top: 50%;
-    transform: translateY(-40%);
+    top: 55%;
+    transform: translateY(-50%);
+    background: transparent;
     border: none;
-    background-color: transparent;
+    padding: 0.5rem;
+    color: #666;
+}
+
+.auth__container .button__container {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.auth__container .button__container > * {
+    flex: 1;
+    padding: 0.55rem 0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.auth__container .button__container > *:first-child {
+    color: var(--secondary-clr);
+    background-color: var(--accent-clr);
+}
+
+.auth__container .button__container > *:last-child {
+    color: var(--primary-clr);
+    background-color: var(--secondary-clr);
+    border: 1px solid var(--primary-clr);
+}
+
+.auth__container .button__container > *:hover {
+    opacity: 0.9;
+}
+
+/* Success Message */
+.success {
+    padding: 1rem;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 4px;
+    margin-bottom: 1rem;
 }
