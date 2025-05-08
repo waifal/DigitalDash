@@ -48,14 +48,16 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                     <?php if (isset($_SESSION['errors']['login'])): ?>
                         <p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['login'], ENT_QUOTES, 'UTF-8'); ?></p>
                     <?php endif; ?>
-                    <?php if (isset($_SESSION['errors']['email'])): ?>
-                        <p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['email'], ENT_QUOTES, 'UTF-8'); ?></p>
-                    <?php endif; ?>
-                    <?php if (isset($_SESSION['errors']['password'])): ?>
-                        <p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['password'], ENT_QUOTES, 'UTF-8'); ?></p>
-                    <?php endif; ?>
                     <?php unset($_SESSION['errors']); ?>
                 <?php endif; ?>
+
+                <?php if (isset($_SESSION['errors']['email'])): ?>
+                    <p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['email'], ENT_QUOTES, 'UTF-8'); ?></p>
+                <?php endif; ?>
+                <?php if (isset($_SESSION['errors']['password'])): ?>
+                    <p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['password'], ENT_QUOTES, 'UTF-8'); ?></p>
+                <?php endif; ?>
+                <?php unset($_SESSION['errors']); ?>
 
                 <!-- CSRF Token -->
                 <input type="hidden" 
@@ -70,7 +72,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                            autocomplete="email" 
                            placeholder="Enter your email address" 
                            required 
-                           aria-required="true">
+                           aria-required="true"
+                           value="<?php echo isset($_SESSION['form_data']['email']) ? htmlspecialchars($_SESSION['form_data']['email'], ENT_QUOTES, 'UTF-8') : ''; ?>">
                 </div>
                 <!-- Password -->
                 <div class="form-group">
