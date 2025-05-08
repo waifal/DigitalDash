@@ -23,8 +23,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main id="main-content" role="main">
     <section class="auth__container col-2" aria-labelledby="signup-heading">
-        <!-- Background -->
-        <div class="auth-col-bg"></div>
         <!-- Form -->
         <div class="signup-form-container">
             <form id="signupfrm" 
@@ -32,10 +30,22 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                   method="POST" 
                   novalidate 
                   aria-labelledby="form-heading">
-				  
-				<h2 id="form-heading" class="visually-hidden">Signup Form</h2>
-				<p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
-				  
+                  
+                <h2 id="form-heading" class="visually-hidden">Sign up</h2>
+                <p>Join today to unlock breathtaking views and immersive trails, experiencing the beauty of nature like never before - right from your screen.</p>
+                
+                <!-- Error Messages -->
+                <?php if (isset($_SESSION['errors'])): ?>
+                    <div class="error">
+                        <?php 
+                        foreach ($_SESSION['errors'] as $field => $error) {
+                            echo "<p>$error</p>";
+                        }
+                        unset($_SESSION['errors']);
+                        ?>
+                    </div>
+                <?php endif; ?>
+
                 <!-- CSRF Token -->
                 <input type="hidden" 
                        name="csrf_token" 
@@ -49,6 +59,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                id="fname" 
                                autocomplete="given-name" 
                                placeholder="Enter your first name" 
+                               value="<?php echo isset($_SESSION['form_data']['fname']) ? htmlspecialchars($_SESSION['form_data']['fname']) : ''; ?>"
                                required 
                                aria-required="true">
                     </div>
@@ -59,6 +70,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                id="lname" 
                                autocomplete="family-name" 
                                placeholder="Enter your last name" 
+                               value="<?php echo isset($_SESSION['form_data']['lname']) ? htmlspecialchars($_SESSION['form_data']['lname']) : ''; ?>"
                                required 
                                aria-required="true">
                     </div>
@@ -146,4 +158,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
     </section>
 </main>
 
-<?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
+<?php 
+unset($_SESSION['form_data']); // Clean up session data
+require_once(__DIR__ . '/../components/footer.inc.php'); 
+?>
