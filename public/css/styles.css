@@ -275,6 +275,21 @@ a[href="../pages/reset-password.php"] {
     border-left: 4px solid #ff3b30;
 }
 
+.error-message {
+    display: none;
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.35rem;
+}
+
+input:invalid {
+    border-color: #dc3545;
+}
+
+input:valid {
+    border-color: #28a745;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
