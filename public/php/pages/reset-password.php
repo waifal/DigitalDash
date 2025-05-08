@@ -46,8 +46,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main>
 	<section class='auth__container col-2'>
-		<div class="auth-col-bg"></div>
-		<div>
+		<div class="reset-password-container">
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
 					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
