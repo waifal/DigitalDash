@@ -115,8 +115,6 @@ nav .primary-btn+button:hover {
     background-color: #181818;
 }
 
-/* ================== GLOBAL STYLES - DO NOT EDIT ABOVE ================== */
-
 /* ================== Login & Sign up ================== */
 
 a[href="../pages/reset-password.php"] {
@@ -185,7 +183,7 @@ a[href="../pages/reset-password.php"] {
 .auth__container form input:not([type="checkbox"]) {
     width: 100%;
     height: 38px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
     font: inherit;
     font-size: 0.9rem;
     border: 1px solid #ddd;
@@ -280,3 +278,90 @@ a[href="../pages/reset-password.php"] {
     background-color: #fdf1f1;
     border-left: 4px solid #ff3b30;
 }
+
+/* ================== Terms & Conditions ================== */
+
+.terms-page,
+.privacy-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 6rem 0;
+}
+
+.terms-page div.content-wrapper,
+.privacy-page div.content-wrapper {
+    padding: 0;
+    align-items: center;
+}
+
+.terms-page h1,
+.privacy-page h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.last-updated {
+    margin: 0;
+}
+
+.terms-page hr,
+.privacy-page hr {
+    width: 100%;
+    border-style: solid;
+    border-color: #f0f0f0;
+}
+
+.terms-section,
+.privacy-section {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.terms-section h2,
+.privacy-section h2 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-bottom: 1rem;
+}
+
+.terms-section p,
+.privacy-section p {
+    max-width: 100%;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.terms-section ul,
+.privacy-section ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.terms-section ul li,
+.privacy-section ul li {
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.terms-page .last-updated,
+.privacy-page .last-updated {
+    text-align: center;
+    color: #666;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+.terms-page .contact-info,
+.privacy-page .contact-info {
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
