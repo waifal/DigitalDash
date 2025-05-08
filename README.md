@@ -86,7 +86,9 @@ This HTML boilerplate establishes the essential structure for a webpage. The hea
     <nav id="nav"></nav>
 
     <main>
-        <!-- Add Content Here -->
+    	<section class="col-2">
+            <!-- Add Content Here -->
+        </section>
     </main>
 
     <footer id="footer"></footer>
