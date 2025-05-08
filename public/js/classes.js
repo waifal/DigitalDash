@@ -275,7 +275,7 @@ class LoginFormValidator {
     }
 
     initializeValidation() {
-        const emailPattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$';
+        const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
 
         this.form.addEventListener('submit', (e) => {
@@ -368,4 +368,199 @@ class LoginFormValidator {
     }
 }
 
-export { Modal, Accordion, SignupFormValidator, LoginFormValidator };
+class ResetPasswordValidator {
+    constructor(formId) {
+        this.form = document.getElementById(formId);
+        if (this.form) {
+            this.emailInput = this.form.querySelector('#email');
+            this.submitButton = this.form.querySelector('button[type="submit"]');
+            this.errorMessages = {
+                email: {
+                    valueMissing: 'Email address is required',
+                    typeMismatch: 'Please enter a valid email address',
+                    patternMismatch: 'Please enter a valid email address'
+                }
+            };
+            this.initializeValidation();
+        }
+    }
+
+    initializeValidation() {
+        const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
+        this.emailInput.pattern = emailPattern;
+
+        this.emailInput.setCustomValidity('');
+
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (this.validateForm()) {
+                this.submitButton.disabled = true;
+                this.submitButton.style.cursor = 'wait';
+                this.submitButton.textContent = 'Sending...';
+                this.emailInput.readOnly = true;
+
+                const buttonContainer = this.submitButton.parentElement;
+                Array.from(buttonContainer.children).forEach(child => {
+                    if (child !== this.submitButton) {
+                        child.hidden = true;
+                    }
+                });
+
+                this.form.submit();
+            }
+        });
+
+        this.emailInput.addEventListener('input', () => {
+            const errorContainer = this.form.querySelector('.error-message');
+            const phpError = this.form.querySelector('.error');
+            
+            if (errorContainer) {
+                errorContainer.style.display = 'none';
+            }
+            if (phpError) {
+                phpError.remove();
+            }
+            
+            this.submitButton.disabled = false;
+            this.submitButton.style.cursor = 'pointer';
+            this.submitButton.textContent = 'Confirm';
+            this.emailInput.readOnly = false;
+        });
+    }
+
+    validateForm() {
+        let isValid = true;
+        const existingErrors = this.form.querySelectorAll('.error-message');
+        existingErrors.forEach(error => error.remove());
+
+        if (!this.emailInput.value.trim()) {
+            const errorContainer = document.createElement('div');
+            errorContainer.className = 'error-message';
+            errorContainer.textContent = 'Email address is required';
+            errorContainer.style.display = 'block';
+            this.emailInput.parentNode.insertBefore(errorContainer, this.emailInput.nextSibling);
+            isValid = false;
+        }
+        return isValid;
+    }
+}
+
+class ResetPasswordForm {
+    constructor(formId) {
+        this.form = document.getElementById(formId);
+        if (this.form) {
+            this.newPassword = this.form.querySelector('#new_password');
+            this.confirmPassword = this.form.querySelector('#pwd_confirm');
+            this.submitButton = this.form.querySelector('button[type="submit"]');
+            this.errorMessages = {
+                new_password: {
+                    valueMissing: 'Password is required',
+                    patternMismatch: 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character',
+                    tooShort: 'Password must be at least 8 characters long'
+                },
+                pwd_confirm: {
+                    valueMissing: 'Please confirm your password',
+                    customError: 'Passwords do not match'
+                }
+            };
+            this.initializeValidation();
+        }
+    }
+
+    initializeValidation() {
+        const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
+        this.newPassword.pattern = passwordPattern;
+        this.newPassword.minLength = 8;
+
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        this.newPassword.addEventListener('input', () => this.validateField(this.newPassword));
+        this.confirmPassword.addEventListener('input', () => this.validatePasswordMatch());
+    }
+
+    validateField(input) {
+        const errorContainer = this.getErrorContainer(input);
+        
+        if (input.validity.valid) {
+            this.setValid(input, errorContainer);
+        } else {
+            this.setInvalid(input, errorContainer);
+        }
+    }
+
+    validatePasswordMatch() {
+        const errorContainer = this.getErrorContainer(this.confirmPassword);
+
+        if (this.newPassword.value !== this.confirmPassword.value) {
+            this.confirmPassword.setCustomValidity('Passwords do not match');
+            this.setInvalid(this.confirmPassword, errorContainer);
+        } else {
+            this.confirmPassword.setCustomValidity('');
+            this.setValid(this.confirmPassword, errorContainer);
+        }
+    }
+
+    getErrorContainer(input) {
+        const parentContainer = input.closest('.password__container');
+        let errorContainer = parentContainer.nextElementSibling;
+
+        if (!errorContainer || !errorContainer.classList.contains('error-message')) {
+            errorContainer = document.createElement('div');
+            errorContainer.className = 'error-message';
+            errorContainer.setAttribute('aria-live', 'polite');
+            parentContainer.parentNode.insertBefore(errorContainer, parentContainer.nextSibling);
+        }
+
+        return errorContainer;
+    }
+
+    setValid(input, errorContainer) {
+        input.setAttribute('aria-invalid', 'false');
+        errorContainer.textContent = '';
+        errorContainer.style.display = 'none';
+        this.submitButton.disabled = false;
+    }
+
+    setInvalid(input, errorContainer) {
+        input.setAttribute('aria-invalid', 'true');
+        const errorMessage = this.getErrorMessage(input);
+        errorContainer.textContent = errorMessage;
+        errorContainer.style.display = 'block';
+        this.submitButton.disabled = true;
+    }
+
+    getErrorMessage(input) {
+        const messages = this.errorMessages[input.name];
+        for (const [key, message] of Object.entries(messages)) {
+            if (input.validity[key]) {
+                return message;
+            }
+        }
+        return 'Please check this field';
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        let isValid = true;
+
+        this.validateField(this.newPassword);
+        this.validatePasswordMatch();
+
+        if (!this.newPassword.validity.valid || !this.confirmPassword.validity.valid) {
+            isValid = false;
+        }
+
+        if (isValid) {
+            this.form.submit();
+        }
+    }
+}
+
+// Initialize the form when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('resetpwdfrm')) {
+        new ResetPasswordForm('resetpwdfrm');
+    }
+});
+
+export { Modal, Accordion, SignupFormValidator, LoginFormValidator, ResetPasswordValidator, ResetPasswordForm };
