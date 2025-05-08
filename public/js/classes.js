@@ -267,7 +267,8 @@ class LoginFormValidator {
                     patternMismatch: 'Please enter a valid email address'
                 },
                 password: {
-                    valueMissing: 'Password is required'
+                    valueMissing: 'Password is required',
+                    invalid: 'Invalid password'
                 }
             };
             this.initializeValidation();
@@ -278,15 +279,28 @@ class LoginFormValidator {
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
 
+        // Remove error messages on input
+        this.emailInput.addEventListener('input', () => {
+            this.validateField(this.emailInput);
+            this.clearServerErrors();
+        });
+
+        this.passwordInput.addEventListener('input', () => {
+            this.validateField(this.passwordInput);
+            this.clearServerErrors();
+        });
+
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (this.validateForm()) {
                 this.form.submit();
             }
         });
+    }
 
-        this.emailInput.addEventListener('input', () => this.validateField(this.emailInput));
-        this.passwordInput.addEventListener('input', () => this.validateField(this.passwordInput));
+    clearServerErrors() {
+        const serverErrors = this.form.querySelectorAll('.error[role="alert"]');
+        serverErrors.forEach(error => error.remove());
     }
 
     validateForm() {
