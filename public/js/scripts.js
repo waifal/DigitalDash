@@ -1,4 +1,4 @@
-import { Modal, Accordion } from "./classes.js";
+import { Modal, Accordion, SignupFormValidator } from "./classes.js";
 
 function initModal(button, text) {
     const modal = new Modal(button, text);
@@ -43,7 +43,6 @@ function showPasswords() {
 
         button.addEventListener("click", (event) => {
             const input = event.currentTarget.parentElement.firstElementChild;
-
             input.type = input.type === "password" ? "text" : "password";
         });
     });
@@ -53,3 +52,7 @@ showPasswords();
 
 window.initModal = initModal;
 window.initAccordion = initAccordion;
+
+document.addEventListener('DOMContentLoaded', () => {
+    new SignupFormValidator('signupfrm');
+});
