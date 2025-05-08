@@ -29,9 +29,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 
 <main id="main-content" role="main">
     <section class="auth__container col-2" aria-labelledby="login-heading">
-        <!-- Background -->
-        <div class="auth-col-bg"></div>
-
         <!-- Form -->
         <div class="login-form-container">
             <form id="loginfrm" 
@@ -40,7 +37,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                   novalidate 
                   aria-labelledby="form-heading">
                 
-                <h2 id="form-heading" class="visually-hidden">Login Form</h2>
+                <h2 id="form-heading" class="visually-hidden">Login</h2>
                 <p>Sign in to access immersive trails, stunning landscapes, and a walking experience designed for clarity and wellbeing.</p>
             
                 <?php if (isset($_GET['password']) && $_GET['password'] === "success"): ?>
