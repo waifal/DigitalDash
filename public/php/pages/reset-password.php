@@ -63,7 +63,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<a href="login.php">Go back</a>
 						</div>
 					<?php elseif ($_GET['error'] ?? '' === "invalid_token"): ?>
-						<p class="error">Invalid or expired token! <a href="reset-password.php">Please request a new reset link.</a></p>
+						<p class="error">Your password reset link has expired. <a href="reset-password.php">Please request a new reset link.</a></p>
 					<?php elseif ($_GET['success'] ?? '' === "email_sent"): ?>
 						<p class="success">Email sent successfully! Please check your spam folder.</p>
 					<?php else: ?>
