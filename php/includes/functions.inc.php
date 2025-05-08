@@ -504,39 +504,54 @@ function reset_password(int $user_id, string $token, ?string $new_password, ?str
  * @return string|bool Returns true if login succeeds, otherwise an error message.
  */
 
-function login_user(string $email, string $password): string|bool {
-	global $connection;
+function login_user(string $email, string $password): void {
+    global $connection;
 
-	if (empty($email) || empty($password)) {
-		return "Email and password are required.";
-	}
+    if (empty($email) && empty($password)) {
+        $_SESSION['errors'] = ['login' => "Email and password are required."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
 
-	$stmt = $connection->prepare("SELECT user_id, password FROM tbluser WHERE email = ?");
-	if (!$stmt) {
-		return "Database error: " . $connection->error;
-	}
+    if (empty($email)) {
+        $_SESSION['errors'] = ['login' => "Please enter your email address."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
 
-	$stmt->bind_param("s", $email);
-	$stmt->execute();
+    if (empty($password)) {
+        $_SESSION['errors'] = ['login' => "Please enter your password."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
 
-	$result = $stmt->get_result();
-	$row = $result->fetch_assoc();
-	$user_id = $row['user_id'] ?? null;
-	$hashed_password = $row['password'] ?? null;
+    $stmt = $connection->prepare("SELECT user_id, password FROM tbluser WHERE email = ?");
+    if (!$stmt) {
+        $_SESSION['errors'] = ['login' => "Database error. Please try again later."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
 
-	$stmt->close();
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
 
-	if (!$user_id || !$hashed_password) {
-		return "Invalid email or password.";
-	}
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $user_id = $row['user_id'] ?? null;
+    $hashed_password = $row['password'] ?? null;
 
-	if (!password_verify($password, $hashed_password)) {
-		return "Invalid email or password.";
-	}
+    $stmt->close();
 
-	$_SESSION['logged_in'] = true;
-	$_SESSION['user_id'] = $user_id;
-	$_SESSION['email'] = $email;
+    if (!$user_id || !$hashed_password || !password_verify($password, $hashed_password)) {
+        $_SESSION['errors'] = ['login' => "Invalid email or password."];
+        header('Location: ../public/php/pages/login.php');
+        exit;
+    }
 
-	return true;
+    $_SESSION['logged_in'] = true;
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['email'] = $email;
+
+    header('Location: ../public/php/index.php');
+    exit;
 }
