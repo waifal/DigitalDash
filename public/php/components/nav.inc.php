@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 
 	<nav>
 		<div>
-			<a href="#"><img src="../../assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
+			<a href="#"><img src="../assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
 		</div>
 		<ul>
 			<li><a href="#">Home</a></li>
