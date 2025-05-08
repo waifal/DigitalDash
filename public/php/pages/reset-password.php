@@ -56,9 +56,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<p class="error">We couldn't find an account with that email address. Please try again.</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div class="form-group">
-							<label>Email Address
-								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
-							</label>
+							<label for="email">Email Address</label>
+							<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 						</div>
 						<div class='button__container'>
 							<button type="submit" class="primary-btn">Confirm</button>
@@ -71,9 +70,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<?php else: ?>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 						<div class="form-group">
-							<label>Email Address
-								<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
-							</label>
+							<label for="email">Email Address</label>
+							<input type="email" name="email" id="email" autocomplete="email" placeholder="Enter your email address" required>
 						</div>
 						<div class='button__container'>
 							<button type="submit" class="primary-btn">Confirm</button>
