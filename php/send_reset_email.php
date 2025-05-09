@@ -5,10 +5,10 @@ use PHPMailer\PHPMailer\Exception;
 
 require 'vendor/autoload.php';
 
-define("SMTP_USERNAME", "teswize1@gmail.com");  // Use .env file
-define("SMTP_PASSWORD", "janq ldpn guyx bujs"); // Use .env file
-define("SMTP_HOST", "smtp.gmail.com");
-define("SMTP_PORT", 465);
+define("SMTP_USERNAME", $_ENV['SMTP_USERNAME']);
+define("SMTP_PASSWORD", $_ENV['SMTP_PASSWORD']);
+define("SMTP_HOST", $_ENV['SMTP_HOST']);
+define("SMTP_PORT", $_ENV['SMTP_PORT']);
 
 function sendResetEmail($email, $token) {
 	$mail = new PHPMailer(true);
