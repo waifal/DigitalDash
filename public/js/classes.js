@@ -125,6 +125,20 @@ class SignupFormValidator {
         };
 
         this.setupValidation();
+        this.setupPasswordConfirmVisibility();
+    }
+
+    setupPasswordConfirmVisibility() {
+        const password = this.form.querySelector('#password');
+        const confirmPasswordGroup = this.form.querySelector('#pwd_confirm').closest('.form-group');
+        
+        // Set initial state
+        confirmPasswordGroup.style.display = password.value ? 'block' : 'none';
+        
+        // Update on password change
+        password.addEventListener('input', (e) => {
+            confirmPasswordGroup.style.display = e.target.value ? 'block' : 'none';
+        });
     }
 
     setupValidation() {
