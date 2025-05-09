@@ -7,6 +7,11 @@ import {
     ResetPasswordForm
 } from "./classes.js";
 
+/**
+ * Creates and displays a modal dialog
+ * @param {HTMLElement} button - Trigger button
+ * @param {string} text - Modal content
+ */
 function initModal(button, text) {
     const modal = new Modal(button, text);
     modal.showModal();
@@ -15,6 +20,13 @@ function initModal(button, text) {
 let currentlyOpenAccordion = null;
 let currentlyOpenButton = null;
 
+/**
+ * Handles accordion functionality with single open state
+ * @param {HTMLElement} clickedButton - Button that triggered the accordion
+ * @param {string} id - Unique accordion identifier
+ * @param {boolean} height - Enable height animation
+ * @param {string} text - Accordion content
+ */
 function initAccordion(clickedButton, id, height, text) {
     const existingAccordion = document.getElementById(id);
 
@@ -38,6 +50,10 @@ function initAccordion(clickedButton, id, height, text) {
     currentlyOpenButton = clickedButton;
 }
 
+/**
+ * Initializes password visibility toggle functionality
+ * Adds event listeners to show/hide password buttons
+ */
 function showPasswords() {
     const buttons = document.getElementsByClassName('show_password');
 
@@ -67,6 +83,7 @@ showPasswords();
 window.initModal = initModal;
 window.initAccordion = initAccordion;
 
+// Initialize form validators based on form presence
 if (document.getElementById('resetpwdfrm')) {
     const resetForm = document.querySelector('form[action*="reset-password.inc.php"]');
     if (resetForm) {
