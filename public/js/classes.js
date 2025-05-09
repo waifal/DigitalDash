@@ -312,8 +312,19 @@ class LoginFormValidator {
     }
 
     initializeValidation() {
+        if (!this.emailInput) return;
+        
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
+
+        this.emailInput.setCustomValidity('');
+
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (this.validateForm()) {
+                this.form.submit();
+            }
+        });
 
         this.emailInput.addEventListener('input', () => {
             this.validateField(this.emailInput);
@@ -437,7 +448,7 @@ class ResetPasswordValidator {
 
     initializeValidation() {
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
-        this.emailInput.pattern = emailPattern;
+        this.emailInput.pattern = emailPattern;  // Error occurs here
 
         this.emailInput.setCustomValidity('');
 
@@ -520,7 +531,9 @@ class ResetPasswordForm {
     }
 
     initializeValidation() {
-        const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$';
+        if (!this.newPassword || !this.confirmPassword) return;
+        
+        const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,}$';
         this.newPassword.pattern = passwordPattern;
         this.newPassword.minLength = 8;
 
