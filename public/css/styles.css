@@ -46,6 +46,21 @@ button {
     font-size: 0.9rem;
 }
 
+a.primary-btn {
+    width: 100%;
+    max-width: 115px;
+    height: 35px;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--secondary-clr);
+    align-content: center;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 50px;
+    background-color: var(--accent-clr);
+}
+
 /* ================== Navigation ================== */
 
 nav {
@@ -401,4 +416,96 @@ input:autofill:active {
     padding: 1rem;
     border-radius: 4px;
     margin-top: 0.5rem;
+}
+
+/* ================== Virtual Walks ================== */
+
+#virtual-walks .hero__section {
+    height: calc(100vh - var(--nav-height));
+    align-content: center;
+    text-align: center;
+}
+
+#virtual-walks .hero__section h1 {
+    font-size: clamp(1.2rem, 1.8rem + 1vw, 3rem);
+}
+
+#virtual-walks .hero__section p {
+    margin: 1.5rem auto;
+}
+
+#virtual-walks .recommended__section {
+    height: 100vh;
+    padding: 1.5em 0;
+    color: var(--secondary-clr);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: var(--image-overlay), url("../assets/images/backgrounds/4k-green-forest.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#virtual-walks .recommended__section div:nth-child(2) {
+    display: flex;
+    column-gap: 5vw;
+}
+
+#virtual-walks .subtitle {
+    display: block;
+    text-align: center;
+}
+
+#virtual-walks .description {
+    align-content: center;
+}
+
+#virtual-walks .description p {
+    margin: 1.2rem 0;
+    font-size: 0.9rem;
+}
+
+#virtual-walks .previews__container {
+    display: flex;
+    column-gap: 3vw;
+}
+
+#virtual-walks .previews__container button {
+    --preview-btn-radius: 2px;
+    background: none;
+    border: none;
+    border-radius: var(--preview-btn-radius);
+    border: 1px solid var(--secondary-clr);
+    position: relative;
+}
+
+#virtual-walks .previews__container button img {
+    height: 100%;
+    width: 95px;
+    border-radius: var(--preview-btn-radius);
+}
+
+#virtual-walks .previews__container button::before {
+    content: "";
+    width: 100%;
+    color: var(--secondary-clr);
+    font-size: 0.85rem;
+    position: absolute;
+    left: 50%;
+    top: -22%;
+    transform: translate(-50%, -50%);
+}
+
+/* Recommended Walk #1 */
+#virtual-walks .previews__container button:first-child::before {
+    content: "Walk One";
+}
+
+#virtual-walks .previews__container button:nth-child(2)::before {
+    content: "Walk Two";
+}
+
+#virtual-walks .previews__container button:last-child::before {
+    content: "Walk Three";
 }
