@@ -1,3 +1,9 @@
+/**
+ * Modal component for displaying popup messages
+ * @class
+ * @param {HTMLElement} button - The button that triggers the modal
+ * @param {string} text - The content text to display in the modal
+ */
 class Modal {
     constructor(button, text) {
         this.button = button;
@@ -31,6 +37,14 @@ class Modal {
     }
 }
 
+/**
+ * Accordion component for expandable/collapsible content sections
+ * @class
+ * @param {HTMLElement} button - The button that triggers the accordion
+ * @param {string} id - Unique identifier for the accordion
+ * @param {boolean} [height=false] - Whether to animate height transitions
+ * @param {string} text - The content text to display in the accordion
+ */
 class Accordion {
     constructor(button, id, height = false, text) {
         this.button = button;
@@ -90,6 +104,13 @@ class Accordion {
     }
 }
 
+/**
+ * Form validator for signup forms with real-time validation
+ * @class
+ * @param {string} formId - The ID of the signup form element
+ * @property {HTMLFormElement} form - The form element being validated
+ * @property {Object} errorMessages - Validation error messages for each field
+ */
 class SignupFormValidator {
     constructor(formId) {
         this.form = document.getElementById(formId);
@@ -268,6 +289,7 @@ class SignupFormValidator {
     }
 }
 
+/** Form validator for login forms with real-time validation */
 class LoginFormValidator {
     constructor(formId) {
         this.form = document.getElementById(formId);
@@ -395,6 +417,7 @@ class LoginFormValidator {
     }
 }
 
+/** Form validator for password reset request forms */
 class ResetPasswordValidator {
     constructor(formId) {
         this.form = document.getElementById(formId);
@@ -473,6 +496,7 @@ class ResetPasswordValidator {
     }
 }
 
+/** Form validator for password reset forms with confirmation */
 class ResetPasswordForm {
     constructor(formId) {
         this.form = document.getElementById(formId);
