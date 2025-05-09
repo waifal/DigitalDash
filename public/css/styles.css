@@ -102,7 +102,9 @@ nav .primary-btn {
 
 /* Theme Switcher */
 nav .primary-btn+button {
-    padding: 0 15px;
+    height: 45px;
+    width: 45px;
+    align-content: center;
     color: var(--secondary-clr);
     font-size: 1rem;
     border: none;
