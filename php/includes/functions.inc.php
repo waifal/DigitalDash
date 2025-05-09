@@ -544,13 +544,15 @@ function login_user(string $email, string $password): void {
 
     if (!$user_id) {
         $_SESSION['errors'] = ['login' => "Invalid email or password."];
+        // Don't store email in session when email doesn't exist
+        unset($_SESSION['form_data']);
         header('Location: ../public/php/pages/login.php');
         exit;
     }
 
     if (!password_verify($password, $hashed_password)) {
         $_SESSION['errors'] = ['login' => "Invalid password."];
-        $_SESSION['form_data'] = ['email' => $email];
+        $_SESSION['form_data'] = ['email' => $email]; // Keep email only for valid email addresses
         header('Location: ../public/php/pages/login.php');
         exit;
     }
