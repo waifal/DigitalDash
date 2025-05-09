@@ -100,7 +100,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					</div>
 					<div class='button__container'>
 						<button type="submit" class="button">Change Password</button>
-						<input type="hidden" hidden></input>
+						<a href="login.php" hidden>Go back</a>
 					</div>
 				</form>
 			<?php else: ?>
