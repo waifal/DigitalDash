@@ -2,6 +2,7 @@
 database
 db
 vendor/
+videos/
 .DS_Store
 Thumbs.db
 *.log
