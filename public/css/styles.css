@@ -46,7 +46,8 @@ button {
     font-size: 0.9rem;
 }
 
-a.primary-btn {
+a.primary-btn,
+button.primary-btn {
     width: 100%;
     max-width: 135px;
     height: 35px;
@@ -58,6 +59,7 @@ a.primary-btn {
     font-size: 0.85rem;
     font-weight: 500;
     border-radius: 50px;
+    border: none;
     background-color: var(--accent-clr);
 }
 
