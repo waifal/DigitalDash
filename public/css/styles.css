@@ -48,7 +48,7 @@ button {
 
 a.primary-btn {
     width: 100%;
-    max-width: 115px;
+    max-width: 135px;
     height: 35px;
     display: inline-block;
     text-decoration: none;
@@ -436,15 +436,27 @@ input:autofill:active {
 
 #virtual-walks .recommended__section {
     height: 100vh;
-    padding: 1.5em 0;
+    padding: 2em 0;
     color: var(--secondary-clr);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: var(--image-overlay), url("../assets/images/backgrounds/4k-green-forest.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+/* Add these new styles for different backgrounds */
+#virtual-walks .recommended__section.walk-one {
+    background-image: var(--image-overlay), url("../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg");
+}
+
+#virtual-walks .recommended__section.walk-two {
+    background-image: var(--image-overlay), url("../assets/images/backgrounds/creek_in_a_forest.jpeg");
+}
+
+#virtual-walks .recommended__section.walk-three {
+    background-image: var(--image-overlay), url("../assets/images/backgrounds/creek_in_woods_near_mountain.jpg");
 }
 
 #virtual-walks .recommended__section div:nth-child(2) {
@@ -459,6 +471,10 @@ input:autofill:active {
 
 #virtual-walks .description {
     align-content: center;
+}
+
+#virtual-walks .description h2 + span {
+    color: #ffffff90;
 }
 
 #virtual-walks .description p {
@@ -508,4 +524,75 @@ input:autofill:active {
 
 #virtual-walks .previews__container button:last-child::before {
     content: "Walk Three";
+}
+
+.hero__section {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #000;
+}
+
+.video-background video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.video-background video.active {
+    opacity: 1;
+}
+
+.video-background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: var(--image-overlay); */
+    background-color: #000000a7;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--secondary-clr);
+    padding: 2rem;
+}
+
+#virtual-walks .hero-content a.primary-btn {
+    width: 100%;
+    max-width: 135px;
+    height: 35px;
+    text-decoration: none;
+    color: var(--secondary-clr);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 50px;
+    background-color: var(--accent-clr);
+}
+
+#virtual-walks .hero-content a.primary-btn i {
+    vertical-align: middle;
+    margin-inline-end: 0.5ch;
+    transition: transform 0.3s ease;
+}
+
+#virtual-walks .hero-content a.primary-btn:hover i {
+    transform: translateX(4px);
 }
