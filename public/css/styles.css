@@ -633,15 +633,28 @@ input:autofill:active {
 
 .About h1 {
     color: white;
+    font-size: 2rem;
     position: absolute;
-    left: 10%;
-    top: 25%;
+    padding: 10px 20px;
+    left: 25%;
+    top: 30%;
 }
 
 .About p {
     color: white;
+    font-size: 1rem;
     position: absolute;
-    width: 400px;
-    left: 10%;
-    top: 30%;
+    padding: 10px 20px;
+    width: 30%;
+    left: 17.5%;
+    top: 40%;
+}
+
+.About video {
+    position: absolute;
+    width: 25%;
+    left: 50%;
+    top: 35%;
+    border: 1px solid white;
+    background-color: black;
 }
