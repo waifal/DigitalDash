@@ -516,7 +516,6 @@ input:autofill:active {
     color: var(--secondary-clr);
     display: grid;
     column-gap: 2vw;
-    align-items: center;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -531,10 +530,6 @@ input:autofill:active {
     position: relative;
     text-align: center;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.03);
@@ -543,14 +538,13 @@ input:autofill:active {
 }
 
 .banner-grid-item img {
-    display: block;
     max-width: 100%;
     object-fit: cover;
     aspect-ratio: 16/9;
 }
 
 .banner-grid-item img + div {
-    padding: 2rem 2.2rem;
+    padding: 1rem 2.2rem 2rem;
 }
 
 .banner-grid-item::before {
