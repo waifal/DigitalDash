@@ -625,3 +625,23 @@ input:autofill:active {
 #virtual-walks .hero-content a.primary-btn:hover i {
     transform: translateX(4px);
 }
+/* ================== About ================== */
+.About {
+    background-color: grey;
+    height: 99vh;
+}
+
+.About h1 {
+    color: white;
+    position: absolute;
+    left: 10%;
+    top: 25%;
+}
+
+.About p {
+    color: white;
+    position: absolute;
+    width: 400px;
+    left: 10%;
+    top: 30%;
+}
