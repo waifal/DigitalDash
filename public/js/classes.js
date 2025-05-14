@@ -152,6 +152,7 @@ class SignupFormValidator {
     setupPasswordConfirmVisibility() {
         const password = this.form.querySelector('#password');
         const confirmPasswordGroup = this.form.querySelector('#pwd_confirm').closest('.form-group');
+        const confirmPassword = this.form.querySelector('#pwd_confirm');
         
         // Set initial state
         confirmPasswordGroup.style.display = password.value ? 'block' : 'none';
@@ -159,6 +160,11 @@ class SignupFormValidator {
         // Update on password change
         password.addEventListener('input', (e) => {
             confirmPasswordGroup.style.display = e.target.value ? 'block' : 'none';
+            if (!e.target.value) {
+                confirmPassword.value = '';
+                const errorContainer = this.getErrorContainer(confirmPassword);
+                this.setValid(confirmPassword, errorContainer);
+            }
         });
     }
 
@@ -555,7 +561,10 @@ class ResetPasswordForm {
     validatePasswordMatch() {
         const errorContainer = this.getErrorContainer(this.confirmPassword);
 
-        if (this.newPassword.value !== this.confirmPassword.value) {
+        if (!this.confirmPassword.value) {
+            this.confirmPassword.setCustomValidity('');
+            this.setValid(this.confirmPassword, errorContainer);
+        } else if (this.newPassword.value !== this.confirmPassword.value) {
             this.confirmPassword.setCustomValidity('Passwords do not match');
             this.setInvalid(this.confirmPassword, errorContainer);
         } else {

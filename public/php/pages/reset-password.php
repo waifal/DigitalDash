@@ -50,7 +50,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<?php if (!isset($_GET['token'])): ?>
 				<form id="resetpwdfrm" action="../../../php/check-email.inc.php" method="POST" novalidate>
 					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
-					<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
+					<!-- <p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p> -->
 					<?php if ($_GET['error'] ?? '' === "invalid_email"): ?>
 						<p class="error">We couldn't find an account with that email address. Please try again.</p>
 						<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -81,7 +81,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<?php elseif (isset($_GET['token'], $user_id)): ?>
 				<form id="resetpwdfrm" action="../../../php/reset-password.inc.php" method="POST" novalidate>
 					<h2 id="form-heading" class="visually-hidden">Reset Password</h2>
-					<p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p>
+					<!-- <p>Verify your identity using your email address to regain access to your account and resume your immersive experience.</p> -->
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 					<input type="hidden" name="token" value="<?php echo htmlspecialchars($_GET['token']); ?>">
 					<div class="form-group">

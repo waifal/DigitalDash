@@ -187,3 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Switch video every 10 seconds
     setInterval(switchVideo, 10000);
 });
+
+
+// 5 Second Video Preview

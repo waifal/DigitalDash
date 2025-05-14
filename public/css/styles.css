@@ -5,11 +5,11 @@
     --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
-
+    
     --nav-height: 70px;
     --container-padding: 5rem 150px;
 
-    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.8) 100%);
+    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 * {
@@ -36,7 +36,7 @@ h6 {
 }
 
 p {
-    max-width: 65ch;
+    max-width: 90ch;
     margin: 12px 0;
 }
 
@@ -46,8 +46,7 @@ button {
     font-size: 0.9rem;
 }
 
-a.primary-btn,
-button.primary-btn {
+a.primary-btn {
     width: 100%;
     max-width: 135px;
     height: 35px;
@@ -62,33 +61,11 @@ button.primary-btn {
     border: none;
     background-color: var(--accent-clr);
 }
-/* ================== Contact Us ================== */
 
-
-
-
-
-
-
-/* ================== About Us  ================== */
-
-
-
-
-
-
-
-
-
-/* ================== Home ================== */
-
-
-
-
-
-/* ================== Footer ================== */
-
-
+.subtitle {
+    color: #eee8e8;
+    font-size: 0.9rem;
+}
 
 /* ================== Navigation ================== */
 
@@ -98,6 +75,7 @@ nav {
     display: flex;
     align-items: center;
     background-color: var(--primary-clr);
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 5%);
 }
 
 nav>* {
@@ -172,39 +150,31 @@ a[href="../pages/reset-password.php"] {
     gap: 1rem;
 }
 
-.names-group > * {
+.names-group>* {
     flex: 1;
 }
 
 .auth__container {
-    padding: 2rem 0;
     width: 100%;
     min-height: calc(100svh - var(--nav-height));
+    padding: 2rem 0;
     align-content: center;
-    color: var(--secondary-clr);
-    background: var(--image-overlay),
-                url('../assets/images/backgrounds/4k-green-forest.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-color: var(--secondary-clr);
 }
 
-.auth__container > div {
-    zoom: 90%;
-    min-width: 600px;
-    width: 600px;
+.auth__container>div {
+    min-width: 500px;
+    width: 500px;
     margin: 0 auto;
-    padding: 2rem;
     color: var(--primary-clr);
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 15px;
-    background-color: var(--secondary-clr);
 }
 
 /* Form Styles */
-.auth__container form > div {
+.auth__container form>div {
     margin: 1rem 0;
 }
 
@@ -237,7 +207,7 @@ a[href="../pages/reset-password.php"] {
     margin: 0;
 }
 
-.agreements > .checkbox-wrapper {
+.agreements>.checkbox-wrapper {
     flex: 1;
     text-align: center;
 }
@@ -268,7 +238,7 @@ a[href="../pages/reset-password.php"] {
     margin: 0;
 }
 
-.auth__container .button__container > * {
+.auth__container .button__container>* {
     flex: 1;
     padding: 0.45rem 0;
     font-weight: 600;
@@ -280,18 +250,18 @@ a[href="../pages/reset-password.php"] {
     transition: opacity 0.2s ease;
 }
 
-.auth__container .button__container > *:first-child {
+.auth__container .button__container>*:first-child {
     color: var(--secondary-clr);
     background-color: var(--accent-clr);
 }
 
-.auth__container .button__container > *:last-child {
+.auth__container .button__container>*:last-child {
     color: var(--primary-clr);
     background-color: var(--secondary-clr);
     border: 1px solid var(--primary-clr);
 }
 
-.auth__container .button__container > *:hover {
+.auth__container .button__container>*:hover {
     opacity: 0.9;
 }
 
@@ -451,8 +421,12 @@ input:autofill:active {
 
 #virtual-walks .hero__section {
     height: calc(100vh - var(--nav-height));
+    padding: var(--container-padding);
     align-content: center;
     text-align: center;
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
 }
 
 #virtual-walks .hero__section h1 {
@@ -460,108 +434,10 @@ input:autofill:active {
 }
 
 #virtual-walks .hero__section p {
-    margin: 1.5rem auto;
+    margin: 0.85rem auto 1.5rem auto;
 }
 
-#virtual-walks .recommended__section {
-    height: 100vh;
-    padding: 2em 0;
-    color: var(--secondary-clr);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-/* Add these new styles for different backgrounds */
-#virtual-walks .recommended__section.walk-one {
-    background-image: var(--image-overlay), url("../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg");
-}
-
-#virtual-walks .recommended__section.walk-two {
-    background-image: var(--image-overlay), url("../assets/images/backgrounds/creek_in_a_forest.jpeg");
-}
-
-#virtual-walks .recommended__section.walk-three {
-    background-image: var(--image-overlay), url("../assets/images/backgrounds/creek_in_woods_near_mountain.jpg");
-}
-
-#virtual-walks .recommended__section div:nth-child(2) {
-    display: flex;
-    column-gap: 5vw;
-}
-
-#virtual-walks .subtitle {
-    display: block;
-    text-align: center;
-}
-
-#virtual-walks .description {
-    align-content: center;
-}
-
-#virtual-walks .description h2 + span {
-    color: #ffffff90;
-}
-
-#virtual-walks .description p {
-    margin: 1.2rem 0;
-    font-size: 0.9rem;
-}
-
-#virtual-walks .previews__container {
-    display: flex;
-    column-gap: 3vw;
-}
-
-#virtual-walks .previews__container button {
-    --preview-btn-radius: 2px;
-    background: none;
-    border: none;
-    border-radius: var(--preview-btn-radius);
-    border: 1px solid var(--secondary-clr);
-    position: relative;
-}
-
-#virtual-walks .previews__container button img {
-    height: 100%;
-    width: 95px;
-    border-radius: var(--preview-btn-radius);
-}
-
-#virtual-walks .previews__container button::before {
-    content: "";
-    width: 100%;
-    color: var(--secondary-clr);
-    font-size: 0.85rem;
-    position: absolute;
-    left: 50%;
-    top: -22%;
-    transform: translate(-50%, -50%);
-}
-
-/* Recommended Walk #1 */
-#virtual-walks .previews__container button:first-child::before {
-    content: "Walk One";
-}
-
-#virtual-walks .previews__container button:nth-child(2)::before {
-    content: "Walk Two";
-}
-
-#virtual-walks .previews__container button:last-child::before {
-    content: "Walk Three";
-}
-
-.hero__section {
-    position: relative;
-    min-height: 500px;
-    overflow: hidden;
-}
-
-.video-background {
+#virtual-walks .video-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -571,7 +447,7 @@ input:autofill:active {
     background: #000;
 }
 
-.video-background video {
+#virtual-walks .video-background video {
     position: absolute;
     top: 0;
     left: 0;
@@ -582,22 +458,21 @@ input:autofill:active {
     transition: opacity 1s ease-out;
 }
 
-.video-background video.active {
+#virtual-walks .video-background video.active {
     opacity: 1;
 }
 
-.video-background .overlay {
+#virtual-walks .video-background .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* background-image: var(--image-overlay); */
-    background-color: #000000a7;
+    background-image: var(--image-overlay);
     z-index: 1;
 }
 
-.hero-content {
+#virtual-walks .hero-content {
     position: relative;
     z-index: 2;
     color: var(--secondary-clr);
@@ -605,13 +480,10 @@ input:autofill:active {
 }
 
 #virtual-walks .hero-content a.primary-btn {
-    width: 100%;
-    max-width: 135px;
-    height: 35px;
-    text-decoration: none;
-    color: var(--secondary-clr);
-    font-size: 0.85rem;
-    font-weight: 500;
+    all: unset;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.45rem 1rem;
     border-radius: 50px;
     background-color: var(--accent-clr);
 }
@@ -625,7 +497,117 @@ input:autofill:active {
 #virtual-walks .hero-content a.primary-btn:hover i {
     transform: translateX(4px);
 }
+
+.banner {
+    min-height: 100dvh;
+    position: relative;
+    background-color: var(--primary-clr);
+}
+
+.banner > div:has(.banner-grid-item) {
+    min-height: 300px;
+    padding: var(--container-padding);
+    color: var(--secondary-clr);
+    display: grid;
+    column-gap: 2vw;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.banner > div:first-child {
+    color: var(--secondary-clr);
+    padding-top: 80px;
+    text-align: center;
+}
+
+.banner-grid-item {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner-grid-item img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
+
+.banner-grid-item img + div {
+    padding: 2rem 2.2rem;
+}
+
+.banner-grid-item::before {
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 34%,
+        rgba(255, 255, 255, 0.032) 47%,
+        rgba(255, 255, 255, 0.015) 54%,
+        rgba(255, 255, 255, 0) 64%,
+        transparent 100%
+    );
+    filter: blur(5px);
+    animation: lightBeam 8s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.banner-grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.banner-grid-item:hover i {
+    transform: scale(1.1);
+}
+
+.banner-grid-item i {
+    font-size: 2.5rem;
+    font-style: normal;
+    transition: transform 0.3s ease;
+}
+
+.banner-grid-item h3 {
+    transition: color 0.3s ease;
+}
+
+.banner-grid-item:hover h3 {
+    color: var(--accent-clr);
+}
+
+.banner-grid-item p {
+    font-size: 0.9rem;
+}
+
+@keyframes lightBeam {
+    0% {
+        transform: translate(-100%, -100%);
+    }
+    100% {
+        transform: translate(100%, 100%);
+    }
+}
+
 /* ================== About ================== */
+
 .About {
     background-color: grey;
     height: 99vh;
