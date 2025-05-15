@@ -5,10 +5,9 @@
  * @param {string} text - The content text to display in the modal
  */
 class Modal {
-    constructor(button, className, appendElement, text) {
+    constructor(button, className, text) {
         this.button = button;
         this.className = className;
-        this.appendElement = appendElement;
         this.text = text;
     }
 
@@ -27,7 +26,7 @@ class Modal {
             </dialog>
         `;
 
-        document.querySelector(this.appendElement).prepend(modalParent);
+        document.body.prepend(modalParent);
         document.body.style.overflowY = "hidden";
 
         const dialog = modalParent.querySelector('dialog');
@@ -38,7 +37,7 @@ class Modal {
 
         closeModalBtn.addEventListener('click', () => modalParent.remove());
         closeModalBtn.addEventListener('click', () => document.body.style.overflowY = "scroll");
-
+        
         window.addEventListener('keydown', (event) => event.key === "Escape" ? modalParent.remove() : null);
         window.addEventListener('keydown', (event) => event.key === "Escape" ? document.body.style.overflowY = "scroll" : null);
     }

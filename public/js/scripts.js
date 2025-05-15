@@ -12,8 +12,8 @@ import {
  * @param {HTMLElement} button - Trigger button
  * @param {string} text - Modal content
  */
-function initModal(button, className, appendEl, text) {
-    const modal = new Modal(button, className, appendEl, text);
+function initModal(button, className, text) {
+    const modal = new Modal(button, className, text);
     modal.showModal();
 }
 
@@ -132,6 +132,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(switchVideo, 10000);
 });
-
-
-// 5 Second Video Preview

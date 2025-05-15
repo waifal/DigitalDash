@@ -89,7 +89,7 @@
                             </div>
                             <div class="button__container">
                                 <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
-                                <button type="button" onclick="initModal(this, 'previewModal', '.recommended__section > div:first-child', `
+                                <button type="button" onclick="initModal(this, 'previewModal', `
                                     <video id='digital-dash-player' class='video-js vjs-theme-forest'>
                                         <source src='assets/videos/glen_coe.mp4' type='video/mp4'></source>
                                     </video>  
@@ -178,14 +178,78 @@
                 }
 
                 if (document.querySelector(`#${playerId}`)) {
-                    videojs(playerId, {
-                        autoplay: false,
+                    const player = videojs(playerId, {
+                        autoplay: false,  // Prevent autoplay
                         controls: true,
-                        fluid: true,
+                        fluid: false,
                         muted: true,
                         playsInline: true,
                         disablePictureInPicture: true,
                         preload: 'auto'
+                    });
+
+                    let hasPlayed = false;
+
+                    player.ready(function() {
+                        const controlBarButtons = player.el().querySelectorAll('.vjs-control-bar button');
+
+                        controlBarButtons.forEach(function(button) {
+                            button.setAttribute('tabindex', '-1');
+                            button.blur();
+                        });
+
+                        const pipButton = player.controlBar.pictureInPictureToggle;
+
+                        if (pipButton) {
+                            pipButton.el().remove(); 
+                        }
+
+
+                        const playControlButton = player.el().querySelector('.vjs-play-control');
+                        const pausedButton = player.el().querySelector('.vjs-paused');
+
+                        if (playControlButton) {
+                            playControlButton.addEventListener('click', function() {
+                                playControlButton.blur();
+                            });
+                        }
+
+                        if (pausedButton) {
+                            pausedButton.addEventListener('click', function() {
+                                pausedButton.blur();
+                            });
+                        }
+
+                        var fullscreenButton = player.controlBar.fullscreenToggle;
+                        fullscreenButton.el().setAttribute('tabindex', '-1');
+
+                        player.on('fullscreenchange', function() {
+                            fullscreenButton.el().blur();
+                        });
+
+                        const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
+                        bigPlayButton.addEventListener('click', function() {
+                            if (!hasPlayed) {
+                                if (!player.isFullscreen()) {
+                                    player.requestFullscreen();
+                                }
+                                player.play();
+                                hasPlayed = true;
+                            }
+                        });
+
+                        player.on('play', function() {
+                            if (!hasPlayed) {
+                                hasPlayed = true;
+                            }
+                        });
+
+                        const videoElement = player.el().querySelector('video');
+                        videoElement.addEventListener('click', function() {
+                            if (hasPlayed) {
+                                player.play();
+                            }
+                        });
                     });
                 }
             });

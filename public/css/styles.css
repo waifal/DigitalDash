@@ -745,7 +745,31 @@ input:autofill:active {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    backdrop-filter: blur(5em);
+    backdrop-filter: blur(0.8em);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fade-in-up 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        top: 100%;
+    }
+
+    to {
+        opacity: 1;
+    }
+    
+}
+
+div:has(> #digital-dash-player_html5_api) {
+    aspect-ratio: 16/9;
+    height: 300px;
+    width: 100%;
+}
+
+#digital-dash-player_html5_api {
+    object-fit: cover;
 }
 
 .previewModal::backdrop {
@@ -763,7 +787,7 @@ input:autofill:active {
     font-size: 1rem;
     border: none;
     border-radius: 50px;
-    background-color: var(--accent-clr);
+    background-color: rgb(255, 69, 69)
 }
 
 .previewModal .close-modal i {
@@ -774,8 +798,12 @@ input:autofill:active {
     max-height: 300px;
     overflow-y: auto;
     text-align: left;
+    margin: 0 0 1rem;
+    padding: 1.5rem;
+}
+
+.previewModal .video-info p {
     margin: 1rem 0;
-    padding: 1rem;
 }
 
 .previewModal .video-info ul {
