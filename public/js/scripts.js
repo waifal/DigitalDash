@@ -12,8 +12,8 @@ import {
  * @param {HTMLElement} button - Trigger button
  * @param {string} text - Modal content
  */
-function initModal(button, text) {
-    const modal = new Modal(button, text);
+function initModal(button, className, appendEl, text) {
+    const modal = new Modal(button, className, appendEl, text);
     modal.showModal();
 }
 
@@ -83,7 +83,6 @@ showPasswords();
 window.initModal = initModal;
 window.initAccordion = initAccordion;
 
-// Initialize form validators based on form presence
 if (document.getElementById('resetpwdfrm')) {
     const resetForm = document.querySelector('form[action*="reset-password.inc.php"]');
     if (resetForm) {
@@ -99,58 +98,6 @@ if (document.getElementById('signupfrm')) {
 
 if (document.getElementById('loginfrm')) {
     new LoginFormValidator('loginfrm');
-}
-
-
-// Initialize walk preview functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const previewButtons = document.querySelectorAll('.previews__container .preview');
-    const descriptionDiv = document.querySelector('.recommended__section .description');
-    const contentDiv = document.querySelector('.recommended__section .content');
-
-    // Load default walk (walk_one)
-    loadWalkContent('walk_one');
-
-    previewButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const walkNumber = index + 1;
-            const walkFile = `walk_${getNumberWord(walkNumber)}`;
-            loadWalkContent(walkFile);
-        });
-    });
-});
-
-function getNumberWord(num) {
-    const numbers = ['one', 'two', 'three'];
-    return numbers[num - 1];
-}
-
-function loadWalkContent(walkFile) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `components/recommended_walks/${walkFile}.html`, true);
-
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(xhr.responseText, 'text/html');
-            
-            const description = document.querySelector('.recommended__section .description');
-            const content = document.querySelector('.recommended__section .content');
-            const recommendedSection = document.querySelector('.recommended__section');
-
-            if (description && content) {
-                description.innerHTML = doc.querySelector('.description').innerHTML;
-                content.innerHTML = doc.querySelector('.content').innerHTML;
-                
-                // Remove any existing walk classes
-                recommendedSection.classList.remove('walk-one', 'walk-two', 'walk-three');
-                // Add the new walk class
-                recommendedSection.classList.add(walkFile.replace('_', '-'));
-            }
-        }
-    };
-
-    xhr.send();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -176,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
     videos[0].play();
     videos[0].classList.add('active');
     
-    // Pause all other videos initially
     videos.forEach((video, index) => {
         if (index !== 0) {
             video.pause();
@@ -184,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Switch video every 10 seconds
     setInterval(switchVideo, 10000);
 });
 

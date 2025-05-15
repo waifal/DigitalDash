@@ -68,8 +68,8 @@
             <section class="recommended__section">
                 <!-- Title -->
                 <div>
-                    <span class="subtitle"><small>Our top virtual hikes</small></span>
-                    <h2>Whats Popular</h2>
+                    <span class="subtitle"><small>Discover the Best Virtual Hikes</small></span>
+                    <h2>What's Trending</h2>
                 </div>
                 <br>
                 <br>
@@ -87,7 +87,25 @@
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
-                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                            <div class="button__container">
+                                <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
+                                <button type="button" onclick="initModal(this, 'previewModal', '.recommended__section > div:first-child', `
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='assets/videos/glen_coe.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Glen Coe</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            <ul>    
+                                        </div>
+                                        <p>Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.</p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                            </div>
                         </div>
                     </div>
                     <!-- Popular #2 -->
@@ -102,7 +120,10 @@
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
-                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                            <div class="button__container">
+                                <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
+                                <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                            </div>
                         </div>
                     </div>
                     <!-- Popular #3 -->
@@ -117,7 +138,10 @@
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
-                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                            <div class="button__container">
+                                <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
+                                <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,8 +168,28 @@
                     preview.querySelector('video').pause();
                 });
             });
+
+            document.addEventListener('modalOpened', function(e) {
+                const playerId = 'digital-dash-player';
+                const existingPlayer = videojs.getPlayer(playerId);
+
+                if (existingPlayer) {
+                    existingPlayer.dispose();
+                }
+
+                if (document.querySelector(`#${playerId}`)) {
+                    videojs(playerId, {
+                        autoplay: false,
+                        controls: true,
+                        fluid: true,
+                        muted: true,
+                        playsInline: true,
+                        disablePictureInPicture: true,
+                        preload: 'auto'
+                    });
+                }
+            });
         });
     </script>
 </body>
-
 </html>

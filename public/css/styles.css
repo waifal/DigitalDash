@@ -701,20 +701,102 @@ input:autofill:active {
     margin-top: -10px;
 }
 
-.popular-container > div button.primary-btn {
+.popular-container > div .button__container {
+    display: flex;
+    justify-content: center;
+    column-gap: 0.5rem;
+    width: 100%;
     position: absolute;
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.popular-container > div button.primary-btn,
+.popular-container > div button.primary-btn + button {
     width: 100%;
-    max-width: 135px;
+    max-width: 115px;
     height: 35px;
     color: var(--secondary-clr);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 500;
     border-radius: 4px;
     border: none;
+}
+
+.popular-container > div button.primary-btn {
     background-color: var(--accent-clr);
+}
+
+.popular-container > div button.primary-btn + button {
+    box-shadow: 0 0 2px rgb(255 255 255 / 1%) inset;
+    background-color: var(--accent-clr);
+}
+
+.popular-container > div button.primary-btn + button {
+    outline: 1px solid #181818;
+    background-color: var(--primary-clr);
+}
+
+.previewModal {
+    all: unset;
+    width: 50%;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(5em);
+}
+
+.previewModal::backdrop {
+    background-color: #111111d7;
+}
+
+.previewModal .close-modal {
+    color: var(--secondary-clr);
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--accent-clr);
+}
+
+.previewModal .close-modal i {
+    vertical-align: middle;
+}
+
+.previewModal .video-info {
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.previewModal .video-info ul {
+    display: flex;
+    column-gap: 1vw;
+}
+
+.previewModal .video-info ul li {
+    list-style-type: none;
+    color: #f6f6f6;
+}
+
+.previewModal .video-info ul li small i {
+    vertical-align: middle;
+    margin-inline-end: 0.5ch;
+}
+
+.previewModal .video-info ul li small span.quality {
+    font-size: 0.785rem;
+    outline: 1px solid #fff;
+    padding: 0 0.5rem;
 }
 
 /* ================== About ================== */
