@@ -9,6 +9,8 @@
     <title>DigitalDash</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -17,12 +19,13 @@
 
     <main id="virtual-walks">
         <section>
+            <!-- Hero Section -->
             <section class="hero__section">
                 <div class="video-background">
                     <video class="active" src="assets/videos/glen_coe.mp4" muted loop></video>
                     <video src="assets/videos/mountain_range_with_lake.mp4" muted loop></video>
-                    <video src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" muted
-                        loop></video>
+                    <video src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" muted loop></video>
+                    <!-- Video overlay -->
                     <div class="overlay"></div>
                 </div>
                 <div class="hero-content">
@@ -31,6 +34,7 @@
                     <a href="#" class="primary-btn"><i class="fa-solid fa-arrow-right"></i> Discover More</a>
                 </div>
             </section>
+            <!-- Banner Section -->
             <section class="banner">
                 <div>
                     <span class="subtitle"><small>What we can provide</small></span>
@@ -60,7 +64,64 @@
                     </div>
                 </div>                    
             </section>
-            <section class=""></section>    
+            <!-- Recommended Section -->
+            <section class="recommended__section">
+                <!-- Title -->
+                <div>
+                    <span class="subtitle"><small>Our top virtual hikes</small></span>
+                    <h2>Whats Popular</h2>
+                </div>
+                <br>
+                <br>
+                <!-- Content -->
+                <div class="popular-container">
+                    <!-- Popular #1 -->
+                    <div>
+                        <div class="popular-content">
+                            <video muted>
+                                <source src="assets/videos/glen_coe.mp4" type="video/mp4">
+                            </video>
+                            <div class="overlay"></div>
+                            <h2>Glen Coe</h2>
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <div class="popular-banner">
+                                <span><span>Top</span> <span>3</span></span>
+                            </div>
+                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                        </div>
+                    </div>
+                    <!-- Popular #2 -->
+                    <div>
+                        <div class="popular-content">
+                            <video muted>
+                                <source src="assets/videos/mountain_range_with_lake.mp4" type="video/mp4">
+                            </video>
+                            <div class="overlay"></div>
+                            <h2>Mountain Range Lake</h2>
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <div class="popular-banner">
+                                <span><span>Top</span> <span>3</span></span>
+                            </div>
+                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                        </div>
+                    </div>
+                    <!-- Popular #3 -->
+                    <div>
+                        <div class="popular-content">
+                            <video muted>
+                                <source src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" type="video/mp4">
+                            </video>
+                            <div class="overlay"></div>
+                            <h2>Sun Peek Forest</h2>
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <div class="popular-banner">
+                                <span><span>Top</span> <span>3</span></span>
+                            </div>
+                            <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Start Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 
@@ -69,6 +130,22 @@
     <!-- JavaScript -->
     <script src="js/components.js"></script>
     <script src="js/scripts.js" type="module"></script>
+    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const previews = document.querySelectorAll('.popular-content');
+
+            previews.forEach((preview) => {
+                preview.addEventListener('mouseover', () => {
+                    preview.querySelector('video').play();
+                });
+
+                preview.addEventListener('mouseout', () => {
+                    preview.querySelector('video').pause();
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
