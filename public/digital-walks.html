@@ -112,7 +112,7 @@
                                             <h2>Glen Coe</h2>
                                             <ul>
                                                 <li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 7 Seconds</small></li>
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             <ul>    
                                         </div>
@@ -136,8 +136,31 @@
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
                             <div class="button__container">
-                                <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
-                                <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                <!-- Play Button -->
+                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/mountain_range_with_lake.mp4', {
+                                    title: 'Mountain Range Lake',
+                                    location: 'N/A',
+                                    duration: '14 Seconds',
+                                    quality: 'HD',
+                                    description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
+                                <!-- Learn More Button -->
+                                <button type="button" onclick="initModal(this, 'previewModal', `
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='assets/videos/mountain_range_with_lake.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Mountain Range Lake</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 14 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            <ul>    
+                                        </div>
+                                        <p>A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.</p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                             </div>
                         </div>
                     </div>
@@ -157,8 +180,31 @@
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
                             <div class="button__container">
-                                <button type="button" class="primary-btn"><i class="fa-solid fa-play"></i> Play</button>
-                                <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                <!-- Play Button -->
+                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                    title: 'Sun Peek Forest',
+                                    location: 'N/A',
+                                    duration: '17 Seconds',
+                                    quality: 'HD',
+                                    description: ''
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
+                                <!-- Learn More Button -->
+                                <button type="button" onclick="initModal(this, 'previewModal', `
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Sun Peek Forest</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            <ul>    
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                             </div>
                         </div>
                     </div>

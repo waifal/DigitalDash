@@ -147,9 +147,16 @@ const VideoRegistry = {
         'assets/videos/glen_coe.mp4': {
             title: 'Glen Coe',
             location: 'Scotland',
-            duration: '17 Seconds',
+            duration: '7 Seconds',
             quality: 'HD',
             description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature\'s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it\'s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+        },
+        'assets/videos/mountain_range_with_lake.mp4': {
+            title: 'Mountain Range Lake',
+            location: 'N/A',
+            duration: '14 Seconds',
+            quality: 'HD',
+            description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
         },
     },
 
