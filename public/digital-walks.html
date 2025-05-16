@@ -24,13 +24,16 @@
                 <div class="video-background">
                     <video class="active" src="assets/videos/glen_coe.mp4" muted loop></video>
                     <video src="assets/videos/mountain_range_with_lake.mp4" muted loop></video>
-                    <video src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" muted loop></video>
+                    <video src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" muted
+                        loop></video>
                     <!-- Video overlay -->
                     <div class="overlay"></div>
                 </div>
                 <div class="hero-content">
                     <h1>Digital Walks</h1>
-                    <p>Experience the tranquility of nature from anywhere in the world. Our curated collection of virtual walks takes you through breathtaking landscapes, from serene forest trails to majestic mountain paths, all from the comfort of your home.</p>
+                    <p>Experience the tranquility of nature from anywhere in the world. Our curated collection of
+                        virtual walks takes you through breathtaking landscapes, from serene forest trails to majestic
+                        mountain paths, all from the comfort of your home.</p>
                     <a href="#" class="primary-btn"><i class="fa-solid fa-arrow-right"></i> Discover More</a>
                 </div>
             </section>
@@ -52,17 +55,19 @@
                         <img src="assets/images/backgrounds/scenic_swiss_alps_mountain_landscape.jpeg" alt="">
                         <div>
                             <h3>Connection</h3>
-                            <p>Strengthen your bond with nature and the world around you through immersive exploration.</p>
+                            <p>Strengthen your bond with nature and the world around you through immersive exploration.
+                            </p>
                         </div>
                     </div>
                     <div class="banner-grid-item">
                         <img src="assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg" alt="">
                         <div>
                             <h3>Exploration</h3>
-                            <p>Discover new perspectives and embrace the journey, all from the comfort of your space.</p>
+                            <p>Discover new perspectives and embrace the journey, all from the comfort of your space.
+                            </p>
                         </div>
                     </div>
-                </div>                    
+                </div>
             </section>
             <!-- Recommended Section -->
             <section class="recommended__section">
@@ -83,13 +88,20 @@
                             </video>
                             <div class="overlay"></div>
                             <h2>Glen Coe</h2>
-                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
+                                draggable="false">
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
                             <div class="button__container">
                                 <!-- Play Button -->
-                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/glen_coe.mp4')"><i class="fa-solid fa-play"></i> Play</button>
+                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/glen_coe.mp4', {
+                                    title: 'Glen Coe',
+                                    location: 'Scotland',
+                                    duration: '7 Seconds',
+                                    quality: 'HD',
+                                    description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
                                 <!-- Learn More Button -->
                                 <button type="button" onclick="initModal(this, 'previewModal', `
                                     <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -118,7 +130,8 @@
                             </video>
                             <div class="overlay"></div>
                             <h2>Mountain Range Lake</h2>
-                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
+                                draggable="false">
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
@@ -132,11 +145,14 @@
                     <div>
                         <div class="popular-content">
                             <video muted>
-                                <source src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" type="video/mp4">
+                                <source
+                                    src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4"
+                                    type="video/mp4">
                             </video>
                             <div class="overlay"></div>
                             <h2>Sun Peek Forest</h2>
-                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false">
+                            <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
+                                draggable="false">
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
@@ -159,7 +175,7 @@
     <script src="js/scripts.js" type="module"></script>
     <script src="js/videohandler.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const previews = document.querySelectorAll('.popular-content');
 
             previews.forEach((preview) => {
@@ -174,4 +190,5 @@
         });
     </script>
 </body>
+
 </html>

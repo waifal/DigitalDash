@@ -1,26 +1,95 @@
 /**
- * Initializes video player functionality with fullscreen and modal support.
- * Handles video playback controls, state management, and UI interactions.
- * Uses Video.js for player implementation with custom theme and controls.
+ * Enhanced Video Player Implementation
+ * Features:
+ * - Fullscreen video playback with custom controls
+ * - Modal video player with persistent state
+ * - Keyboard shortcuts for playback control
+ * - Seamless transition between fullscreen and modal views
+ * - Responsive design and accessibility improvements
  */
-document.addEventListener('DOMContentLoaded', function() {
-    window.playFullscreenVideo = function(videoSrc) {
-        const container = document.createElement('div');
-        container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;z-index:9999;';
-    
-        const videoElement = document.createElement('video');
-        videoElement.className = 'video-js vjs-theme-forest';
-        videoElement.id = 'fullscreen-player';
-        
-        const source = document.createElement('source');
-        source.src = videoSrc;
-        source.type = 'video/mp4';
-        
-        videoElement.appendChild(source);
-        container.appendChild(videoElement);
-        document.body.appendChild(container);
-    
-        const player = videojs('fullscreen-player', {
+
+const VideoStateManager = {
+    createState() {
+        return {
+            currentTime: 0,
+            isPaused: false,
+            volume: 1,
+            playbackRate: 1
+        };
+    },
+
+    updateFromPlayer(state, player) {
+        state.currentTime = player.currentTime();
+        state.isPaused = player.paused();
+        state.volume = player.volume();
+        state.playbackRate = player.playbackRate();
+        return state;
+    },
+
+    applyToPlayer(state, player) {
+        player.currentTime(state.currentTime);
+        player.volume(state.volume);
+        player.playbackRate(state.playbackRate);
+
+        if (state.isPaused) {
+            player.pause();
+        } else {
+            player.play().catch(err => console.warn('Auto-play prevented:', err));
+        }
+    }
+};
+
+const FullscreenUtils = {
+    request(element) {
+        try {
+            if (element.requestFullscreen) {
+                return element.requestFullscreen();
+            } else if (element.webkitRequestFullscreen) {
+                return element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                return element.msRequestFullscreen();
+            }
+        } catch (error) {
+            console.error('Fullscreen request failed:', error);
+        }
+    },
+
+    exit() {
+        try {
+            if (document.exitFullscreen) {
+                return document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                return document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                return document.msExitFullscreen();
+            }
+        } catch (error) {
+            console.error('Exit fullscreen failed:', error);
+        }
+    },
+
+    isFullscreen() {
+        return !!(document.fullscreenElement ||
+            document.webkitFullscreenElement ||
+            document.msFullscreenElement);
+    },
+
+    onChange(callback) {
+        ['fullscreenchange', 'webkitfullscreenchange', 'MSFullscreenChange'].forEach(event => {
+            document.addEventListener(event, callback);
+        });
+
+        return () => {
+            ['fullscreenchange', 'webkitfullscreenchange', 'MSFullscreenChange'].forEach(event => {
+                document.removeEventListener(event, callback);
+            });
+        };
+    }
+};
+
+const PlayerConfig = {
+    getFullscreenConfig() {
+        return {
             controls: true,
             fullscreen: {
                 enabled: true,
@@ -44,155 +113,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     'fullscreenToggle'
                 ]
             }
-        });
-    
-        const videoState = {
-            currentTime: 0,
-            isPaused: false,
-            volume: player.volume(),
-            playbackRate: player.playbackRate()
         };
-    
-        const requestFullscreen = () => {
-            try {
-                if (container.requestFullscreen) {
-                    container.requestFullscreen();
-                } else if (container.webkitRequestFullscreen) {
-                    container.webkitRequestFullscreen();
-                } else if (container.msRequestFullscreen) {
-                    container.msRequestFullscreen();
-                }
-            } catch (error) {
-                console.error('Fullscreen request failed:', error);
-            }
-        };
-    
-        requestFullscreen();
+    },
 
-        player.ready(() => {
-            const fullscreenToggle = player.controlBar.fullscreenToggle.el();
-            fullscreenToggle.onclick = () => {
-                if (document.fullscreenElement) {
-                    document.exitFullscreen?.() || 
-                    document.webkitExitFullscreen?.() || 
-                    document.msExitFullscreen?.();
-                    updateVideoState();
-                    cleanup();
-                    showInfoModal();
-                } else {
-                    requestFullscreen();
-                }
-            };
-
-            const playToggle = player.controlBar.playToggle.el();
-            playToggle.onclick = () => {
-                player[player.paused() ? 'play' : 'pause']();
-                updateVideoState();
-            };
-
-            const volumePanel = player.controlBar.volumePanel.el();
-            volumePanel.onclick = () => {
-                updateVideoState();
-            };
-
-            const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
-            playbackRateMenu.onclick = () => {
-                updateVideoState();
-            };
-        });
-    
-        const handleKeyPress = (e) => {
-            if (!document.fullscreenElement) return;
-            
-            if (e.code === 'Space') {
-                e.preventDefault();
-                player[player.paused() ? 'play' : 'pause']();
-                updateVideoState();
-            } else if (e.code === 'KeyF') {
-                e.preventDefault();
-                document.exitFullscreen?.() || 
-                document.webkitExitFullscreen?.() || 
-                document.msExitFullscreen?.();
-            } else if (e.code === 'ArrowUp') {
-                e.preventDefault();
-                player.volume(Math.min(player.volume() + 0.1, 1));
-                updateVideoState();
-            } else if (e.code === 'ArrowDown') {
-                e.preventDefault();
-                player.volume(Math.max(player.volume() - 0.1, 0));
-                updateVideoState();
-            }
-        };
-    
-        document.addEventListener('keydown', handleKeyPress);
-    
-        const updateVideoState = () => {
-            videoState.currentTime = player.currentTime();
-            videoState.isPaused = player.paused();
-            videoState.volume = player.volume();
-            videoState.playbackRate = player.playbackRate();
-        };
-    
-        ['play', 'pause', 'timeupdate', 'volumechange', 'ratechange'].forEach(event => {
-            player.on(event, updateVideoState);
-        });
-    
-        const exitHandler = () => {
-            if (document.fullscreenElement || document.webkitIsFullScreen || document.msFullscreenElement) return;
-    
-            updateVideoState();
-            cleanup();
-            showInfoModal();
-        };
-    
-        const cleanup = () => {
-            document.removeEventListener('keydown', handleKeyPress);
-            player.dispose();
-            container.remove();
-            ['fullscreenchange', 'webkitfullscreenchange', 'MSFullscreenChange'].forEach(event => {
-                document.removeEventListener(event, exitHandler);
-            });
-        };
-    
-        const showInfoModal = () => {
-            initModal(null, 'previewModal popularVideoFull', `
-                <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                    <source src='${videoSrc}' type='video/mp4'></source>
-                </video>  
-                <div class='video-info'>
-                    <div>
-                        <h2>Glen Coe</h2>
-                        <ul>
-                            <li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
-                            <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
-                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                        <ul>    
-                    </div>
-                    <p>Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature's drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it's a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.</p>
-                </div>
-            `);
-    
-            setTimeout(() => {
-                const modalPlayer = videojs('digital-dash-player');
-                modalPlayer.currentTime(videoState.currentTime);
-                modalPlayer.volume(videoState.volume);
-                modalPlayer.playbackRate(videoState.playbackRate);
-                modalPlayer[videoState.isPaused ? 'pause' : 'play']();
-            }, 100);
-        };
-    
-        ['fullscreenchange', 'webkitfullscreenchange', 'MSFullscreenChange'].forEach(event => {
-            document.addEventListener(event, exitHandler);
-        });
-    };
-    
-    document.addEventListener('modalOpened', function() {
-        const playerId = 'digital-dash-player';
-        videojs.getPlayer(playerId)?.dispose();
-    
-        if (!document.querySelector(`#${playerId}`)) return;
-    
-        const player = videojs(playerId, {
+    getModalConfig() {
+        return {
             autoplay: false,
             controls: true,
             fluid: false,
@@ -213,97 +138,301 @@ document.addEventListener('DOMContentLoaded', function() {
                     'fullscreenToggle'
                 ]
             }
-        });
-    
-        const videoState = {
-            isPaused: true,
-            volume: player.volume(),
-            playbackRate: player.playbackRate()
         };
-    
-        let hasPlayed = false;
-    
-        player.ready(function() {
-            player.el().querySelectorAll('.vjs-control-bar button').forEach(button => {
-                button.setAttribute('tabindex', '-1');
-                button.addEventListener('click', () => {
-                    updateVideoState();
-                    button.blur();
-                });
-            });
-    
-            const playControl = player.el().querySelector('.vjs-play-control');
-            if (playControl) {
-                playControl.addEventListener('click', () => {
-                    videoState.isPaused = player.paused();
-                    playControl.blur();
-                });
-            }
-    
-            const fullscreenButton = player.controlBar.fullscreenToggle.el();
-            fullscreenButton.setAttribute('tabindex', '-1');
-            player.on('fullscreenchange', () => {
-                videoState.isPaused = player.paused();
-                fullscreenButton.blur();
-            });
-    
-            const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
-            bigPlayButton.addEventListener('click', () => {
-                if (!hasPlayed) {
-                    if (!player.isFullscreen()) {
-                        player.requestFullscreen();
-                    }
-                    player.play();
-                    videoState.isPaused = false;
-                    hasPlayed = true;
+    }
+};
+
+const VideoRegistry = {
+    videos: {
+        'assets/videos/glen_coe.mp4': {
+            title: 'Glen Coe',
+            location: 'Scotland',
+            duration: '17 Seconds',
+            quality: 'HD',
+            description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature\'s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it\'s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+        },
+    },
+
+    getVideoInfo(src) {
+        return this.videos[src] || {
+            title: 'Video',
+            location: 'Location',
+            duration: 'Unknown',
+            quality: 'SD',
+            description: 'No description available.'
+        };
+    }
+};
+
+function showInfoModal(videoSrc, videoInfo, videoState) {
+    initModal(null, 'previewModal popularVideoFull', `
+      <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+        <source src='${videoSrc}' type='video/mp4'></source>
+      </video>  
+      <div class='video-info'>
+        <div>
+          <h2>${videoInfo.title}</h2>
+          <ul>
+            <li><small><i class='fa-solid fa-location-dot'></i> ${videoInfo.location}</small></li>
+            <li><small><i class='fa-solid fa-hourglass-start'></i> ${videoInfo.duration}</small></li>
+            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>${videoInfo.quality}</span></small></li>
+          </ul>    
+        </div>
+        <p>${videoInfo.description}</p>
+      </div>
+    `);
+
+    setTimeout(() => {
+        const modalPlayer = videojs('digital-dash-player');
+        VideoStateManager.applyToPlayer(videoState, modalPlayer);
+    }, 100);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.playFullscreenVideo = function (videoSrc, customData = null) {
+        const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
+
+        const container = document.createElement('div');
+        container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;z-index:9999;';
+        container.setAttribute('role', 'dialog');
+        container.setAttribute('aria-label', 'Video Player');
+
+        const videoElement = document.createElement('video');
+        videoElement.className = 'video-js vjs-theme-forest';
+        videoElement.id = 'fullscreen-player';
+
+        const source = document.createElement('source');
+        source.src = videoSrc;
+        source.type = 'video/mp4';
+
+        videoElement.appendChild(source);
+        container.appendChild(videoElement);
+        document.body.appendChild(container);
+
+        const player = videojs('fullscreen-player', PlayerConfig.getFullscreenConfig());
+
+        const videoState = VideoStateManager.createState();
+        videoState.volume = player.volume();
+        videoState.videoSrc = videoSrc;
+        videoState.videoInfo = videoInfo;
+
+        FullscreenUtils.request(container);
+
+        player.ready(() => {
+            const fullscreenToggle = player.controlBar.fullscreenToggle.el();
+            fullscreenToggle.onclick = () => {
+                if (FullscreenUtils.isFullscreen()) {
+                    FullscreenUtils.exit();
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    cleanup();
+                    showInfoModal(videoSrc, videoInfo, videoState);
+                } else {
+                    FullscreenUtils.request(container);
                 }
-            });
-    
-            player.on('play', () => {
-                videoState.isPaused = false;
-                hasPlayed = true;
-            });
-    
-            player.on('pause', () => {
-                videoState.isPaused = true;
-            });
-    
-            const updateVideoState = () => {
+            };
+
+            const playToggle = player.controlBar.playToggle.el();
+            playToggle.onclick = () => {
+                VideoStateManager.updateFromPlayer(videoState, player);
+            };
+
+            const volumePanel = player.controlBar.volumePanel.el();
+            volumePanel.onclick = () => {
+                VideoStateManager.updateFromPlayer(videoState, player);
+            };
+
+            const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
+            playbackRateMenu.onclick = () => {
+                VideoStateManager.updateFromPlayer(videoState, player);
+            };
+        });
+
+        const handleKeyPress = (e) => {
+            if (!FullscreenUtils.isFullscreen()) return;
+
+            switch (e.code) {
+                case 'Space':
+                    e.preventDefault();
+                    player[player.paused() ? 'play' : 'pause']();
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    break;
+                case 'KeyF':
+                    e.preventDefault();
+                    FullscreenUtils.exit();
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    player.volume(Math.min(player.volume() + 0.1, 1));
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    break;
+                case 'ArrowDown':
+                    e.preventDefault();
+                    player.volume(Math.max(player.volume() - 0.1, 0));
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    player.currentTime(player.currentTime() + 5);
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    player.currentTime(player.currentTime() - 5);
+                    VideoStateManager.updateFromPlayer(videoState, player);
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    if (FullscreenUtils.isFullscreen()) {
+                        FullscreenUtils.exit();
+                    }
+                    break;
+            }
+        };
+
+        document.addEventListener('keydown', handleKeyPress);
+
+        ['play', 'pause', 'timeupdate', 'volumechange', 'ratechange'].forEach(event => {
+            player.on(event, () => VideoStateManager.updateFromPlayer(videoState, player));
+        });
+
+        const removeFullscreenListener = FullscreenUtils.onChange(() => {
+            if (!FullscreenUtils.isFullscreen()) {
+                VideoStateManager.updateFromPlayer(videoState, player);
+                cleanup();
+                showInfoModal(videoSrc, videoInfo, videoState);
+            }
+        });
+
+        const cleanup = () => {
+            document.removeEventListener('keydown', handleKeyPress);
+            removeFullscreenListener();
+            player.dispose();
+            container.remove();
+        };
+    };
+});
+
+document.addEventListener('modalOpened', function () {
+    const playerId = 'digital-dash-player';
+
+    try {
+        videojs.getPlayer(playerId)?.dispose();
+    } catch (e) {
+        console.warn('Error disposing player:', e);
+    }
+
+    if (!document.querySelector(`#${playerId}`)) return;
+
+    const player = videojs(playerId, PlayerConfig.getModalConfig());
+
+    const videoState = {
+        isPaused: true,
+        volume: player.volume(),
+        playbackRate: player.playbackRate()
+    };
+
+    let hasPlayed = false;
+
+    player.ready(function () {
+        player.el().querySelectorAll('.vjs-control-bar button').forEach(button => {
+            button.setAttribute('tabindex', '0');
+            button.addEventListener('click', () => {
                 videoState.isPaused = player.paused();
                 videoState.volume = player.volume();
                 videoState.playbackRate = player.playbackRate();
-            };
-    
-            player.el().querySelector('video').addEventListener('click', () => {
-                if (hasPlayed) {
-                    player[player.paused() ? 'play' : 'pause']();
-                    updateVideoState();
-                }
+                button.blur();
             });
-    
-            const handleModalKeyPress = (e) => {
-                if (e.code === 'Space') {
+        });
+
+        const playControl = player.el().querySelector('.vjs-play-control');
+        if (playControl) {
+            playControl.addEventListener('click', () => {
+                videoState.isPaused = player.paused();
+                playControl.blur();
+            });
+        }
+
+        const fullscreenButton = player.controlBar.fullscreenToggle.el();
+        fullscreenButton.addEventListener('click', () => {
+            fullscreenButton.blur();
+        });
+
+        player.on('fullscreenchange', () => {
+            videoState.isPaused = player.paused();
+        });
+
+        const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
+        bigPlayButton.addEventListener('click', () => {
+            if (!hasPlayed) {
+                if (!player.isFullscreen()) {
+                    player.requestFullscreen();
+                }
+                player.play().catch(err => console.warn('Auto-play prevented:', err));
+                videoState.isPaused = false;
+                hasPlayed = true;
+            }
+        });
+
+        player.on('play', () => {
+            videoState.isPaused = false;
+            hasPlayed = true;
+        });
+
+        player.on('pause', () => {
+            videoState.isPaused = true;
+        });
+
+        const updateVideoState = () => {
+            videoState.isPaused = player.paused();
+            videoState.volume = player.volume();
+            videoState.playbackRate = player.playbackRate();
+        };
+
+        player.el().querySelector('video').addEventListener('click', () => {
+            if (hasPlayed) {
+                player[player.paused() ? 'play' : 'pause']();
+                updateVideoState();
+            }
+        });
+
+        const handleModalKeyPress = (e) => {
+            switch (e.code) {
+                case 'Space':
                     e.preventDefault();
                     player[player.paused() ? 'play' : 'pause']();
                     updateVideoState();
-                } else if (e.code === 'KeyF') {
+                    break;
+                case 'KeyF':
                     e.preventDefault();
                     player[player.isFullscreen() ? 'exitFullscreen' : 'requestFullscreen']();
-                } else if (e.code === 'ArrowUp') {
+                    break;
+                case 'ArrowUp':
                     e.preventDefault();
                     player.volume(Math.min(player.volume() + 0.1, 1));
                     updateVideoState();
-                } else if (e.code === 'ArrowDown') {
+                    break;
+                case 'ArrowDown':
                     e.preventDefault();
                     player.volume(Math.max(player.volume() - 0.1, 0));
                     updateVideoState();
-                }
-            };
-    
-            document.addEventListener('keydown', handleModalKeyPress);
-            player.on('dispose', () => {
-                document.removeEventListener('keydown', handleModalKeyPress);
-            });
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    player.currentTime(player.currentTime() + 5);
+                    updateVideoState();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    player.currentTime(player.currentTime() - 5);
+                    updateVideoState();
+                    break;
+            }
+        };
+
+        document.addEventListener('keydown', handleModalKeyPress);
+
+        player.on('dispose', () => {
+            document.removeEventListener('keydown', handleModalKeyPress);
         });
     });
 });
