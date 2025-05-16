@@ -827,6 +827,10 @@ div:has(> #digital-dash-player_html5_api) {
     padding: 0 0.5rem;
 }
 
+.popularVideoFull {
+    animation: unset;
+}
+
 /* ================== About ================== */
 
 .About {
