@@ -1,0 +1,117 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+.account-settings {
+    min-height: 100vh;
+    min-width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 3rem 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.635), lab(0% 0 0 / 0.635)), 
+            url("../assets/images/backgrounds/iceland_photo_of_bridge.jpg");
+    object-fit: contain;
+    background-position: center;
+}
+
+
+/* #2dc68a */
+
+
+form {
+    display: block;
+    row-gap: 15px;
+}
+
+.center-div {
+    min-height: 400px;
+    max-width: 400px;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem;
+}
+
+
+
+.split {
+    display: flex;
+    gap: 1rem;
+}
+.form-btn {
+    background-color: black;
+    color: white;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.split input {
+    border: 1px solid black;
+    outline: #2dc68a;
+    border-radius: 10px;
+    min-width: 100%;
+    padding: 10px 0;
+    padding-left: 10px;
+    font-size: 1rem;
+}
+
+
+
+.btn-div {
+    display: flex;
+    gap: 1rem;
+
+    margin-top: clamp(1rem, 2vw, 2em);
+}
+
+
+.save-btn ,
+.delete-btn,
+.edit-btn{
+    padding: 10px 1rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+}
+
+.save-btn {
+    background-color: #2dc68a;
+}
+
+.delete-btn{
+    background-color: red;
+}
+
+
+.edit-btn {
+    background-color: grey;
+}
+
+
+
+
+@media screen and (min-width: 768px) {
+            
+.center-div {
+    min-height: 400px;
+    min-width: 400px;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem;
+}
+
+
+}
+
