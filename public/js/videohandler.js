@@ -22,13 +22,27 @@ document.addEventListener('DOMContentLoaded', function() {
     
         const player = videojs('fullscreen-player', {
             controls: true,
-            fullscreen: true,
+            fullscreen: {
+                enabled: true,
+                fallback: true
+            },
             autoplay: true,
             fluid: true,
             preload: 'auto',
             disablePictureInPicture: true,
             controlBar: {
-                pictureInPictureToggle: false
+                pictureInPictureToggle: false,
+                fullscreenToggle: true,
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'playbackRateMenuButton',
+                    'fullscreenToggle'
+                ]
             }
         });
     
@@ -40,16 +54,52 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     
         const requestFullscreen = () => {
-            if (container.requestFullscreen) {
-                container.requestFullscreen();
-            } else if (container.webkitRequestFullscreen) {
-                container.webkitRequestFullscreen();
-            } else if (container.msRequestFullscreen) {
-                container.msRequestFullscreen();
+            try {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+            } catch (error) {
+                console.error('Fullscreen request failed:', error);
             }
         };
     
         requestFullscreen();
+
+        player.ready(() => {
+            const fullscreenToggle = player.controlBar.fullscreenToggle.el();
+            fullscreenToggle.onclick = () => {
+                if (document.fullscreenElement) {
+                    document.exitFullscreen?.() || 
+                    document.webkitExitFullscreen?.() || 
+                    document.msExitFullscreen?.();
+                    updateVideoState();
+                    cleanup();
+                    showInfoModal();
+                } else {
+                    requestFullscreen();
+                }
+            };
+
+            const playToggle = player.controlBar.playToggle.el();
+            playToggle.onclick = () => {
+                player[player.paused() ? 'play' : 'pause']();
+                updateVideoState();
+            };
+
+            const volumePanel = player.controlBar.volumePanel.el();
+            volumePanel.onclick = () => {
+                updateVideoState();
+            };
+
+            const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
+            playbackRateMenu.onclick = () => {
+                updateVideoState();
+            };
+        });
     
         const handleKeyPress = (e) => {
             if (!document.fullscreenElement) return;
@@ -57,11 +107,20 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.code === 'Space') {
                 e.preventDefault();
                 player[player.paused() ? 'play' : 'pause']();
+                updateVideoState();
             } else if (e.code === 'KeyF') {
                 e.preventDefault();
                 document.exitFullscreen?.() || 
                 document.webkitExitFullscreen?.() || 
                 document.msExitFullscreen?.();
+            } else if (e.code === 'ArrowUp') {
+                e.preventDefault();
+                player.volume(Math.min(player.volume() + 0.1, 1));
+                updateVideoState();
+            } else if (e.code === 'ArrowDown') {
+                e.preventDefault();
+                player.volume(Math.max(player.volume() - 0.1, 0));
+                updateVideoState();
             }
         };
     
@@ -142,7 +201,17 @@ document.addEventListener('DOMContentLoaded', function() {
             disablePictureInPicture: true,
             preload: 'auto',
             controlBar: {
-                pictureInPictureToggle: false
+                pictureInPictureToggle: false,
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'playbackRateMenuButton',
+                    'fullscreenToggle'
+                ]
             }
         });
     
@@ -157,7 +226,10 @@ document.addEventListener('DOMContentLoaded', function() {
         player.ready(function() {
             player.el().querySelectorAll('.vjs-control-bar button').forEach(button => {
                 button.setAttribute('tabindex', '-1');
-                button.blur();
+                button.addEventListener('click', () => {
+                    updateVideoState();
+                    button.blur();
+                });
             });
     
             const playControl = player.el().querySelector('.vjs-play-control');
@@ -196,10 +268,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 videoState.isPaused = true;
             });
     
+            const updateVideoState = () => {
+                videoState.isPaused = player.paused();
+                videoState.volume = player.volume();
+                videoState.playbackRate = player.playbackRate();
+            };
+    
             player.el().querySelector('video').addEventListener('click', () => {
                 if (hasPlayed) {
                     player[player.paused() ? 'play' : 'pause']();
-                    videoState.isPaused = player.paused();
+                    updateVideoState();
                 }
             });
     
@@ -207,10 +285,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (e.code === 'Space') {
                     e.preventDefault();
                     player[player.paused() ? 'play' : 'pause']();
-                    videoState.isPaused = player.paused();
+                    updateVideoState();
                 } else if (e.code === 'KeyF') {
                     e.preventDefault();
                     player[player.isFullscreen() ? 'exitFullscreen' : 'requestFullscreen']();
+                } else if (e.code === 'ArrowUp') {
+                    e.preventDefault();
+                    player.volume(Math.min(player.volume() + 0.1, 1));
+                    updateVideoState();
+                } else if (e.code === 'ArrowDown') {
+                    e.preventDefault();
+                    player.volume(Math.max(player.volume() - 0.1, 0));
+                    updateVideoState();
                 }
             };
     
