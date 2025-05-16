@@ -40,18 +40,35 @@ const VideoStateManager = {
 };
 
 const FullscreenUtils = {
-    request(element) {
-        try {
-            if (element.requestFullscreen) {
-                return element.requestFullscreen();
-            } else if (element.webkitRequestFullscreen) {
-                return element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                return element.msRequestFullscreen();
+    async request(element) {
+        return new Promise((resolve, reject) => {
+            if (!element.isConnected) {
+                reject(new Error('Element must be connected to the DOM before requesting fullscreen'));
+                return;
             }
-        } catch (error) {
-            console.error('Fullscreen request failed:', error);
-        }
+
+            try {
+                let requestPromise;
+                if (element.requestFullscreen) {
+                    requestPromise = element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) {
+                    requestPromise = element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    requestPromise = element.msRequestFullscreen();
+                }
+
+                if (requestPromise) {
+                    requestPromise
+                        .then(resolve)
+                        .catch(reject);
+                } else {
+                    reject(new Error('Fullscreen API not supported'));
+                }
+            } catch (error) {
+                console.error('Fullscreen request failed:', error);
+                reject(error);
+            }
+        });
     },
 
     exit() {
@@ -196,7 +213,7 @@ function showInfoModal(videoSrc, videoInfo, videoState) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.playFullscreenVideo = function (videoSrc, customData = null) {
+    window.playFullscreenVideo = async function (videoSrc, customData = null) {
         const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
 
         const container = document.createElement('div');
@@ -223,36 +240,51 @@ document.addEventListener('DOMContentLoaded', () => {
         videoState.videoSrc = videoSrc;
         videoState.videoInfo = videoInfo;
 
-        FullscreenUtils.request(container);
-
-        player.ready(() => {
-            const fullscreenToggle = player.controlBar.fullscreenToggle.el();
-            fullscreenToggle.onclick = () => {
-                if (FullscreenUtils.isFullscreen()) {
-                    FullscreenUtils.exit();
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    cleanup();
-                    showInfoModal(videoSrc, videoInfo, videoState);
-                } else {
-                    FullscreenUtils.request(container);
-                }
-            };
-
-            const playToggle = player.controlBar.playToggle.el();
-            playToggle.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
-
-            const volumePanel = player.controlBar.volumePanel.el();
-            volumePanel.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
-
-            const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
-            playbackRateMenu.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
+        await new Promise(resolve => {
+            player.ready(() => {
+                resolve();
+            });
         });
+
+        try {
+            await FullscreenUtils.request(container);
+        } catch (error) {
+            console.warn('Fullscreen request failed:', error);
+            showInfoModal(videoSrc, videoInfo, videoState);
+            cleanup();
+            return;
+        }
+
+        const fullscreenToggle = player.controlBar.fullscreenToggle.el();
+        fullscreenToggle.onclick = async () => {
+            if (FullscreenUtils.isFullscreen()) {
+                await FullscreenUtils.exit();
+                VideoStateManager.updateFromPlayer(videoState, player);
+                cleanup();
+                showInfoModal(videoSrc, videoInfo, videoState);
+            } else {
+                try {
+                    await FullscreenUtils.request(container);
+                } catch (error) {
+                    console.warn('Fullscreen toggle failed:', error);
+                }
+            }
+        };
+
+        const playToggle = player.controlBar.playToggle.el();
+        playToggle.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
+
+        const volumePanel = player.controlBar.volumePanel.el();
+        volumePanel.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
+
+        const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
+        playbackRateMenu.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
 
         const handleKeyPress = (e) => {
             if (!FullscreenUtils.isFullscreen()) return;
@@ -369,14 +401,21 @@ document.addEventListener('modalOpened', function () {
         });
 
         const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
-        bigPlayButton.addEventListener('click', () => {
+        bigPlayButton.addEventListener('click', async () => {
             if (!hasPlayed) {
-                if (!player.isFullscreen()) {
-                    player.requestFullscreen();
+                try {
+                    if (!player.isFullscreen()) {
+                        const playerElement = player.el();
+                        if (playerElement && playerElement.isConnected) {
+                            await FullscreenUtils.request(playerElement);
+                        }
+                    }
+                    await player.play();
+                    videoState.isPaused = false;
+                    hasPlayed = true;
+                } catch (err) {
+                    console.warn('Video playback or fullscreen request failed:', err);
                 }
-                player.play().catch(err => console.warn('Auto-play prevented:', err));
-                videoState.isPaused = false;
-                hasPlayed = true;
             }
         });
 
@@ -402,7 +441,7 @@ document.addEventListener('modalOpened', function () {
             }
         });
 
-        const handleModalKeyPress = (e) => {
+        const handleModalKeyPress = async (e) => {
             switch (e.code) {
                 case 'Space':
                     e.preventDefault();
@@ -411,7 +450,18 @@ document.addEventListener('modalOpened', function () {
                     break;
                 case 'KeyF':
                     e.preventDefault();
-                    player[player.isFullscreen() ? 'exitFullscreen' : 'requestFullscreen']();
+                    try {
+                        const playerElement = player.el();
+                        if (playerElement && playerElement.isConnected) {
+                            if (player.isFullscreen()) {
+                                await FullscreenUtils.exit();
+                            } else {
+                                await FullscreenUtils.request(playerElement);
+                            }
+                        }
+                    } catch (error) {
+                        console.warn('Fullscreen toggle failed:', error);
+                    }
                     break;
                 case 'ArrowUp':
                     e.preventDefault();

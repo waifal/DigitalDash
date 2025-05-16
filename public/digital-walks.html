@@ -186,7 +186,7 @@
                                     location: 'N/A',
                                     duration: '17 Seconds',
                                     quality: 'HD',
-                                    description: ''
+                                    description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
                                     })"><i class="fa-solid fa-play"></i> Play</button>
                                 <!-- Learn More Button -->
                                 <button type="button" onclick="initModal(this, 'previewModal', `
@@ -202,7 +202,7 @@
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             <ul>    
                                         </div>
-                                        <p></p>
+                                        <p>Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature's simple yet profound ability to create moments of wonder and serenity.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                             </div>
@@ -224,13 +224,31 @@
         document.addEventListener('DOMContentLoaded', function () {
             const previews = document.querySelectorAll('.popular-content');
 
+            async function handleVideoAction(video, action) {
+                if (!video) return;
+
+                try {
+                    if (action === 'play') {
+                        await video.play();
+                    } else {
+                        video.pause();
+                    }
+                } catch (e) {
+                    if (e.name !== 'AbortError') {
+                        console.warn(`Video ${action} error:`, e);
+                    }
+                }
+            }
+
             previews.forEach((preview) => {
                 preview.addEventListener('mouseover', () => {
-                    preview.querySelector('video').play();
+                    const video = preview.querySelector('video');
+                    handleVideoAction(video, 'play');
                 });
 
                 preview.addEventListener('mouseout', () => {
-                    preview.querySelector('video').pause();
+                    const video = preview.querySelector('video');
+                    handleVideoAction(video, 'pause');
                 });
             });
         });
