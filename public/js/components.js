@@ -51,3 +51,17 @@ const loadComponents = (componentName, targetId) => {
 
 loadComponents('nav', 'nav');
 loadComponents('footer', 'footer');
+
+
+
+
+
+const updatecopyrightYearly = ()=> {
+    const d = new Date();
+    let year = d.getFullYear();
+    const text = document.querySelector(".flex-1 p");
+    text.textContent = `© ${year} DigitalDash`
+}
+
+
+updatecopyrightYearly()
