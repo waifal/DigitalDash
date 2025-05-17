@@ -75,6 +75,7 @@ nav {
     padding: 0 150px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid #1d1d1d;
     background-color: var(--primary-clr);
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 5%);
 }
@@ -420,7 +421,7 @@ input:autofill:active {
 
 /* ================== Virtual Walks ================== */
 
-#virtual-walks section>div:first-child {
+/* #virtual-walks section>div:first-child {
     color: var(--secondary-clr);
     text-align: center;
 }
@@ -601,6 +602,122 @@ input:autofill:active {
     100% {
         transform: translate(100%, 100%);
     }
+} */
+
+#virtual-walks .hero-content {
+    position: relative;
+    height: calc(100svh - var(--nav-height));
+    overflow: hidden;
+    background-color: var(--primary-clr);
+    border-image: fill 1 radial-gradient(circle, rgba(10, 10, 10, 0) 0%, rgba(87, 199, 133, 0) 50%, rgba(15, 15, 15, 1) 100%);
+}
+
+#virtual-walks .hero-content>div:first-child {
+    /* border-image: fill 1 radial-gradient(circle, rgba(10, 10, 10, 0) 0%, rgba(87, 199, 133, 0) 50%, rgba(15, 15, 15, 1) 100%); */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%);
+    height: calc(100svh - var(--nav-height));
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(0.02rem);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#virtual-walks .hero-content>div:first-child img {
+    max-width: 100%;
+    width: 175px;
+    margin-bottom: 2rem;
+}
+
+#virtual-walks .hero-content>div:first-child>div h1 {
+    font-size: clamp(1.2rem, 1.4rem + 1vw, 3rem);
+    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(180, 180, 180) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+#virtual-walks h1,
+#virtual-walks h2 {
+    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(180, 180, 180) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#virtual-walks .hero-content>div:first-child>div h1 span {
+    font-size: clamp(1.2rem, 1.5rem + 1vw, 3rem);
+    background: linear-gradient(180deg, rgb(37, 255, 172) 50%, rgba(45, 196, 137, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+#virtual-walks .hero-content>div:first-child>div h1 span {
+    font-size: clamp(1.2rem, 1.5rem + 1vw, 3rem);
+}
+
+#virtual-walks .hero-content>div:first-child>div a.primary-btn {
+    max-width: fit-content;
+    height: 40px;
+    padding: 0 1.2rem;
+}
+
+#virtual-walks .hero-content>div:first-child>div p {
+    margin: 1.15rem 0;
+}
+
+#virtual-walks .hero__section~section>div:first-child {
+    text-align: center;
+}
+
+#virtual-walks .hero-content-grid {
+    width: 100%;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    position: absolute;
+    left: 0%;
+    top: 0;
+}
+
+#virtual-walks .hero-content-grid>div {
+    width: 180px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 15%);
+}
+
+#virtual-walks .hero-content-grid>div {
+    position: relative;
+    overflow: hidden;
+}
+
+#virtual-walks .hero-content-grid>div img {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#virtual-walks .hero-content-grid>div::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0.8) 100%);
 }
 
 .recommended__section {
@@ -859,10 +976,8 @@ div:has(> #digital-dash-player_html5_api) {
 }
 
 
-
-
-
 footer {
+    border-top: 1px solid #1d1d1d;
     min-height: 100px;
     min-width: 100%;
     padding: 1rem 1rem;
