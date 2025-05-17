@@ -852,3 +852,65 @@ div:has(> #digital-dash-player_html5_api) {
     left: 10%;
     top: 30%;
 }
+
+
+
+
+
+footer {
+    min-height: 100px;
+    min-width: 100%;
+    padding: 1rem 1rem;
+    background-color: var(--primary-clr);
+}
+
+
+.footer-content {
+
+    padding-top: 1rem;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    place-items: center;
+    column-gap: clamp(15px, 5vw, 4rem);
+    padding: 0 1rem;
+}
+
+
+.flex-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.flex-1 p {
+    font-size: clamp(10px, 3vw, 1.1rem)
+}
+
+
+.flex-1 img {
+    height: 45px;
+}
+
+
+
+.flex-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    place-items: center;
+    font-size: 2rem;
+}
+
+.flex-2 {
+    color: var(--secondary-clr)
+}
+
+.bi {
+    color: var(--secondary-clr);
+    height: 35px;
+}
+
+.bi:hover {
+    color: var(--accent-clr);
+}
