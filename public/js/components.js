@@ -52,7 +52,13 @@ const loadComponents = (componentName, targetId) => {
 loadComponents('nav', 'nav');
 loadComponents('footer', 'footer');
 
+
+
+
+
+
 const handleAccount_Settings = () => {
+
     const fName = document.getElementById("fname");
     const lName = document.getElementById("lname");
     const password = document.getElementById("password");
@@ -96,3 +102,14 @@ const handleAccount_Settings = () => {
 }
 
 document.addEventListener("DOMContentLoaded", handleAccount_Settings)
+
+
+const updatecopyrightYearly = ()=> {
+    const d = new Date();
+    let year = d.getFullYear();
+    const text = document.querySelector(".flex-1 p");
+    text.textContent = `© ${year} DigitalDash`
+}
+
+
+updatecopyrightYearly()
