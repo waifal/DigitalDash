@@ -65,7 +65,7 @@ a.primary-btn {
 
 .subtitle {
     color: #eee8e8;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 /* ================== Navigation ================== */
@@ -650,6 +650,14 @@ input:autofill:active {
     -webkit-text-fill-color: transparent;
 }
 
+#virtual-walks h2 span {
+    background: linear-gradient(180deg, rgb(37, 255, 172) 50%, rgba(45, 196, 137, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
 #virtual-walks .hero-content>div:first-child>div h1 span {
     font-size: clamp(1.2rem, 1.5rem + 1vw, 3rem);
 }
@@ -945,6 +953,60 @@ div:has(> #digital-dash-player_html5_api) {
     animation: unset;
 }
 
+#virtual-walks section.video__section {
+    min-height: 100svh;
+    padding: var(--container-padding);
+    background-color: var(--primary-clr);
+}
+
+#virtual-walks div.video__section {
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+#virtual-walks div.video__section>div~div {
+    margin: 3em 0;
+}
+
+#virtual-walks div.video__section h2.genre {
+    font-size: 1.3rem;
+    font-weight: 600;
+    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(206, 206, 206) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+#virtual-walks div.video__section-content {
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#virtual-walks div.video__section-content .arrow__container button {
+    color: var(--secondary-clr);
+    font-size: 1.2rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 12px;
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+}
+
+#virtual-walks div.video__section-content .arrow__container button:hover {
+    background-color: #0e0e0e;
+}
+
+
+#virtual-walks div.video__section-content .arrow__container button i {
+    vertical-align: middle;
+}
+
+
 /* ================== About ================== */
 
 .About {
@@ -967,27 +1029,87 @@ div:has(> #digital-dash-player_html5_api) {
     top: 30%;
 }
 
+/* ================== Footer ================== */
 
 footer {
     border-top: 1px solid #1d1d1d;
     min-height: 100px;
-    min-width: 100%;
-    padding: 1rem 1rem;
+    padding: 5rem 150px 1rem 150px;
     background-color: var(--primary-clr);
 }
 
-
-.footer-content {
-
-    padding-top: 1rem;
-    max-width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 2fr;
-    place-items: center;
-    column-gap: clamp(15px, 5vw, 4rem);
-    padding: 0 1rem;
+.footer-bottom {
+    color: #555555;
+    display: flex;
+    justify-content: space-between;
 }
 
+.footer-bottom a {
+    color: #555555;
+    text-decoration: none;
+}
+
+.footer-bottom span {
+    width: 1px;
+    background-color: #3a3a3a;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.footer-links {
+    display: flex;
+    column-gap: 1rem;
+}
+
+footer hr {
+    height: 1px;
+    margin: 1rem 0;
+    border: none;
+    background: linear-gradient(to right, transparent, #1c1c1c, transparent);
+}
+
+.footer-content {
+    max-width: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: 2fr 2fr;
+    place-items: center;
+    column-gap: clamp(15px, 5vw, 4rem);
+    padding: 0 1rem; */
+}
+
+.footer-grid {
+    justify-self: left;
+    display: grid;
+    column-gap: 1vw;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-grid strong {
+    color: #5e5e5e;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-grid ul li {
+    list-style-type: none;
+    line-height: 1.8;
+}
+
+.footer-grid ul li a {
+    font-size: 0.9rem;
+    color: #606060;
+    text-decoration: none;
+}
+
+.footer-grid ul li a:hover {
+    color: var(--accent-clr);
+    text-decoration: underline;
+}
 
 .flex-1 {
     display: flex;
@@ -1002,27 +1124,23 @@ footer {
 
 
 .flex-1 img {
-    height: 45px;
+    max-width: 100%;
+    width: 225px;
+    height: auto;
 }
 
-
-
-.flex-2 {
-    display: grid;
-    grid-template-columns: repeat(3, 50px);
-    place-items: center;
-    font-size: 2rem;
-}
-
-.flex-2 {
-    color: var(--secondary-clr)
+a:has(.bi) {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.2rem 0.5rem;
+    background-color: #0f0f0f;
 }
 
 .bi {
-    color: var(--secondary-clr);
+    color: #606060;
     height: 35px;
 }
 
-.bi:hover {
+a:has(.bi):hover .bi {
     color: var(--accent-clr);
 }
