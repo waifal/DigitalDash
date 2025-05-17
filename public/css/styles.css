@@ -634,19 +634,11 @@ input:autofill:active {
 
 #virtual-walks .hero-content>div:first-child>div h1 {
     font-size: clamp(1.2rem, 1.4rem + 1vw, 3rem);
-    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(180, 180, 180) 100%);
+    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(206, 206, 206) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-}
-
-#virtual-walks h1,
-#virtual-walks h2 {
-    background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(180, 180, 180) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
 }
 
 #virtual-walks .hero-content>div:first-child>div h1 span {
