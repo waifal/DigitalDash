@@ -5,7 +5,7 @@
     --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
-    
+
     --nav-height: 70px;
     --container-padding: 5rem 150px;
 
@@ -22,7 +22,7 @@ html {
     font: 1rem/1.5 Hind, Arial, sans-serif;
 }
 
-body{
+body {
     color: var(--secondary-clr);
     min-height: 100svh;
 }
@@ -420,9 +420,8 @@ input:autofill:active {
 
 /* ================== Virtual Walks ================== */
 
-#virtual-walks section > div:first-child {
+#virtual-walks section>div:first-child {
     color: var(--secondary-clr);
-    padding-top: 80px;
     text-align: center;
 }
 
@@ -505,13 +504,17 @@ input:autofill:active {
     transform: translateX(4px);
 }
 
+#virtual-walks .hero__section~section[class] {
+    align-content: center;
+}
+
 .banner {
     min-height: 100dvh;
     position: relative;
     background-color: var(--primary-clr);
 }
 
-.banner > div:has(.banner-grid-item) {
+.banner>div:has(.banner-grid-item) {
     min-height: 300px;
     padding: var(--container-padding);
     color: var(--secondary-clr);
@@ -538,7 +541,7 @@ input:autofill:active {
     aspect-ratio: 16/9;
 }
 
-.banner-grid-item img + div {
+.banner-grid-item img+div {
     padding: 1rem 2.2rem 2rem;
 }
 
@@ -549,15 +552,13 @@ input:autofill:active {
     left: -150%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        135deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0) 34%,
-        rgba(255, 255, 255, 0.032) 47%,
-        rgba(255, 255, 255, 0.015) 54%,
-        rgba(255, 255, 255, 0) 64%,
-        transparent 100%
-    );
+    background: linear-gradient(135deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0) 34%,
+            rgba(255, 255, 255, 0.032) 47%,
+            rgba(255, 255, 255, 0.015) 54%,
+            rgba(255, 255, 255, 0) 64%,
+            transparent 100%);
     filter: blur(5px);
     animation: lightBeam 8s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
     pointer-events: none;
@@ -596,6 +597,7 @@ input:autofill:active {
     0% {
         transform: translate(-100%, -100%);
     }
+
     100% {
         transform: translate(100%, 100%);
     }
@@ -608,13 +610,15 @@ input:autofill:active {
 }
 
 .popular-container {
+    max-width: fit-content;
+    margin: 0 auto;
     display: grid;
     justify-items: center;
-    column-gap: 1vw;
+    column-gap: 6vw;
     grid-template-columns: repeat(3, 1fr);
 }
 
-.popular-container > div > div:first-child {
+.popular-container>div>div:first-child {
     width: 300px;
     height: 480px;
     position: relative;
@@ -636,7 +640,7 @@ input:autofill:active {
     color: var(--accent-clr);
 }
 
-.popular-container > div > div > video {
+.popular-container>div>div>video {
     height: 100%;
     position: relative;
     left: 50%;
@@ -645,16 +649,17 @@ input:autofill:active {
     border-radius: 12px;
 }
 
-.popular-container > div > div > video + .overlay {
+.popular-container>div>div>video+.overlay {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    ;
 }
 
-.popular-container > div > div > h2 {
+.popular-container>div>div>h2 {
     text-align: center;
     width: 90%;
     position: absolute;
@@ -664,7 +669,7 @@ input:autofill:active {
     text-shadow: 0 0 12px rgb(0 0 0 / 10%);
 }
 
-.popular-container > div > div > img {
+.popular-container>div>div>img {
     position: absolute;
     max-width: 100%;
     width: 30px;
@@ -672,7 +677,7 @@ input:autofill:active {
     top: 10px;
 }
 
-.popular-container > div > div > div.popular-banner {
+.popular-container>div>div>div.popular-banner {
     padding: 0.5rem;
     width: fit-content;
     position: absolute;
@@ -686,22 +691,22 @@ input:autofill:active {
     background-color: var(--accent-clr);
 }
 
-.popular-container > div > div > div.popular-banner > span {
+.popular-container>div>div>div.popular-banner>span {
     display: inline-flex;
     flex-direction: column;
     margin-bottom: -5px;
 }
 
-.popular-container > div > div > div.popular-banner > span > span:first-child {
+.popular-container>div>div>div.popular-banner>span>span:first-child {
     margin-bottom: -2px;
 }
 
-.popular-container > div > div > div.popular-banner > span > span:last-child {
+.popular-container>div>div>div.popular-banner>span>span:last-child {
     font-size: 1.6em;
     margin-top: -10px;
 }
 
-.popular-container > div .button__container {
+.popular-container>div .button__container {
     display: flex;
     justify-content: center;
     column-gap: 0.5rem;
@@ -712,8 +717,8 @@ input:autofill:active {
     transform: translate(-50%, -50%);
 }
 
-.popular-container > div button.primary-btn,
-.popular-container > div button.primary-btn + button {
+.popular-container>div button.primary-btn,
+.popular-container>div button.primary-btn+button {
     width: 100%;
     max-width: 115px;
     height: 35px;
@@ -724,16 +729,16 @@ input:autofill:active {
     border: none;
 }
 
-.popular-container > div button.primary-btn {
+.popular-container>div button.primary-btn {
     background-color: var(--accent-clr);
 }
 
-.popular-container > div button.primary-btn + button {
+.popular-container>div button.primary-btn+button {
     box-shadow: 0 0 2px rgb(255 255 255 / 1%) inset;
     background-color: var(--accent-clr);
 }
 
-.popular-container > div button.primary-btn + button {
+.popular-container>div button.primary-btn+button {
     outline: 1px solid #181818;
     background-color: var(--primary-clr);
 }
@@ -759,7 +764,7 @@ input:autofill:active {
     to {
         opacity: 1;
     }
-    
+
 }
 
 div:has(> #digital-dash-player_html5_api) {
