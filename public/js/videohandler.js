@@ -40,18 +40,35 @@ const VideoStateManager = {
 };
 
 const FullscreenUtils = {
-    request(element) {
-        try {
-            if (element.requestFullscreen) {
-                return element.requestFullscreen();
-            } else if (element.webkitRequestFullscreen) {
-                return element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                return element.msRequestFullscreen();
+    async request(element) {
+        return new Promise((resolve, reject) => {
+            if (!element.isConnected) {
+                reject(new Error('Element must be connected to the DOM before requesting fullscreen'));
+                return;
             }
-        } catch (error) {
-            console.error('Fullscreen request failed:', error);
-        }
+
+            try {
+                let requestPromise;
+                if (element.requestFullscreen) {
+                    requestPromise = element.requestFullscreen();
+                } else if (element.webkitRequestFullscreen) {
+                    requestPromise = element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) {
+                    requestPromise = element.msRequestFullscreen();
+                }
+
+                if (requestPromise) {
+                    requestPromise
+                        .then(resolve)
+                        .catch(reject);
+                } else {
+                    reject(new Error('Fullscreen API not supported'));
+                }
+            } catch (error) {
+                console.error('Fullscreen request failed:', error);
+                reject(error);
+            }
+        });
     },
 
     exit() {
@@ -147,9 +164,23 @@ const VideoRegistry = {
         'assets/videos/glen_coe.mp4': {
             title: 'Glen Coe',
             location: 'Scotland',
-            duration: '17 Seconds',
+            duration: '7 Seconds',
             quality: 'HD',
             description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature\'s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it\'s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+        },
+        'assets/videos/mountain_range_with_lake.mp4': {
+            title: 'Mountain Range Lake',
+            location: 'N/A',
+            duration: '14 Seconds',
+            quality: 'HD',
+            description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
+        },
+        'assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4': {
+            title: 'Sun Peek Forest',
+            location: 'N/A',
+            duration: '17 Seconds',
+            quality: 'HD',
+            description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
         },
     },
 
@@ -189,7 +220,7 @@ function showInfoModal(videoSrc, videoInfo, videoState) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.playFullscreenVideo = function (videoSrc, customData = null) {
+    window.playFullscreenVideo = async function (videoSrc, customData = null) {
         const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
 
         const container = document.createElement('div');
@@ -216,36 +247,51 @@ document.addEventListener('DOMContentLoaded', () => {
         videoState.videoSrc = videoSrc;
         videoState.videoInfo = videoInfo;
 
-        FullscreenUtils.request(container);
-
-        player.ready(() => {
-            const fullscreenToggle = player.controlBar.fullscreenToggle.el();
-            fullscreenToggle.onclick = () => {
-                if (FullscreenUtils.isFullscreen()) {
-                    FullscreenUtils.exit();
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    cleanup();
-                    showInfoModal(videoSrc, videoInfo, videoState);
-                } else {
-                    FullscreenUtils.request(container);
-                }
-            };
-
-            const playToggle = player.controlBar.playToggle.el();
-            playToggle.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
-
-            const volumePanel = player.controlBar.volumePanel.el();
-            volumePanel.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
-
-            const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
-            playbackRateMenu.onclick = () => {
-                VideoStateManager.updateFromPlayer(videoState, player);
-            };
+        await new Promise(resolve => {
+            player.ready(() => {
+                resolve();
+            });
         });
+
+        try {
+            await FullscreenUtils.request(container);
+        } catch (error) {
+            console.warn('Fullscreen request failed:', error);
+            showInfoModal(videoSrc, videoInfo, videoState);
+            cleanup();
+            return;
+        }
+
+        const fullscreenToggle = player.controlBar.fullscreenToggle.el();
+        fullscreenToggle.onclick = async () => {
+            if (FullscreenUtils.isFullscreen()) {
+                await FullscreenUtils.exit();
+                VideoStateManager.updateFromPlayer(videoState, player);
+                cleanup();
+                showInfoModal(videoSrc, videoInfo, videoState);
+            } else {
+                try {
+                    await FullscreenUtils.request(container);
+                } catch (error) {
+                    console.warn('Fullscreen toggle failed:', error);
+                }
+            }
+        };
+
+        const playToggle = player.controlBar.playToggle.el();
+        playToggle.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
+
+        const volumePanel = player.controlBar.volumePanel.el();
+        volumePanel.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
+
+        const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
+        playbackRateMenu.onclick = () => {
+            VideoStateManager.updateFromPlayer(videoState, player);
+        };
 
         const handleKeyPress = (e) => {
             if (!FullscreenUtils.isFullscreen()) return;
@@ -362,14 +408,21 @@ document.addEventListener('modalOpened', function () {
         });
 
         const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
-        bigPlayButton.addEventListener('click', () => {
+        bigPlayButton.addEventListener('click', async () => {
             if (!hasPlayed) {
-                if (!player.isFullscreen()) {
-                    player.requestFullscreen();
+                try {
+                    if (!player.isFullscreen()) {
+                        const playerElement = player.el();
+                        if (playerElement && playerElement.isConnected) {
+                            await FullscreenUtils.request(playerElement);
+                        }
+                    }
+                    await player.play();
+                    videoState.isPaused = false;
+                    hasPlayed = true;
+                } catch (err) {
+                    console.warn('Video playback or fullscreen request failed:', err);
                 }
-                player.play().catch(err => console.warn('Auto-play prevented:', err));
-                videoState.isPaused = false;
-                hasPlayed = true;
             }
         });
 
@@ -395,7 +448,7 @@ document.addEventListener('modalOpened', function () {
             }
         });
 
-        const handleModalKeyPress = (e) => {
+        const handleModalKeyPress = async (e) => {
             switch (e.code) {
                 case 'Space':
                     e.preventDefault();
@@ -404,7 +457,18 @@ document.addEventListener('modalOpened', function () {
                     break;
                 case 'KeyF':
                     e.preventDefault();
-                    player[player.isFullscreen() ? 'exitFullscreen' : 'requestFullscreen']();
+                    try {
+                        const playerElement = player.el();
+                        if (playerElement && playerElement.isConnected) {
+                            if (player.isFullscreen()) {
+                                await FullscreenUtils.exit();
+                            } else {
+                                await FullscreenUtils.request(playerElement);
+                            }
+                        }
+                    } catch (error) {
+                        console.warn('Fullscreen toggle failed:', error);
+                    }
                     break;
                 case 'ArrowUp':
                     e.preventDefault();

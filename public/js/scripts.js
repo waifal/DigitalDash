@@ -1,7 +1,7 @@
-import { 
-    Modal, 
-    Accordion, 
-    SignupFormValidator, 
+import {
+    Modal,
+    Accordion,
+    SignupFormValidator,
     LoginFormValidator,
     ResetPasswordValidator,
     ResetPasswordForm
@@ -59,7 +59,7 @@ function showPasswords() {
 
     Array.from(buttons).forEach(button => {
         if (!button || !button.parentElement) return;
-        
+
         button.style.display = "none";
 
         const input = button.parentElement.firstElementChild;
@@ -100,6 +100,16 @@ if (document.getElementById('loginfrm')) {
     new LoginFormValidator('loginfrm');
 }
 
+/**
+ * Handles background video switching for the hero section.
+ *
+ * - Cycles through all videos in the .video-background container every 10 seconds.
+ * - Ensures only one video is active and playing at a time.
+ * - Adds the 'active' class to the currently visible video.
+ * - Handles initial play and resets other videos to the start.
+ * - Catches play() promise rejections to avoid uncaught errors from browser power-saving features.
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
     const videos = document.querySelectorAll('.video-background video');
     let currentVideoIndex = 0;
@@ -107,22 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function switchVideo() {
         // videos[currentVideoIndex].pause();
         videos[currentVideoIndex].classList.remove('active');
-        
+
         setTimeout(() => {
             videos[currentVideoIndex].currentTime = 0;
-            
+
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-            
+
             // Start new video from beginning and show it
             videos[currentVideoIndex].currentTime = 0;
-            videos[currentVideoIndex].play();
+            videos[currentVideoIndex].play().catch((e) => {
+                if (e.name !== 'AbortError') {
+                    console.warn('Video play error:', e);
+                }
+            });
             videos[currentVideoIndex].classList.add('active');
         }, 1000);
     }
 
-    videos[0].play();
+    videos[0].play().catch((e) => {
+        if (e.name !== 'AbortError') {
+            console.warn('Video play error:', e);
+        }
+    });
     videos[0].classList.add('active');
-    
+
     videos.forEach((video, index) => {
         if (index !== 0) {
             video.pause();

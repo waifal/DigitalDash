@@ -37,7 +37,7 @@ class Modal {
 
         closeModalBtn.addEventListener('click', () => modalParent.remove());
         closeModalBtn.addEventListener('click', () => document.body.style.overflowY = "scroll");
-        
+
         window.addEventListener('keydown', (event) => event.key === "Escape" ? modalParent.remove() : null);
         window.addEventListener('keydown', (event) => event.key === "Escape" ? document.body.style.overflowY = "scroll" : null);
     }
@@ -159,10 +159,10 @@ class SignupFormValidator {
         const password = this.form.querySelector('#password');
         const confirmPasswordGroup = this.form.querySelector('#pwd_confirm').closest('.form-group');
         const confirmPassword = this.form.querySelector('#pwd_confirm');
-        
+
         // Set initial state
         confirmPasswordGroup.style.display = password.value ? 'block' : 'none';
-        
+
         // Update on password change
         password.addEventListener('input', (e) => {
             confirmPasswordGroup.style.display = e.target.value ? 'block' : 'none';
@@ -200,7 +200,7 @@ class SignupFormValidator {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
@@ -325,7 +325,7 @@ class LoginFormValidator {
 
     initializeValidation() {
         if (!this.emailInput) return;
-        
+
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
 
@@ -377,7 +377,7 @@ class LoginFormValidator {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
@@ -466,7 +466,7 @@ class ResetPasswordValidator {
 
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             if (this.validateForm()) {
                 this.submitButton.disabled = true;
                 this.submitButton.style.cursor = 'wait';
@@ -487,14 +487,14 @@ class ResetPasswordValidator {
         this.emailInput.addEventListener('input', () => {
             const errorContainer = this.form.querySelector('.error-message');
             const phpError = this.form.querySelector('.error');
-            
+
             if (errorContainer) {
                 errorContainer.style.display = 'none';
             }
             if (phpError) {
                 phpError.remove();
             }
-            
+
             this.submitButton.disabled = false;
             this.submitButton.style.cursor = 'pointer';
             this.submitButton.textContent = 'Confirm';
@@ -544,7 +544,7 @@ class ResetPasswordForm {
 
     initializeValidation() {
         if (!this.newPassword || !this.confirmPassword) return;
-        
+
         const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,}$';
         this.newPassword.pattern = passwordPattern;
         this.newPassword.minLength = 8;
@@ -556,7 +556,7 @@ class ResetPasswordForm {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
