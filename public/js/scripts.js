@@ -1,7 +1,7 @@
-import { 
-    Modal, 
-    Accordion, 
-    SignupFormValidator, 
+import {
+    Modal,
+    Accordion,
+    SignupFormValidator,
     LoginFormValidator,
     ResetPasswordValidator,
     ResetPasswordForm
@@ -12,8 +12,8 @@ import {
  * @param {HTMLElement} button - Trigger button
  * @param {string} text - Modal content
  */
-function initModal(button, text) {
-    const modal = new Modal(button, text);
+function initModal(button, className, text) {
+    const modal = new Modal(button, className, text);
     modal.showModal();
 }
 
@@ -59,7 +59,7 @@ function showPasswords() {
 
     Array.from(buttons).forEach(button => {
         if (!button || !button.parentElement) return;
-        
+
         button.style.display = "none";
 
         const input = button.parentElement.firstElementChild;
@@ -83,7 +83,6 @@ showPasswords();
 window.initModal = initModal;
 window.initAccordion = initAccordion;
 
-// Initialize form validators based on form presence
 if (document.getElementById('resetpwdfrm')) {
     const resetForm = document.querySelector('form[action*="reset-password.inc.php"]');
     if (resetForm) {
@@ -101,57 +100,15 @@ if (document.getElementById('loginfrm')) {
     new LoginFormValidator('loginfrm');
 }
 
-
-// Initialize walk preview functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const previewButtons = document.querySelectorAll('.previews__container .preview');
-    const descriptionDiv = document.querySelector('.recommended__section .description');
-    const contentDiv = document.querySelector('.recommended__section .content');
-
-    // Load default walk (walk_one)
-    loadWalkContent('walk_one');
-
-    previewButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const walkNumber = index + 1;
-            const walkFile = `walk_${getNumberWord(walkNumber)}`;
-            loadWalkContent(walkFile);
-        });
-    });
-});
-
-function getNumberWord(num) {
-    const numbers = ['one', 'two', 'three'];
-    return numbers[num - 1];
-}
-
-function loadWalkContent(walkFile) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `components/recommended_walks/${walkFile}.html`, true);
-
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(xhr.responseText, 'text/html');
-            
-            const description = document.querySelector('.recommended__section .description');
-            const content = document.querySelector('.recommended__section .content');
-            const recommendedSection = document.querySelector('.recommended__section');
-
-            if (description && content) {
-                description.innerHTML = doc.querySelector('.description').innerHTML;
-                content.innerHTML = doc.querySelector('.content').innerHTML;
-                
-                // Remove any existing walk classes
-                recommendedSection.classList.remove('walk-one', 'walk-two', 'walk-three');
-                // Add the new walk class
-                recommendedSection.classList.add(walkFile.replace('_', '-'));
-            }
-        }
-    };
-
-    xhr.send();
-}
+/**
+ * Handles background video switching for the hero section.
+ *
+ * - Cycles through all videos in the .video-background container every 10 seconds.
+ * - Ensures only one video is active and playing at a time.
+ * - Adds the 'active' class to the currently visible video.
+ * - Handles initial play and resets other videos to the start.
+ * - Catches play() promise rejections to avoid uncaught errors from browser power-saving features.
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
     const videos = document.querySelectorAll('.video-background video');
@@ -160,23 +117,30 @@ document.addEventListener('DOMContentLoaded', () => {
     function switchVideo() {
         // videos[currentVideoIndex].pause();
         videos[currentVideoIndex].classList.remove('active');
-        
+
         setTimeout(() => {
             videos[currentVideoIndex].currentTime = 0;
-            
+
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-            
+
             // Start new video from beginning and show it
             videos[currentVideoIndex].currentTime = 0;
-            videos[currentVideoIndex].play();
+            videos[currentVideoIndex].play().catch((e) => {
+                if (e.name !== 'AbortError') {
+                    console.warn('Video play error:', e);
+                }
+            });
             videos[currentVideoIndex].classList.add('active');
         }, 1000);
     }
 
-    videos[0].play();
+    videos[0].play().catch((e) => {
+        if (e.name !== 'AbortError') {
+            console.warn('Video play error:', e);
+        }
+    });
     videos[0].classList.add('active');
-    
-    // Pause all other videos initially
+
     videos.forEach((video, index) => {
         if (index !== 0) {
             video.pause();
@@ -184,6 +148,96 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Switch video every 10 seconds
     setInterval(switchVideo, 10000);
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.video__section-content').forEach(section => {
+        const cards = section.querySelector('.cards');
+        const leftBtn = section.querySelector('.arrow__container:first-child button');
+        const rightBtn = section.querySelector('.arrow__container:last-child button');
+        if (!cards || !leftBtn || !rightBtn) return;
+
+        const card = cards.querySelector('div');
+        const cardWidth = card ? card.offsetWidth : 280;
+        const gap = parseInt(getComputedStyle(cards).gap) || 16;
+        const scrollAmount = cardWidth + gap;
+
+        function updateButtons() {
+            if (cards.scrollLeft <= 0) {
+                leftBtn.style.visibility = 'hidden';
+            } else {
+                leftBtn.style.visibility = 'visible';
+            }
+            if (cards.scrollLeft + cards.clientWidth >= cards.scrollWidth - 1) {
+                rightBtn.style.visibility = 'hidden';
+            } else {
+                rightBtn.style.visibility = 'visible';
+            }
+        }
+
+        let isScrolling;
+        cards.addEventListener('scroll', function () {
+            updateButtons();
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function () {
+                const maxScroll = cards.scrollWidth - cards.clientWidth;
+                if (cards.scrollLeft >= maxScroll - 1) {
+                    cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                } else {
+                    let index = Math.round(cards.scrollLeft / scrollAmount);
+                    let target = index * scrollAmount;
+                    cards.scrollTo({ left: target, behavior: 'smooth' });
+                }
+            }, 100);
+        });
+
+        leftBtn.addEventListener('click', () => {
+            const index = Math.round(cards.scrollLeft / scrollAmount);
+            cards.scrollTo({ left: (index - 1) * scrollAmount, behavior: 'smooth' });
+        });
+        rightBtn.addEventListener('click', () => {
+            const maxScroll = cards.scrollWidth - cards.clientWidth;
+            if (cards.scrollLeft >= maxScroll - 1) {
+                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                return;
+            }
+            const index = Math.round(cards.scrollLeft / scrollAmount);
+            const nextScroll = (index + 1) * scrollAmount;
+            if (nextScroll >= maxScroll - 1) {
+                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
+            } else {
+                cards.scrollTo({ left: nextScroll, behavior: 'smooth' });
+            }
+        });
+
+        let isDown = false;
+        let startX;
+        let scrollLeftStart;
+
+        cards.addEventListener('mousedown', (e) => {
+            isDown = true;
+            cards.classList.add('dragging');
+            startX = e.pageX - cards.getBoundingClientRect().left;
+            scrollLeftStart = cards.scrollLeft;
+            e.preventDefault();
+        });
+        cards.addEventListener('mouseleave', () => {
+            isDown = false;
+            cards.classList.remove('dragging');
+        });
+        cards.addEventListener('mouseup', () => {
+            isDown = false;
+            cards.classList.remove('dragging');
+        });
+        cards.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX - cards.getBoundingClientRect().left;
+            const walk = (startX - x);
+            cards.scrollLeft = scrollLeftStart + walk;
+        });
+
+        updateButtons();
+        window.addEventListener('resize', updateButtons);
+    });
 });

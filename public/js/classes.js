@@ -5,8 +5,9 @@
  * @param {string} text - The content text to display in the modal
  */
 class Modal {
-    constructor(button, text) {
+    constructor(button, className, text) {
         this.button = button;
+        this.className = className;
         this.text = text;
     }
 
@@ -15,25 +16,30 @@ class Modal {
 
         modalParent.className = "modal__container";
         modalParent.innerHTML = `
-            <dialog class="modal">
+            <dialog class="modal ${this.className}">
                 <div>
                     <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div>
-                    <p>${this.text}</p>
+                    ${this.text}
                 </div>
             </dialog>
         `;
 
         document.body.prepend(modalParent);
+        document.body.style.overflowY = "hidden";
 
         const dialog = modalParent.querySelector('dialog');
         const closeModalBtn = dialog.querySelector('.close-modal');
 
         dialog.showModal();
+        document.dispatchEvent(new CustomEvent('modalOpened'));
 
         closeModalBtn.addEventListener('click', () => modalParent.remove());
+        closeModalBtn.addEventListener('click', () => document.body.style.overflowY = "scroll");
+
         window.addEventListener('keydown', (event) => event.key === "Escape" ? modalParent.remove() : null);
+        window.addEventListener('keydown', (event) => event.key === "Escape" ? document.body.style.overflowY = "scroll" : null);
     }
 }
 
@@ -152,13 +158,19 @@ class SignupFormValidator {
     setupPasswordConfirmVisibility() {
         const password = this.form.querySelector('#password');
         const confirmPasswordGroup = this.form.querySelector('#pwd_confirm').closest('.form-group');
-        
+        const confirmPassword = this.form.querySelector('#pwd_confirm');
+
         // Set initial state
         confirmPasswordGroup.style.display = password.value ? 'block' : 'none';
-        
+
         // Update on password change
         password.addEventListener('input', (e) => {
             confirmPasswordGroup.style.display = e.target.value ? 'block' : 'none';
+            if (!e.target.value) {
+                confirmPassword.value = '';
+                const errorContainer = this.getErrorContainer(confirmPassword);
+                this.setValid(confirmPassword, errorContainer);
+            }
         });
     }
 
@@ -188,7 +200,7 @@ class SignupFormValidator {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
@@ -313,7 +325,7 @@ class LoginFormValidator {
 
     initializeValidation() {
         if (!this.emailInput) return;
-        
+
         const emailPattern = '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}';
         this.emailInput.pattern = emailPattern;
 
@@ -365,7 +377,7 @@ class LoginFormValidator {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
@@ -454,7 +466,7 @@ class ResetPasswordValidator {
 
         this.form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             if (this.validateForm()) {
                 this.submitButton.disabled = true;
                 this.submitButton.style.cursor = 'wait';
@@ -475,14 +487,14 @@ class ResetPasswordValidator {
         this.emailInput.addEventListener('input', () => {
             const errorContainer = this.form.querySelector('.error-message');
             const phpError = this.form.querySelector('.error');
-            
+
             if (errorContainer) {
                 errorContainer.style.display = 'none';
             }
             if (phpError) {
                 phpError.remove();
             }
-            
+
             this.submitButton.disabled = false;
             this.submitButton.style.cursor = 'pointer';
             this.submitButton.textContent = 'Confirm';
@@ -532,7 +544,7 @@ class ResetPasswordForm {
 
     initializeValidation() {
         if (!this.newPassword || !this.confirmPassword) return;
-        
+
         const passwordPattern = '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,}$';
         this.newPassword.pattern = passwordPattern;
         this.newPassword.minLength = 8;
@@ -544,7 +556,7 @@ class ResetPasswordForm {
 
     validateField(input) {
         const errorContainer = this.getErrorContainer(input);
-        
+
         if (input.validity.valid) {
             this.setValid(input, errorContainer);
         } else {
@@ -555,7 +567,10 @@ class ResetPasswordForm {
     validatePasswordMatch() {
         const errorContainer = this.getErrorContainer(this.confirmPassword);
 
-        if (this.newPassword.value !== this.confirmPassword.value) {
+        if (!this.confirmPassword.value) {
+            this.confirmPassword.setCustomValidity('');
+            this.setValid(this.confirmPassword, errorContainer);
+        } else if (this.newPassword.value !== this.confirmPassword.value) {
             this.confirmPassword.setCustomValidity('Passwords do not match');
             this.setInvalid(this.confirmPassword, errorContainer);
         } else {

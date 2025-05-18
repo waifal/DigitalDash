@@ -134,7 +134,7 @@ function is_valid_email_domain(?string $email, string $message): ?string {
 /**
  * Checks if an email is already registered in the database.
  *
- * This function queries the `tbluser` table to determine whether
+ * This function queries the `tbl_user` table to determine whether
  * the provided email exists, preventing duplicate registrations.
  *
  * @param string $email The email address to check.
@@ -149,7 +149,7 @@ function is_email_registered(?string $email): bool {
 		return false;
 	}
 
-	$query = "SELECT user_id FROM tbluser WHERE email = ? LIMIT 1";
+	$query = "SELECT user_id FROM tbl_user WHERE email = ? LIMIT 1";
 	$stmt = $connection->prepare($query);
 
 	if (!$stmt) {
@@ -287,7 +287,7 @@ function validate_user_input(
 /**
  * Adds a new user to the database and initializes the user session.
  *
- * Hashes the user's password, inserts their data into the `tbluser` table, and sets session variables upon success.
+ * Hashes the user's password, inserts their data into the `tbl_user` table, and sets session variables upon success.
  * Handles database connection issues, SQL preparation errors, and execution failures.
  * Redirects the user upon successful registration.
  *
@@ -318,7 +318,7 @@ function add_new_user(
 
 	$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-	$query = "INSERT INTO tbluser (firstname, lastname, email, password, agreed_terms, agreed_privacy) VALUES (?, ?, ?, ?, ?, ?)";
+	$query = "INSERT INTO tbl_user (firstname, lastname, email, password, agreed_terms, agreed_privacy) VALUES (?, ?, ?, ?, ?, ?)";
 	$stmt = $connection->prepare($query);
 
 	if (!$stmt) {
@@ -371,7 +371,7 @@ function send_reset_link($email) {
 
 	$user_id = null;
 
-	$query = "SELECT user_id FROM tbluser WHERE email = ?";
+	$query = "SELECT user_id FROM tbl_user WHERE email = ?";
 	if ($stmt = $connection->prepare($query)) {
 		$stmt->bind_param("s", $email);
 		$stmt->execute();
@@ -469,7 +469,7 @@ function reset_password(int $user_id, string $token, ?string $new_password, ?str
 
 	$new_hash = password_hash($validated_password, PASSWORD_DEFAULT);
 
-	$stmt = $connection->prepare("UPDATE tbluser SET password = ? WHERE user_id = ?");
+	$stmt = $connection->prepare("UPDATE tbl_user SET password = ? WHERE user_id = ?");
 	if (!$stmt) {
 		return "Database error: " . $connection->error;
 	}
@@ -505,62 +505,62 @@ function reset_password(int $user_id, string $token, ?string $new_password, ?str
  */
 
 function login_user(string $email, string $password): void {
-    global $connection;
+	global $connection;
 
-    if (empty($email) && empty($password)) {
-        $_SESSION['errors'] = ['login' => "Email and password are required."];
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	if (empty($email) && empty($password)) {
+		$_SESSION['errors'] = ['login' => "Email and password are required."];
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    if (empty($email)) {
-        $_SESSION['errors'] = ['login' => "Please enter your email address."];
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	if (empty($email)) {
+		$_SESSION['errors'] = ['login' => "Please enter your email address."];
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    if (empty($password)) {
-        $_SESSION['errors'] = ['login' => "Please enter your password."];
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	if (empty($password)) {
+		$_SESSION['errors'] = ['login' => "Please enter your password."];
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    $stmt = $connection->prepare("SELECT user_id, password FROM tbluser WHERE email = ?");
-    if (!$stmt) {
-        $_SESSION['errors'] = ['login' => "Database error. Please try again later."];
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	$stmt = $connection->prepare("SELECT user_id, password FROM tbl_user WHERE email = ?");
+	if (!$stmt) {
+		$_SESSION['errors'] = ['login' => "Database error. Please try again later."];
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
+	$stmt->bind_param("s", $email);
+	$stmt->execute();
 
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
-    $user_id = $row['user_id'] ?? null;
-    $hashed_password = $row['password'] ?? null;
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+	$user_id = $row['user_id'] ?? null;
+	$hashed_password = $row['password'] ?? null;
 
-    $stmt->close();
+	$stmt->close();
 
-    if (!$user_id) {
-        $_SESSION['errors'] = ['login' => "Invalid email or password."];
-        // Don't store email in session when email doesn't exist
-        unset($_SESSION['form_data']);
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	if (!$user_id) {
+		$_SESSION['errors'] = ['login' => "Invalid email or password."];
+		// Don't store email in session when email doesn't exist
+		unset($_SESSION['form_data']);
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    if (!password_verify($password, $hashed_password)) {
-        $_SESSION['errors'] = ['login' => "Invalid password."];
-        $_SESSION['form_data'] = ['email' => $email]; // Keep email only for valid email addresses
-        header('Location: ../public/php/pages/login.php');
-        exit;
-    }
+	if (!password_verify($password, $hashed_password)) {
+		$_SESSION['errors'] = ['login' => "Invalid password."];
+		$_SESSION['form_data'] = ['email' => $email]; // Keep email only for valid email addresses
+		header('Location: ../public/php/pages/login.php');
+		exit;
+	}
 
-    $_SESSION['logged_in'] = true;
-    $_SESSION['user_id'] = $user_id;
-    $_SESSION['email'] = $email;
+	$_SESSION['logged_in'] = true;
+	$_SESSION['user_id'] = $user_id;
+	$_SESSION['email'] = $email;
 
-    header('Location: ../public/php/index.php');
-    exit;
+	header('Location: ../public/php/index.php');
+	exit;
 }

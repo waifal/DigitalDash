@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 		</div>
 		<ul>
 			<li><a href="../../index.html">Home</a></li>
-			<li><a href="../../virtual-walks.html">Virtual Walks</a></li>
+			<li><a href="../../digital-walks.html">Digital Walks</a></li>
 			<li><a href="#">About</a></li>
 			<li><a href="#">Contact</a></li>
 		</ul>

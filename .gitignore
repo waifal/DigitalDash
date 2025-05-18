@@ -1,6 +1,5 @@
 .env
 database
-db
 vendor/
 videos/
 .DS_Store
