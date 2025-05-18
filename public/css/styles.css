@@ -1200,7 +1200,6 @@ div[data-access="false"]:hover::after {
     color: white;
     font-size: 1rem;
     position: absolute;
-<<<<<<< HEAD
     width: 30%;
     left: 17.5%;
     top: 40%;
@@ -1214,10 +1213,6 @@ div[data-access="false"]:hover::after {
     border: 1px solid white;
     background-color: black;
     border-radius: 5px 5px 5px 5px;
-=======
-    width: 400px;
-    left: 10%;
-    top: 30%;
 }
 
 /* ================== Footer ================== */
@@ -1334,5 +1329,4 @@ a:has(.bi) {
 
 a:has(.bi):hover .bi {
     color: var(--accent-clr);
->>>>>>> 01fbb4c9f4003bbad3b5fe3bb1dac0798be1cffa
 }
