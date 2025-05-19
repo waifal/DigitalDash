@@ -246,3 +246,18 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('resize', updateButtons);
     });
 });
+
+
+/**
+ * 
+ * THEME SWITCHER SCRIPT
+ * 
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const button = document.getElementById("theme-switcher");
+
+    button.addEventListener("click", (event) => {
+        console.log("Theme switcher has been clicked!");
+    })
+});
