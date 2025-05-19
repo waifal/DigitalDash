@@ -254,10 +254,12 @@ document.addEventListener('DOMContentLoaded', function () {
  * 
  */
 
-document.addEventListener("DOMContentLoaded", () => {
-    const button = document.getElementById("theme-switcher");
+const button = document.getElementById("theme-switcher");
 
+if(button) {
     button.addEventListener("click", (event) => {
-        console.log("Theme switcher has been clicked!");
-    })
-});
+        if(event.target.closest("button")) {
+            console.log(event.target)
+        }
+    });
+}
