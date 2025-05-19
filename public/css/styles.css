@@ -1228,7 +1228,9 @@ div[data-access="false"]:hover::after {
 
 .About {
     background: var(--image-overlay),
-        url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+    url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+    background-position: center;
+    background-size: cover;
     height: 99vh;
 }
 
