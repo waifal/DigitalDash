@@ -1,5 +1,5 @@
 :root {
-    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgb(0, 0, 0, 0.50) 100%);
+    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgb(0, 0, 0, 0.75) 100%);
 }
 
 body{
@@ -8,4 +8,27 @@ background-size: 1715px;
 background-position: center;
 background-repeat: no-repeat ;
 
+}
+
+main section > div:first-child {
+    flex: 2;
+    min-width: 16rem;
+    padding-right: 100px;
+    text-align: center;
+    align-content: left;
+}
+
+
+
+
+
+
+main section > div:last-child {
+    display: -moz-grid-line;
+    
+  
+}
+
+main section > div:last-child > div {
+    align-content: right;
 }
