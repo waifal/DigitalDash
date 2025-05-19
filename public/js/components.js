@@ -121,9 +121,6 @@ const loadComponents = (componentName, targetId) => {
 }
 
 loadComponents('nav', 'nav');
- main
-loadComponents('footer', 'footer');
-
 loadComponents('footer', 'footer');
 
 
@@ -187,4 +184,3 @@ const updatecopyrightYearly = () => {
 
 
 updatecopyrightYearly()
-main
