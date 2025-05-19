@@ -1002,7 +1002,7 @@ div:has(> #digital-dash-player_html5_api) {
     padding-bottom: 0.5rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    cursor: grab;
+    /* cursor: grab; */
 }
 
 #virtual-walks div.video__section-content .cards .context {
@@ -1049,7 +1049,7 @@ div:has(> #digital-dash-player_html5_api) {
 }
 
 #virtual-walks div.video__section-content .cards.dragging {
-    cursor: grabbing;
+    /* cursor: grabbing; */
     user-select: none;
 }
 
@@ -1181,13 +1181,57 @@ div[data-access="false"]:hover::after {
     border: 2px dashed rgba(255, 255, 255, 0.1);
 }
 
+.banner {
+    height: 60vh;
+    padding: var(--container-padding);
+    background-color: var(--primary-clr);
+}
+
+.banner-content {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 2vh;
+    border-radius: 12px;
+    outline: 1px solid rgb(255, 255, 255, 0.1);
+    background:
+        linear-gradient(120deg, rgba(8, 8, 8, 0.92) 40%, rgba(45, 196, 138, 0) 100%),
+        url('../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+}
+
+.banner-content a.primary-btn {
+    max-width: fit-content;
+    border-radius: 4px;
+    padding: 0 1.2rem;
+    height: 40px;
+    max-width: 180px;
+}
+
+
+.banner-content h2,
+.banner-content p {
+    text-align: left;
+    margin: unset;
+}
+
+.banner-content p {
+    margin: 0.5rem 0;
+    color: #898989;
+}
+
 /* ================== About ================== */
 
 .About {
     background: var(--image-overlay),
-                url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+        url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
     height: 99vh;
 }
+
 .About h1 {
     color: white;
     font-size: 2rem;
