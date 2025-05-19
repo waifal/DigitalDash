@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../public/assets/images/logo/logo_color_transparent_logo.png">
+	<title>DigitalDash</title>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+		integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+	<nav id="nav"></nav>
+
+	<main>
+		<section class="col-2">
+			<h2>Contact us </h2>
+			<p>
+				<li>Ph: 022 123 4567</li>
+				<li> Gmail: DigitalDashMediaNZ@gmail.com</li>
+				<li>Location: Tristram Street, Whitiora, Hamilton 3204</li>
+			</p>
+			<h2>Our Socials</h2>
+			p>Follow us on our social media platforms to stay updated with the latest news and offers.</p>
+			<img src="  " alt="Logo" class="logo">
+			<div class="socials">
+				<a href="https://www.facebook.com/digitaldashmedia" target="_blank"><i
+						class="fa-brands fa-facebook"></i></a>
+				<a href="https://www.instagram.com/digitaldashmedia/" target="_blank"><i
+						class="fa-brands fa-instagram"></i></a>
+				<a href="https://www.linkedin.com/company/digitaldashmedia/" target="_blank"><i
+						class="fa-brands fa-linkedin"></i></a>
+				<a href="https://www.tiktok.com/@digitaldashmedia" target="_blank"><i
+						class="fa-brands fa-tiktok"></i></a>
+
+
+		</section>
+	</main>
+
+	<section class="col-2">
+		<div class="form-group">
+
+
+
+
+			<footer id="footer"></footer>
+
+
+
+
+
+			<!-- JavaScript -->
+			<script src="js/components.js"></script>
+			<script src="js/scripts.js" type="module"></script>
+</body>
+
+</html>
