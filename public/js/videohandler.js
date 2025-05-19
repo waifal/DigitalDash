@@ -159,6 +159,23 @@ const PlayerConfig = {
     }
 };
 
+const PathResolver = {
+    isPhpPage() {
+        return window.location.pathname.includes('/php/');
+    },
+
+    getVideoPath(path) {
+        // Strip any existing prefixes first
+        const basePath = path.replace(/^(\.\.\/)*/, '');
+        if (this.isPhpPage()) {
+            // For PHP pages, we need to go up two levels
+            return '../../' + basePath;
+        }
+        // For HTML pages, use the path as is
+        return basePath;
+    }
+};
+
 const VideoRegistry = {
     videos: {
         'assets/videos/glen_coe.mp4': {
@@ -167,25 +184,30 @@ const VideoRegistry = {
             duration: '7 Seconds',
             quality: 'HD',
             description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature\'s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it\'s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
-        },
-        'assets/videos/mountain_range_with_lake.mp4': {
+        }, 'assets/videos/mountain_range_with_lake.mp4': {
             title: 'Mountain Range Lake',
             location: 'N/A',
             duration: '14 Seconds',
             quality: 'HD',
             description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
-        },
-        'assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4': {
+        }, 'assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4': {
             title: 'Sun Peek Forest',
             location: 'N/A',
             duration: '17 Seconds',
             quality: 'HD',
             description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
         },
-    },
+    }, getVideoInfo(src) {
+        // Strip any existing prefix
+        const basePath = src.replace(/^(\.\.\/)*/, '');
 
-    getVideoInfo(src) {
-        return this.videos[src] || {
+        // Try to find the video info using the base path
+        if (this.videos[basePath]) {
+            return this.videos[basePath];
+        }
+
+        // Default fallback
+        return {
             title: 'Video',
             location: 'Location',
             duration: 'Unknown',
@@ -196,9 +218,12 @@ const VideoRegistry = {
 };
 
 function showInfoModal(videoSrc, videoInfo, videoState) {
+    // Get the correct path based on whether we're in a PHP page or HTML page
+    const src = PathResolver.getVideoPath(videoSrc);
+
     initModal(null, 'previewModal popularVideoFull', `
       <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-        <source src='${videoSrc}' type='video/mp4'></source>
+        <source src='${src}' type='video/mp4'></source>
       </video>  
       <div class='video-info'>
         <div>
@@ -221,6 +246,8 @@ function showInfoModal(videoSrc, videoInfo, videoState) {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.playFullscreenVideo = async function (videoSrc, customData = null) {
+        // Get the correct path based on whether we're in a PHP page or HTML page
+        const src = PathResolver.getVideoPath(videoSrc);
         const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
 
         const container = document.createElement('div');
@@ -230,10 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const videoElement = document.createElement('video');
         videoElement.className = 'video-js vjs-theme-forest';
-        videoElement.id = 'fullscreen-player';
-
-        const source = document.createElement('source');
-        source.src = videoSrc;
+        videoElement.id = 'fullscreen-player'; const source = document.createElement('source');
+        source.src = src;
         source.type = 'video/mp4';
 
         videoElement.appendChild(source);

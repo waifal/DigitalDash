@@ -14,7 +14,32 @@ require_once(__DIR__ . '/components/nav.inc.php');
 ?>
 
 <main>
-	<h1>Index.php</h1>
+	<section class="home-page">
+		<div class="container">
+
+
+			<div class="flex">
+				<div class="txt">
+					<h1>Digital<span>Dash</span></h1>
+					<p>Immerse yourself in breathtaking destinations, cultural wonders, and serene escapes, all
+						through virtual tours designed to enrich your well-being.</p>
+					<div class="btn-div">
+						<button>
+							Take a walk
+						</button>
+
+					</div>
+				</div>
+				<div class="video">
+					<iframe width="560" height="315"
+						src="https://www.youtube.com/embed/PyFN_FYwqvc?si=sSBQlZV85xb_9Bt3&amp;start=6611"
+						title="YouTube video player" frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</section>
 </main>
 
 <?php require_once(__DIR__ . '/components/footer.inc.php'); ?>
