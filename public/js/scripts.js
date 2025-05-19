@@ -112,10 +112,12 @@ if (document.getElementById('loginfrm')) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const videos = document.querySelectorAll('.video-background video');
+    if (!videos || videos.length === 0) return; // Guard clause if no videos found
+
     let currentVideoIndex = 0;
 
     function switchVideo() {
-        // videos[currentVideoIndex].pause();
+        if (!videos[currentVideoIndex]) return; // Guard against undefined video
         videos[currentVideoIndex].classList.remove('active');
 
         setTimeout(() => {
@@ -134,12 +136,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 1000);
     }
 
-    videos[0].play().catch((e) => {
-        if (e.name !== 'AbortError') {
-            console.warn('Video play error:', e);
-        }
-    });
-    videos[0].classList.add('active');
+    if (videos[0]) {
+        videos[0].play().catch((e) => {
+            if (e.name !== 'AbortError') {
+                console.warn('Video play error:', e);
+            }
+        });
+
+        videos[0].classList.add('active');
+    }
 
     videos.forEach((video, index) => {
         if (index !== 0) {
