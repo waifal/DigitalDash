@@ -258,8 +258,5 @@ const button = document.getElementById("theme-switcher");
 
 if(button) {
     button.addEventListener("click", (event) => {
-        if(event.target.closest("button")) {
-            console.log(event.target)
-        }
     });
 }
