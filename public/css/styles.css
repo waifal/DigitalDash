@@ -1244,6 +1244,36 @@ div[data-access="false"]:hover::after {
     color: white;
     font-size: 1rem;
     position: absolute;
+
+    width: 400px;
+    left: 10%;
+    top: 30%;
+}
+
+
+
+
+
+footer {
+    min-height: 100px;
+    min-width: 100%;
+    padding: 1rem 1rem;
+    background-color: var(--primary-clr);
+}
+
+
+.footer-content {
+
+    padding-top: 1rem;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    place-items: center;
+    column-gap: clamp(15px, 5vw, 4rem);
+    padding: 0 1rem;
+}
+
+
     width: 30%;
     left: 17.5%;
     top: 40%;
@@ -1341,6 +1371,7 @@ footer hr {
     text-decoration: underline;
 }
 
+
 .flex-1 {
     display: flex;
     justify-content: center;
@@ -1354,6 +1385,30 @@ footer hr {
 
 
 .flex-1 img {
+
+    height: 45px;
+}
+
+
+
+.flex-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 50px);
+    place-items: center;
+    font-size: 2rem;
+}
+
+.flex-2 {
+    color: var(--secondary-clr)
+}
+
+.bi {
+    color: var(--secondary-clr);
+    height: 35px;
+}
+
+.bi:hover {
+=======
     max-width: 100%;
     width: 225px;
     height: auto;
@@ -1372,5 +1427,6 @@ a:has(.bi) {
 }
 
 a:has(.bi):hover .bi {
+
     color: var(--accent-clr);
 }
