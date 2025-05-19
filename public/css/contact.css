@@ -1,0 +1,11 @@
+:root {
+    --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgb(0, 0, 0, 0.50) 100%);
+}
+
+body{
+background-image: var(--image-overlay), url("../assets/images/backgrounds/pexels-larsmai-4815491.jpg") ;
+background-size: 1715px;
+background-position: center;
+background-repeat: no-repeat ;
+
+}
