@@ -247,6 +247,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "components/walks_hero.html  ", true);
+    xhr.onload = function() {
+        if(xhr.readyState === 4 && xhr.status === 200) {
+            document.querySelector(".hero-content-grid").innerHTML = xhr.responseText;
+        }
+    }
+    xhr.send(null);
+});
+
 
 /**
  * 
