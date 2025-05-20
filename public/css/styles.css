@@ -1299,6 +1299,13 @@ footer {
     column-gap: 1rem;
 }
 
+footer .social-links {
+    text-align: center;
+    display: grid;
+    gap: 0.3rem;
+    grid-template-columns: repeat(2, 35px);
+}
+
 footer hr {
     height: 1px;
     margin: 1rem 0;
@@ -1380,6 +1387,8 @@ a:has(.bi) {
 a:has(.bi):hover .bi {
     color: var(--accent-clr);
 }
+
+/* Light Theme */
 
 body[data-theme="light"] {
     nav {
