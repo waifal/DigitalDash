@@ -1,29 +1,4 @@
 
-    
-#root {
-    max-width: var(--layout-width);
-    height: 100vh;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    font-size: clamp(1rem, 0.75rem + 0.5vmax, 1.75rem);
-}
-
-.container {
-    width: 90%;
-    height: auto;
-
-}
-.full-screen-section {
-height: 100vh;
-}
-
-@media (max-width: 768px) {
-    #root {
-        max-width: 100vw;
-       
-    }
-}
 
 
 :root {
@@ -33,31 +8,24 @@ height: 100vh;
 
 body{
 background-image: var(--image-overlay), url("../assets/images/backgrounds/pexels-larsmai-4815491.jpg") ;
-background-size: 1715px;
+background-size: 100% 100%, cover;
 background-position: center;
 background-repeat: no-repeat ;
 
+
 }
 
-main section > div:first-child {
-    flex: 2;
-    min-width: 16rem;
-    padding-right: 100px;
+
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     text-align: center;
-    align-content: left;
-}
+   
+   
 
 
 
-
-
-
-main section > div:last-child {
-    display: -moz-grid-line;
-    
-  
-}
-
-main section > div:last-child > div {
-    align-content: right;
 }

@@ -61,7 +61,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 			<?php endif; ?>
 		</ul>
 		<div>
-			<button type="button" class="profile__menu"><i class="fa-solid fa-user"></i></button>
+			<a type="button" class="profile__menu primary-btn"><i class="fa-solid fa-user"></i></a>
 			<button type="button"><i class="fa-solid fa-moon"></i></button>
 		</div>
 	</nav>
