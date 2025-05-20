@@ -100,6 +100,10 @@ nav a {
     text-decoration-line: none;
 }
 
+nav a:hover {
+    color: var(--accent-clr);
+}
+
 nav>div:last-child {
     display: flex;
     column-gap: 1vw;

@@ -252,11 +252,16 @@ document.addEventListener('DOMContentLoaded', function () {
  * 
  * THEME SWITCHER SCRIPT
  * 
- */
+ 
 
 const button = document.getElementById("theme-switcher");
 
 if(button) {
     button.addEventListener("click", (event) => {
     });
+}
+*/
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
 }
