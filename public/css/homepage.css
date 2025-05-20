@@ -23,7 +23,7 @@
     align-items: center;
     /* padding: 3rem 0; */
     background: linear-gradient(rgba(0, 0, 0, 0.635), lab(0% 0 0 / 0.635)), 
-            url("../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg");
+            url("../assets/images/backgrounds/Rocky_Mountain.jpeg");
     object-fit: contain;
     background-position: center;
 }
