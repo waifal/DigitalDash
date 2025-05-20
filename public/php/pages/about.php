@@ -1,43 +1,33 @@
-<!DOCTYPE html>
+<?php
 
-<html lang="en">
+session_start();
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href="../public/assets/images/logo/logo_color_transparent_logo.png">
-	<title>DigitalDash</title>
+$_SESSION['index'] = false;
+$_SESSION['digital_walks'] = false;
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-		integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-	<link rel="stylesheet" href="css/styles.css">
-</head>
+if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true) {
+	header('Location: login.php'); // Change to index.html
+	exit;
+}
 
-<body>
-	<nav id="nav"></nav>
+require_once(__DIR__ . '/../components/header.inc.php');
+require_once(__DIR__ . '/../components/nav.inc.php');
+?>
 
-	<main>
-		<section class="About">
-			<h1>About us</h1>
-			<p>
-				DigitalDash brings the experience of walking into the digital space, allowing people to move and connect
-				from home. Our technology provides a clear, immersive way to walk, offering a sense of presence and
-				wellbeing without needing to step outside
-				<br><br>
-				Whether exploring digital landscapes, joining virtual walks with friends, or using movement for
-				relaxation, DigitalDash makes walking accessible in a new way. We believe that every step—physical or
-				digital—should contribute to mental clarity and deeper connections.
-			</p>
-			<video src=muted loop></video>
-		</section>
-	</main>
+<main>
+	<section class="About">
+		<h1>About us</h1>
+		<p>
+			DigitalDash brings the experience of walking into the digital space, allowing people to move and connect
+			from home. Our technology provides a clear, immersive way to walk, offering a sense of presence and
+			wellbeing without needing to step outside
+			<br><br>
+			Whether exploring digital landscapes, joining virtual walks with friends, or using movement for
+			relaxation, DigitalDash makes walking accessible in a new way. We believe that every step—physical or
+			digital—should contribute to mental clarity and deeper connections.
+		</p>
+		<video src=muted loop></video>
+	</section>
+</main>
 
-	<footer id="footer"></footer>
-
-	<!-- JavaScript -->
-	<script src="js/components.js"></script>
-	<script src="js/scripts.js" type="module"></script>
-</body>
-
-</html>
+<?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
