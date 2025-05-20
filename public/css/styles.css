@@ -150,12 +150,6 @@ nav a.primary-btn+button {
     transition: all 0.2s linear;
 }
 
-nav a.primary-btn+button:hover,
-nav a.profile__menu.primary-btn:hover {
-    outline: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #181818;
-}
-
 nav:has(a.profile__menu.primary-btn)>div:last-child {
     column-gap: 0.4rem;
 }
@@ -172,7 +166,14 @@ nav a.profile__menu.primary-btn {
     border: none;
     border-radius: 50px;
     background-color: transparent;
-    transition: background-color 0.2s linear;
+    outline: 1px solid transparent;
+    transition: all 0.2s linear;
+}
+
+nav a.primary-btn+button:hover,
+nav a.profile__menu.primary-btn:hover {
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #181818;
 }
 
 /* ================== Login & Sign up ================== */
