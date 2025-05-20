@@ -4,7 +4,8 @@
 :root {
     --primary-clr: #111111;
     --secondary-clr: #ffffff;
-    --accent-clr: #2dc489;
+    --accent-clr: #2bb37f;
+    --accent-hover-clr: rgba(45, 193, 136, 0.851);
 
     --nav-height: 70px;
     --container-padding: 5rem 150px;
@@ -98,10 +99,12 @@ nav ul li {
 nav a {
     color: var(--secondary-clr);
     text-decoration-line: none;
+    transition: all 0.3s;
 }
 
-nav a:hover {
+nav a:not(nav a.primary-btn):hover {
     color: var(--accent-clr);
+    transform: translateY(-5px);
 }
 
 nav>div:last-child {
@@ -126,6 +129,9 @@ nav .primary-btn {
     align-content: center;
     border-radius: 50px;
     background-color: var(--accent-clr);
+}
+nav .primary-btn:hover {
+    background-color: var( --accent-hover-clr);
 }
 
 /* Theme Switcher */
