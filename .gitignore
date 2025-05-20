@@ -2,6 +2,7 @@
 database
 vendor/
 videos/
+ftp_account.txt
 .DS_Store
 Thumbs.db
 *.log
