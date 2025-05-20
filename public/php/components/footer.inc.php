@@ -17,25 +17,25 @@
 							<?php if ($_SESSION['index'] === true): ?>
 								<li><a href="#">Home</a></li>
 								<li><a href="digital-walks.html">Digital Walks</a></li>
-								<li><a href="contact.html">Contact</a></li>
 								<li><a href="about.html">About</a></li>
+								<li><a href="contact.html">Contact</a></li>
 							<?php else: ?>
 								<li><a href="../../index.html">Home</a></li>
 								<li><a href="../../digital-walks.html">Digital Walks</a></li>
-								<li><a href="../../contact.html">Contact</a></li>
 								<li><a href="../../about.html">About</a></li>
+								<li><a href="../../contact.html">Contact</a></li>
 							<?php endif; ?>
 						<?php else: ?>
 							<?php if ($_SESSION['index'] === true): ?>
 								<li><a href="#">Home</a></li>
 								<li><a href="pages/digital-walks.php">Digital Walks</a></li>
-								<li><a href="pages/contact.php">Contact</a></li>
 								<li><a href="pages/about.php">About</a></li>
+								<li><a href="pages/contact.php">Contact</a></li>
 							<?php else: ?>
 								<li><a href="../index.php">Home</a></li>
 								<li><a href="digital-walks.php">Digital Walks</a></li>
-								<li><a href="contact.php">Contact</a></li>
 								<li><a href="about.php">About</a></li>
+								<li><a href="contact.php">Contact</a></li>
 							<?php endif; ?>
 						<?php endif; ?>
 					</ul>
@@ -68,6 +68,7 @@
 				<div>
 					<strong>Follow Us</strong>
 					<div class="social-links">
+						<a href="https://github.com/DigitalDashNZ" target="_blank"><i class="bi bi-github"></i></a>
 						<a href="https://www.youtube.com/@DigitalDashNZ" target="_blank"><i class="bi bi-youtube"></i></a>
 						<a href="https://www.instagram.com/digitaldashnz/" target="_blank"><i class="bi bi-instagram"></i></a>
 						<a href="https://x.com/DigitalDashNZ" target="_blank"><i class="bi bi-twitter-x"></i></a>
@@ -117,12 +118,12 @@
 						<?php endif; ?>
 						<?php if ($_SESSION['index'] === true): ?>
 							<li><a href="pages/digital-walks.php">Digital Walks</a></li>
-							<li><a href="pages/contact.php">Contact</a></li>
 							<li><a href="pages/about.php">About</a></li>
+							<li><a href="pages/contact.php">Contact</a></li>
 						<?php else: ?>
 							<li><a href="digital-walks.php">Digital Walks</a></li>
-							<li><a href="contact.php">Contact</a></li>
 							<li><a href="about.php">About</a></li>
+							<li><a href="contact.php">Contact</a></li>
 						<?php endif; ?>
 					</ul>
 				</div>
@@ -158,6 +159,7 @@
 				<div>
 					<strong>Follow Us</strong>
 					<div class="social-links">
+						<a href="https://github.com/DigitalDashNZ" target="_blank"><i class="bi bi-github"></i></a>
 						<a href="https://www.youtube.com/@DigitalDashNZ" target="_blank"><i class="bi bi-youtube"></i></a>
 						<a href="https://www.instagram.com/digitaldashnz/" target="_blank"><i class="bi bi-instagram"></i></a>
 						<a href="https://x.com/DigitalDashNZ" target="_blank"><i class="bi bi-twitter-x"></i></a>
