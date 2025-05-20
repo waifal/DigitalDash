@@ -14,30 +14,6 @@
 }
 
     
-#root {
-    max-width: var(--layout-width);
-    height: 100vh;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    font-size: clamp(1rem, 0.75rem + 0.5vmax, 1.75rem);
-}
-
-.container {
-    width: 90%;
-    height: auto;
-
-}
-.full-screen-section {
-height: 100vh;
-}
-
-@media (max-width: 768px) {
-    #root {
-        max-width: 100vw;
-       
-    }
-}
 
 
 * {
