@@ -16,7 +16,7 @@
 
 
 .home-page {
-    min-height: 100vh;
+    min-height: calc(100vh - var(--nav-height));
     min-width: 100%;
     display: grid;
     justify-content: center;
