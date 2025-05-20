@@ -273,7 +273,10 @@ if(button) {
     });
 }
 */
+
+
 function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+    var body = document.body;
+    var currentTheme = body.getAttribute("data-theme");
+    body.setAttribute("data-theme", currentTheme === "Light" ? "Dark" : "Light");
 }
