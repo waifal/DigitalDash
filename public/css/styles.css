@@ -13,7 +13,6 @@
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
-
 * {
     padding: 0;
     margin: 0;
@@ -21,6 +20,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     font: 1rem/1.5 Hind, Arial, sans-serif;
 }
 
@@ -120,7 +120,7 @@ nav img {
     height: auto;
 }
 
-nav .primary-btn {
+nav a.primary-btn {
     align-self: center;
     max-width: 110px;
     width: 100%;
@@ -132,14 +132,40 @@ nav .primary-btn {
     background-color: var(--accent-clr);
 }
 
-nav .primary-btn:hover {
+nav a.primary-btn:hover {
     background-color: var(--accent-hover-clr);
 }
 
 /* Theme Switcher */
-nav .primary-btn+button {
+nav a.primary-btn+button {
     height: 45px;
     width: 45px;
+    align-content: center;
+    color: var(--secondary-clr);
+    font-size: 1rem;
+    border: none;
+    outline: 1px solid transparent;
+    border-radius: 50px;
+    background-color: transparent;
+    transition: all 0.2s linear;
+}
+
+nav a.primary-btn+button:hover,
+nav a.profile__menu.primary-btn:hover {
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #181818;
+}
+
+nav:has(a.profile__menu.primary-btn)>div:last-child {
+    column-gap: 0.4rem;
+}
+
+nav a.profile__menu.primary-btn {
+    all: unset;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    text-align: center;
     align-content: center;
     color: var(--secondary-clr);
     font-size: 1rem;
@@ -147,10 +173,6 @@ nav .primary-btn+button {
     border-radius: 50px;
     background-color: transparent;
     transition: background-color 0.2s linear;
-}
-
-nav .primary-btn+button:hover {
-    background-color: #181818;
 }
 
 /* ================== Login & Sign up ================== */
