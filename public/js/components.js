@@ -124,12 +124,7 @@ loadComponents('nav', 'nav');
 loadComponents('footer', 'footer');
 
 
-
-
-
-
 const handleAccount_Settings = () => {
-
     const fName = document.getElementById("fname");
     const lName = document.getElementById("lname");
     const password = document.getElementById("password");
@@ -140,47 +135,32 @@ const handleAccount_Settings = () => {
 
     const handleReadOnly = (...fields) => {
         fields.forEach((field) => {
-
             if (field.value.trim() !== "") {
-                field.readOnly = true
-            }
-            else {
+                field.readOnly = true;
+            } else {
                 field.style.border = "2px solid red";
                 setTimeout(() => {
-                    field.style.border = ""
-                }, 2000)
+                    field.style.border = "";
+                }, 2000);
             }
-        })
+        });
     }
 
     const handleEdit = (...fields) => {
         fields.forEach((field) => {
-
             if (field.value.trim() !== "") {
                 field.readOnly = false;
             }
-
-        })
+        });
     }
 
     SaveBtn.addEventListener("click", () => {
-        handleReadOnly(fName, lName, password, Email)
-    })
+        handleReadOnly(fName, lName, password, Email);
+    });
 
     EditBtn.addEventListener("click", () => {
-        handleEdit(fName, lName, password, Email)
-    })
+        handleEdit(fName, lName, password, Email);
+    });
 }
 
-document.addEventListener("DOMContentLoaded", handleAccount_Settings)
-
-
-const updatecopyrightYearly = () => {
-    const d = new Date();
-    let year = d.getFullYear();
-    const text = document.querySelector(".flex-1 p");
-    text.textContent = `© ${year} DigitalDash`
-}
-
-
-updatecopyrightYearly()
+document.addEventListener("DOMContentLoaded", handleAccount_Settings);
