@@ -38,7 +38,7 @@
     }
 
     nav div:has(img) img {
-        width: 80px;
+        width: 100px;
     }
 
     nav ul,
