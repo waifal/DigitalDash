@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function myFunction() {
-    var body = document.body;
-    var currentTheme = body.getAttribute("data-theme");
-    body.setAttribute("data-theme", currentTheme === "Light" ? "Dark" : "Light");
+   var element = document.body;
+   element.classList.toggle("dark-mode");
 }
+window.myFunction = myFunction;
