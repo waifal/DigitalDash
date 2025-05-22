@@ -109,7 +109,7 @@ nav a:not(nav a.primary-btn):hover {
     transform: translateY(-5px);
 }
 
-nav>div:last-child {
+nav>div.cta {
     display: flex;
     column-gap: 1vw;
     justify-content: flex-end;
@@ -175,6 +175,22 @@ nav a.primary-btn+button:hover,
 nav a.profile__menu.primary-btn:hover {
     outline: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #181818;
+}
+
+nav #hamburger {
+    flex: unset;
+}
+
+nav #hamburger #open-hbm {
+    display: none;
+    font-size: 1.2rem;
+    color: var(--secondary-clr);
+    background-color: transparent;
+    border: none;
+}
+
+nav #hamburger #open-hbm i {
+    vertical-align: middle;
 }
 
 /* ================== Login & Sign up ================== */
