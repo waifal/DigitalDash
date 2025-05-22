@@ -1,6 +1,38 @@
-@media (max-width: 320px) {
+@media (max-width: 1430px) {
 
-    /* Navigation */
+    .recommended__section,
+    #virtual-walks section.video__section,
+    #virtual-walks .hero-content>div:first-child {
+        padding: 3rem 5rem;
+    }
+
+    section.banner {
+        align-content: center;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 1330px) {
+
+    .recommended__section,
+    #virtual-walks section.video__section,
+    #virtual-walks .hero-content>div:first-child {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 1144px) {
+    div[data-access="false"] {
+        width: 100%;
+    }
+
+    section.banner {
+        align-content: center;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 1080px) {
     nav {
         padding: 0 1rem;
     }
@@ -9,69 +41,22 @@
         width: 80px;
     }
 
-    nav ul {
-        display: none;
-    }
-
+    nav ul,
     nav div:has(a[href="php/pages/signup.php"]) {
         display: none;
     }
 
-    p {
-        font-size: 0.9rem;
-        max-width: 100%;
+    section.banner {
+        padding: 0 1rem;
+        align-content: center;
     }
 
-    /* Preview Modal  */
-    .previewModal {
-        width: 100%;
-    }
-
-
-    /* Containers */
-    .recommended__section,
-    #virtual-walks section.video__section,
-    #virtual-walks .hero-content>div:first-child {
-        padding: 3rem 1rem;
-    }
-
-    .recommended__section {
-        padding: 3rem 0.5rem;
-    }
-
-    /* Digital Walks Hero  */
-    #virtual-walks .hero-content>div:first-child img {
-        width: 100px;
-        margin-bottom: 1rem;
-    }
-
-    /* Popular Container */
-    .popular-container {
-        overflow: auto;
-        scroll-snap-type: x mandatory;
-    }
-
-    .popular-container>div {
-        scroll-snap-align: start;
-    }
-
-    .popular-content:hover {
-        transform: unset;
-    }
-
-    /* Footer */
     footer {
         padding: 1rem 2rem 0.5rem;
     }
 
-    footer>.footer-content {
-        display: none;
-    }
-
-    footer>hr {
-        display: none;
-    }
-
+    footer>.footer-content,
+    footer>hr,
     footer>.footer-bottom {
         display: none;
     }
@@ -87,6 +72,11 @@
         background-color: transparent;
         border: none;
         padding: 1rem 0.2rem;
+    }
+
+    footer #mobile button:hover strong,
+    footer #mobile button:hover i {
+        color: #2bb37f;
     }
 
     footer #mobile button strong {
@@ -110,7 +100,7 @@
     }
 
     footer #mobile .footer-content {
-        display: block
+        display: block;
     }
 
     footer #mobile .flex-1 {
@@ -156,16 +146,106 @@
         margin-top: 1rem;
     }
 
-    /* Virtual Walks Banner */
-    section.banner {
-        padding: 0 1rem;
+    .popular-container {
+        grid-template-columns: 1fr;
+        row-gap: 3vh;
+    }
+
+    .popular-container>div>div:first-child {
+        width: 100%;
+        height: 480px;
+    }
+
+    .popular-content:hover {
+        transform: unset;
+    }
+}
+
+@media (max-width: 1024px) {
+    .video__section-content {
+        position: relative;
+    }
+
+    .previewModal {
+        width: 70%;
+    }
+
+    #virtual-walks div.video__section-content .cards {
+        display: block;
+    }
+
+    #virtual-walks div.video__section-content .cards>div {
+        min-width: unset;
+        max-width: unset;
+    }
+
+    #virtual-walks div.video__section-content .cards>div>div.poster {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .popular-container {
+        grid-template-columns: 1fr;
+        row-gap: 3vh;
+    }
+
+    .popular-container>div>div:first-child {
+        width: 100%;
+        height: 400px;
+    }
+
+    .popular-content:hover {
+        transform: unset;
+    }
+}
+
+@media (max-width: 500px) {
+    div[data-access="true"] {
+        padding: unset;
+    }
+}
+
+@media (width >=320px) and (width <=768px) {
+    p {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .previewModal {
+        width: 95%;
+    }
+
+    .recommended__section {
+        padding: 3rem 0.5rem;
+    }
+
+    #virtual-walks .hero-content>div:first-child img {
+        width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    div.popular-container div[data-access="true"] {
+        padding: unset;
+    }
+
+    .popular-container>div {
+        max-width: 708px;
+    }
+
+    .popular-container>div>div:first-child {
+        width: 100%;
     }
 
     .banner-content {
         padding: 1rem 1rem;
+        background: linear-gradient(120deg, rgba(8, 8, 8, 0.9) 100%, rgba(45, 196, 138, 0) 100%),
+            url('../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     }
-
-    /* .banner-content div:last-child {} */
 
     .banner-content div:last-child a {
         max-width: unset;
@@ -174,5 +254,80 @@
     .banner-content div:last-child a:last-of-type {
         margin-top: 8px;
         margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 744px) {
+    .popular-container>div {
+        max-width: 608px;
+    }
+}
+
+@media (max-width: 622px) {
+    .popular-container>div {
+        max-width: 508px;
+    }
+}
+
+@media (max-width: 524px) {
+    .popular-container>div {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 470px) {
+    .popular-container>div {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 412px) {
+    .popular-container>div {
+        max-width: 380px;
+    }
+}
+
+@media (max-width: 398px) {
+    .popular-container>div {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 374px) {
+    .popular-container>div {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 339px) {
+    .popular-container>div {
+        max-width: 300px;
+    }
+
+    #virtual-walks div.video__section {
+        padding: 0.5rem;
+    }
+
+    #virtual-walks div.video__section-content {
+        gap: unset;
+    }
+
+    #virtual-walks div.video__section-content .cards .context ul {
+        display: none;
+    }
+
+    .recommended__section,
+    #virtual-walks section.video__section,
+    #virtual-walks .hero-content>div:first-child {
+        padding: 3rem 0.5rem;
+    }
+
+    #virtual-walks div.video__section>div~div {
+        padding: unset;
+    }
+
+    .previewModal {
+        width: 100%;
+        height: 100%;
     }
 }
