@@ -1094,7 +1094,7 @@ div[data-access="false"]:hover::after {
     top: 30%;
 }
 
-.About p {
+.About .txt p {
     color: white;
     font-size: 1rem;
     position: absolute;
@@ -1103,10 +1103,10 @@ div[data-access="false"]:hover::after {
     top: 40%;
 }
 
-.About video {
+.About img {
     position: absolute;
     height: 300px;
-    right: 7.5%;
+    left: 50%;
     top: 35%;
     border: 1px solid white;
     background-color: black;
