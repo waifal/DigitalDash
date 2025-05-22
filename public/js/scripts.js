@@ -162,9 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
  * 
 */
 
+document.addEventListener("DOMContentLoaded", () => {
+    function changeTheme() {
+        const switchThemeBtn = document.getElementById("theme-switcher");
 
-function myFunction() {
-    var element = document.body;
-    element.classList.toggle("dark-mode");
-}
-window.myFunction = myFunction;
+        switchThemeBtn.addEventListener("click", () => {
+            console.log("Theme switcher has been clicked!");
+        });
+    }
+
+    changeTheme();
+});
