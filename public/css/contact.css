@@ -13,19 +13,26 @@ background-position: center;
 background-repeat: no-repeat ;
 
 
+
+
+}
+
+
+.column{
+    float: left;  
+    align-content: center;
+    position: center;
+    
+    width: 50%;
 }
 
 
 
+
 footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     text-align: center;
-   
-   
-
-
-
 }
