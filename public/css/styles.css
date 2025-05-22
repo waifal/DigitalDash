@@ -626,7 +626,6 @@ input:autofill:active {
     width: 100%;
     height: 100%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
-    ;
 }
 
 .popular-container>div>div>h2 {
@@ -725,6 +724,10 @@ input:autofill:active {
     animation: fade-in-up 0.2s ease-in-out forwards;
 }
 
+#buttons {
+    display: none;
+}
+
 @keyframes fade-in-up {
     from {
         opacity: 0;
@@ -820,10 +823,6 @@ div:has(> #digital-dash-player_html5_api) {
     border-image: fill 1 linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0.2) 100%);
 }
 
-#virtual-walks div.video__section>div~div {
-    margin: 3em 0;
-}
-
 #virtual-walks div.video__section h2.genre {
     font-size: 1.3rem;
     font-weight: 600;
@@ -844,18 +843,16 @@ div:has(> #digital-dash-player_html5_api) {
 }
 
 #virtual-walks div.video__section-content .cards {
+    width: 100%;
     display: grid;
+    justify-content: space-evenly;
     grid-auto-flow: column;
-    grid-auto-columns: 280px;
+    grid-auto-columns: auto;
     gap: 2rem;
     max-width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
     padding-bottom: 0.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    /* cursor: grab; */
 }
 
 #virtual-walks div.video__section-content .cards .context {
@@ -911,11 +908,9 @@ div:has(> #digital-dash-player_html5_api) {
 }
 
 #virtual-walks div.video__section-content .cards>div {
-    scroll-snap-align: start;
     min-width: 280px;
     max-width: 280px;
     flex: 0 0 280px;
-    scroll-snap-align: start;
 }
 
 #virtual-walks div.video__section-content .cards>div>.poster button {
@@ -972,26 +967,6 @@ div:has(> #digital-dash-player_html5_api) {
     pointer-events: none;
 }
 
-
-#virtual-walks div.video__section-content .arrow__container button {
-    color: var(--secondary-clr);
-    font-size: 1.2rem;
-    padding: 0.5rem 0.85rem;
-    border-radius: 12px;
-    border: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: transparent;
-}
-
-#virtual-walks div.video__section-content .arrow__container button:hover {
-    background-color: #0e0e0e;
-}
-
-
-#virtual-walks div.video__section-content .arrow__container button i {
-    vertical-align: middle;
-}
-
 div[data-access="true"] {
     padding: 1rem;
 }
@@ -1004,8 +979,8 @@ div[data-access="false"] {
     transition: all 0.3s ease;
 }
 
-div[data-access="false"] .arrow__container {
-    visibility: hidden;
+div[data-access="false"]>* {
+    pointer-events: none;
 }
 
 div[data-access="false"]:hover::before {
