@@ -1,0 +1,174 @@
+@media (max-width: 320px) {
+
+    /* Navigation */
+    nav {
+        padding: 0 1rem;
+    }
+
+    nav div:has(img) img {
+        width: 80px;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    nav div:has(a[href="php/pages/signup.php"]) {
+        display: none;
+    }
+
+    p {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    /* Preview Modal  */
+    .previewModal {
+        width: 100%;
+    }
+
+
+    /* Containers */
+    .recommended__section,
+    #virtual-walks section.video__section,
+    #virtual-walks .hero-content>div:first-child {
+        padding: 3rem 1rem;
+    }
+
+    .recommended__section {
+        padding: 3rem 0.5rem;
+    }
+
+    /* Digital Walks Hero  */
+    #virtual-walks .hero-content>div:first-child img {
+        width: 100px;
+        margin-bottom: 1rem;
+    }
+
+    /* Popular Container */
+    .popular-container {
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .popular-container>div {
+        scroll-snap-align: start;
+    }
+
+    /* Footer */
+    footer {
+        padding: 1rem 2rem 0.5rem;
+    }
+
+    footer>.footer-content {
+        display: none;
+    }
+
+    footer>hr {
+        display: none;
+    }
+
+    footer>.footer-bottom {
+        display: none;
+    }
+
+    footer #mobile {
+        display: block !important;
+    }
+
+    footer #mobile button {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        padding: 1rem 0.2rem;
+    }
+
+    footer #mobile button strong {
+        margin-bottom: 0;
+        margin-inline-end: 0.5ch;
+    }
+
+    footer #mobile button i {
+        flex: 1;
+        text-align: right;
+        vertical-align: middle;
+        color: #5e5e5e;
+    }
+
+    footer #mobile .accordion__content {
+        padding: 1rem 0.2rem;
+    }
+
+    footer #mobile .footer-grid>div:not(:last-child) {
+        border-bottom: 2px solid rgb(24, 24, 24);
+    }
+
+    footer #mobile .footer-content {
+        display: block
+    }
+
+    footer #mobile .flex-1 {
+        margin: 2rem;
+    }
+
+    footer #mobile .footer-grid {
+        width: 100%;
+        gap: 1.5rem;
+        justify-self: center;
+        grid-template-columns: 1fr;
+    }
+
+    footer #mobile div:has(strong + .social-links) strong {
+        text-align: center;
+    }
+
+    footer #mobile .social-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1rem;
+    }
+
+    footer #mobile hr {
+        margin: 2rem 0;
+    }
+
+    footer #mobile .footer-bottom {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    footer #mobile .footer-links>a {
+        align-content: center;
+        flex: 1;
+        white-space: nowrap;
+    }
+
+    footer #mobile .footer-bottom div.copyright {
+        order: 1;
+        margin-top: 1rem;
+    }
+
+    /* Virtual Walks Banner */
+    section.banner {
+        padding: 0 1rem;
+    }
+
+    .banner-content {
+        padding: 1rem 1rem;
+    }
+
+    /* .banner-content div:last-child {} */
+
+    .banner-content div:last-child a {
+        max-width: unset;
+    }
+
+    .banner-content div:last-child a:last-of-type {
+        margin-top: 8px;
+        margin-left: 0 !important;
+    }
+}
