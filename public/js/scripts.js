@@ -156,97 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(switchVideo, 10000);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.video__section-content').forEach(section => {
-        const cards = section.querySelector('.cards');
-        const leftBtn = section.querySelector('.arrow__container:first-child button');
-        const rightBtn = section.querySelector('.arrow__container:last-child button');
-        if (!cards || !leftBtn || !rightBtn) return;
-
-        const card = cards.querySelector('div');
-        const cardWidth = card ? card.offsetWidth : 280;
-        const gap = parseInt(getComputedStyle(cards).gap) || 16;
-        const scrollAmount = cardWidth + gap;
-
-        function updateButtons() {
-            if (cards.scrollLeft <= 0) {
-                leftBtn.style.visibility = 'hidden';
-            } else {
-                leftBtn.style.visibility = 'visible';
-            }
-            if (cards.scrollLeft + cards.clientWidth >= cards.scrollWidth - 1) {
-                rightBtn.style.visibility = 'hidden';
-            } else {
-                rightBtn.style.visibility = 'visible';
-            }
-        }
-
-        let isScrolling;
-        cards.addEventListener('scroll', function () {
-            updateButtons();
-            window.clearTimeout(isScrolling);
-            isScrolling = setTimeout(function () {
-                const maxScroll = cards.scrollWidth - cards.clientWidth;
-                if (cards.scrollLeft >= maxScroll - 1) {
-                    cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-                } else {
-                    let index = Math.round(cards.scrollLeft / scrollAmount);
-                    let target = index * scrollAmount;
-                    cards.scrollTo({ left: target, behavior: 'smooth' });
-                }
-            }, 100);
-        });
-
-        leftBtn.addEventListener('click', () => {
-            const index = Math.round(cards.scrollLeft / scrollAmount);
-            cards.scrollTo({ left: (index - 1) * scrollAmount, behavior: 'smooth' });
-        });
-        rightBtn.addEventListener('click', () => {
-            const maxScroll = cards.scrollWidth - cards.clientWidth;
-            if (cards.scrollLeft >= maxScroll - 1) {
-                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-                return;
-            }
-            const index = Math.round(cards.scrollLeft / scrollAmount);
-            const nextScroll = (index + 1) * scrollAmount;
-            if (nextScroll >= maxScroll - 1) {
-                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-            } else {
-                cards.scrollTo({ left: nextScroll, behavior: 'smooth' });
-            }
-        });
-
-        let isDown = false;
-        let startX;
-        let scrollLeftStart;
-
-        cards.addEventListener('mousedown', (e) => {
-            isDown = true;
-            cards.classList.add('dragging');
-            startX = e.pageX - cards.getBoundingClientRect().left;
-            scrollLeftStart = cards.scrollLeft;
-            e.preventDefault();
-        });
-        cards.addEventListener('mouseleave', () => {
-            isDown = false;
-            cards.classList.remove('dragging');
-        });
-        cards.addEventListener('mouseup', () => {
-            isDown = false;
-            cards.classList.remove('dragging');
-        });
-        cards.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            const x = e.pageX - cards.getBoundingClientRect().left;
-            const walk = (startX - x);
-            cards.scrollLeft = scrollLeftStart + walk;
-        });
-
-        updateButtons();
-        window.addEventListener('resize', updateButtons);
-    });
-});
-
 /**
  * 
  * THEME SWITCHER SCRIPT
@@ -255,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
+    var element = document.body;
+    element.classList.toggle("dark-mode");
 }
 window.myFunction = myFunction;
