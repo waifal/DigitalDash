@@ -141,6 +141,14 @@
         white-space: nowrap;
     }
 
+    footer #mobile .footer-links>a:first-child {
+        text-align: right;
+    }
+
+    footer #mobile .footer-links>a:last-child {
+        text-align: left;
+    }
+
     footer #mobile .footer-bottom div.copyright {
         order: 1;
         margin-top: 1rem;
