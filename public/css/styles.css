@@ -101,6 +101,7 @@ nav a {
     color: var(--secondary-clr);
     text-decoration-line: none;
     transition: all 0.3s;
+    white-space: nowrap;
 }
 
 nav a:not(nav a.primary-btn):hover {
@@ -1234,6 +1235,10 @@ a:has(.bi) {
 
 a:has(.bi):hover .bi {
     color: var(--accent-clr);
+}
+
+footer #mobile {
+    display: none;
 }
 
 /* Light Theme */
