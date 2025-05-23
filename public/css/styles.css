@@ -112,6 +112,7 @@ nav a:not(nav a.primary-btn):hover {
 
 nav>div.cta {
     display: flex;
+    column-gap: 0.5rem;
     justify-content: flex-end;
 }
 
