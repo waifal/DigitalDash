@@ -1,12 +1,8 @@
-<?php
-
-if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
-
-?>
+<?php if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true): ?>
 
 	<nav>
 		<div>
-			<a href="#"><img src="../../assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
+			<a href="../../index.html"><img src="../../assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
 		</div>
 		<ul>
 			<li><a href="../../index.html">Home</a></li>
@@ -14,13 +10,50 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 			<li><a href="../../about.html">About</a></li>
 			<li><a href="../../contact.html">Contact</a></li>
 		</ul>
-		<div>
+		<div class="cta">
 			<?php if (isset($_SESSION['sign_in_page']) && $_SESSION['sign_in_page']): ?>
-				<a href="../pages/login.php" class="primary-btn">Login</a>
+				<a href="../pages/login.php" class="primary-btn login">Login</a>
 			<?php else: ?>
 				<a href="../pages/signup.php" class="primary-btn">Sign up</a>
 			<?php endif; ?>
-			<button type="button"><i class="fa-solid fa-moon"></i></button>
+			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
+		</div>
+
+		<!-- Hamburger Menu -->
+		<div id="hamburger">
+			<div class="overlay"></div>
+			<button type="button" id="open-hbm"><i class="fa-solid fa-bars"></i></button>
+			<div>
+				<div class="hbm-content">
+					<!-- Close Menu & Theme Switcher -->
+					<div>
+						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
+					</div>
+					<div class="links">
+						<div>
+							<ul>
+								<li><a href="../../index.html">Home</a></li>
+								<li><a href="../../digital-walks.html">Digital Walks</a></li>
+								<li><a href="../../about.html">About</a></li>
+								<li><a href="../../contact.html">Contact</a></li>
+							</ul>
+						</div>
+						<div>
+							<hr>
+						</div>
+						<div>
+							<ul>
+								<li><a href="../pages/login.php" class="primary-btn login">Login</a></li>
+								<li><a href="../pages/signup.php" class="primary-btn">Sign up</a></li>
+							</ul>
+						</div>
+						<div>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</nav>
 
@@ -35,34 +68,63 @@ if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true):
 			<?php endif; ?>
 		</div>
 		<ul>
-			<!-- Index -->
 			<?php if ($_SESSION['index'] === true): ?>
 				<li><a href="#">Home</a></li>
-			<?php else: ?>
-				<li><a href="../index.php">Home</a></li>
-			<?php endif; ?>
-			<!-- Digital Walks -->
-			<?php if ($_SESSION['index'] === true): ?>
 				<li><a href="pages/digital-walks.php">Digital Walks</a></li>
-			<?php else: ?>
-				<li><a href="digital-walks.php">Digital Walks</a></li>
-			<?php endif; ?>
-			<!-- About -->
-			<?php if ($_SESSION['index'] === true): ?>
 				<li><a href="pages/about.php">About</a></li>
-			<?php else: ?>
-				<li><a href="about.php">About</a></li>
-			<?php endif; ?>
-			<!-- Contact -->
-			<?php if ($_SESSION['index'] === true): ?>
 				<li><a href="pages/contact.php">Contact</a></li>
 			<?php else: ?>
+				<li><a href="../index.php">Home</a></li>
+				<li><a href="digital-walks.php">Digital Walks</a></li>
+				<li><a href="about.php">About</a></li>
 				<li><a href="contact.php">Contact</a></li>
 			<?php endif; ?>
 		</ul>
-		<div>
+		<div class="cta">
 			<a type="button" class="profile__menu primary-btn"><i class="fa-solid fa-user"></i></a>
-			<button type="button"><i class="fa-solid fa-moon"></i></button>
+			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
+		</div>
+
+		<!-- Hamburger Menu -->
+		<div id="hamburger">
+			<div class="overlay"></div>
+			<button type="button" id="open-hbm"><i class="fa-solid fa-bars"></i></button>
+			<div>
+				<div class="hbm-content">
+					<div>
+						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
+					</div>
+					<div class="links">
+						<div>
+							<ul>
+								<?php if ($_SESSION['index'] === true): ?>
+									<li><a href="#">Home</a></li>
+									<li><a href="pages/digital-walks.php">Digital Walks</a></li>
+									<li><a href="pages/about.php">About</a></li>
+									<li><a href="pages/contact.php">Contact</a></li>
+								<?php else: ?>
+									<li><a href="../index.php">Home</a></li>
+									<li><a href="digital-walks.php">Digital Walks</a></li>
+									<li><a href="about.php">About</a></li>
+									<li><a href="contact.php">Contact</a></li>
+								<?php endif; ?>
+							</ul>
+						</div>
+						<div>
+							<hr>
+						</div>
+						<div>
+							<ul>
+								<li><a href="php/pages/logout.php" class="primary-btn login">Logout</a></li>
+							</ul>
+						</div>
+						<div>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</nav>
 
