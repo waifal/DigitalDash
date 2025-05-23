@@ -17,16 +17,18 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 <main>
 	<section class="About">
 		<h1>About us</h1>
-		<p>
-			DigitalDash brings the experience of walking into the digital space, allowing people to move and connect
-			from home. Our technology provides a clear, immersive way to walk, offering a sense of presence and
-			wellbeing without needing to step outside
-			<br><br>
-			Whether exploring digital landscapes, joining virtual walks with friends, or using movement for
-			relaxation, DigitalDash makes walking accessible in a new way. We believe that every step—physical or
-			digital—should contribute to mental clarity and deeper connections.
-		</p>
-		<video src=muted loop></video>
+		<div class="txt">
+			<p>
+				DigitalDash brings the experience of walking into the digital space, allowing people to move and connect
+				from home. Our technology provides a clear, immersive way to walk, offering a sense of presence and
+				wellbeing without needing to step outside
+				<br><br>
+				Whether exploring digital landscapes, joining virtual walks with friends, or using movement for
+				relaxation, DigitalDash makes walking accessible in a new way. We believe that every step—physical or
+				digital—should contribute to mental clarity and deeper connections.
+			</p>
+			<img src="../../assets/images/backgrounds/4k-green-forest.jpg">
+		</div>
 	</section>
 </main>
 
