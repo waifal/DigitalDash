@@ -25,9 +25,19 @@ require_once(__DIR__ . '/components/nav.inc.php');
 						through virtual tours designed to enrich your well-being.</p>
 					<div class="btn-div">
 						<button>
-							Take a walk
+							<?php if ($_SESSION['index'] === true): ?>
+								<a href="pages/digital-walks.php">Take a walk</a>
+							<?php else: ?>
+								<a href="digital-walks.php">Take a walk</a>
+							<?php endif; ?>
 						</button>
-
+						<button>
+							<?php if ($_SESSION['index'] === true): ?>
+								<a href="pages/about.php">Learn more</a>
+							<?php else: ?>
+								<a href="about.php">Learn more</a>
+							<?php endif; ?>
+						</button>
 					</div>
 				</div>
 				<div class="video">
