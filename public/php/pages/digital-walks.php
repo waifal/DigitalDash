@@ -15,7 +15,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 ?>
 
 <main id="virtual-walks">
-	<section> <!-- Hero Section -->
+	<section>
+		<!-- Hero Section -->
 		<section class="hero__section">
 			<div class="hero-content">
 				<div>
@@ -49,8 +50,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<div class="popular-container">
 				<!-- Popular #1 -->
 				<div>
-					<div class="popular-content">
-						<video muted>
+					<div class="popular-content"> <video muted data-preview>
 							<source src="../../assets/videos/glen_coe.mp4" type="video/mp4">
 						</video>
 						<div class="overlay"></div>
@@ -63,29 +63,29 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/glen_coe.mp4', {
-									title: 'Glen Coe',
-									location: 'Scotland',
-									duration: '7 Seconds',
-									quality: 'HD',
-									description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
-									})"><i class="fa-solid fa-play"></i> Play</button>
+                                    title: 'Glen Coe',
+                                    location: 'Scotland',
+                                    duration: '7 Seconds',
+                                    quality: 'HD',
+                                    description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
-									<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-										<source src='../../assets/videos/glen_coe.mp4' type='video/mp4'></source>
-									</video>  
-									<div class='video-info'>
-										<div>
-											<h2>Glen Coe</h2>
-											<ul>
-												<li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
-												<li><small><i class='fa-solid fa-hourglass-start'></i> 7 Seconds</small></li>
-												<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-											</ul>    
-										</div>
-										<p>Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.</p>
-									</div>
-								`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='../../assets/videos/glen_coe.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Glen Coe</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 7 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            </ul>    
+                                        </div>
+                                        <p>Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.</p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
 					</div>
 				</div>
@@ -105,29 +105,29 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/mountain_range_with_lake.mp4', {
-									title: 'Mountain Range Lake',
-									location: 'N/A',
-									duration: '14 Seconds',
-									quality: 'HD',
-									description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
-									})"><i class="fa-solid fa-play"></i> Play</button>
+                                    title: 'Mountain Range Lake',
+                                    location: 'N/A',
+                                    duration: '14 Seconds',
+                                    quality: 'HD',
+                                    description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
-									<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-										<source src='../../assets/videos/mountain_range_with_lake.mp4' type='video/mp4'></source>
-									</video>  
-									<div class='video-info'>
-										<div>
-											<h2>Mountain Range Lake</h2>
-											<ul>
-												<li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
-												<li><small><i class='fa-solid fa-hourglass-start'></i> 14 Seconds</small></li>
-												<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-											</ul>     
-										</div>
-										<p>A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.</p>
-									</div>
-								`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='../../assets/videos/mountain_range_with_lake.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Mountain Range Lake</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 14 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            </ul>     
+                                        </div>
+                                        <p>A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.</p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
 					</div>
 				</div>
@@ -149,29 +149,29 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-									title: 'Sun Peek Forest',
-									location: 'N/A',
-									duration: '17 Seconds',
-									quality: 'HD',
-									description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
-									})"><i class="fa-solid fa-play"></i> Play</button>
+                                    title: 'Sun Peek Forest',
+                                    location: 'N/A',
+                                    duration: '17 Seconds',
+                                    quality: 'HD',
+                                    description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
+                                    })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
-									<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-										<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-									</video>  
-									<div class='video-info'>
-										<div>
-											<h2>Sun Peek Forest</h2>
-											<ul>
-												<li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
-												<li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
-												<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-											</ul>    
-										</div>
-										<p>Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature's simple yet profound ability to create moments of wonder and serenity.</p>
-									</div>
-								`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                        <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                    </video>  
+                                    <div class='video-info'>
+                                        <div>
+                                            <h2>Sun Peek Forest</h2>
+                                            <ul>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                            </ul>    
+                                        </div>
+                                        <p>Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature's simple yet profound ability to create moments of wonder and serenity.</p>
+                                    </div>
+                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
 					</div>
 				</div>
@@ -191,9 +191,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div data-access="true">
 					<h2 class="genre"><i class="fa-solid fa-tree"></i> Bush Walks</h2>
 					<div class="video__section-content">
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-left"></i></button>
-						</div>
 						<!-- Video Cards -->
 						<div class="cards">
 							<!-- Card #1 -->
@@ -215,27 +212,28 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 													class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
-											<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-												<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-											</video>  
-											<div class='video-info'>
-												<div>
-													<h2>Green Trees Snowy Mt.</h2>
-													<ul>
-														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-													</ul>    
-												</div>
-												<p></p>
-											</div>
-										`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                            </video>  
+                                            <div class='video-info'>
+                                                <div>
+                                                    <h2>Green Trees Snowy Mt.</h2>
+                                                    <ul>
+                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                    </ul>    
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt=""
+										loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -250,21 +248,21 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 													class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
-											<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-												<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-											</video>  
-											<div class='video-info'>
-												<div>
-													<h2>Aoraki/Mount Cook</h2>
-													<ul>
-														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-													</ul>    
-												</div>
-												<p></p>
-											</div>
-										`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                            </video>  
+                                            <div class='video-info'>
+                                                <div>
+                                                    <h2>Aoraki/Mount Cook</h2>
+                                                    <ul>
+                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                    </ul>    
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
 							<!-- Card #3 -->
@@ -286,26 +284,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 													class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
-											<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-												<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-											</video>  
-											<div class='video-info'>
-												<div>
-													<h2>Hooker Valley</h2>
-													<ul>
-														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-													</ul>    
-												</div>
-												<p></p>
-											</div>
-										`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                            </video>  
+                                            <div class='video-info'>
+                                                <div>
+                                                    <h2>Hooker Valley</h2>
+                                                    <ul>
+                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                    </ul>    
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
-						</div>
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-right"></i></button>
 						</div>
 					</div>
 				</div>
@@ -313,15 +308,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div data-access="true">
 					<h2 class="genre"><i class="fa-solid fa-water"></i> Lake Walks</h2>
 					<div class="video__section-content">
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-left"></i></button>
-						</div>
 						<!-- Video Cards -->
 						<div class="cards">
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg"
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -336,27 +329,28 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 													class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
-											<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-												<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-											</video>  
-											<div class='video-info'>
-												<div>
-													<h2>Snowcap Mountains</h2>
-													<ul>
-														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-													</ul>    
-												</div>
-												<p></p>
-											</div>
-										`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                            </video>  
+                                            <div class='video-info'>
+                                                <div>
+                                                    <h2>Snowcap Mountains</h2>
+                                                    <ul>
+                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                    </ul>    
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -371,28 +365,45 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 													class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
-											<video id='digital-dash-player' class='video-js vjs-theme-forest'>
-												<source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-											</video>  
-											<div class='video-info'>
-												<div>
-													<h2>Gorsa Bridge</h2>
-													<ul>
-														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-													</ul>    
-												</div>
-												<p></p>
-											</div>
-										`)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
+                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                            </video>  
+                                            <div class='video-info'>
+                                                <div>
+                                                    <h2>Gorsa Bridge</h2>
+                                                    <ul>
+                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                    </ul>    
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
-						</div>
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-right"></i></button>
+							<div></div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Banner -->
+		<section class="banner">
+			<div class="banner-content">
+				<div>
+					<h2>Unlock the Full Experience</h2>
+					<p>
+						Sign in for exclusive walks, premium trails, and members-only content.
+					</p>
+				</div>
+				<div style="text-align: left;">
+					<a href="php/pages/signup.php" class="primary-btn"> Create
+						account
+					</a>
+					<a href="php/pages/login.php" class="primary-btn"
+						style="background-color: transparent; outline: 1px solid rgb(255, 255, 255, 0.1); margin-left: 10px; background-color: #111">
+						Login</a>
 				</div>
 			</div>
 		</section>
