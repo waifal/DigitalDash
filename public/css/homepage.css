@@ -41,22 +41,34 @@
 
 
 .btn-div button {
+    text-decoration: none;
     padding: 12px 2rem;
     border: none;
     background-color:#2dc68a;
     color: white;
-    border-radius: 8px;
+    border-radius: 97px;
     font-size: 1.2rem;
     font-family: "Hind", sans-serif;
     font-weight: 400;
     font-style: normal;
+    transition: all 0.3s ease-in-out;
 }
- 
+
 .btn-div button:hover {
     background-color: #ffffff;
     color: #2dc68a;
     transition: ease-in-out;
 }
+
+.btn-div button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.btn-div button:hover a {
+    color: #2dc68a;
+}
+
 
 .video iframe {
     max-width: 100%;
@@ -89,7 +101,7 @@ font-family: "Hind", sans-serif;
     font-size: 1.3rem;
     max-width: 36rem;
     max-height: 330px;
-    animation: fadeIn 4s;
+    animation: fadeIn 3s;
 }
 h1 span {
     color: #2dc68a;
@@ -97,7 +109,7 @@ h1 span {
 
 .video {
     max-width: 450px;
-    animation: fadeIn 4s;
+    animation: fadeIn 3s;
 }
 
 
