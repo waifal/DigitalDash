@@ -12,7 +12,7 @@
 		</ul>
 		<div class="cta">
 			<?php if (isset($_SESSION['sign_in_page']) && $_SESSION['sign_in_page']): ?>
-				<a href="../pages/login.php" class="primary-btn login">Login</a>
+				<a href="../pages/login.php" class="primary-btn secondary">Login</a>
 			<?php else: ?>
 				<a href="../pages/signup.php" class="primary-btn">Sign up</a>
 			<?php endif; ?>
@@ -44,7 +44,7 @@
 						</div>
 						<div>
 							<ul>
-								<li><a href="../pages/login.php" class="primary-btn login">Login</a></li>
+								<li><a href="../pages/login.php" class="primary-btn secondary">Login</a></li>
 								<li><a href="../pages/signup.php" class="primary-btn">Sign up</a></li>
 							</ul>
 						</div>
@@ -116,7 +116,13 @@
 						</div>
 						<div>
 							<ul>
-								<li><a href="../../php/signout.inc.php" class="primary-btn login">Logout</a></li>
+								<?php if ($_SESSION['index'] === true): ?>
+									<li><a href="pages/account-settings.php" class="primary-btn secondary">Account Settings</a></li>
+									<li><a href="../../php/signout.inc.php" class="primary-btn">Logout</a></li>
+								<?php else: ?>
+									<li><a href="account-settings.php" class="primary-btn secondary">Account Settings</a></li>
+									<li><a href="../../../php/signout.inc.php" class="primary-btn">Logout</a></li>
+								<?php endif; ?>
 							</ul>
 						</div>
 						<div>
