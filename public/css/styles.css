@@ -112,8 +112,13 @@ nav a:not(nav a.primary-btn):hover {
 
 nav>div.cta {
     display: flex;
-    column-gap: 0.5rem;
+    column-gap: 0.2rem;
     justify-content: flex-end;
+}
+
+nav>div.cta>a.primary-btn:hover {
+    color: var(--accent-clr);
+    background-color: var(--secondary-clr);
 }
 
 nav img {
@@ -139,6 +144,7 @@ nav a.primary-btn:hover {
 }
 
 /* Theme Switcher */
+nav button.primary-btn+button,
 nav a.primary-btn+button {
     height: 45px;
     width: 45px;
@@ -152,10 +158,11 @@ nav a.primary-btn+button {
     transition: all 0.2s linear;
 }
 
-nav:has(a.profile__menu.primary-btn)>div:last-child {
+nav:has(button.profile__menu.primary-btn)>div:last-child {
     column-gap: 0.4rem;
 }
 
+nav button.profile__menu.primary-btn,
 nav a.profile__menu.primary-btn {
     all: unset;
     cursor: pointer;
@@ -172,10 +179,75 @@ nav a.profile__menu.primary-btn {
     transition: all 0.2s linear;
 }
 
+nav button.profile__menu.primary-btn {
+    position: relative;
+}
+
+nav button.primary-btn+button:hover,
 nav a.primary-btn+button:hover,
-nav a.profile__menu.primary-btn:hover {
+nav button.profile__menu.primary-btn:hover {
     outline: 1px solid rgba(255, 255, 255, 0.1);
     background-color: #181818;
+}
+
+.user-content {
+    display: none;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    padding: 0.75rem;
+    background-color: #1e1e1e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.user-content.active {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.user-content::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 7px;
+    border-style: solid;
+    border-color: transparent transparent #1e1e1e transparent;
+}
+
+.user-content a.primary-btn {
+    max-width: unset;
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+    font-size: 0.875rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.user-content div:has(a.primary-btn) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.user-content a.primary-btn:hover {
+    color: var(--accent-clr);
+    background-color: var(--secondary-clr);
 }
 
 nav #hamburger {
@@ -250,8 +322,9 @@ nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn {
     max-width: unset;
 }
 
-nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn.secondary {
-    border: 1px solid rgb(255 255 255 / 25%);
+nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn.secondary,
+.user-content a.primary-btn.secondary {
+    border: 1px solid rgb(255, 255, 255, 0.1);
     background-color: transparent;
 }
 
@@ -664,6 +737,12 @@ input:autofill:active {
     max-width: fit-content;
     height: 40px;
     padding: 0 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#virtual-walks .hero-content>div:first-child>div a.primary-btn:hover {
+    color: var(--accent-clr);
+    background-color: var(--secondary-clr);
 }
 
 #virtual-walks .hero-content>div:first-child>div p {
@@ -841,6 +920,12 @@ input:autofill:active {
     font-weight: 500;
     border-radius: 4px;
     border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.popular-container>div button.primary-btn:hover {
+    color: var(--accent-clr);
+    background-color: var(--secondary-clr);
 }
 
 .popular-container>div button.primary-btn {
@@ -1183,8 +1268,13 @@ div[data-access="false"]:hover::after {
     padding: 0 1.2rem;
     height: 40px;
     max-width: 180px;
+    transition: all 0.3s ease-in-out;
 }
 
+.banner-content a.primary-btn:hover {
+    color: var(--accent-clr);
+    background-color: var(--secondary-clr);
+}
 
 .banner-content h2,
 .banner-content p {
