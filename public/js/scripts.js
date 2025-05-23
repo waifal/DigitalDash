@@ -188,6 +188,28 @@ window.addEventListener("resize", function () {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const profileBtn = document.querySelector('.profile__menu');
+    const userContent = profileBtn.querySelector('.user-content');
+
+    profileBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        userContent.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!profileBtn.contains(e.target)) {
+            userContent.classList.remove('active');
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            userContent.classList.remove('active');
+        }
+    });
+});
+
 /**
  * 
  * THEME SWITCHER SCRIPT
