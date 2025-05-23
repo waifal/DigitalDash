@@ -42,7 +42,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<!-- Title -->
 			<div>
 				<span class="subtitle"><small>Discover the Best Virtual Hikes</small></span>
-				<h2>Trending <span>Now</span></h2>
+				<h2>Latest <span>Hikes</span></h2>
 			</div>
 			<br>
 			<br>
