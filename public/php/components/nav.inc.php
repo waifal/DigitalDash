@@ -81,7 +81,19 @@
 			<?php endif; ?>
 		</ul>
 		<div class="cta">
-			<a type="button" class="profile__menu primary-btn"><i class="fa-solid fa-user"></i></a>
+			<button type="button" class="profile__menu primary-btn"><i class="fa-solid fa-user"></i>
+				<div class="user-content">
+					<div>
+						<?php if ($_SESSION['index'] === true): ?>
+							<a href="pages/account-settings.php" class="primary-btn secondary">Account Settings</a>
+							<a href="../../php/signout.inc.php" class="primary-btn">Sign out</a>
+						<?php else: ?>
+							<a href="account-settings.php" class="primary-btn secondary">Account Settings</a>
+							<a href="../../../php/signout.inc.php" class="primary-btn">Sign out</a>
+						<?php endif; ?>
+					</div>
+				</div>
+			</button>
 			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
 		</div>
 
