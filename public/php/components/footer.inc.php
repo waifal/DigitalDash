@@ -15,7 +15,7 @@ if ($isIndex) {
 			['about.html', 'About'],
 			['contact.html', 'Contact']
 		];
-	$logoSrc = 'assets/images/logo/logo_color_transparent_png.png';
+	$logoSrc = '../assets/images/logo/logo_color_transparent_png.png';
 	$logoHref = 'index.html';
 	$signoutHref = $isLoggedIn ? 'php/signout.inc.php' : 'php/pages/login.php';
 	$profileHref = $isLoggedIn ? 'php/pages/account-settings.php' : 'php/pages/signup.php';
