@@ -158,6 +158,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * 
+ * Hamburger Menu
+ * 
+ */
+document.addEventListener("click", function (event) {
+    const hbmContent = document.querySelector(".hbm-content");
+    const overlay = document.querySelector("#hamburger .overlay");
+
+    if (!hbmContent || !overlay) return;
+
+    if (event.target.closest("#open-hbm")) {
+        hbmContent.classList.add("active");
+        overlay.style.display = "block";
+    }
+
+    if (event.target.closest(".close-hbm") || event.target === overlay) {
+        hbmContent.classList.remove("active");
+        overlay.style.display = "none";
+    }
+});
+
+window.addEventListener("resize", function () {
+    const hbmContent = document.querySelector(".hbm-content");
+    const overlay = document.querySelector("#hamburger .overlay");
+
+    if (window.innerWidth > 1080 && hbmContent?.classList.contains("active")) {
+        hbmContent.classList.remove("active");
+        if (overlay) overlay.style.display = "none";
+    }
+});
+
+/**
+ * 
  * THEME SWITCHER SCRIPT
  * 
 */
