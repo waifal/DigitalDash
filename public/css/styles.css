@@ -112,7 +112,6 @@ nav a:not(nav a.primary-btn):hover {
 
 nav>div.cta {
     display: flex;
-    column-gap: 1vw;
     justify-content: flex-end;
 }
 
@@ -250,7 +249,7 @@ nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn {
     max-width: unset;
 }
 
-nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn.login {
+nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn.secondary {
     border: 1px solid rgb(255 255 255 / 25%);
     background-color: transparent;
 }
@@ -259,7 +258,11 @@ nav #hamburger>div:last-child>.hbm-content>div:first-child button:first-child {
     padding: 0 0.5rem;
     color: #6c6c6c;
     width: fit-content;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+}
+
+nav #hamburger>div:last-child>.hbm-content>div:first-child button:first-child i {
+    margin-inline-end: 0.3ch;
 }
 
 nav #hamburger>div .hbm-content>div button {
@@ -277,7 +280,8 @@ nav #hamburger>div .hbm-content>div button {
 
 nav #hamburger>div .hbm-content>div button:last-child {
     font-size: 1.25rem;
-    color: red;
+    color: var(--accent-clr);
+    color: #6c6c6c;
     float: right;
 }
 
