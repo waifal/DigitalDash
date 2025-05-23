@@ -17,8 +17,8 @@ if ($isIndex) {
 		];
 	$logoSrc = '../assets/images/logo/logo_color_transparent_png.png';
 	$logoHref = 'index.html';
-	$signoutHref = $isLoggedIn ? 'php/signout.inc.php' : 'php/pages/login.php';
-	$profileHref = $isLoggedIn ? 'php/pages/account-settings.php' : 'php/pages/signup.php';
+	$signoutHref = $isLoggedIn ? '../../php/signout.inc.php' : 'php/pages/login.php';
+	$profileHref = $isLoggedIn ? '../php/pages/account-settings.php' : 'php/pages/signup.php';
 	$privacyHref = 'php/pages/privacy-policy.php';
 	$termsHref = 'php/pages/terms-and-conditions.php';
 } else {
