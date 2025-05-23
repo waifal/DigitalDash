@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-<<<<<<< HEAD
+
     const button = document.getElementById("theme-switcher");
     let Li = document.querySelector(".bi")
     let logo = document.querySelector(".logo-img");
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
-=======
+
     function changeTheme() {
         const switchThemeBtn = document.getElementById("theme-switcher");
 
@@ -252,5 +252,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     changeTheme();
-});
->>>>>>> upstream/main
