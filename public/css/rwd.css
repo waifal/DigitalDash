@@ -38,12 +38,16 @@
     }
 
     nav div:has(img) img {
-        width: 80px;
+        width: 100px;
     }
 
-    nav ul,
-    nav div:has(a[href="php/pages/signup.php"]) {
+    nav ul:not(nav #hamburger ul),
+    nav div.cta:has(a[href="php/pages/signup.php"]) {
         display: none;
+    }
+
+    nav #hamburger #open-hbm {
+        display: block;
     }
 
     section.banner {
@@ -139,6 +143,14 @@
         align-content: center;
         flex: 1;
         white-space: nowrap;
+    }
+
+    footer #mobile .footer-links>a:first-child {
+        text-align: right;
+    }
+
+    footer #mobile .footer-links>a:last-child {
+        text-align: left;
     }
 
     footer #mobile .footer-bottom div.copyright {
@@ -247,12 +259,17 @@
         box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
     }
 
+    .banner-content h2,
+    .banner-content p {
+        text-align: center;
+    }
+
     .banner-content div:last-child a {
         max-width: unset;
     }
 
     .banner-content div:last-child a:last-of-type {
-        margin-top: 8px;
+        margin-top: 12px;
         margin-left: 0 !important;
     }
 }

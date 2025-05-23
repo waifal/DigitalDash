@@ -17,8 +17,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <?php if ($_SESSION['index'] === true): ?>
 		<link rel="stylesheet" href="../css/homepage.css">
 		<link rel="stylesheet" href="../css/styles.css">
+		<link rel="stylesheet" href="../css/rwd.css">
 	<?php else: ?>
 		<link rel="stylesheet" href="../../css/styles.css">
+		<link rel="stylesheet" href="../../css/rwd.css">
 	<?php endif; ?>
 
 	<?php if (isset($_SESSION['digital_walks']) && $_SESSION['digital_walks'] === true || basename($_SERVER['PHP_SELF']) === 'digital-walks.php'): ?>
