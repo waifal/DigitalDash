@@ -156,105 +156,68 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(switchVideo, 10000);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.video__section-content').forEach(section => {
-        const cards = section.querySelector('.cards');
-        const leftBtn = section.querySelector('.arrow__container:first-child button');
-        const rightBtn = section.querySelector('.arrow__container:last-child button');
-        if (!cards || !leftBtn || !rightBtn) return;
+/**
+ * 
+ * Hamburger Menu
+ * 
+ */
+document.addEventListener("click", function (event) {
+    const hbmContent = document.querySelector(".hbm-content");
+    const overlay = document.querySelector("#hamburger .overlay");
 
-        const card = cards.querySelector('div');
-        const cardWidth = card ? card.offsetWidth : 280;
-        const gap = parseInt(getComputedStyle(cards).gap) || 16;
-        const scrollAmount = cardWidth + gap;
+    if (!hbmContent || !overlay) return;
 
-        function updateButtons() {
-            if (cards.scrollLeft <= 0) {
-                leftBtn.style.visibility = 'hidden';
-            } else {
-                leftBtn.style.visibility = 'visible';
-            }
-            if (cards.scrollLeft + cards.clientWidth >= cards.scrollWidth - 1) {
-                rightBtn.style.visibility = 'hidden';
-            } else {
-                rightBtn.style.visibility = 'visible';
-            }
-        }
+    if (event.target.closest("#open-hbm")) {
+        hbmContent.classList.add("active");
+        overlay.style.display = "block";
+    }
 
-        let isScrolling;
-        cards.addEventListener('scroll', function () {
-            updateButtons();
-            window.clearTimeout(isScrolling);
-            isScrolling = setTimeout(function () {
-                const maxScroll = cards.scrollWidth - cards.clientWidth;
-                if (cards.scrollLeft >= maxScroll - 1) {
-                    cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-                } else {
-                    let index = Math.round(cards.scrollLeft / scrollAmount);
-                    let target = index * scrollAmount;
-                    cards.scrollTo({ left: target, behavior: 'smooth' });
-                }
-            }, 100);
-        });
-
-        leftBtn.addEventListener('click', () => {
-            const index = Math.round(cards.scrollLeft / scrollAmount);
-            cards.scrollTo({ left: (index - 1) * scrollAmount, behavior: 'smooth' });
-        });
-        rightBtn.addEventListener('click', () => {
-            const maxScroll = cards.scrollWidth - cards.clientWidth;
-            if (cards.scrollLeft >= maxScroll - 1) {
-                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-                return;
-            }
-            const index = Math.round(cards.scrollLeft / scrollAmount);
-            const nextScroll = (index + 1) * scrollAmount;
-            if (nextScroll >= maxScroll - 1) {
-                cards.scrollTo({ left: maxScroll, behavior: 'smooth' });
-            } else {
-                cards.scrollTo({ left: nextScroll, behavior: 'smooth' });
-            }
-        });
-
-        let isDown = false;
-        let startX;
-        let scrollLeftStart;
-
-        cards.addEventListener('mousedown', (e) => {
-            isDown = true;
-            cards.classList.add('dragging');
-            startX = e.pageX - cards.getBoundingClientRect().left;
-            scrollLeftStart = cards.scrollLeft;
-            e.preventDefault();
-        });
-        cards.addEventListener('mouseleave', () => {
-            isDown = false;
-            cards.classList.remove('dragging');
-        });
-        cards.addEventListener('mouseup', () => {
-            isDown = false;
-            cards.classList.remove('dragging');
-        });
-        cards.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            const x = e.pageX - cards.getBoundingClientRect().left;
-            const walk = (startX - x);
-            cards.scrollLeft = scrollLeftStart + walk;
-        });
-
-        updateButtons();
-        window.addEventListener('resize', updateButtons);
-    });
+    if (event.target.closest(".close-hbm") || event.target === overlay) {
+        hbmContent.classList.remove("active");
+        overlay.style.display = "none";
+    }
 });
 
+window.addEventListener("resize", function () {
+    const hbmContent = document.querySelector(".hbm-content");
+    const overlay = document.querySelector("#hamburger .overlay");
+
+    if (window.innerWidth > 1080 && hbmContent?.classList.contains("active")) {
+        hbmContent.classList.remove("active");
+        if (overlay) overlay.style.display = "none";
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const profileBtn = document.querySelector('.profile__menu');
+    const userContent = profileBtn.querySelector('.user-content');
+
+    profileBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        userContent.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!profileBtn.contains(e.target)) {
+            userContent.classList.remove('active');
+        }
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            userContent.classList.remove('active');
+        }
+    });
+});
 
 /**
  * 
  * THEME SWITCHER SCRIPT
  * 
- */
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
+<<<<<<< HEAD
     const button = document.getElementById("theme-switcher");
     let Li = document.querySelector(".bi")
     let logo = document.querySelector(".logo-img");
@@ -279,3 +242,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 });
+=======
+    function changeTheme() {
+        const switchThemeBtn = document.getElementById("theme-switcher");
+
+        switchThemeBtn.addEventListener("click", () => {
+            console.log("Theme switcher has been clicked!");
+        });
+    }
+
+    changeTheme();
+});
+>>>>>>> upstream/main

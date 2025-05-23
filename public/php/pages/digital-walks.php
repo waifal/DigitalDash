@@ -15,7 +15,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 ?>
 
 <main id="virtual-walks">
-	<section> <!-- Hero Section -->
+	<section>
+		<!-- Hero Section -->
 		<section class="hero__section">
 			<div class="hero-content">
 				<div>
@@ -33,302 +34,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							Watching Now</a>
 					</div>
 					<img src="../../assets/images/logo/logo_color_white_transparent_png.png" alt="DigitalDash Logo"
-						draggable="false">
-				</div>
-				<div class="hero-content-grid">
-					<!-- Grid Item 1 -->
-					<div>
-						<img src="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							alt="Scenic winter landscape of Austrian Alps" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							imagesrcset="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg">
-					</div>
-					<!-- Grid Item 2 -->
-					<div>
-						<img src="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg"
-							alt="Scenic mountain bridge over river landscape" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg"
-							imagesrcset="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg">
-					</div>
-					<!-- Grid Item 3 -->
-					<div>
-						<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-							alt="Gorsa Bridge in Norway with waterfall and mountains, drone view" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-							imagesrcset="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg">
-					</div>
-					<!-- Grid Item 4 -->
-					<div>
-						<img src="../../assets/images/backgrounds/creek_in_a_forest.jpeg" alt="Creek in a forest"
-							loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/creek_in_a_forest.jpeg"
-							imagesrcset="../../assets/images/backgrounds/creek_in_a_forest.jpeg">
-					</div>
-					<!-- Grid Item 5 -->
-					<div>
-						<img src="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							alt="Bridge in Iceland landscape" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							imagesrcset="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg">
-					</div>
-					<!-- Grid Item 6 -->
-					<div>
-						<img src="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg"
-							alt="Aerial view of river and forest trees" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg"
-							imagesrcset="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg">
-					</div>
-					<!-- Grid Item 7 -->
-					<div>
-						<img src="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							alt="Captivating mountain view in Ruidoso, New Mexico" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							imagesrcset="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg">
-					</div>
-					<!-- Grid Item 8 -->
-					<div>
-						<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-							alt="Majestic mountain landscape in Hooker Valley, New Zealand" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-							imagesrcset="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg">
-					</div>
-					<!-- Grid Item 9 -->
-					<div>
-						<img src="../../assets/images/backgrounds/Rocky_Mountain.jpeg" alt="Rocky Mountain landscape"
-							loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/Rocky_Mountain.jpeg"
-							imagesrcset="../../assets/images/backgrounds/Rocky_Mountain.jpeg">
-					</div>
-					<!-- Grid Item 10 -->
-					<div>
-						<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg"
-							alt="Green trees and snowy mountains under blue sky" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg"
-							imagesrcset="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg">
-					</div>
-					<!-- Grid Item 11 -->
-					<div>
-						<img src="../../assets/images/backgrounds/stunning_hooker_valley_landscape_in_new_zealand.jpeg"
-							alt="Stunning Hooker Valley landscape in New Zealand" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/stunning_hooker_valley_landscape_in_new_zealand.jpeg"
-							imagesrcset="../../assets/images/backgrounds/stunning_hooker_valley_landscape_in_new_zealand.jpeg">
-					</div>
-					<!-- Grid Item 12 -->
-					<div>
-						<img src="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							alt="Captivating mountain view in Ruidoso, New Mexico" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							imagesrcset="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg">
-					</div>
-					<!-- Grid Item 13 -->
-					<div>
-						<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg"
-							alt="Landscape photograph of snowcapped mountains" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg"
-							imagesrcset="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg">
-					</div>
-					<!-- Grid Item 14 -->
-					<div>
-						<img src="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg"
-							alt="Winding trail among the mountains of Mount Cook National Park" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg"
-							imagesrcset="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg">
-					</div>
-					<!-- Grid Item 15 -->
-					<div>
-						<img src="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							alt="Captivating mountain view in Ruidoso, New Mexico" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							imagesrcset="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg">
-					</div>
-					<!-- Grid Item 16 -->
-					<div>
-						<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg"
-							alt="Mount Cook in New Zealand" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg"
-							imagesrcset="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg">
-					</div>
-					<!-- Grid Item 17 -->
-					<div>
-						<img src="../../assets/images/backgrounds/4k-green-forest.jpg" alt="Green forest landscape"
-							loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/4k-green-forest.jpg"
-							imagesrcset="../../assets/images/backgrounds/4k-green-forest.jpg">
-					</div>
-					<!-- Grid Item 18 -->
-					<div>
-						<img src="../../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg"
-							alt="Scenic forest path in Gia Lai, Vietnam" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg"
-							imagesrcset="../../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg">
-					</div>
-					<!-- Grid Item 19 -->
-					<div>
-						<img src="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg"
-							alt="Empty wooden pathway in forest" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg"
-							imagesrcset="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg">
-					</div>
-					<!-- Grid Item 20 -->
-					<div>
-						<img src="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg"
-							alt="Landscape photography of volcano" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg"
-							imagesrcset="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg">
-					</div>
-					<!-- Grid Item 21 -->
-					<div>
-						<img src="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							alt="Scenic winter landscape of Austrian Alps" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							imagesrcset="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg">
-					</div>
-					<!-- Grid Item 22 -->
-					<div>
-						<img src="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							alt="Bridge in Iceland landscape" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							imagesrcset="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg">
-					</div>
-					<!-- Grid Item 23 -->
-					<div>
-						<img src="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg"
-							alt="Aerial view of river and forest trees" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg"
-							imagesrcset="../../assets/images/backgrounds/River-and-Forest-Trees-Aerial-View.jpg">
-					</div>
-					<!-- Grid Item 24 -->
-					<div>
-						<img src="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							alt="Captivating mountain view in Ruidoso, New Mexico" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							imagesrcset="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg">
-					</div>
-					<!-- Grid Item 25 -->
-					<div>
-						<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-							alt="Majestic mountain landscape in Hooker Valley, New Zealand" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-							imagesrcset="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg">
-					</div>
-					<!-- Grid Item 26 -->
-					<div>
-						<img src="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg"
-							alt="Winding trail among the mountains of Mount Cook National Park" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg"
-							imagesrcset="../../assets/images/backgrounds/winding_trail_among_the_mountains_of_mount_cook_national_park.jpeg">
-					</div>
-					<!-- Grid Item 27 -->
-					<div>
-						<img src="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							alt="Captivating mountain view in Ruidoso, New Mexico" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg"
-							imagesrcset="../../assets/images/backgrounds/captivating_mountain_view_in_ruidoso_new_mexico.jpg">
-					</div>
-					<!-- Grid Item 28 -->
-					<div>
-						<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg"
-							alt="Mount Cook in New Zealand" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg"
-							imagesrcset="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg">
-					</div>
-					<!-- Grid Item 29 -->
-					<div>
-						<img src="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							alt="Scenic winter landscape of Austrian Alps" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							imagesrcset="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg">
-					</div>
-					<!-- Grid Item 30 -->
-					<div>
-						<img src="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg"
-							alt="Scenic mountain bridge over river landscape" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg"
-							imagesrcset="../../assets/images/backgrounds/scenic_mountain_bridge_river_landscape.jpg">
-					</div>
-					<!-- Grid Item 31 -->
-					<div>
-						<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-							alt="Gorsa Bridge in Norway with waterfall and mountains, drone view" loading="lazy"
-							fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-							imagesrcset="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg">
-					</div>
-					<!-- Grid Item 32 -->
-					<div>
-						<img src="../../assets/images/backgrounds/creek_in_a_forest.jpeg" alt="Creek in a forest"
-							loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/creek_in_a_forest.jpeg"
-							imagesrcset="../../assets/images/backgrounds/creek_in_a_forest.jpeg">
-					</div>
-					<!-- Grid Item 33 -->
-					<div>
-						<img src="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							alt="Bridge in Iceland landscape" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image" href="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg"
-							imagesrcset="../../assets/images/backgrounds/iceland_photo_of_bridge.jpg">
-					</div>
-					<!-- Grid Item 34 -->
-					<div>
-						<img src="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg"
-							alt="Empty wooden pathway in forest" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg"
-							imagesrcset="../../assets/images/backgrounds/empty_wooden_pathway_in_forest.jpg">
-					</div>
-					<!-- Grid Item 35 -->
-					<div>
-						<img src="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg"
-							alt="Landscape photography of volcano" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg"
-							imagesrcset="../../assets/images/backgrounds/landscape_photography_of_volcano.jpeg">
-					</div>
-					<!-- Grid Item 36 -->
-					<div>
-						<img src="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							alt="Scenic winter landscape of Austrian Alps" loading="lazy" fetchpriority="low">
-						<link rel="preload" as="image"
-							href="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg"
-							imagesrcset="../../assets/images/backgrounds/Scenic_Winter_Landscape_of_Austrian_Alps.jpg">
-					</div>
+						draggable="false" loading="lazy">
 				</div>
 		</section>
 		<!-- Recommended Section -->
@@ -344,14 +50,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<div class="popular-container">
 				<!-- Popular #1 -->
 				<div>
-					<div class="popular-content">
-						<video muted>
+					<div class="popular-content"> <video muted data-preview>
 							<source src="../../assets/videos/glen_coe.mp4" type="video/mp4">
 						</video>
 						<div class="overlay"></div>
 						<h2>Glen Coe</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false">
+							draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
@@ -393,7 +98,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="overlay"></div>
 						<h2>Mountain Range Lake</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false">
+							draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
@@ -437,7 +142,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="overlay"></div>
 						<h2>Sun Peek Forest</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false">
+							draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
@@ -486,16 +191,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div data-access="true">
 					<h2 class="genre"><i class="fa-solid fa-tree"></i> Bush Walks</h2>
 					<div class="video__section-content">
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-left"></i></button>
-						</div>
 						<!-- Video Cards -->
 						<div class="cards">
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg"
-										alt="">
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -530,7 +232,8 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="">
+									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt=""
+										loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -566,7 +269,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-										alt="">
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -599,25 +302,19 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 								</div>
 							</div>
 						</div>
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-right"></i></button>
-						</div>
 					</div>
 				</div>
 				<!-- Lake Walks -->
 				<div data-access="true">
 					<h2 class="genre"><i class="fa-solid fa-water"></i> Lake Walks</h2>
 					<div class="video__section-content">
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-left"></i></button>
-						</div>
 						<!-- Video Cards -->
 						<div class="cards">
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg"
-										alt="">
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -653,7 +350,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-										alt="">
+										alt="" loading="lazy">
 									<button type="button">
 										<i class="fa-regular fa-circle-play"></i>
 									</button>
@@ -685,11 +382,28 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
 							</div>
-						</div>
-						<div class="arrow__container">
-							<button type="button"><i class="fa-solid fa-arrow-right"></i></button>
+							<div></div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Banner -->
+		<section class="banner">
+			<div class="banner-content">
+				<div>
+					<h2>Unlock the Full Experience</h2>
+					<p>
+						Sign in for exclusive walks, premium trails, and members-only content.
+					</p>
+				</div>
+				<div style="text-align: left;">
+					<a href="php/pages/signup.php" class="primary-btn"> Create
+						account
+					</a>
+					<a href="php/pages/login.php" class="primary-btn"
+						style="background-color: transparent; outline: 1px solid rgb(255, 255, 255, 0.1); margin-left: 10px; background-color: #111">
+						Login</a>
 				</div>
 			</div>
 		</section>
