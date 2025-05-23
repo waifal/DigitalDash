@@ -37,6 +37,12 @@ html {
     font: 1rem/1.5 Hind, Arial, sans-serif;
 }
 
+
+.bi {
+    font-size: 2rem;
+
+}
+
 body {
     color: var(--secondary-clr);
     min-height: 100svh;
