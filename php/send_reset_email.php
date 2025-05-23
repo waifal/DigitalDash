@@ -13,6 +13,7 @@ define("SMTP_PORT", $_ENV['SMTP_PORT']);
 function sendResetEmail($email, $token) {
 	$mail = new PHPMailer(true);
 	$reset_link = "http://localhost/projects/DigitalDash/public/php/pages/reset-password.php?token=$token"; // Change URL on deployment
+	// $reset_link = "103.250.232.247/~digitald/DigitalDash/public/php/pages/reset-password.php?token=$token"; // Change URL on deployment
 
 	try {
 		$mail->SMTPDebug = 0; // Set to 0 for production, 2 for debugging
