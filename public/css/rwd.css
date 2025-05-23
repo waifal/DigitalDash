@@ -42,7 +42,7 @@
     }
 
     nav ul:not(nav #hamburger ul),
-    nav div:has(a[href="php/pages/signup.php"]) {
+    nav div.cta:has(a[href="php/pages/signup.php"]) {
         display: none;
     }
 
