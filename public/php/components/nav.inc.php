@@ -116,7 +116,7 @@
 						</div>
 						<div>
 							<ul>
-								<li><a href="php/pages/logout.php" class="primary-btn login">Logout</a></li>
+								<li><a href="../../php/signout.inc.php" class="primary-btn login">Logout</a></li>
 							</ul>
 						</div>
 						<div>
