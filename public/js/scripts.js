@@ -190,24 +190,27 @@ window.addEventListener("resize", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const profileBtn = document.querySelector('.profile__menu');
-    const userContent = profileBtn.querySelector('.user-content');
 
-    profileBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        userContent.classList.toggle('active');
-    });
+    if (profileBtn) {
+        const userContent = profileBtn.querySelector('.user-content');
 
-    document.addEventListener('click', function (e) {
-        if (!profileBtn.contains(e.target)) {
-            userContent.classList.remove('active');
-        }
-    });
+        profileBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            userContent.classList.toggle('active');
+        });
 
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            userContent.classList.remove('active');
-        }
-    });
+        document.addEventListener('click', function (e) {
+            if (!profileBtn.contains(e.target)) {
+                userContent.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                userContent.classList.remove('active');
+            }
+        });
+    }
 });
 
 /**
@@ -217,13 +220,28 @@ document.addEventListener("DOMContentLoaded", function () {
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-    function changeTheme() {
-        const switchThemeBtn = document.getElementById("theme-switcher");
 
-        switchThemeBtn.addEventListener("click", () => {
-            console.log("Theme switcher has been clicked!");
-        });
-    }
+    const button = document.getElementById("theme-switcher");
+    let Li = document.querySelector(".bi")
+    let logo = document.querySelector(".logo-img");
+    let root = document.querySelector(":root");
 
-    changeTheme();
+    button.addEventListener("click", (event) => {
+        console.log("Theme switcher has been clicked!");
+        root.classList.toggle("light")
+        if (Li.classList.contains("bi-brightness-low-fill")) {
+            Li.classList.remove("bi-brightness-low-fill")
+            Li.classList.add("bi-moon-stars-fill")
+
+            logo.src = " assets/images/logo/logo_black_white.webp";
+
+        }
+        else {
+            Li.classList.remove("bi-moon-stars-fill")
+            Li.classList.add("bi-brightness-low-fill")
+            logo.src = " assets/images/logo/logo_color_transparent_png.png";
+
+
+        }
+    })
 });
