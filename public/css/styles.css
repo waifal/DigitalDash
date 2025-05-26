@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-:root {
-    --primary-clr: #111111;
-    --secondary-clr: #ffffff;
-    --accent-clr: #2bb37f;
-    --accent-hover-clr: rgba(45, 193, 136, 0.851);
 
+
+
+:root { 
+    color-scheme: dark;
     --nav-height: 70px;
     --container-padding: 5rem 150px;
-
+        --accent-clr: #2dc489;
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
+.light {
+    color-scheme: light;
+     --primary-clr: #ffffff;
+       --secondary-clr: #111111;
+    --accent-clr: #2dc489;
+}
+
+
+.dark {
+    color-scheme: dark;
+      --primary-clr: #111111;
+    --secondary-clr: #ffffff;
+    --accent-clr: #2dc489;
+}
 * {
     padding: 0;
     margin: 0;
@@ -22,6 +35,12 @@
 html {
     scroll-behavior: smooth;
     font: 1rem/1.5 Hind, Arial, sans-serif;
+}
+
+
+.bi {
+    font-size: 2rem;
+
 }
 
 body {
