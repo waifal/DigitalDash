@@ -38,7 +38,7 @@ html {
 }
 
 
-.bi {
+nav .bi {
     font-size: 2rem;
 
 }
@@ -1335,10 +1335,10 @@ div[data-access="false"]:hover::after {
 
 .About img {
     margin-top: 1rem;
-    position: absolute; 
-     height: 300px;
+    position: absolute;
+    height: 300px;
     left: 50%;
-    top: 35%; 
+    top: 35%;
     max-height: 300px;
     max-width: 50%;
     border: 1px solid white;
@@ -1352,23 +1352,26 @@ div[data-access="false"]:hover::after {
 }
 
 @media only screen and (max-width: 1024px) {
-.About h1{
-    left: 20%;
-    top: 20%;
+    .About h1 {
+        left: 20%;
+        top: 20%;
     }
-.About .txt p {
-    left: 10%;
-    top: 30%;
-    width: 80%;
-    font-size: 0.8rem;
+
+    .About .txt p {
+        left: 10%;
+        top: 30%;
+        width: 80%;
+        font-size: 0.8rem;
     }
-.About img {
-    left: 10%;
-    top: 50%;
-    max-width: 80%;
-    height: auto;
+
+    .About img {
+        left: 10%;
+        top: 50%;
+        max-width: 80%;
+        height: auto;
     }
 }
+
 /* ================== Footer ================== */
 
 footer {
