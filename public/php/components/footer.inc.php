@@ -63,8 +63,13 @@ if ($isIndex) {
 			<div>
 				<strong>Trails</strong>
 				<ul>
-					<li><a href="#">Bush Walks</a></li>
-					<li><a href="#">Lake Walks</a></li>
+					<?php if ($_SESSION['digital-walks'] === true): ?>
+						<li><a href="digital-walks.php#video__section"></a></li>
+						<li><a href="digital-walks.php#lake-walks"></a></li>
+					<?php else: ?>
+						<li><a href="pages/digital-walks.php#video__section">Bush Walks</a></li>
+						<li><a href="pages/digital-walks.php#lake-walks">Lake Walks</a></li>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<div>
@@ -150,11 +155,11 @@ if ($isIndex) {
 </footer>
 
 <?php if (!$isLoggedIn): ?>
-	<script src="js/scripts.js" type="module"></script>
+	<script src="../../js/scripts.js" type="module"></script>
 <?php elseif (isset($_SESSION['digital_walks']) && $_SESSION['digital_walks'] === true): ?>
 	<script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-	<script src="js/scripts.js" type="module"></script>
-	<script src="js/videohandler.js"></script>
+	<script src="../js/scripts.js" type="module"></script>
+	<script src="../js/videohandler.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			const previews = document.querySelectorAll('.popular-content');
@@ -185,5 +190,5 @@ if ($isIndex) {
 		});
 	</script>
 <?php else: ?>
-	<script src="js/scripts.js" type="module"></script>
+	<script src="../../js/scripts.js" type="module"></script>
 <?php endif; ?>
