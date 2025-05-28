@@ -388,25 +388,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				</div>
 			</div>
 		</section>
-		<!-- Banner -->
-		<section class="banner">
-			<div class="banner-content">
-				<div>
-					<h2>Unlock the Full Experience</h2>
-					<p>
-						Sign in for exclusive walks, premium trails, and members-only content.
-					</p>
-				</div>
-				<div style="text-align: left;">
-					<a href="php/pages/signup.php" class="primary-btn"> Create
-						account
-					</a>
-					<a href="php/pages/login.php" class="primary-btn"
-						style="background-color: transparent; outline: 1px solid rgb(255, 255, 255, 0.1); margin-left: 10px; background-color: #111">
-						Login</a>
-				</div>
-			</div>
-		</section>
 	</section>
 </main>
 
