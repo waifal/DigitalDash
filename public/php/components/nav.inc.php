@@ -27,7 +27,7 @@
 				<div class="hbm-content">
 					<!-- Close Menu & Theme Switcher -->
 					<div>
-						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i></button>
 						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 					<div class="links">
@@ -104,7 +104,7 @@
 			<div>
 				<div class="hbm-content">
 					<div>
-						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i> Toggle Theme</button>
+						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i></button>
 						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 					<div class="links">
