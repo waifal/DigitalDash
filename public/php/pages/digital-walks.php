@@ -309,7 +309,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					</div>
 				</div>
 				<!-- Lake Walks -->
-				<div data-access="true">
+				<div data-access="true" id="lake-walks">
 					<h2 class="genre"><i class="fa-solid fa-water"></i> Lake Walks</h2>
 					<div class="video__section-content">
 						<!-- Video Cards -->
