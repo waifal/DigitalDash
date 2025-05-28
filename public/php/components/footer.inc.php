@@ -63,12 +63,15 @@ if ($isIndex) {
 			<div>
 				<strong>Trails</strong>
 				<ul>
-					<?php if ($_SESSION['digital-walks'] === true): ?>
-						<li><a href="digital-walks.php#video__section"></a></li>
-						<li><a href="digital-walks.php#lake-walks"></a></li>
-					<?php else: ?>
-						<li><a href="pages/digital-walks.php#video__section">Bush Walks</a></li>
+					<?php if ($_SESSION['digital_walks'] === true): ?>
+						<li><a href="#video__section">Bush Walks</a></li>
+						<li><a href="#lake-walks">Lake Walks</a></li>
+					<?php elseif ($_SESSION['index'] === true): ?>
 						<li><a href="pages/digital-walks.php#lake-walks">Lake Walks</a></li>
+						<li><a href="pages/digital-walks.php#video__section">Bush Walks</a></li>
+					<?php else: ?>
+						<li><a href="digital-walks.php#video__section">Bush Walks</a></li>
+						<li><a href="digital-walks.php#lake-walks">Lake Walks</a></li>
 					<?php endif; ?>
 				</ul>
 			</div>

@@ -3,6 +3,7 @@
 session_start();
 
 $_SESSION['index'] = true;
+$_SESSION['digital_walks'] = false;
 
 if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true) {
 	header('Location: pages/login.php'); // Change to index.html

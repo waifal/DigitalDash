@@ -16,6 +16,7 @@ if ($_SESSION['logged_in'] === true) {
 
 $_SESSION['index'] = false;
 $_SESSION['sign_in_page'] = true;
+$_SESSION['digital_walks'] = false;
 
 require_once(__DIR__ . '/../components/header.inc.php');
 require_once(__DIR__ . '/../components/nav.inc.php');
