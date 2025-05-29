@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-
-
-
 :root { 
+    color-scheme: dark;
     --nav-height: 70px;
     --container-padding: 5rem 150px;
-        --accent-clr: #2dc489;
+    --accent-clr: #2dc489;
+    --primary-clr: #111111;
+    --secondary-clr: #ffffff;
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 .light {
-          --primary-clr: #ffffff;
+    color-scheme: light;
+     --primary-clr: #ffffff;
        --secondary-clr: #111111;
     --accent-clr: #2dc489;
     }
 
 
- .dark {
-         --primary-clr: #111111;
+.dark {
+    color-scheme: dark;
+      --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
     }
@@ -38,6 +40,7 @@
    
     }
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -50,9 +53,8 @@ html {
 }
 
 
-.bi {
-    font-size: 2rem;
-
+nav .bi {
+    font-size: 1.8rem;
 }
 
 body {
@@ -394,11 +396,6 @@ nav #hamburger>div .hbm-content>div button:last-child {
     color: var(--accent-clr);
     color: #6c6c6c;
     float: right;
-}
-
-nav #hamburger>div .hbm-content>div button:hover {
-    outline: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #181818;
 }
 
 nav #hamburger>div .hbm-content>div button i {
@@ -1165,15 +1162,6 @@ div:has(> #digital-dash-player_html5_api) {
     border: none;
 }
 
-#virtual-walks div.video__section-content .cards.dragging {
-    /* cursor: grabbing; */
-    user-select: none;
-}
-
-#virtual-walks div.video__section-content .cards::-webkit-scrollbar {
-    display: none;
-}
-
 #virtual-walks div.video__section-content .cards>div {
     min-width: 280px;
     max-width: 280px;
@@ -1352,13 +1340,42 @@ div[data-access="false"]:hover::after {
 }
 
 .About img {
+    margin-top: 1rem;
     position: absolute;
     height: 300px;
     left: 50%;
     top: 35%;
+    max-height: 300px;
+    max-width: 50%;
     border: 1px solid white;
     background-color: black;
     border-radius: 5px 5px 5px 5px;
+}
+
+.imgdiv {
+    max-height: 360px;
+    max-width: 400px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .About h1 {
+        left: 20%;
+        top: 20%;
+    }
+
+    .About .txt p {
+        left: 10%;
+        top: 30%;
+        width: 80%;
+        font-size: 0.8rem;
+    }
+
+    .About img {
+        left: 10%;
+        top: 50%;
+        max-width: 80%;
+        height: auto;
+    }
 }
 
 /* ================== Footer ================== */

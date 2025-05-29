@@ -33,8 +33,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<a href="#video__section" class="primary-btn"><i class="fa-solid fa-play"></i> Start
 							Watching Now</a>
 					</div>
-					<img src="../../assets/images/logo/logo_color_white_transparent_png.png" alt="DigitalDash Logo"
-						draggable="false" loading="lazy">
+					<img src="../../assets/images/logo/logo_color_white_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 				</div>
 		</section>
 		<!-- Recommended Section -->
@@ -42,7 +41,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<!-- Title -->
 			<div>
 				<span class="subtitle"><small>Discover the Best Virtual Hikes</small></span>
-				<h2>Trending <span>Now</span></h2>
+				<h2>Latest <span>Hikes</span></h2>
 			</div>
 			<br>
 			<br>
@@ -50,24 +49,24 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<div class="popular-container">
 				<!-- Popular #1 -->
 				<div>
-					<div class="popular-content"> <video muted data-preview>
+					<div class="popular-content">
+						<video muted data-preview>
 							<source src="../../assets/videos/glen_coe.mp4" type="video/mp4">
 						</video>
 						<div class="overlay"></div>
-						<h2>Glen Coe</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false" loading="lazy">
+						<h2>Hamilton Gardens</h2>
+						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/glen_coe.mp4', {
-                                    title: 'Glen Coe',
-                                    location: 'Scotland',
-                                    duration: '7 Seconds',
+                                    title: 'Hamilton Gardens',
+                                    location: 'New Zealand',
+                                    duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
+                                    description: ''
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -76,14 +75,14 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     </video>  
                                     <div class='video-info'>
                                         <div>
-                                            <h2>Glen Coe</h2>
+                                            <h2>Hamilton Gardens</h2>
                                             <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> Scotland</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 7 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p>Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature’s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it’s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.</p>
+                                        <p></p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -96,20 +95,19 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<source src="../../assets/videos/mountain_range_with_lake.mp4" type="video/mp4">
 						</video>
 						<div class="overlay"></div>
-						<h2>Mountain Range Lake</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false" loading="lazy">
+						<h2>Taitua Arboretum</h2>
+						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/mountain_range_with_lake.mp4', {
-                                    title: 'Mountain Range Lake',
-                                    location: 'N/A',
-                                    duration: '14 Seconds',
+                                    title: 'Taitua Arboretum',
+                                    location: 'New Zealand',
+                                    duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
+                                    description: ''
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -118,14 +116,14 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     </video>  
                                     <div class='video-info'>
                                         <div>
-                                            <h2>Mountain Range Lake</h2>
+                                            <h2>Taitua Arboretum</h2>
                                             <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 14 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>     
                                         </div>
-                                        <p>A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.</p>
+                                        <p></p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -135,25 +133,22 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<video muted>
-							<source
-								src="../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4"
-								type="video/mp4">
+							<source src="../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" type="video/mp4">
 						</video>
 						<div class="overlay"></div>
-						<h2>Sun Peek Forest</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo"
-							draggable="false" loading="lazy">
+						<h2>Sanford Park</h2>
+						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                    title: 'Sun Peek Forest',
-                                    location: 'N/A',
-                                    duration: '17 Seconds',
+                                    title: 'Sandford Park',
+                                    location: 'New Zealand',
+                                    duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
+                                    description: ''
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -162,14 +157,14 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     </video>  
                                     <div class='video-info'>
                                         <div>
-                                            <h2>Sun Peek Forest</h2>
+                                            <h2>Sandford Park</h2>
                                             <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> N/A</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 17 Seconds</small></li>
+                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p>Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature's simple yet profound ability to create moments of wonder and serenity.</p>
+                                        <p></p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -196,20 +191,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg"
-										alt="" loading="lazy">
-									<button type="button">
-										<i class="fa-regular fa-circle-play"></i>
+									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                            title: 'Hamilton Gardens',
+                                            location: 'New Zealand',
+                                            duration: '15 Minutes',
+                                            quality: 'HD',
+                                            description: ''
+                                            })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
 								<div class="context">
-									<h3>Green Trees Snowy Mt.</h3>
+									<h3>Hamilton Gardens</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
 										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span
-													class='quality'>HD</span></small></li>
+										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -217,7 +215,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Green Trees Snowy Mt.</h2>
+                                                    <h2>Hamilton Gardens</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -232,20 +230,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt=""
-										loading="lazy">
-									<button type="button">
-										<i class="fa-regular fa-circle-play"></i>
+									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                            title: 'Taitua Arboretum',
+                                            location: 'New Zealand',
+                                            duration: '15 Minutes',
+                                            quality: 'HD',
+                                            description: ''
+                                            })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
 								<div class="context">
-									<h3>Aoraki/Mount Cook</h3>
+									<h3>Taitua Arboretum</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
 										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span
-													class='quality'>HD</span></small></li>
+										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -253,7 +254,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Aoraki/Mount Cook</h2>
+                                                    <h2>Taitua Arboretum</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -268,20 +269,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #3 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg"
-										alt="" loading="lazy">
-									<button type="button">
-										<i class="fa-regular fa-circle-play"></i>
+									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                            title: 'Sandford Park',
+                                            location: 'New Zealand',
+                                            duration: '15 Minutes',
+                                            quality: 'HD',
+                                            description: ''
+                                            })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
 								<div class="context">
-									<h3>Hooker Valley</h3>
+									<h3>Sandford Park</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
 										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span
-													class='quality'>HD</span></small></li>
+										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -289,7 +293,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Hooker Valley</h2>
+                                                    <h2>Sandford Park</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -305,7 +309,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					</div>
 				</div>
 				<!-- Lake Walks -->
-				<div data-access="true">
+				<div data-access="true" id="lake-walks">
 					<h2 class="genre"><i class="fa-solid fa-water"></i> Lake Walks</h2>
 					<div class="video__section-content">
 						<!-- Video Cards -->
@@ -313,20 +317,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg"
-										alt="" loading="lazy">
-									<button type="button">
-										<i class="fa-regular fa-circle-play"></i>
+									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg" alt="" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                            title: 'Lake Rotoroa',
+                                            location: 'New Zealand',
+                                            duration: '15 Minutes',
+                                            quality: 'HD',
+                                            description: ''
+                                            })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
 								<div class="context">
-									<h3>Snowcap Mountains</h3>
+									<h3>Lake Rotoroa</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
 										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span
-													class='quality'>HD</span></small></li>
+										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -334,7 +341,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Snowcap Mountains</h2>
+                                                    <h2>Lake Rotoroa</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -349,20 +356,23 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg"
-										alt="" loading="lazy">
-									<button type="button">
-										<i class="fa-regular fa-circle-play"></i>
+									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
+                                            title: 'Lake Ngaroto',
+                                            location: 'New Zealand',
+                                            duration: '15 Minutes',
+                                            quality: 'HD',
+                                            description: ''
+                                            })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
 								<div class="context">
-									<h3>Gorsa Bridge</h3>
+									<h3>Lake Ngaroto</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
 										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span
-													class='quality'>HD</span></small></li>
+										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
@@ -370,7 +380,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Gorsa Bridge</h2>
+                                                    <h2>Lake Ngaroto</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -385,25 +395,6 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div></div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Banner -->
-		<section class="banner">
-			<div class="banner-content">
-				<div>
-					<h2>Unlock the Full Experience</h2>
-					<p>
-						Sign in for exclusive walks, premium trails, and members-only content.
-					</p>
-				</div>
-				<div style="text-align: left;">
-					<a href="php/pages/signup.php" class="primary-btn"> Create
-						account
-					</a>
-					<a href="php/pages/login.php" class="primary-btn"
-						style="background-color: transparent; outline: 1px solid rgb(255, 255, 255, 0.1); margin-left: 10px; background-color: #111">
-						Login</a>
 				</div>
 			</div>
 		</section>

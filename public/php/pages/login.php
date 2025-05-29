@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+$_SESSION['digital_walks'] = false;
+
 require(__DIR__ . '/../../../php/includes/connection.inc.php');
 
 $query = "DELETE FROM password_resets WHERE token = ?";

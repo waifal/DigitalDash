@@ -5,6 +5,7 @@ $_SESSION['index'] = false;
 $_SESSION['privacy_policy'] = true;
 $_SESSION['terms_and_conditions'] = false;
 $_SESSION['sign_in_page'] = false;
+$_SESSION['digital_walks'] = false;
 
 require_once(__DIR__ . '/../components/header.inc.php');
 require_once(__DIR__ . '/../components/nav.inc.php');

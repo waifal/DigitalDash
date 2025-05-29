@@ -42,7 +42,7 @@
 
 .btn-div button {
     text-decoration: none;
-    padding: 12px 2rem;
+    padding: 7px 2rem;
     border: none;
     background-color:#2dc68a;
     color: white;
@@ -101,7 +101,7 @@ font-family: "Hind", sans-serif;
     font-size: 1.3rem;
     max-width: 36rem;
     max-height: 330px;
-    animation: fadeIn 3s;
+    animation: fadeIn 2.5s;
 }
 h1 span {
     color: #2dc68a;
@@ -109,7 +109,7 @@ h1 span {
 
 .video {
     max-width: 450px;
-    animation: fadeIn 3s;
+    animation: fadeIn 2.5s;
 }
 
 
