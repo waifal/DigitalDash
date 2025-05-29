@@ -5,7 +5,6 @@
 
 
 :root { 
-    color-scheme: dark;
     --nav-height: 70px;
     --container-padding: 5rem 150px;
         --accent-clr: #2dc489;
@@ -13,18 +12,31 @@
 }
 
 .light {
-    color-scheme: light;
-     --primary-clr: #ffffff;
+          --primary-clr: #ffffff;
        --secondary-clr: #111111;
     --accent-clr: #2dc489;
-}
+    }
 
 
-.dark {
-    color-scheme: dark;
-      --primary-clr: #111111;
+ .dark {
+         --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
+    }
+@media (prefers-color-scheme: dark) {
+
+   
+    :root {
+      color-scheme: dark;
+     
+    }
+}
+@media (prefers-color-scheme: light) {
+    
+    :root {
+     color-scheme: light;
+   
+    }
 }
 * {
     padding: 0;
@@ -60,6 +72,12 @@ h6 {
 p {
     max-width: 90ch;
     margin: 12px 0;
+}
+
+#logo {
+    max-height:70px;
+    object-fit: cover;
+    margin-top: 10px;
 }
 
 button {
