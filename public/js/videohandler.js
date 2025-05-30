@@ -19,22 +19,34 @@ const VideoStateManager = {
     },
 
     updateFromPlayer(state, player) {
-        state.currentTime = player.currentTime();
-        state.isPaused = player.paused();
-        state.volume = player.volume();
-        state.playbackRate = player.playbackRate();
+        if (!player || typeof player.currentTime !== 'function') return state;
+
+        try {
+            state.currentTime = player.currentTime();
+            state.isPaused = player.paused();
+            state.volume = player.volume();
+            state.playbackRate = player.playbackRate();
+        } catch (e) {
+            console.warn('Error updating state:', e);
+        }
         return state;
     },
 
     applyToPlayer(state, player) {
-        player.currentTime(state.currentTime);
-        player.volume(state.volume);
-        player.playbackRate(state.playbackRate);
+        if (!player || typeof player.currentTime !== 'function') return;
 
-        if (state.isPaused) {
-            player.pause();
-        } else {
-            player.play().catch(err => console.warn('Auto-play prevented:', err));
+        try {
+            player.currentTime(state.currentTime);
+            player.volume(state.volume);
+            player.playbackRate(state.playbackRate);
+
+            if (state.isPaused) {
+                player.pause();
+            } else {
+                player.play().catch(err => console.warn('Auto-play prevented:', err));
+            }
+        } catch (e) {
+            console.warn('Error applying state:', e);
         }
     }
 };
@@ -58,9 +70,7 @@ const FullscreenUtils = {
                 }
 
                 if (requestPromise) {
-                    requestPromise
-                        .then(resolve)
-                        .catch(reject);
+                    requestPromise.then(resolve).catch(reject);
                 } else {
                     reject(new Error('Fullscreen API not supported'));
                 }
@@ -113,7 +123,9 @@ const PlayerConfig = {
                 fallback: true
             },
             autoplay: true,
-            fluid: true,
+            fluid: false,
+            fill: true,
+            responsive: true,
             preload: 'auto',
             disablePictureInPicture: true,
             controlBar: {
@@ -245,18 +257,18 @@ document.addEventListener('DOMContentLoaded', () => {
     window.playFullscreenVideo = async function (videoSrc, customData = null) {
         console.log('🎬 Starting fullscreen video:', videoSrc);
 
-        // Get the correct path based on whether we're in a PHP page or HTML page
         const src = PathResolver.getVideoPath(videoSrc);
         const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
 
         const container = document.createElement('div');
-        container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;z-index:9999;';
+        container.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:black;z-index:9999;display:flex;align-items:center;justify-content:center;';
         container.setAttribute('role', 'dialog');
         container.setAttribute('aria-label', 'Video Player');
 
         const videoElement = document.createElement('video');
         videoElement.className = 'video-js vjs-theme-forest';
         videoElement.id = 'fullscreen-player';
+        videoElement.style.cssText = 'width:100%;height:100%;';
 
         const source = document.createElement('source');
         source.src = src;
@@ -282,33 +294,38 @@ document.addEventListener('DOMContentLoaded', () => {
         let isCleanedUp = false;
 
         const cleanup = () => {
-            if (isCleanedUp) {
-                console.log('⚠️  Cleanup already called, skipping...');
-                return;
-            }
-
+            if (isCleanedUp) return;
             console.log('🧹 Starting cleanup...');
             isCleanedUp = true;
 
-            console.log('🧹 Removing fullscreen listener...');
             removeFullscreenListener();
 
-            console.log('🧹 Disposing player...');
             try {
                 player.dispose();
             } catch (e) {
                 console.warn('Player dispose error:', e);
             }
 
-            console.log('🧹 Removing container...');
             container.remove();
-
             console.log('✅ Cleanup complete');
         };
 
+        player.on('fullscreenchange', () => {
+            if (!player.isFullscreen()) {
+                console.log('🔘 Exiting fullscreen via toggle...');
+                VideoStateManager.updateFromPlayer(videoState, player);
+                cleanup();
+                showInfoModal(videoSrc, videoInfo, videoState);
+            }
+        });
+
         try {
-            await FullscreenUtils.request(container);
+            await FullscreenUtils.request(player.el());
             console.log('📺 Fullscreen requested successfully');
+
+            if (!player.isFullscreen()) {
+                player.requestFullscreen();
+            }
         } catch (error) {
             console.warn('Fullscreen request failed:', error);
             showInfoModal(videoSrc, videoInfo, videoState);
@@ -316,46 +333,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const fullscreenToggle = player.controlBar.fullscreenToggle.el();
-        fullscreenToggle.onclick = async () => {
-            console.log('🔘 Fullscreen toggle clicked');
-            if (FullscreenUtils.isFullscreen()) {
-                console.log('🔘 Exiting fullscreen via toggle...');
-                await FullscreenUtils.exit();
-                VideoStateManager.updateFromPlayer(videoState, player);
-                cleanup();
-                showInfoModal(videoSrc, videoInfo, videoState);
-            } else {
-                try {
-                    await FullscreenUtils.request(container);
-                } catch (error) {
-                    console.warn('Fullscreen toggle failed:', error);
-                }
-            }
-        };
-
-        const playToggle = player.controlBar.playToggle.el();
-        playToggle.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
-        const volumePanel = player.controlBar.volumePanel.el();
-        volumePanel.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
-        const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
-        playbackRateMenu.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
         ['play', 'pause', 'timeupdate', 'volumechange', 'ratechange'].forEach(event => {
             player.on(event, () => VideoStateManager.updateFromPlayer(videoState, player));
         });
 
         const removeFullscreenListener = FullscreenUtils.onChange(() => {
             console.log('📺 Fullscreen change detected. Current state:', FullscreenUtils.isFullscreen());
-            if (!FullscreenUtils.isFullscreen()) {
+            if (!FullscreenUtils.isFullscreen() && !isCleanedUp) {
                 console.log('📺 Exited fullscreen, transitioning to modal...');
                 VideoStateManager.updateFromPlayer(videoState, player);
                 cleanup();
@@ -393,38 +377,31 @@ document.addEventListener('modalOpened', function () {
         player.el().querySelectorAll('.vjs-control-bar button').forEach(button => {
             button.setAttribute('tabindex', '0');
             button.addEventListener('click', () => {
-                button.blur();
-            });
+                setTimeout(() => button.blur(), 100);
+            }, true);
         });
 
-        const playControl = player.el().querySelector('.vjs-play-control');
-        if (playControl) {
-            playControl.addEventListener('click', () => {
-                playControl.blur();
+        const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
+        if (bigPlayButton) {
+            bigPlayButton.addEventListener('click', async () => {
+                try {
+                    await player.play();
+                } catch (err) {
+                    console.warn('Video playback failed:', err);
+                }
             });
         }
 
-        const fullscreenButton = player.controlBar.fullscreenToggle.el();
-        fullscreenButton.addEventListener('click', () => fullscreenButton.blur());
-
-        const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
-        bigPlayButton.addEventListener('click', async () => {
-            try {
-                if (!player.isFullscreen()) {
-                    const playerElement = player.el();
-                    if (playerElement && playerElement.isConnected) {
-                        await FullscreenUtils.request(playerElement);
-                    }
+        const video = player.el().querySelector('video');
+        if (video) {
+            video.addEventListener('click', () => {
+                if (player.paused()) {
+                    player.play();
+                } else {
+                    player.pause();
                 }
-                await player.play();
-            } catch (err) {
-                console.warn('Video playback or fullscreen request failed:', err);
-            }
-        });
-
-        player.el().querySelector('video').addEventListener('click', () => {
-            player[player.paused() ? 'play' : 'pause']();
-        });
+            });
+        }
     });
 });
 
