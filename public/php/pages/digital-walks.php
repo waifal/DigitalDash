@@ -191,7 +191,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="Hamilton Gardens" loading="lazy">
 									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
                                             title: 'Hamilton Gardens',
                                             location: 'New Zealand',
@@ -230,7 +230,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="Taitua Arboretum" loading="lazy">
 									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
                                             title: 'Taitua Arboretum',
                                             location: 'New Zealand',
@@ -269,7 +269,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #3 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="Sandford Park" loading="lazy">
 									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
                                             title: 'Sandford Park',
                                             location: 'New Zealand',
@@ -317,9 +317,9 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #1 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/landscape_photograph_of_snowcap_mountains.jpeg" alt="" loading="lazy">
-									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                            title: 'Lake Rotoroa',
+									<img src="../../assets/images/backgrounds/lake_rotoroa_hamilton.jpg" alt="Hamilton Lake" loading="lazy">
+									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/hamilton_lake_rotoroa.MP4', {
+                                            title: 'Hamilton Lake',
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
@@ -328,7 +328,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 									</button>
 								</div>
 								<div class="context">
-									<h3>Lake Rotoroa</h3>
+									<h3>Hamilton Lake</h3>
 									<ul>
 										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
 										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
@@ -337,11 +337,11 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 									</ul>
 									<button type="button" onclick="initModal(this, 'previewModal', `
                                             <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                                <source src='../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
+                                                <source src='../../assets/videos/hamilton_lake_rotoroa.MP4' type='video/mp4'></source>
                                             </video>  
                                             <div class='video-info'>
                                                 <div>
-                                                    <h2>Lake Rotoroa</h2>
+                                                    <h2>Hamilton Lake</h2>
                                                     <ul>
                                                         <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                                         <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
@@ -356,7 +356,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="" loading="lazy">
+									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="Lake Ngaroto" loading="lazy">
 									<button type="button" class="primary-btn" onclick="playFullscreenVideo('../../assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
                                             title: 'Lake Ngaroto',
                                             location: 'New Zealand',
