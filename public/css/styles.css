@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
 
-:root { 
+:root {
     color-scheme: dark;
     --nav-height: 70px;
     --container-padding: 5rem 150px;
@@ -13,31 +13,33 @@
 
 .light {
     color-scheme: light;
-     --primary-clr: #ffffff;
-       --secondary-clr: #111111;
+    --primary-clr: #ffffff;
+    --secondary-clr: #111111;
     --accent-clr: #2dc489;
-    }
+}
 
 
 .dark {
     color-scheme: dark;
-      --primary-clr: #111111;
+    --primary-clr: #111111;
     --secondary-clr: #ffffff;
     --accent-clr: #2dc489;
-    }
+}
+
 @media (prefers-color-scheme: dark) {
 
-   
+
     :root {
-      color-scheme: dark;
-     
+        color-scheme: dark;
+
     }
 }
+
 @media (prefers-color-scheme: light) {
-    
+
     :root {
-     color-scheme: light;
-   
+        color-scheme: light;
+
     }
 }
 
@@ -77,7 +79,7 @@ p {
 }
 
 #logo {
-    max-height:70px;
+    max-height: 70px;
     object-fit: cover;
     margin-top: 10px;
 }
@@ -107,6 +109,13 @@ a.primary-btn {
 .subtitle {
     color: #eee8e8;
     font-size: 0.95rem;
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+    line-height: unset;
+    vertical-align: middle;
 }
 
 /* ================== Navigation ================== */
@@ -220,13 +229,6 @@ nav a.profile__menu.primary-btn {
 
 nav button.profile__menu.primary-btn {
     position: relative;
-}
-
-nav button.primary-btn+button:hover,
-nav a.primary-btn+button:hover,
-nav button.profile__menu.primary-btn:hover {
-    outline: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #181818;
 }
 
 .user-content {
