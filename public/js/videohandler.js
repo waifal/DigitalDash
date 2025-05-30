@@ -138,7 +138,7 @@ const PlayerConfig = {
             autoplay: false,
             controls: true,
             fluid: false,
-            muted: true,
+            muted: false,
             playsInline: true,
             disablePictureInPicture: true,
             preload: 'auto',
