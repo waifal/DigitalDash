@@ -214,8 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Account Settings
-
-
 const handleAccount_Settings = () => {
     const fName = document.getElementById("fname");
     const lName = document.getElementById("lname");
@@ -268,34 +266,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("theme-switcher");
     let Li = document.querySelector(".bi")
     let logo = document.querySelector(".logo-img");
-     let root = document.querySelector(":root");
+    let root = document.querySelector(":root");
 
     button.addEventListener("click", (event) => {
         console.log("Theme switcher has been clicked!");
-                root.classList.toggle("light")
+        root.classList.toggle("light")
         if (Li.classList.contains("bi-brightness-low-fill")) {
             Li.classList.remove("bi-brightness-low-fill")
-            Li.classList.add( "bi-moon-stars-fill")
-         
-             logo.src = " assets/images/logo/logo_black_white.webp";
-             
-        } 
+            Li.classList.add("bi-moon-stars-fill")
+
+            logo.src = " assets/images/logo/logo_black_white.webp";
+
+        }
         else {
-              Li.classList.remove("bi-moon-stars-fill")
-            Li.classList.add( "bi-brightness-low-fill")
-              logo.src = " assets/images/logo/logo_color_transparent_png.png";
-    
-             
+            Li.classList.remove("bi-moon-stars-fill")
+            Li.classList.add("bi-brightness-low-fill")
+            logo.src = " assets/images/logo/logo_color_transparent_png.png";
+
+
         }
     })
 });
-
-    function changeTheme() {
-        const switchThemeBtn = document.getElementById("theme-switcher");
-
-        switchThemeBtn.addEventListener("click", () => {
-            console.log("Theme switcher has been clicked!");
-        });
-    }
-
-    changeTheme();
