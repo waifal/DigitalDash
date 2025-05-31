@@ -26,6 +26,23 @@
     --accent-clr: #2dc489;
 }
 
+@media (prefers-color-scheme: dark) {
+
+
+    :root {
+        color-scheme: dark;
+
+    }
+}
+
+@media (prefers-color-scheme: light) {
+
+    :root {
+        color-scheme: light;
+
+    }
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -61,6 +78,12 @@ p {
     margin: 12px 0;
 }
 
+#logo {
+    max-height: 70px;
+    object-fit: cover;
+    margin-top: 10px;
+}
+
 button {
     cursor: pointer;
     font: inherit;
@@ -86,6 +109,13 @@ a.primary-btn {
 .subtitle {
     color: #eee8e8;
     font-size: 0.95rem;
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+    line-height: unset;
+    vertical-align: middle;
 }
 
 /* ================== Navigation ================== */
@@ -199,13 +229,6 @@ nav a.profile__menu.primary-btn {
 
 nav button.profile__menu.primary-btn {
     position: relative;
-}
-
-nav button.primary-btn+button:hover,
-nav a.primary-btn+button:hover,
-nav button.profile__menu.primary-btn:hover {
-    outline: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: #181818;
 }
 
 .user-content {

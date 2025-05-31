@@ -19,22 +19,34 @@ const VideoStateManager = {
     },
 
     updateFromPlayer(state, player) {
-        state.currentTime = player.currentTime();
-        state.isPaused = player.paused();
-        state.volume = player.volume();
-        state.playbackRate = player.playbackRate();
+        if (!player || typeof player.currentTime !== 'function') return state;
+
+        try {
+            state.currentTime = player.currentTime();
+            state.isPaused = player.paused();
+            state.volume = player.volume();
+            state.playbackRate = player.playbackRate();
+        } catch (e) {
+            console.warn('Error updating state:', e);
+        }
         return state;
     },
 
     applyToPlayer(state, player) {
-        player.currentTime(state.currentTime);
-        player.volume(state.volume);
-        player.playbackRate(state.playbackRate);
+        if (!player || typeof player.currentTime !== 'function') return;
 
-        if (state.isPaused) {
-            player.pause();
-        } else {
-            player.play().catch(err => console.warn('Auto-play prevented:', err));
+        try {
+            player.currentTime(state.currentTime);
+            player.volume(state.volume);
+            player.playbackRate(state.playbackRate);
+
+            if (state.isPaused) {
+                player.pause();
+            } else {
+                player.play().catch(err => console.warn('Auto-play prevented:', err));
+            }
+        } catch (e) {
+            console.warn('Error applying state:', e);
         }
     }
 };
@@ -58,9 +70,7 @@ const FullscreenUtils = {
                 }
 
                 if (requestPromise) {
-                    requestPromise
-                        .then(resolve)
-                        .catch(reject);
+                    requestPromise.then(resolve).catch(reject);
                 } else {
                     reject(new Error('Fullscreen API not supported'));
                 }
@@ -113,7 +123,9 @@ const PlayerConfig = {
                 fallback: true
             },
             autoplay: true,
-            fluid: true,
+            fluid: false,
+            fill: true,
+            responsive: true,
             preload: 'auto',
             disablePictureInPicture: true,
             controlBar: {
@@ -138,7 +150,7 @@ const PlayerConfig = {
             autoplay: false,
             controls: true,
             fluid: false,
-            muted: true,
+            muted: false,
             playsInline: true,
             disablePictureInPicture: true,
             preload: 'auto',
@@ -165,13 +177,10 @@ const PathResolver = {
     },
 
     getVideoPath(path) {
-        // Strip any existing prefixes first
         const basePath = path.replace(/^(\.\.\/)*/, '');
         if (this.isPhpPage()) {
-            // For PHP pages, we need to go up two levels
             return '../../' + basePath;
         }
-        // For HTML pages, use the path as is
         return basePath;
     }
 };
@@ -184,29 +193,30 @@ const VideoRegistry = {
             duration: '7 Seconds',
             quality: 'HD',
             description: 'Hidden within the rugged heart of the Scottish Highlands, Glen Coe is a breathtaking valley where nature\'s drama unfolds in towering peaks and misty trails. Steeped in history and mystery, it\'s a place where ancient legends whisper through the winds and cinematic landscapes pull you into their untamed beauty. Whether bathed in golden light or cloaked in mist, Glen Coe is pure magic—an awe-inspiring spectacle you have to see to believe. Watch the video and immerse yourself in its haunting, majestic allure.'
-        }, 'assets/videos/mountain_range_with_lake.mp4': {
+        },
+        'assets/videos/mountain_range_with_lake.mp4': {
             title: 'Mountain Range Lake',
             location: 'N/A',
             duration: '14 Seconds',
             quality: 'HD',
-            description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature’s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole. Let the mountain’s quiet grandeur enfold you. Let its stillness speak.'
-        }, 'assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4': {
+            description: 'A solitary giant rises, kissed by golden sunlight, its peaks crowned with drifting veils of cloud. Below, emerald meadows sway, dotted with wildflowers that exhale whispers of fragrance into the crisp, pine-scented air. A crystalline river hums its lullaby, threading through the valley like liquid silver. Birds glide, their melodies stitching the sky with soft serenity. Here, amid nature\'s embrace, time dissolves, and the soul breathes freely—weightless, calm, whole.Let the mountain\'s quiet grandeur enfold you. Let its stillness speak.'
+        },
+        'assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4': {
             title: 'Sun Peek Forest',
             location: 'N/A',
             duration: '17 Seconds',
             quality: 'HD',
             description: 'Witness the ethereal dance of sunlight filtering through ancient forest canopies, creating a mesmerizing display of light and shadow. As golden rays pierce through towering trees, they paint the forest floor in a warm, dappled glow, inviting you into a moment of pure tranquility. This peaceful scene captures nature\'s simple yet profound ability to create moments of wonder and serenity.'
         },
-    }, getVideoInfo(src) {
-        // Strip any existing prefix
+    },
+
+    getVideoInfo(src) {
         const basePath = src.replace(/^(\.\.\/)*/, '');
 
-        // Try to find the video info using the base path
         if (this.videos[basePath]) {
             return this.videos[basePath];
         }
 
-        // Default fallback
         return {
             title: 'Video',
             location: 'Location',
@@ -218,7 +228,6 @@ const VideoRegistry = {
 };
 
 function showInfoModal(videoSrc, videoInfo, videoState) {
-    // Get the correct path based on whether we're in a PHP page or HTML page
     const src = PathResolver.getVideoPath(videoSrc);
 
     initModal(null, 'previewModal popularVideoFull', `
@@ -246,18 +255,22 @@ function showInfoModal(videoSrc, videoInfo, videoState) {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.playFullscreenVideo = async function (videoSrc, customData = null) {
-        // Get the correct path based on whether we're in a PHP page or HTML page
+        console.log('🎬 Starting fullscreen video:', videoSrc);
+
         const src = PathResolver.getVideoPath(videoSrc);
         const videoInfo = customData || VideoRegistry.getVideoInfo(videoSrc);
 
         const container = document.createElement('div');
-        container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background-color:black;z-index:9999;';
+        container.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:black;z-index:9999;display:flex;align-items:center;justify-content:center;';
         container.setAttribute('role', 'dialog');
         container.setAttribute('aria-label', 'Video Player');
 
         const videoElement = document.createElement('video');
         videoElement.className = 'video-js vjs-theme-forest';
-        videoElement.id = 'fullscreen-player'; const source = document.createElement('source');
+        videoElement.id = 'fullscreen-player';
+        videoElement.style.cssText = 'width:100%;height:100%;';
+
+        const source = document.createElement('source');
         source.src = src;
         source.type = 'video/mp4';
 
@@ -278,8 +291,41 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        let isCleanedUp = false;
+
+        const cleanup = () => {
+            if (isCleanedUp) return;
+            console.log('🧹 Starting cleanup...');
+            isCleanedUp = true;
+
+            removeFullscreenListener();
+
+            try {
+                player.dispose();
+            } catch (e) {
+                console.warn('Player dispose error:', e);
+            }
+
+            container.remove();
+            console.log('✅ Cleanup complete');
+        };
+
+        player.on('fullscreenchange', () => {
+            if (!player.isFullscreen()) {
+                console.log('🔘 Exiting fullscreen via toggle...');
+                VideoStateManager.updateFromPlayer(videoState, player);
+                cleanup();
+                showInfoModal(videoSrc, videoInfo, videoState);
+            }
+        });
+
         try {
-            await FullscreenUtils.request(container);
+            await FullscreenUtils.request(player.el());
+            console.log('📺 Fullscreen requested successfully');
+
+            if (!player.isFullscreen()) {
+                player.requestFullscreen();
+            }
         } catch (error) {
             console.warn('Fullscreen request failed:', error);
             showInfoModal(videoSrc, videoInfo, videoState);
@@ -287,103 +333,28 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const fullscreenToggle = player.controlBar.fullscreenToggle.el();
-        fullscreenToggle.onclick = async () => {
-            if (FullscreenUtils.isFullscreen()) {
-                await FullscreenUtils.exit();
-                VideoStateManager.updateFromPlayer(videoState, player);
-                cleanup();
-                showInfoModal(videoSrc, videoInfo, videoState);
-            } else {
-                try {
-                    await FullscreenUtils.request(container);
-                } catch (error) {
-                    console.warn('Fullscreen toggle failed:', error);
-                }
-            }
-        };
-
-        const playToggle = player.controlBar.playToggle.el();
-        playToggle.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
-        const volumePanel = player.controlBar.volumePanel.el();
-        volumePanel.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
-        const playbackRateMenu = player.controlBar.playbackRateMenuButton.el();
-        playbackRateMenu.onclick = () => {
-            VideoStateManager.updateFromPlayer(videoState, player);
-        };
-
-        const handleKeyPress = (e) => {
-            if (!FullscreenUtils.isFullscreen()) return;
-
-            switch (e.code) {
-                case 'Space':
-                    e.preventDefault();
-                    player[player.paused() ? 'play' : 'pause']();
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    break;
-                case 'KeyF':
-                    e.preventDefault();
-                    FullscreenUtils.exit();
-                    break;
-                case 'ArrowUp':
-                    e.preventDefault();
-                    player.volume(Math.min(player.volume() + 0.1, 1));
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    break;
-                case 'ArrowDown':
-                    e.preventDefault();
-                    player.volume(Math.max(player.volume() - 0.1, 0));
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    player.currentTime(player.currentTime() + 5);
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    break;
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    player.currentTime(player.currentTime() - 5);
-                    VideoStateManager.updateFromPlayer(videoState, player);
-                    break;
-                case 'Escape':
-                    e.preventDefault();
-                    if (FullscreenUtils.isFullscreen()) {
-                        FullscreenUtils.exit();
-                    }
-                    break;
-            }
-        };
-
-        document.addEventListener('keydown', handleKeyPress);
-
         ['play', 'pause', 'timeupdate', 'volumechange', 'ratechange'].forEach(event => {
             player.on(event, () => VideoStateManager.updateFromPlayer(videoState, player));
         });
 
         const removeFullscreenListener = FullscreenUtils.onChange(() => {
-            if (!FullscreenUtils.isFullscreen()) {
+            console.log('📺 Fullscreen change detected. Current state:', FullscreenUtils.isFullscreen());
+            if (!FullscreenUtils.isFullscreen() && !isCleanedUp) {
+                console.log('📺 Exited fullscreen, transitioning to modal...');
                 VideoStateManager.updateFromPlayer(videoState, player);
                 cleanup();
+                console.log('📺 About to show modal...');
                 showInfoModal(videoSrc, videoInfo, videoState);
             }
         });
 
-        const cleanup = () => {
-            document.removeEventListener('keydown', handleKeyPress);
-            removeFullscreenListener();
-            player.dispose();
-            container.remove();
-        };
+        console.log('📺 Fullscreen listener added');
     };
 });
 
 document.addEventListener('modalOpened', function () {
+    console.log('🎭 Modal opened event fired');
+
     const playerId = 'digital-dash-player';
 
     try {
@@ -392,136 +363,60 @@ document.addEventListener('modalOpened', function () {
         console.warn('Error disposing player:', e);
     }
 
-    if (!document.querySelector(`#${playerId}`)) return;
+    if (!document.querySelector(`#${playerId}`)) {
+        console.log('🎭 No modal player element found, exiting');
+        return;
+    }
 
+    console.log('🎭 Creating modal player');
     const player = videojs(playerId, PlayerConfig.getModalConfig());
 
-    const videoState = {
-        isPaused: true,
-        volume: player.volume(),
-        playbackRate: player.playbackRate()
-    };
-
-    let hasPlayed = false;
-
     player.ready(function () {
+        console.log('🎭 Modal player ready');
+
         player.el().querySelectorAll('.vjs-control-bar button').forEach(button => {
             button.setAttribute('tabindex', '0');
             button.addEventListener('click', () => {
-                videoState.isPaused = player.paused();
-                videoState.volume = player.volume();
-                videoState.playbackRate = player.playbackRate();
-                button.blur();
-            });
-        });
-
-        const playControl = player.el().querySelector('.vjs-play-control');
-        if (playControl) {
-            playControl.addEventListener('click', () => {
-                videoState.isPaused = player.paused();
-                playControl.blur();
-            });
-        }
-
-        const fullscreenButton = player.controlBar.fullscreenToggle.el();
-        fullscreenButton.addEventListener('click', () => {
-            fullscreenButton.blur();
-        });
-
-        player.on('fullscreenchange', () => {
-            videoState.isPaused = player.paused();
+                setTimeout(() => button.blur(), 100);
+            }, true);
         });
 
         const bigPlayButton = player.el().querySelector('.vjs-big-play-button');
-        bigPlayButton.addEventListener('click', async () => {
-            if (!hasPlayed) {
+        if (bigPlayButton) {
+            bigPlayButton.addEventListener('click', async () => {
                 try {
-                    if (!player.isFullscreen()) {
-                        const playerElement = player.el();
-                        if (playerElement && playerElement.isConnected) {
-                            await FullscreenUtils.request(playerElement);
-                        }
-                    }
                     await player.play();
-                    videoState.isPaused = false;
-                    hasPlayed = true;
                 } catch (err) {
-                    console.warn('Video playback or fullscreen request failed:', err);
+                    console.warn('Video playback failed:', err);
                 }
-            }
-        });
+            });
+        }
 
-        player.on('play', () => {
-            videoState.isPaused = false;
-            hasPlayed = true;
-        });
-
-        player.on('pause', () => {
-            videoState.isPaused = true;
-        });
-
-        const updateVideoState = () => {
-            videoState.isPaused = player.paused();
-            videoState.volume = player.volume();
-            videoState.playbackRate = player.playbackRate();
-        };
-
-        player.el().querySelector('video').addEventListener('click', () => {
-            if (hasPlayed) {
-                player[player.paused() ? 'play' : 'pause']();
-                updateVideoState();
-            }
-        });
-
-        const handleModalKeyPress = async (e) => {
-            switch (e.code) {
-                case 'Space':
-                    e.preventDefault();
-                    player[player.paused() ? 'play' : 'pause']();
-                    updateVideoState();
-                    break;
-                case 'KeyF':
-                    e.preventDefault();
-                    try {
-                        const playerElement = player.el();
-                        if (playerElement && playerElement.isConnected) {
-                            if (player.isFullscreen()) {
-                                await FullscreenUtils.exit();
-                            } else {
-                                await FullscreenUtils.request(playerElement);
-                            }
-                        }
-                    } catch (error) {
-                        console.warn('Fullscreen toggle failed:', error);
-                    }
-                    break;
-                case 'ArrowUp':
-                    e.preventDefault();
-                    player.volume(Math.min(player.volume() + 0.1, 1));
-                    updateVideoState();
-                    break;
-                case 'ArrowDown':
-                    e.preventDefault();
-                    player.volume(Math.max(player.volume() - 0.1, 0));
-                    updateVideoState();
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    player.currentTime(player.currentTime() + 5);
-                    updateVideoState();
-                    break;
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    player.currentTime(player.currentTime() - 5);
-                    updateVideoState();
-                    break;
-            }
-        };
-
-        document.addEventListener('keydown', handleModalKeyPress);
-
-        player.on('dispose', () => {
-            document.removeEventListener('keydown', handleModalKeyPress);
-        });
+        const video = player.el().querySelector('video');
+        if (video) {
+            video.addEventListener('click', () => {
+                if (player.paused()) {
+                    player.play();
+                } else {
+                    player.pause();
+                }
+            });
+        }
     });
+});
+
+document.addEventListener('modalClosed', function () {
+    console.log('🎭 Modal closed event fired');
+
+    const playerId = 'digital-dash-player';
+    const playerInstance = videojs.getPlayer(playerId);
+
+    if (playerInstance) {
+        console.log('🧹 Disposing modal player');
+        try {
+            playerInstance.dispose();
+        } catch (err) {
+            console.warn('❌ Error disposing modal player:', err);
+        }
+    }
 });

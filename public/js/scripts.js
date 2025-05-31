@@ -214,8 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Account Settings
-
-
 const handleAccount_Settings = () => {
     const fName = document.getElementById("fname");
     const lName = document.getElementById("lname");
