@@ -1365,20 +1365,20 @@ div[data-access="false"]:hover::after {
 
 @media only screen and (max-width: 1024px) {
     .About h1 {
-        left: 20%;
+        left: 35%;
         top: 20%;
     }
 
     .About .txt p {
-        left: 10%;
+        left: 15%;
         top: 30%;
         width: 80%;
         font-size: 0.8rem;
     }
 
     .About img {
-        left: 10%;
-        top: 50%;
+        left: 15%;
+        top: 55%;
         max-width: 80%;
         height: auto;
     }
