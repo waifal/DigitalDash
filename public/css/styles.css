@@ -504,6 +504,10 @@ a[href="../pages/reset-password.php"] {
     text-align: center;
 }
 
+.auth__container form input {
+    background-color: #fff;
+}
+
 .auth__container form input:focus {
     outline: none;
     border-color: var(--accent-clr);
