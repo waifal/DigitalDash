@@ -4,6 +4,9 @@
 :root {
     color-scheme: dark;
     --nav-height: 70px;
+    --primary-clr: #111111;
+    --secondary-clr: #ffffff;
+    --accent-clr: #2dc489;
     --container-padding: 5rem 150px;
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
@@ -93,7 +96,7 @@ a.primary-btn {
     font-weight: 500;
     border-radius: 50px;
     border: none;
-    /* background-color: var(--accent-clr); */
+    background-color: var(--accent-clr);
 }
 
 .subtitle {
@@ -1299,6 +1302,7 @@ div[data-access="false"]:hover::after {
     height: 40px;
     max-width: 180px;
     transition: all 0.3s ease-in-out;
+    background-color: var(--accent-clr);
 }
 
 .banner-content a.primary-btn:hover {
