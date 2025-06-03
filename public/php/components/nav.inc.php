@@ -94,7 +94,7 @@
 					</div>
 				</div>
 			</button>
-			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
+			<button id="theme-switcher" type="button"><i class="bi bi-brightness-low-fill"></i></button>
 		</div>
 
 		<!-- Hamburger Menu -->
