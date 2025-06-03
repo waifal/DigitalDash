@@ -329,6 +329,7 @@ nav #hamburger > div:last-child > .hbm-content {
     height: 100%;
     display: grid;
     grid-auto-rows: auto 1fr;
+    background-color: #111;
 }
 
 nav #hamburger > div:last-child > .hbm-content .links {
