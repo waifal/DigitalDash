@@ -66,7 +66,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     location: 'New Zealand',
                                     duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: ''
+                                    description: 'Discover a place designed for relaxation and tranquility. Hamilton Gardens offers peaceful landscapes, calming water features, and lush greenery, perfect for unwinding and clearing your mind.'
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -82,7 +82,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p></p>
+                                        <p>Discover a place designed for relaxation and tranquility. Hamilton Gardens offers peaceful landscapes, calming water features, and lush greenery, perfect for unwinding and clearing your mind.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -107,7 +107,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     location: 'New Zealand',
                                     duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: ''
+                                    description: 'Taitua Arboretum is a hidden gem just outside Hamilton, offering a peaceful retreat into nature. With lush woodland gardens, tranquil lakes, and meandering walking trails, it’s the perfect place to unwind and reconnect with the outdoors. The towering trees provide shade and serenity, while the gentle rustling of leaves and birdsong create a soothing atmosphere.'
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -123,7 +123,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>     
                                         </div>
-                                        <p></p>
+                                        <p>Taitua Arboretum is a hidden gem just outside Hamilton, offering a peaceful retreat into nature. With lush woodland gardens, tranquil lakes, and meandering walking trails, it’s the perfect place to unwind and reconnect with the outdoors. The towering trees provide shade and serenity, while the gentle rustling of leaves and birdsong create a soothing atmosphere.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -148,7 +148,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                     location: 'New Zealand',
                                     duration: '15 Minutes',
                                     quality: 'HD',
-                                    description: ''
+                                    description: 'Sandford Park in Hamilton is a peaceful retreat, perfect for unwinding amidst nature. With lush greenery, meandering trails, and scenic river views, it offers a tranquil escape from the bustle of daily life. Whether you\'re taking a leisurely walk along the pathways or simply sitting by the water, the park provides a calming atmosphere to relax and recharge.'
                                     })"><i class="fa-solid fa-play"></i> Play</button>
 							<!-- Learn More Button -->
 							<button type="button" onclick="initModal(this, 'previewModal', `
@@ -164,7 +164,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p></p>
+                                        <p>Sandford Park in Hamilton is a peaceful retreat, perfect for unwinding amidst nature. With lush greenery, meandering trails, and scenic river views, it offers a tranquil escape from the bustle of daily life. Whether you're taking a leisurely walk along the pathways or simply sitting by the water, the park provides a calming atmosphere to relax and recharge.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 						</div>
@@ -197,7 +197,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
-                                            description: ''
+                                            description: 'Discover a place designed for relaxation and tranquility. Hamilton Gardens offers peaceful landscapes, calming water features, and lush greenery, perfect for unwinding and clearing your mind.'
                                             })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
@@ -222,7 +222,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                         <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                     </ul>    
                                                 </div>
-                                                <p></p>
+                                                <p>Discover a place designed for relaxation and tranquility. Hamilton Gardens offers peaceful landscapes, calming water features, and lush greenery, perfect for unwinding and clearing your mind.</p>
                                             </div>
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
@@ -236,7 +236,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
-                                            description: ''
+                                            description: 'Taitua Arboretum is a hidden gem just outside Hamilton, offering a peaceful retreat into nature. With lush woodland gardens, tranquil lakes, and meandering walking trails, it’s the perfect place to unwind and reconnect with the outdoors. The towering trees provide shade and serenity, while the gentle rustling of leaves and birdsong create a soothing atmosphere.'
                                             })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
@@ -261,7 +261,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                         <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                     </ul>    
                                                 </div>
-                                                <p></p>
+                                                <p>Taitua Arboretum is a hidden gem just outside Hamilton, offering a peaceful retreat into nature. With lush woodland gardens, tranquil lakes, and meandering walking trails, it’s the perfect place to unwind and reconnect with the outdoors. The towering trees provide shade and serenity, while the gentle rustling of leaves and birdsong create a soothing atmosphere.</p>
                                             </div>
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
@@ -275,7 +275,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
-                                            description: ''
+                                            description: 'Sandford Park in Hamilton is a peaceful retreat, perfect for unwinding amidst nature. With lush greenery, meandering trails, and scenic river views, it offers a tranquil escape from the bustle of daily life. Whether you\'re taking a leisurely walk along the pathways or simply sitting by the water, the park provides a calming atmosphere to relax and recharge.'
                                             })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
@@ -300,7 +300,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                         <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                     </ul>    
                                                 </div>
-                                                <p></p>
+                                                <p>Sandford Park in Hamilton is a peaceful retreat, perfect for unwinding amidst nature. With lush greenery, meandering trails, and scenic river views, it offers a tranquil escape from the bustle of daily life. Whether you're taking a leisurely walk along the pathways or simply sitting by the water, the park provides a calming atmosphere to relax and recharge.</p>
                                             </div>
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
@@ -323,7 +323,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
-                                            description: ''
+                                            description: 'Hamilton Lake is a peaceful retreat in the heart of the city, offering scenic walking trails, calm waters, and open green spaces perfect for relaxation. Whether you\'re enjoying a quiet stroll, watching the reflections on the lake, or simply taking in the fresh air, it\'s an ideal place to unwind.'
                                             })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
@@ -348,7 +348,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                         <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                     </ul>    
                                                 </div>
-                                                <p></p>
+                                                <p>Hamilton Lake is a peaceful retreat in the heart of the city, offering scenic walking trails, calm waters, and open green spaces perfect for relaxation. Whether you're enjoying a quiet stroll, watching the reflections on the lake, or simply taking in the fresh air, it's an ideal place to unwind.</p>
                                             </div>
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
@@ -362,7 +362,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                             location: 'New Zealand',
                                             duration: '15 Minutes',
                                             quality: 'HD',
-                                            description: ''
+                                            description: 'Lake Ngaroto is a peaceful retreat surrounded by lush wetlands and scenic walking trails. Whether you\'re enjoying a leisurely stroll along the 6 km loop track, watching the gentle ripples on the water, or simply taking in the quiet beauty of the landscape, it\’s the perfect place to unwind and reconnect with nature.'
                                             })"><i class="fa-regular fa-circle-play"></i>
 									</button>
 								</div>
@@ -387,7 +387,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                         <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                     </ul>    
                                                 </div>
-                                                <p></p>
+                                                <p>Lake Ngaroto is a peaceful retreat surrounded by lush wetlands and scenic walking trails. Whether you're enjoying a leisurely stroll along the 6 km loop track, watching the gentle ripples on the water, or simply taking in the quiet beauty of the landscape, it’s the perfect place to unwind and reconnect with nature.</p>
                                             </div>
                                         `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
 								</div>
