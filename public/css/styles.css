@@ -231,7 +231,7 @@ nav button.profile__menu.primary-btn {
     transform: translateX(-50%);
     width: 240px;
     padding: 0.75rem;
-    background-color: #1e1e1e;
+    background-color: var(--primary-clr);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
@@ -256,7 +256,7 @@ nav button.profile__menu.primary-btn {
     transform: translateX(-50%);
     border-width: 7px;
     border-style: solid;
-    border-color: transparent transparent #1e1e1e transparent;
+    border-color: transparent transparent var(--primary-clr) transparent;
 }
 
 .user-content a.primary-btn {
@@ -266,10 +266,14 @@ nav button.profile__menu.primary-btn {
     padding: 0.5rem 0.75rem;
     margin: 0.25rem 0;
     font-size: 0.875rem;
-    color: white;
+    color: var(--secondary-clr);
     text-decoration: none;
     border-radius: 6px;
     transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.user-content a[href="../../../php/signout.inc.php"] {
+    color: #fff;
 }
 
 .user-content div:has(a.primary-btn) {
@@ -280,6 +284,7 @@ nav button.profile__menu.primary-btn {
 
 .user-content a.primary-btn:hover {
     color: var(--accent-clr);
+    background-color: #fff;
     background-color: var(--secondary-clr);
 }
 
