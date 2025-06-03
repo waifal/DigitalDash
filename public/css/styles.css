@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap");
 
 :root {
     color-scheme: dark;
@@ -18,7 +18,6 @@
     --accent-clr: #2dc489;
 }
 
-
 .dark {
     color-scheme: dark;
     --primary-clr: #111111;
@@ -29,7 +28,6 @@
 @media (prefers-color-scheme: dark) {
     :root {
         color-scheme: dark;
-
     }
 }
 
@@ -49,7 +47,6 @@ html {
     scroll-behavior: smooth;
     font: 1rem/1.5 Hind, Arial, sans-serif;
 }
-
 
 nav .bi {
     font-size: 1.8rem;
@@ -122,16 +119,15 @@ nav {
     padding: 0 150px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #1d1d1d;
     background-color: var(--primary-clr);
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 5%);
 }
 
-nav>* {
+nav > * {
     flex: 1;
 }
 
-nav>ul {
+nav > ul {
     margin: auto;
     display: flex;
     column-gap: 3vh;
@@ -154,13 +150,13 @@ nav a:not(nav a.primary-btn):hover {
     transform: translateY(-5px);
 }
 
-nav>div.cta {
+nav > div.cta {
     display: flex;
     column-gap: 0.2rem;
     justify-content: flex-end;
 }
 
-nav>div.cta>a.primary-btn:hover {
+nav > div.cta > a.primary-btn:hover {
     color: var(--accent-clr);
     background-color: var(--secondary-clr);
 }
@@ -188,8 +184,8 @@ nav a.primary-btn:hover {
 }
 
 /* Theme Switcher */
-nav button.primary-btn+button,
-nav a.primary-btn+button {
+nav button.primary-btn + button,
+nav a.primary-btn + button {
     height: 45px;
     width: 45px;
     align-content: center;
@@ -202,7 +198,7 @@ nav a.primary-btn+button {
     transition: all 0.2s linear;
 }
 
-nav:has(button.profile__menu.primary-btn)>div:last-child {
+nav:has(button.profile__menu.primary-btn) > div:last-child {
     column-gap: 0.4rem;
 }
 
@@ -296,7 +292,7 @@ nav #open-hbm {
     display: none;
 }
 
-nav #hamburger>div:last-child {
+nav #hamburger > div:last-child {
     position: relative;
 }
 
@@ -327,13 +323,13 @@ nav #hamburger div.hbm-content.active {
     }
 }
 
-nav #hamburger>div:last-child>.hbm-content {
+nav #hamburger > div:last-child > .hbm-content {
     height: 100%;
     display: grid;
     grid-auto-rows: auto 1fr;
 }
 
-nav #hamburger>div:last-child>.hbm-content .links {
+nav #hamburger > div:last-child > .hbm-content .links {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -342,41 +338,40 @@ nav #hamburger>div:last-child>.hbm-content .links {
     align-content: center;
 }
 
-nav #hamburger>div:last-child>.hbm-content .links hr {
+nav #hamburger > div:last-child > .hbm-content .links hr {
     border: none;
     height: 2px;
     background: linear-gradient(to right, transparent, rgb(28, 28, 28), transparent);
 }
 
-nav #hamburger>div:last-child>.hbm-content .links>div ul li {
+nav #hamburger > div:last-child > .hbm-content .links > div ul li {
     margin: 0.7rem 0;
     font-size: 0.95rem;
-
 }
 
-nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn {
+nav #hamburger > div:last-child > .hbm-content .links > div ul li a.primary-btn {
     font-size: 0.8rem;
     max-width: unset;
 }
 
-nav #hamburger>div:last-child>.hbm-content .links>div ul li a.primary-btn.secondary,
+nav #hamburger > div:last-child > .hbm-content .links > div ul li a.primary-btn.secondary,
 .user-content a.primary-btn.secondary {
     border: 1px solid rgb(255, 255, 255, 0.1);
     background-color: transparent;
 }
 
-nav #hamburger>div:last-child>.hbm-content>div:first-child button:first-child {
+nav #hamburger > div:last-child > .hbm-content > div:first-child button:first-child {
     padding: 0 0.5rem;
     color: #6c6c6c;
     width: fit-content;
     font-size: 0.85rem;
 }
 
-nav #hamburger>div:last-child>.hbm-content>div:first-child button:first-child i {
+nav #hamburger > div:last-child > .hbm-content > div:first-child button:first-child i {
     margin-inline-end: 0.3ch;
 }
 
-nav #hamburger>div .hbm-content>div button {
+nav #hamburger > div .hbm-content > div button {
     cursor: pointer;
     height: 35px;
     width: 35px;
@@ -389,14 +384,14 @@ nav #hamburger>div .hbm-content>div button {
     transition: all 0.2s linear;
 }
 
-nav #hamburger>div .hbm-content>div button:last-child {
+nav #hamburger > div .hbm-content > div button:last-child {
     font-size: 1.25rem;
     color: var(--accent-clr);
     color: #6c6c6c;
     float: right;
 }
 
-nav #hamburger>div .hbm-content>div button i {
+nav #hamburger > div .hbm-content > div button i {
     vertical-align: middle;
 }
 
@@ -438,7 +433,7 @@ a[href="../pages/reset-password.php"] {
     gap: 1rem;
 }
 
-.names-group>* {
+.names-group > * {
     flex: 1;
 }
 
@@ -450,7 +445,7 @@ a[href="../pages/reset-password.php"] {
     background-color: var(--primary-clr);
 }
 
-.auth__container>div {
+.auth__container > div {
     min-width: 500px;
     width: 500px;
     margin: 0 auto;
@@ -462,7 +457,7 @@ a[href="../pages/reset-password.php"] {
 }
 
 /* Form Styles */
-.auth__container form>div {
+.auth__container form > div {
     margin: 1rem 0;
 }
 
@@ -495,19 +490,20 @@ a[href="../pages/reset-password.php"] {
     margin: 0;
 }
 
-.agreements>.checkbox-wrapper {
+.agreements > .checkbox-wrapper {
     flex: 1;
     text-align: center;
 }
 
 .auth__container form input {
+    color: #000;
     background-color: #fff;
 }
 
 a[href="../pages/reset-password.php"],
 .checkbox-wrapper a {
     color: blue;
-} 
+}
 
 .auth__container form input:focus {
     outline: none;
@@ -535,7 +531,7 @@ a[href="../pages/reset-password.php"],
     margin: 0;
 }
 
-.auth__container .button__container>* {
+.auth__container .button__container > * {
     flex: 1;
     padding: 0.45rem 0;
     font-weight: 600;
@@ -547,18 +543,18 @@ a[href="../pages/reset-password.php"],
     transition: opacity 0.2s ease;
 }
 
-.auth__container .button__container>*:first-child {
+.auth__container .button__container > *:first-child {
     color: var(--secondary-clr);
     background-color: var(--accent-clr);
 }
 
-.auth__container .button__container>*:last-child {
+.auth__container .button__container > *:last-child {
     color: var(--primary-clr);
     background-color: var(--secondary-clr);
     border: 1px solid var(--primary-clr);
 }
 
-.auth__container .button__container>*:hover {
+.auth__container .button__container > *:hover {
     opacity: 0.9;
 }
 
@@ -635,7 +631,6 @@ input:autofill:active {
     display: grid;
     place-items: center;
     background-color: var(--primary-clr);
-    
 }
 
 .terms-page div.content-wrapper,
@@ -719,15 +714,15 @@ input:autofill:active {
     position: relative;
     height: calc(100svh - var(--nav-height));
     overflow: hidden;
-    background-image: url('../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg');
+    background-image: url("../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg");
     background-size: cover;
     background-color: var(--primary-clr);
     border-image: fill 1 radial-gradient(circle, rgba(10, 10, 10, 0) 0%, rgba(87, 199, 133, 0) 50%, rgba(15, 15, 15, 1) 100%);
 }
 
-#virtual-walks .hero-content>div:first-child {
+#virtual-walks .hero-content > div:first-child {
     /* border-image: fill 1 radial-gradient(circle, rgba(10, 10, 10, 0) 0%, rgba(87, 199, 133, 0) 50%, rgba(15, 15, 15, 1) 100%); */
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 100%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.65) 100%);
     height: calc(100svh - var(--nav-height));
     position: relative;
     z-index: 2;
@@ -739,13 +734,13 @@ input:autofill:active {
     text-align: center;
 }
 
-#virtual-walks .hero-content>div:first-child img {
+#virtual-walks .hero-content > div:first-child img {
     max-width: 100%;
     width: 175px;
     margin-bottom: 2rem;
 }
 
-#virtual-walks .hero-content>div:first-child>div h1 {
+#virtual-walks .hero-content > div:first-child > div h1 {
     font-size: clamp(1.2rem, 1.4rem + 1vw, 3rem);
     background: linear-gradient(180deg, rgb(229, 229, 229) 50%, rgb(206, 206, 206) 100%);
     -webkit-background-clip: text;
@@ -754,7 +749,7 @@ input:autofill:active {
     -webkit-text-fill-color: transparent;
 }
 
-#virtual-walks .hero-content>div:first-child>div h1 span {
+#virtual-walks .hero-content > div:first-child > div h1 span {
     font-size: clamp(1.2rem, 1.5rem + 1vw, 3rem);
     background: linear-gradient(180deg, rgb(37, 255, 172) 50%, rgba(45, 196, 137, 1) 100%);
     -webkit-background-clip: text;
@@ -771,27 +766,27 @@ input:autofill:active {
     -webkit-text-fill-color: transparent;
 }
 
-#virtual-walks .hero-content>div:first-child>div h1 span {
+#virtual-walks .hero-content > div:first-child > div h1 span {
     font-size: clamp(1.2rem, 1.5rem + 1vw, 3rem);
 }
 
-#virtual-walks .hero-content>div:first-child>div a.primary-btn {
+#virtual-walks .hero-content > div:first-child > div a.primary-btn {
     max-width: fit-content;
     height: 40px;
     padding: 0 1.2rem;
     transition: all 0.3s ease-in-out;
 }
 
-#virtual-walks .hero-content>div:first-child>div a.primary-btn:hover {
+#virtual-walks .hero-content > div:first-child > div a.primary-btn:hover {
     color: var(--accent-clr);
     background-color: var(--secondary-clr);
 }
 
-#virtual-walks .hero-content>div:first-child>div p {
+#virtual-walks .hero-content > div:first-child > div p {
     margin: 1.15rem 0;
 }
 
-#virtual-walks .hero__section~section>div:first-child {
+#virtual-walks .hero__section ~ section > div:first-child {
     text-align: center;
 }
 
@@ -806,7 +801,7 @@ input:autofill:active {
     top: 0;
 }
 
-#virtual-walks .hero-content-grid>div {
+#virtual-walks .hero-content-grid > div {
     width: 180px;
     height: 220px;
     overflow: hidden;
@@ -814,12 +809,12 @@ input:autofill:active {
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 15%);
 }
 
-#virtual-walks .hero-content-grid>div {
+#virtual-walks .hero-content-grid > div {
     position: relative;
     overflow: hidden;
 }
 
-#virtual-walks .hero-content-grid>div img {
+#virtual-walks .hero-content-grid > div img {
     position: relative;
     left: 50%;
     top: 50%;
@@ -830,8 +825,8 @@ input:autofill:active {
     display: block;
 }
 
-#virtual-walks .hero-content-grid>div::after {
-    content: '';
+#virtual-walks .hero-content-grid > div::after {
+    content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -854,7 +849,7 @@ input:autofill:active {
     grid-template-columns: repeat(3, 1fr);
 }
 
-.popular-container>div>div:first-child {
+.popular-container > div > div:first-child {
     width: 300px;
     height: 480px;
     position: relative;
@@ -876,7 +871,7 @@ input:autofill:active {
     color: var(--accent-clr);
 }
 
-.popular-container>div>div>video {
+.popular-container > div > div > video {
     height: 100%;
     position: relative;
     left: 50%;
@@ -885,7 +880,7 @@ input:autofill:active {
     border-radius: 12px;
 }
 
-.popular-container>div>div>video+.overlay {
+.popular-container > div > div > video + .overlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -894,7 +889,7 @@ input:autofill:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-.popular-container>div>div>h2 {
+.popular-container > div > div > h2 {
     text-align: center;
     width: 90%;
     position: absolute;
@@ -904,7 +899,7 @@ input:autofill:active {
     text-shadow: 0 0 12px rgb(0 0 0 / 10%);
 }
 
-.popular-container>div>div>img {
+.popular-container > div > div > img {
     position: absolute;
     max-width: 100%;
     width: 30px;
@@ -912,7 +907,7 @@ input:autofill:active {
     top: 10px;
 }
 
-.popular-container>div>div>div.popular-banner {
+.popular-container > div > div > div.popular-banner {
     padding: 0.5rem;
     width: fit-content;
     position: absolute;
@@ -926,22 +921,22 @@ input:autofill:active {
     background-color: var(--accent-clr);
 }
 
-.popular-container>div>div>div.popular-banner>span {
+.popular-container > div > div > div.popular-banner > span {
     display: inline-flex;
     flex-direction: column;
     margin-bottom: -5px;
 }
 
-.popular-container>div>div>div.popular-banner>span>span:first-child {
+.popular-container > div > div > div.popular-banner > span > span:first-child {
     margin-bottom: -2px;
 }
 
-.popular-container>div>div>div.popular-banner>span>span:last-child {
+.popular-container > div > div > div.popular-banner > span > span:last-child {
     font-size: 1.6em;
     margin-top: -10px;
 }
 
-.popular-container>div .button__container {
+.popular-container > div .button__container {
     display: flex;
     justify-content: center;
     column-gap: 0.5rem;
@@ -952,8 +947,8 @@ input:autofill:active {
     transform: translate(-50%, -50%);
 }
 
-.popular-container>div button.primary-btn,
-.popular-container>div button.primary-btn+button {
+.popular-container > div button.primary-btn,
+.popular-container > div button.primary-btn + button {
     width: 100%;
     max-width: 115px;
     height: 35px;
@@ -965,21 +960,21 @@ input:autofill:active {
     transition: all 0.3s ease-in-out;
 }
 
-.popular-container>div button.primary-btn:hover {
+.popular-container > div button.primary-btn:hover {
     color: var(--accent-clr);
     background-color: var(--secondary-clr);
 }
 
-.popular-container>div button.primary-btn {
+.popular-container > div button.primary-btn {
     background-color: var(--accent-clr);
 }
 
-.popular-container>div button.primary-btn+button {
+.popular-container > div button.primary-btn + button {
     box-shadow: 0 0 2px rgb(255 255 255 / 1%) inset;
     background-color: var(--accent-clr);
 }
 
-.popular-container>div button.primary-btn+button {
+.popular-container > div button.primary-btn + button {
     outline: 1px solid #181818;
     background-color: var(--primary-clr);
 }
@@ -1009,7 +1004,6 @@ input:autofill:active {
     to {
         opacity: 1;
     }
-
 }
 
 div:has(> #digital-dash-player_html5_api) {
@@ -1037,7 +1031,7 @@ div:has(> #digital-dash-player_html5_api) {
     font-size: 1rem;
     border: none;
     border-radius: 50px;
-    background-color: rgb(255, 69, 69)
+    background-color: rgb(255, 69, 69);
 }
 
 .previewModal .close-modal i {
@@ -1170,13 +1164,13 @@ div:has(> #digital-dash-player_html5_api) {
     border: none;
 }
 
-#virtual-walks div.video__section-content .cards>div {
+#virtual-walks div.video__section-content .cards > div {
     min-width: 280px;
     max-width: 280px;
     flex: 0 0 280px;
 }
 
-#virtual-walks div.video__section-content .cards>div>.poster button {
+#virtual-walks div.video__section-content .cards > div > .poster button {
     font-size: 4rem;
     padding: 0 0.5rem;
     position: absolute;
@@ -1188,7 +1182,7 @@ div:has(> #digital-dash-player_html5_api) {
     background-color: transparent;
 }
 
-#virtual-walks div.video__section-content .cards>div>.poster button>.fa-regular {
+#virtual-walks div.video__section-content .cards > div > .poster button > .fa-regular {
     text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     color: var(--secondary-clr);
     vertical-align: middle;
@@ -1196,12 +1190,11 @@ div:has(> #digital-dash-player_html5_api) {
     transition: all 0.3s ease;
 }
 
-#virtual-walks div.video__section-content .cards>div>.poster button:hover>.fa-regular {
+#virtual-walks div.video__section-content .cards > div > .poster button:hover > .fa-regular {
     text-shadow: 0 0 15px rgb(45, 196, 137, 0.3);
     color: var(--accent-clr);
     opacity: 1;
 }
-
 
 #virtual-walks div.video__section-content .cards .poster {
     width: 280px;
@@ -1242,7 +1235,7 @@ div[data-access="false"] {
     transition: all 0.3s ease;
 }
 
-div[data-access="false"]>* {
+div[data-access="false"] > * {
     pointer-events: none;
 }
 
@@ -1286,9 +1279,8 @@ div[data-access="false"]:hover::after {
     row-gap: 2vh;
     border-radius: 12px;
     outline: 1px solid rgb(255, 255, 255, 0.1);
-    background:
-        linear-gradient(120deg, rgba(8, 8, 8, 0.92) 40%, rgba(45, 196, 138, 0) 100%),
-        url('../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg');
+    background: linear-gradient(120deg, rgba(8, 8, 8, 0.92) 40%, rgba(45, 196, 138, 0) 100%),
+        url("../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1323,8 +1315,7 @@ div[data-access="false"]:hover::after {
 /* ================== About ================== */
 
 .About {
-    background: var(--image-overlay),
-        url('../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg');
+    background: var(--image-overlay), url("../assets/images/backgrounds/scenic-forest-path-in-gia-lai-vietnam.jpg");
     background-position: center;
     background-size: cover;
     height: 99vh;
@@ -1483,9 +1474,8 @@ footer hr {
 }
 
 .flex-1 p {
-    font-size: clamp(10px, 3vw, 1.1rem)
+    font-size: clamp(10px, 3vw, 1.1rem);
 }
-
 
 .flex-1 img {
     max-width: 100%;
@@ -1531,11 +1521,11 @@ body[data-theme="light"] {
     }
 
     /* Theme Switcher */
-    nav .primary-btn+button {
+    nav .primary-btn + button {
         color: var(--primary-clr);
     }
 
-    nav .primary-btn+button:hover {
+    nav .primary-btn + button:hover {
         background-color: #f1f1f1;
     }
 }
