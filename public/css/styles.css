@@ -1033,7 +1033,6 @@ div:has(> #digital-dash-player_html5_api) {
 }
 
 .previewModal .close-modal {
-    color: var(--secondary-clr);
     width: 32px;
     height: 32px;
     z-index: 1;
@@ -1054,12 +1053,8 @@ div:has(> #digital-dash-player_html5_api) {
     max-height: 300px;
     overflow-y: auto;
     text-align: left;
-    margin: 0 0 1rem;
     padding: 1.5rem;
-}
-
-.previewModal .video-info p {
-    margin: 1rem 0;
+    background-color: rgb(0 0 0 / 20%);
 }
 
 .previewModal .video-info ul {
@@ -1070,6 +1065,11 @@ div:has(> #digital-dash-player_html5_api) {
 .previewModal .video-info ul li {
     list-style-type: none;
     color: #f6f6f6;
+}
+
+.previewModal .video-info p,
+.previewModal .video-info h2 {
+    color: #fff;
 }
 
 .previewModal .video-info ul li small i {
