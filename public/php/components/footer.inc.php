@@ -15,6 +15,15 @@ if ($isIndex) {
 			['about.html', 'About'],
 			['contact.html', 'Contact']
 		];
+	$trailsLinks = $isLoggedIn
+		? [
+			['pages/digital-walks.php#video__section', 'Bush Walks'],
+			['pages/digital-walks.php#lake-walks', 'Lake Walks']
+		]
+		: [
+			['digital-walks.html#video__section', 'Bush Walks'],
+			['digital-walks.html#lake-walks', 'Lake Walks']
+		];
 	$logoSrc = '../assets/images/logo/logo_color_transparent_png.png';
 	$logoHref = 'index.html';
 	$signoutHref = $isLoggedIn ? '../../php/signout.inc.php' : 'php/pages/login.php';
@@ -33,6 +42,15 @@ if ($isIndex) {
 			['../../digital-walks.html', 'Digital Walks'],
 			['../../about.html', 'About'],
 			['../../contact.html', 'Contact']
+		];
+	$trailsLinks = $isLoggedIn
+		? [
+			['digital-walks.php#video__section', 'Bush Walks'],
+			['digital-walks.php#lake-walks', 'Lake Walks']
+		]
+		: [
+			['../../digital-walks.html#video__section', 'Bush Walks'],
+			['../../digital-walks.html#lake-walks', 'Lake Walks']
 		];
 	$logoSrc = '../../assets/images/logo/logo_color_transparent_png.png';
 	$logoHref = '../index.php';
@@ -63,16 +81,9 @@ if ($isIndex) {
 			<div>
 				<strong>Trails</strong>
 				<ul>
-					<?php if ($_SESSION['digital_walks'] === true): ?>
-						<li><a href="#video__section">Bush Walks</a></li>
-						<li><a href="#lake-walks">Lake Walks</a></li>
-					<?php elseif ($_SESSION['index'] === true): ?>
-						<li><a href="pages/digital-walks.php#lake-walks">Lake Walks</a></li>
-						<li><a href="pages/digital-walks.php#video__section">Bush Walks</a></li>
-					<?php else: ?>
-						<li><a href="digital-walks.php#video__section">Bush Walks</a></li>
-						<li><a href="digital-walks.php#lake-walks">Lake Walks</a></li>
-					<?php endif; ?>
+					<?php foreach ($trailsLinks as $trail): ?>
+						<li><a href="<?= htmlspecialchars($trail[0]) ?>"><?= htmlspecialchars($trail[1]) ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 			<div>

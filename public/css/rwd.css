@@ -216,6 +216,19 @@
     div[data-access="true"] {
         padding: unset;
     }
+
+    .auth__container {
+        padding: 0 1rem;
+    }
+
+    .auth__container form {
+        max-width: 100%;
+    }
+
+    .auth__container>div{
+        min-width: unset;
+        width: unset;
+    }
 }
 
 @media (width >=320px) and (width <=768px) {
