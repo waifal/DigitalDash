@@ -27,7 +27,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				relaxation, DigitalDash makes walking accessible in a new way. We believe that every step—physical or
 				digital—should contribute to mental clarity and deeper connections.
 			</p>
-			<img src="../../assets/images/backgrounds/4k-green-forest.jpg">
+			<img src="../../assets/images/images/TheTeam.jpg">
 		</div>
 	</section>
 </main>
