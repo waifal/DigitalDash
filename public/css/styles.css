@@ -27,8 +27,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
-
     :root {
         color-scheme: dark;
 
@@ -36,10 +34,8 @@
 }
 
 @media (prefers-color-scheme: light) {
-
     :root {
         color-scheme: light;
-
     }
 }
 
@@ -451,14 +447,14 @@ a[href="../pages/reset-password.php"] {
     min-height: calc(100svh - var(--nav-height));
     padding: 2rem 0;
     align-content: center;
-    background-color: var(--secondary-clr);
+    background-color: var(--primary-clr);
 }
 
 .auth__container>div {
     min-width: 500px;
     width: 500px;
     margin: 0 auto;
-    color: var(--primary-clr);
+    color: var(--secondary-clr);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -507,6 +503,11 @@ a[href="../pages/reset-password.php"] {
 .auth__container form input {
     background-color: #fff;
 }
+
+a[href="../pages/reset-password.php"],
+.checkbox-wrapper a {
+    color: blue;
+} 
 
 .auth__container form input:focus {
     outline: none;
@@ -631,15 +632,16 @@ input:autofill:active {
 
 .terms-page,
 .privacy-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 6rem 0;
+    display: grid;
+    place-items: center;
+    background-color: var(--primary-clr);
+    
 }
 
 .terms-page div.content-wrapper,
 .privacy-page div.content-wrapper {
-    padding: 0;
-    align-items: center;
+    padding: 5rem;
+    max-width: 850px;
 }
 
 .terms-page h1,
@@ -648,7 +650,7 @@ input:autofill:active {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #333;
+    color: var(--secondary-clr);
 }
 
 .last-updated {
@@ -671,7 +673,7 @@ input:autofill:active {
 .terms-section h2,
 .privacy-section h2 {
     font-size: 1.5rem;
-    color: #444;
+    color: var(--secondary-clr);
     margin-bottom: 1rem;
 }
 
@@ -679,7 +681,7 @@ input:autofill:active {
 .privacy-section p {
     max-width: 100%;
     line-height: 1.6;
-    color: #666;
+    color: var(--secondary-clr);
     margin-bottom: 1rem;
 }
 
@@ -693,21 +695,21 @@ input:autofill:active {
 .terms-section ul li,
 .privacy-section ul li {
     line-height: 1.6;
-    color: #666;
+    color: var(--secondary-clr);
     margin-bottom: 0.5rem;
 }
 
 .terms-page .last-updated,
 .privacy-page .last-updated {
     text-align: center;
-    color: #666;
+    color: var(--secondary-clr);
     margin: 0 auto;
     margin-bottom: 2rem;
 }
 
 .terms-page .contact-info,
 .privacy-page .contact-info {
-    background: #f5f5f5;
+    background: var(--secondary-clr);
     padding: 1rem;
     border-radius: 4px;
     margin-top: 0.5rem;
