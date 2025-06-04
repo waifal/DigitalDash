@@ -145,6 +145,10 @@ nav a {
     white-space: nowrap;
 }
 
+nav a.active {
+    color: var(--accent-clr);
+}
+
 nav a:not(nav a.primary-btn):hover {
     color: var(--accent-clr);
     transform: translateY(-5px);
@@ -1532,31 +1536,4 @@ a:has(.bi):hover .bi {
 
 footer #mobile {
     display: none;
-}
-
-/* Light Theme */
-
-body[data-theme="light"] {
-    nav {
-        border-bottom: 1px solid #fcfcfc;
-        background-color: var(--secondary-clr);
-    }
-
-    nav a {
-        color: var(--primary-clr);
-    }
-
-    nav .primary-btn {
-        color: var(--secondary-clr);
-        background-color: var(--accent-clr);
-    }
-
-    /* Theme Switcher */
-    nav .primary-btn + button {
-        color: var(--primary-clr);
-    }
-
-    nav .primary-btn + button:hover {
-        background-color: #f1f1f1;
-    }
 }
