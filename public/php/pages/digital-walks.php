@@ -59,6 +59,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
+								<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                     <div class='video-info'>
                                         <div>
                                             <h2>...</h2>
@@ -86,6 +87,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
+									<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                     <div class='video-info'>
                                         <div>
                                             <h2>Taitua Arboretum</h2>
@@ -113,6 +115,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
+									<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                     <div class='video-info'>
                                         <div>
                                             <h2>Sandford Park</h2>
@@ -150,8 +153,21 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="Hamilton Gardens" loading="lazy">
-									<button type="button" class="primary-btn"><i class="fa-regular fa-circle-play"></i>
-									</button>
+									<!-- Play Button -->
+									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2>...</h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
 								<div class="context">
 									<h3>...</h3>
@@ -167,8 +183,21 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="Taitua Arboretum" loading="lazy">
-									<button type="button" class="primary-btn"><i class="fa-regular fa-circle-play"></i>
-									</button>
+									<!-- Play Button -->
+									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2>Taitua Arboretum</h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
 								<div class="context">
 									<h3>Taitua Arboretum</h3>
@@ -184,8 +213,21 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="Sandford Park" loading="lazy">
-									<button type="button" class="primary-btn"><i class="fa-regular fa-circle-play"></i>
-									</button>
+									<!-- Play Button -->
+									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2>Sandford Park</h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
 								<div class="context">
 									<h3>Sandford Park</h3>
@@ -210,7 +252,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/lake_rotoroa_hamilton.jpg" alt="Hamilton Lake" loading="lazy">
-									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal localVideo', `
 										<video class='player' src='../../assets/videos/hamilton_lake.mp4' controls autoplay type='video/mp4'>Your browser does not support this video.</video>
 											<div class='video-info'>
 												<div>
@@ -238,8 +280,20 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<div>
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="Lake Ngaroto" loading="lazy">
-									<button type="button" class="primary-btn"><i class="fa-regular fa-circle-play"></i>
-									</button>
+									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal localVideo', `
+										<video class='player' src='../../assets/videos/hamilton_lake.mp4' controls autoplay type='video/mp4'>Your browser does not support this video.</video>
+											<div class='video-info'>
+												<div>
+													<h2>Lake Ngaroto</h2>
+													<ul>
+														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+													</ul>
+												</div>
+												<p>Lake Ngaroto feels like a secret retreat—just you, the soft crunch of the path, and the gentle ripple of water. The air is crisp, carrying the scent of damp earth and native bush. Ducks glide lazily, reeds sway, and the whole world seems to exhale. You walk without urgency, the lake mirroring the sky, inviting you to pause, breathe, and just exist.</p>
+											</div>
+										`)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
 								<div class="context">
 									<h3>Lake Ngaroto</h3>
