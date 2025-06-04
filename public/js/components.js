@@ -26,5 +26,4 @@ const loadComponents = (componentName, targetId) => {
     xhr.send(null);
 }
 
-loadComponents('nav', 'nav');
 loadComponents('footer', 'footer');
