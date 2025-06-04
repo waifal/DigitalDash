@@ -4,6 +4,9 @@
 :root {
     color-scheme: dark;
     --nav-height: 70px;
+    --primary-clr: #111111;
+    --secondary-clr: #ffffff;
+    --accent-clr: #2dc489;
     --container-padding: 5rem 150px;
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
@@ -93,7 +96,7 @@ a.primary-btn {
     font-weight: 500;
     border-radius: 50px;
     border: none;
-    /* background-color: var(--accent-clr); */
+    background-color: var(--accent-clr);
 }
 
 .subtitle {
@@ -853,6 +856,11 @@ input:autofill:active {
     grid-template-columns: repeat(3, 1fr);
 }
 
+.cover {
+    max-width: 100%;
+    width: 150px;
+}
+
 .popular-container > div > div:first-child {
     width: 300px;
     height: 480px;
@@ -873,24 +881,6 @@ input:autofill:active {
 
 .popular-content:hover h2 {
     color: var(--accent-clr);
-}
-
-.popular-container > div > div > video {
-    height: 100%;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 12px;
-}
-
-.popular-container > div > div > video + .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .popular-container > div > div > h2 {
@@ -953,10 +943,9 @@ input:autofill:active {
     transform: translate(-50%, -50%);
 }
 
-.popular-container > div button.primary-btn,
-.popular-container > div button.primary-btn + button {
-    width: 100%;
-    max-width: 115px;
+.popular-container > div button.primary-btn {
+    width: 75%;
+    max-width: 100%;
     height: 35px;
     color: var(--secondary-clr);
     font-size: 0.8rem;
@@ -1001,6 +990,37 @@ input:autofill:active {
     animation: fade-in-up 0.2s ease-in-out forwards;
 }
 
+.modal__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 5;
+}
+
+.modal {
+    z-index: 10;
+}
+
+.previewModal video {
+    width: 100%;
+}
+
 #buttons {
     display: none;
 }
@@ -1016,16 +1036,6 @@ input:autofill:active {
     }
 }
 
-div:has(> #digital-dash-player_html5_api) {
-    aspect-ratio: 16/9;
-    height: 300px;
-    width: 100%;
-}
-
-#digital-dash-player_html5_api {
-    object-fit: cover;
-}
-
 .previewModal::backdrop {
     background-color: #111111d7;
 }
@@ -1035,8 +1045,8 @@ div:has(> #digital-dash-player_html5_api) {
     height: 32px;
     z-index: 1;
     position: absolute;
-    right: 5px;
-    top: 5px;
+    right: 6px;
+    top: 6px;
     font-size: 1rem;
     border: none;
     border-radius: 50px;
@@ -1052,7 +1062,6 @@ div:has(> #digital-dash-player_html5_api) {
     overflow-y: auto;
     text-align: left;
     padding: 1.5rem;
-    background-color: rgb(0 0 0 / 20%);
 }
 
 .previewModal .video-info ul {
@@ -1123,6 +1132,10 @@ div:has(> #digital-dash-player_html5_api) {
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 0.5rem;
+}
+
+#virtual-walks div.video__section-content .cards .video-container {
+    display: none;
 }
 
 #virtual-walks div.video__section-content .cards .context {
@@ -1299,6 +1312,7 @@ div[data-access="false"]:hover::after {
     height: 40px;
     max-width: 180px;
     transition: all 0.3s ease-in-out;
+    background-color: var(--accent-clr);
 }
 
 .banner-content a.primary-btn:hover {
