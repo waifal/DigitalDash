@@ -862,6 +862,7 @@ input:autofill:active {
 }
 
 .popular-container > div > div:first-child {
+    min-width: 300px;
     width: 300px;
     height: 480px;
     position: relative;
@@ -1021,6 +1022,11 @@ input:autofill:active {
     width: 100%;
 }
 
+.previewModal iframe {
+    height: 380px;
+    width: 100%;
+}
+
 #buttons {
     display: none;
 }
@@ -1045,12 +1051,17 @@ input:autofill:active {
     height: 32px;
     z-index: 1;
     position: absolute;
-    right: 6px;
-    top: 6px;
+    right: -15px;
+    top: -15px;
     font-size: 1rem;
     border: none;
     border-radius: 50px;
     background-color: rgb(255, 69, 69);
+}
+
+.localVideo .close-modal {
+    top: 6px;
+    right: 6px;
 }
 
 .previewModal .close-modal i {
