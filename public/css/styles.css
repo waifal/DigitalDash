@@ -1344,10 +1344,10 @@ div[data-access="false"]:hover::after {
 .About img {
     margin-top: 1rem;
     position: absolute;
-    height: 300px;
+    height: 500px;
     left: 50%;
     top: 35%;
-    max-height: 300px;
+    max-height: 400px;
     max-width: 50%;
     border: 1px solid white;
     background-color: black;
