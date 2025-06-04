@@ -21,7 +21,60 @@
 </head>
 
 <body>
-    <nav id="nav"></nav>
+    <nav id="nav">
+        <div>
+            <a href="#"><img id="logo" src="assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
+        </div>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="digital-walks.html">Digital Walks</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="cta">
+            <a href="php/pages/signup.php" class="primary-btn">Sign up</a>
+            <button id="theme-switcher" type="button">
+                <!-- <i class="bi bi-moon-stars-fill"></i> -->
+                <i class="bi bi-brightness-low-fill"></i>
+            </button>
+        </div>
+        <!-- Hamburger Menu -->
+        <div id="hamburger">
+            <div class="overlay"></div>
+            <button type="button" id="open-hbm"><i class="fa-solid fa-bars"></i></button>
+            <div>
+                <div class="hbm-content">
+                    <!-- Close Menu  -->
+                    <div>
+                        <button id="theme-switcher" type="button"><i class="bi bi-brightness-low-fill"></i></button>
+                        <button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="links">
+                        <div>
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="digital-walks.html">Digital Walks</a></li>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <hr>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><a href="php/pages/login.php" class="primary-btn secondary">Login</a></li>
+                                <li><a href="php/pages/signup.php" class="primary-btn">Sign up</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <main>
         <section class="home-page">
