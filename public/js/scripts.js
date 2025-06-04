@@ -7,11 +7,6 @@ import {
     ResetPasswordForm
 } from "./classes.js";
 
-/**
- * Creates and displays a modal dialog
- * @param {HTMLElement} button - Trigger button
- * @param {string} text - Modal content
- */
 function initModal(button, className, text) {
     const modal = new Modal(button, className, text);
     modal.showModal();
@@ -20,13 +15,6 @@ function initModal(button, className, text) {
 let currentlyOpenAccordion = null;
 let currentlyOpenButton = null;
 
-/**
- * Handles accordion functionality with single open state
- * @param {HTMLElement} clickedButton - Button that triggered the accordion
- * @param {string} id - Unique accordion identifier
- * @param {boolean} height - Enable height animation
- * @param {string} text - Accordion content
- */
 function initAccordion(clickedButton, id, height, text) {
     const existingAccordion = document.getElementById(id);
 
@@ -50,10 +38,6 @@ function initAccordion(clickedButton, id, height, text) {
     currentlyOpenButton = clickedButton;
 }
 
-/**
- * Initializes password visibility toggle functionality
- * Adds event listeners to show/hide password buttons
- */
 function showPasswords() {
     const buttons = document.getElementsByClassName('show_password');
 
@@ -99,16 +83,6 @@ if (document.getElementById('signupfrm')) {
 if (document.getElementById('loginfrm')) {
     new LoginFormValidator('loginfrm');
 }
-
-/**
- * Handles background video switching for the hero section.
- *
- * - Cycles through all videos in the .video-background container every 10 seconds.
- * - Ensures only one video is active and playing at a time.
- * - Adds the 'active' class to the currently visible video.
- * - Handles initial play and resets other videos to the start.
- * - Catches play() promise rejections to avoid uncaught errors from browser power-saving features.
- */
 
 document.addEventListener('DOMContentLoaded', () => {
     const videos = document.querySelectorAll('.video-background video');
@@ -156,11 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(switchVideo, 10000);
 });
 
-/**
- * 
- * Hamburger Menu
- * 
- */
 document.addEventListener("click", function (event) {
     const hbmContent = document.querySelector(".hbm-content");
     const overlay = document.querySelector("#hamburger .overlay");
@@ -261,7 +230,46 @@ document.addEventListener("DOMContentLoaded", handleAccount_Settings);
  * 
 */
 
-document.addEventListener("DOMContentLoaded", () => {
+// document.addEventListener("DOMContentLoaded", () => {
+
+
+//     const button = document.getElementById("theme-switcher");
+//     let Li = document.querySelector(".bi")
+//     let logo = document.querySelector(".logo-img");
+//      let root = document.querySelector(":root");
+
+//     button.addEventListener("click", (event) => {
+//         console.log("Theme switcher has been clicked!");
+//                 root.classList.toggle("light")
+//         if (Li.classList.contains("bi-brightness-low-fill")) {
+//             Li.classList.remove("bi-brightness-low-fill")
+//             Li.classList.add( "bi-moon-stars-fill")
+         
+//              logo.src = " assets/images/logo/logo_black_white.webp";
+             
+//         } 
+//         else {
+//               Li.classList.remove("bi-moon-stars-fill")
+//             Li.classList.add( "bi-brightness-low-fill")
+//               logo.src = " assets/images/logo/logo_color_transparent_png.png";
+    
+             
+//         }
+//     })
+// });
+
+    function changeTheme() {
+          let prefersDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+      
+        //  let Li = document.querySelector(".bi")
+         let logo = document.getElementById("logo");
+     if (prefersDark) {
+        // logo.src = "assets/images/logo/logo_black_white_green.webp";
+        logo.src = "assets/images/logo/logo_black_white_green.webp";
+        } 
+    }
+
+    changeTheme();
 
     const button = document.getElementById("theme-switcher");
     let Li = document.querySelector(".bi")
@@ -286,4 +294,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
     })
-});
+

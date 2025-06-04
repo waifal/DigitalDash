@@ -10,8 +10,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/rwd.css">
 </head>
@@ -55,50 +53,34 @@
                     <!-- Popular #1 -->
                     <div>
                         <div class="popular-content">
-                            <video muted data-preview>
-                                <source src="assets/videos/glen_coe.mp4" type="video/mp4">
-                            </video>
                             <div class="overlay"></div>
-                            <h2>Hamilton Gardens</h2>
+                            <h2>...</h2>
                             <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
                             <div class="popular-banner">
                                 <span><span>Top</span> <span>3</span></span>
                             </div>
                             <div class="button__container">
                                 <!-- Play Button -->
-                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/glen_coe.mp4', {
-                                    title: 'Hamilton Gardens',
-                                    location: 'New Zealand',
-                                    duration: '15 Minutes',
-                                    quality: 'HD',
-                                    description: ''
-                                    })"><i class="fa-solid fa-play"></i> Play</button>
-                                <!-- Learn More Button -->
-                                <button type="button" onclick="initModal(this, 'previewModal', `
-                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                        <source src='assets/videos/glen_coe.mp4' type='video/mp4'></source>
-                                    </video>  
-                                    <div class='video-info'>
-                                        <div>
-                                            <h2>Hamilton Gardens</h2>
-                                            <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                            </ul>    
-                                        </div>
-                                        <p></p>
-                                    </div>
-                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+										<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+											<div class='video-info'>
+												<div>
+													<h2></h2>
+													<ul>
+														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+													</ul>
+												</div>
+												<p></p>
+											</div>
+										`)"><i class="fa-solid fa-play"></i> Play</button>
                             </div>
                         </div>
                     </div>
                     <!-- Popular #2 -->
                     <div>
                         <div class="popular-content">
-                            <video muted>
-                                <source src="assets/videos/mountain_range_with_lake.mp4" type="video/mp4">
-                            </video>
                             <div class="overlay"></div>
                             <h2>Taitua Arboretum</h2>
                             <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
@@ -107,39 +89,26 @@
                             </div>
                             <div class="button__container">
                                 <!-- Play Button -->
-                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/mountain_range_with_lake.mp4', {
-                                    title: 'Taitua Arboretum',
-                                    location: 'New Zealand',
-                                    duration: '15 Minutes',
-                                    quality: 'HD',
-                                    description: ''
-                                    })"><i class="fa-solid fa-play"></i> Play</button>
-                                <!-- Learn More Button -->
-                                <button type="button" onclick="initModal(this, 'previewModal', `
-                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                        <source src='assets/videos/mountain_range_with_lake.mp4' type='video/mp4'></source>
-                                    </video>  
-                                    <div class='video-info'>
-                                        <div>
-                                            <h2>Taitua Arboretum</h2>
-                                            <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                            </ul>     
-                                        </div>
-                                        <p></p>
-                                    </div>
-                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+										<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+											<div class='video-info'>
+												<div>
+													<h2>Taitua Arboretum</h2>
+													<ul>
+														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+													</ul>
+												</div>
+												<p>Taitua Arboretum in Hamilton is a peaceful retreat filled with towering trees, winding trails, and quiet ponds. Originally planted in the 1970s, it has grown into a lush sanctuary where visitors can wander through woodland gardens, spot native birds, and enjoy a picnic under the shade. The walking paths weave through 22 hectares of greenery, offering a gentle escape into nature. Whether you're looking for a relaxing stroll or a scenic spot to unwind, Taitua Arboretum provides a calm, welcoming space just outside the city.</p>
+											</div>
+										`)"><i class="fa-solid fa-play"></i> Play</button>
                             </div>
                         </div>
                     </div>
                     <!-- Popular #3 -->
                     <div>
                         <div class="popular-content">
-                            <video muted>
-                                <source src="assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4" type="video/mp4">
-                            </video>
                             <div class="overlay"></div>
                             <h2>Sanford Park</h2>
                             <img src="assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
@@ -148,30 +117,20 @@
                             </div>
                             <div class="button__container">
                                 <!-- Play Button -->
-                                <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                    title: 'Sandford Park',
-                                    location: 'New Zealand',
-                                    duration: '15 Minutes',
-                                    quality: 'HD',
-                                    description: ''
-                                    })"><i class="fa-solid fa-play"></i> Play</button>
-                                <!-- Learn More Button -->
-                                <button type="button" onclick="initModal(this, 'previewModal', `
-                                    <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                        <source src='assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-                                    </video>  
-                                    <div class='video-info'>
-                                        <div>
-                                            <h2>Sandford Park</h2>
-                                            <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                            </ul>    
-                                        </div>
-                                        <p></p>
-                                    </div>
-                                `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                                <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+										<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+											<div class='video-info'>
+												<div>
+													<h2>Sandford Park</h2>
+													<ul>
+														<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+														<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+														<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+													</ul>
+												</div>
+												<p>Sandford Park in Hamilton is a quiet, open space where you can take a walk, sit under the trees, or let children play in the playground. The wide grassy areas offer plenty of room for picnics or a moment of stillness. Near the Waikato River, the park has peaceful trails and gentle scenery, making it a good spot to step away from the noise and enjoy the outdoors. Whether you're out for a casual stroll or simply looking for a quiet place to rest, Sandford Park provides a natural, uncomplicated retreat.</p>
+											</div>
+										`)"><i class="fa-solid fa-play"></i> Play</button>
                             </div>
                         </div>
                     </div>
@@ -196,54 +155,52 @@
                                 <!-- Card #1 -->
                                 <div>
                                     <div class="poster">
-                                        <img src="assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="" loading="lazy">
-                                        <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                            title: 'Hamilton Gardens',
-                                            location: 'New Zealand',
-                                            duration: '15 Minutes',
-                                            quality: 'HD',
-                                            description: ''
-                                            })"><i class="fa-regular fa-circle-play"></i>
-                                        </button>
+                                        <img src="assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="Hamilton Gardens" loading="lazy">
+                                        <!-- Play Button -->
+                                        <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2></h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
                                     </div>
                                     <div class="context">
-                                        <h3>Hamilton Gardens</h3>
+                                        <h3>...</h3>
                                         <ul>
                                             <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
                                             <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
                                             </li>
                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                         </ul>
-                                        <button type="button" onclick="initModal(this, 'previewModal', `
-                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                                <source src='assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-                                            </video>  
-                                            <div class='video-info'>
-                                                <div>
-                                                    <h2>Hamilton Gardens</h2>
-                                                    <ul>
-                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                                    </ul>    
-                                                </div>
-                                                <p></p>
-                                            </div>
-                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                                     </div>
                                 </div>
                                 <!-- Card #2 -->
                                 <div>
                                     <div class="poster">
-                                        <img src="assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="" loading="lazy">
-                                        <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                            title: 'Taitua Arboretum',
-                                            location: 'New Zealand',
-                                            duration: '15 Minutes',
-                                            quality: 'HD',
-                                            description: ''
-                                            })"><i class="fa-regular fa-circle-play"></i>
-                                        </button>
+                                        <img src="assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="Taitua Aboretum" loading="lazy">
+                                        <!-- Play Button -->
+                                        <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2>Taitua Arboretum</h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>Taitua Arboretum in Hamilton is a peaceful retreat filled with towering trees, winding trails, and quiet ponds. Originally planted in the 1970s, it has grown into a lush sanctuary where visitors can wander through woodland gardens, spot native birds, and enjoy a picnic under the shade. The walking paths weave through 22 hectares of greenery, offering a gentle escape into nature. Whether you're looking for a relaxing stroll or a scenic spot to unwind, Taitua Arboretum provides a calm, welcoming space just outside the city.</p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
                                     </div>
                                     <div class="context">
                                         <h3>Taitua Arboretum</h3>
@@ -253,36 +210,27 @@
                                             </li>
                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                         </ul>
-                                        <button type="button" onclick="initModal(this, 'previewModal', `
-                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                                <source src='assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-                                            </video>  
-                                            <div class='video-info'>
-                                                <div>
-                                                    <h2>Taitua Arboretum</h2>
-                                                    <ul>
-                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                                    </ul>    
-                                                </div>
-                                                <p></p>
-                                            </div>
-                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                                     </div>
                                 </div>
                                 <!-- Card #3 -->
                                 <div>
                                     <div class="poster">
                                         <img src="assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="" loading="lazy">
-                                        <button type="button" class="primary-btn" onclick="playFullscreenVideo('assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4', {
-                                            title: 'Sandford Park',
-                                            location: 'New Zealand',
-                                            duration: '15 Minutes',
-                                            quality: 'HD',
-                                            description: ''
-                                            })"><i class="fa-regular fa-circle-play"></i>
-                                        </button>
+                                        <!-- Play Button -->
+                                        <button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
+                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                                <div class='video-info'>
+                                                    <div>
+                                                        <h2>Sandford Park</h2>
+                                                        <ul>
+                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
+                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
+                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>Sandford Park in Hamilton is a quiet, open space where you can take a walk, sit under the trees, or let children play in the playground. The wide grassy areas offer plenty of room for picnics or a moment of stillness. Near the Waikato River, the park has peaceful trails and gentle scenery, making it a good spot to step away from the noise and enjoy the outdoors. Whether you're out for a casual stroll or simply looking for a quiet place to rest, Sandford Park provides a natural, uncomplicated retreat.</p>
+                                                </div>
+                                        `)"><i class="fa-regular fa-circle-play"></i></button>
                                     </div>
                                     <div class="context">
                                         <h3>Sandford Park</h3>
@@ -292,22 +240,6 @@
                                             </li>
                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                         </ul>
-                                        <button type="button" onclick="initModal(this, 'previewModal', `
-                                            <video id='digital-dash-player' class='video-js vjs-theme-forest'>
-                                                <source src='assets/videos/the_rays_of_the_sun_peeking_through_the_tall_trees_of_a_forest.mp4' type='video/mp4'></source>
-                                            </video>  
-                                            <div class='video-info'>
-                                                <div>
-                                                    <h2>Sandford Park</h2>
-                                                    <ul>
-                                                        <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                        <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                        <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                                    </ul>    
-                                                </div>
-                                                <p></p>
-                                            </div>
-                                        `)"><i class="fa-solid fa-circle-info"></i> More Info</button>
                                     </div>
                                 </div>
                             </div>
@@ -335,7 +267,6 @@
                                             </li>
                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                         </ul>
-                                        <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
                                     </div>
                                 </div>
                                 <!-- Card #2 -->
@@ -354,7 +285,6 @@
                                             </li>
                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                         </ul>
-                                        <button type="button"><i class="fa-solid fa-circle-info"></i> More Info</button>
                                     </div>
                                 </div>
                                 <div></div>
@@ -387,42 +317,8 @@
     <footer id="footer"></footer>
 
     <!-- JavaScript -->
-    <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
     <script src="js/components.js"></script>
     <script src="js/scripts.js" type="module"></script>
-    <script src="js/videohandler.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const previews = document.querySelectorAll('.popular-content');
-
-            async function handleVideoAction(video, action) {
-                if (!video) return;
-
-                try {
-                    if (action === 'play') {
-                        await video.play();
-                    } else {
-                        video.pause();
-                    }
-                } catch (e) {
-                    if (e.name !== 'AbortError') {
-                        console.warn(`Video ${action} error:`, e);
-                    }
-                }
-            }
-
-            previews.forEach((preview) => {
-                preview.addEventListener('mouseover', () => {
-                    const video = preview.querySelector('video');
-                    handleVideoAction(video, 'play');
-                });
-
-                preview.addEventListener('mouseout', () => {
-                    const video = preview.querySelector('video');
-                    handleVideoAction(video, 'pause');
-                });
-            });
-        });
     </script>
 </body>
 

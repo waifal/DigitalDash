@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-
-
-
-
-
 .account-settings {
     min-height: 100vh;
     min-width: 100%;
@@ -20,10 +15,6 @@
     object-fit: contain;
     background-position: center;
 }
-
-
-/* #2dc68a */
-
 
 form {
     display: block;
@@ -39,8 +30,6 @@ form {
     border-radius: 10px;
     padding: 1.5rem 1.5rem;
 }
-
-
 
 .split {
     display: flex;
@@ -64,15 +53,12 @@ form {
     font-size: 1rem;
 }
 
-
-
 .btn-div {
     display: flex;
     gap: 1rem;
 
     margin-top: clamp(1rem, 2vw, 2em);
 }
-
 
 .save-btn ,
 .delete-btn,
@@ -92,26 +78,18 @@ form {
     background-color: red;
 }
 
-
 .edit-btn {
     background-color: grey;
 }
 
-
-
-
 @media screen and (min-width: 768px) {
-            
-.center-div {
-    min-height: 400px;
-    min-width: 400px;
-    background-color: white;
-    color: black;
-    font-size: 1rem;
-    border-radius: 10px;
-    padding: 1.5rem 1.5rem;
+    .center-div {
+        min-height: 400px;
+        min-width: 400px;
+        background-color: white;
+        color: black;
+        font-size: 1rem;
+        border-radius: 10px;
+        padding: 1.5rem 1.5rem;
+    }
 }
-
-
-}
-

@@ -12,34 +12,69 @@ class Modal {
     }
 
     showModal() {
-        const modalParent = document.createElement('div');
-
-        modalParent.className = "modal__container";
-        modalParent.innerHTML = `
-            <dialog class="modal ${this.className}">
-                <div>
-                    <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div>
-                    ${this.text}
-                </div>
-            </dialog>
+        const modalContainer = document.createElement('div');
+        modalContainer.className = "modal__container";
+        modalContainer.innerHTML = `
+            <div class="modal-overlay"></div>
+            <div class="modal ${this.className}" role="dialog" aria-modal="true">
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+                <div>${this.text}</div>
+            </div>
         `;
 
-        document.body.prepend(modalParent);
+        document.body.prepend(modalContainer);
         document.body.style.overflowY = "hidden";
 
-        const dialog = modalParent.querySelector('dialog');
-        const closeModalBtn = dialog.querySelector('.close-modal');
+        const modal = modalContainer.querySelector('.modal');
+        const overlay = modalContainer.querySelector('.modal-overlay');
+        const closeModalBtn = modal.querySelector('.close-modal');
+        const focusableElements = modal.querySelectorAll('button, input, textarea, select, a');
 
-        dialog.showModal();
+        modal.classList.add('visible');
         document.dispatchEvent(new CustomEvent('modalOpened'));
 
-        closeModalBtn.addEventListener('click', () => modalParent.remove());
-        closeModalBtn.addEventListener('click', () => document.body.style.overflowY = "scroll");
+        // Close modal on overlay click
+        overlay.addEventListener('click', () => this.closeModal(modalContainer));
 
-        window.addEventListener('keydown', (event) => event.key === "Escape" ? modalParent.remove() : null);
-        window.addEventListener('keydown', (event) => event.key === "Escape" ? document.body.style.overflowY = "scroll" : null);
+        // Close modal on button click
+        closeModalBtn.addEventListener('click', () => this.closeModal(modalContainer));
+
+        // Prevent Escape from closing modal
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") {
+                event.preventDefault();
+            }
+        });
+
+        // Trap focus within modal
+        modal.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") {
+                event.preventDefault();
+            }
+
+            if (event.key === "Tab") {
+                event.preventDefault();
+                this.trapFocus(event, focusableElements);
+            }
+        });
+
+        focusableElements[0]?.focus();
+    }
+
+    closeModal(modalContainer) {
+        modalContainer.remove();
+        document.body.style.overflowY = "scroll";
+    }
+
+    trapFocus(event, elements) {
+        const firstElement = elements[0];
+        const lastElement = elements[elements.length - 1];
+
+        if (event.shiftKey) {
+            document.activeElement === firstElement ? lastElement.focus() : document.activeElement.previousElementSibling?.focus();
+        } else {
+            document.activeElement === lastElement ? firstElement.focus() : document.activeElement.nextElementSibling?.focus();
+        }
     }
 }
 

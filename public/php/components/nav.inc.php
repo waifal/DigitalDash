@@ -16,7 +16,7 @@
 			<?php else: ?>
 				<a href="../pages/signup.php" class="primary-btn">Sign up</a>
 			<?php endif; ?>
-			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
+			<button id="theme-switcher" type="button"><i class="bi bi-brightness-low-fill"></i></button>
 		</div>
 
 		<!-- Hamburger Menu -->
@@ -27,7 +27,7 @@
 				<div class="hbm-content">
 					<!-- Close Menu & Theme Switcher -->
 					<div>
-						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i></button>
+						<button type="button" id="theme-switcher"><i class="bi bi-brightness-low-fill"></i></button>
 						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 					<div class="links">
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 			</button>
-			<button id="theme-switcher" type="button"><i class="fa-solid fa-moon"></i></button>
+			<button id="theme-switcher" type="button"><i class="bi bi-brightness-low-fill"></i></button>
 		</div>
 
 		<!-- Hamburger Menu -->
@@ -104,7 +104,7 @@
 			<div>
 				<div class="hbm-content">
 					<div>
-						<button type="button" id="theme-switcher"><i class="fa-solid fa-moon"></i></button>
+						<button type="button" id="theme-switcher"><i class="bi bi-brightness-low-fill"></i></button>
 						<button type="button" class="close-hbm"><i class="fa-solid fa-xmark"></i></button>
 					</div>
 					<div class="links">

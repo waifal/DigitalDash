@@ -17,8 +17,6 @@ require_once(__DIR__ . '/components/nav.inc.php');
 <main>
 	<section class="home-page">
 		<div class="container">
-
-
 			<div class="flex">
 				<div class="txt">
 					<h1>Digital<span>Dash</span></h1>
