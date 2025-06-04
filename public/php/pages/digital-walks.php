@@ -97,7 +97,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p></p>
+                                        <p>Taitua Arboretum in Hamilton is a peaceful retreat filled with towering trees, winding trails, and quiet ponds. Originally planted in the 1970s, it has grown into a lush sanctuary where visitors can wander through woodland gardens, spot native birds, and enjoy a picnic under the shade. The walking paths weave through 22 hectares of greenery, offering a gentle escape into nature. Whether you're looking for a relaxing stroll or a scenic spot to unwind, Taitua Arboretum provides a calm, welcoming space just outside the city.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-play"></i> Play</button>
 						</div>
@@ -125,7 +125,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                 <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                             </ul>    
                                         </div>
-                                        <p></p>
+                                        <p>Sandford Park in Hamilton is a quiet, open space where you can take a walk, sit under the trees, or let children play in the playground. The wide grassy areas offer plenty of room for picnics or a moment of stillness. Near the Waikato River, the park has peaceful trails and gentle scenery, making it a good spot to step away from the noise and enjoy the outdoors. Whether you're out for a casual stroll or simply looking for a quiet place to rest, Sandford Park provides a natural, uncomplicated retreat.</p>
                                     </div>
                                 `)"><i class="fa-solid fa-play"></i> Play</button>
 						</div>
@@ -195,7 +195,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                         </ul>
                                                     </div>
-                                                    <p></p>
+                                                    <p>Taitua Arboretum in Hamilton is a peaceful retreat filled with towering trees, winding trails, and quiet ponds. Originally planted in the 1970s, it has grown into a lush sanctuary where visitors can wander through woodland gardens, spot native birds, and enjoy a picnic under the shade. The walking paths weave through 22 hectares of greenery, offering a gentle escape into nature. Whether you're looking for a relaxing stroll or a scenic spot to unwind, Taitua Arboretum provides a calm, welcoming space just outside the city.</p>
                                                 </div>
                                         `)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
@@ -225,7 +225,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
                                                             <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
                                                         </ul>
                                                     </div>
-                                                    <p></p>
+                                                    <p>Sandford Park in Hamilton is a quiet, open space where you can take a walk, sit under the trees, or let children play in the playground. The wide grassy areas offer plenty of room for picnics or a moment of stillness. Near the Waikato River, the park has peaceful trails and gentle scenery, making it a good spot to step away from the noise and enjoy the outdoors. Whether you're out for a casual stroll or simply looking for a quiet place to rest, Sandford Park provides a natural, uncomplicated retreat.</p>
                                                 </div>
                                         `)"><i class="fa-regular fa-circle-play"></i></button>
 								</div>
