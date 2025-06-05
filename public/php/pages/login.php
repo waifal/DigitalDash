@@ -46,6 +46,10 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<p class="success" role="alert">Your password has been successfully updated!</p>
 				<?php endif; ?>
 
+				<?php if (isset($_GET['account_deleted']) && $_GET['account_deleted'] === "1"): ?>
+					<p class="success" role="alert">Your account has been successfully deleted. Thank you for using our service.</p>
+				<?php endif; ?>
+
 				<?php if (isset($_SESSION['errors'])): ?>
 					<?php if (isset($_SESSION['errors']['login'])): ?>
 						<p class="error" role="alert"><?php echo htmlspecialchars($_SESSION['errors']['login'], ENT_QUOTES, 'UTF-8'); ?></p>

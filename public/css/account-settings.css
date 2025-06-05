@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -10,8 +10,7 @@
     display: grid;
     place-items: center;
     padding: 3rem 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.635), lab(0% 0 0 / 0.635)), 
-            url("../assets/images/backgrounds/iceland_photo_of_bridge.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.635), lab(0% 0 0 / 0.635)), url("../assets/images/backgrounds/iceland_photo_of_bridge.jpg");
     object-fit: contain;
     background-position: center;
 }
@@ -60,9 +59,9 @@ form {
     margin-top: clamp(1rem, 2vw, 2em);
 }
 
-.save-btn ,
+.save-btn,
 .delete-btn,
-.edit-btn{
+.edit-btn {
     padding: 10px 1rem;
     border: none;
     border-radius: 10px;
@@ -74,7 +73,7 @@ form {
     background-color: #2dc68a;
 }
 
-.delete-btn{
+.delete-btn {
     background-color: red;
 }
 
