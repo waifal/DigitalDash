@@ -1,3 +1,28 @@
+<?php
+// Get current page name for active class logic
+$current_page = basename($_SERVER['PHP_SELF'], '.php');
+$current_path = $_SERVER['REQUEST_URI'];
+
+// Function to determine if a link should be active
+function isActive($page, $current_page, $current_path)
+{
+	// Handle special cases
+	if ($page === 'home' && ($current_page === 'index' || strpos($current_path, 'index.php') !== false)) {
+		return true;
+	}
+	if ($page === 'digital-walks' && ($current_page === 'digital-walks' || strpos($current_path, 'digital-walks') !== false)) {
+		return true;
+	}
+	if ($page === 'about' && ($current_page === 'about' || strpos($current_path, 'about') !== false)) {
+		return true;
+	}
+	if ($page === 'contact' && ($current_page === 'contact' || strpos($current_path, 'contact') !== false)) {
+		return true;
+	}
+	return false;
+}
+?>
+
 <?php if (!isset($_SESSION['user_id']) || $_SESSION['logged_in'] !== true): ?>
 
 	<nav>
@@ -5,10 +30,10 @@
 			<a href="../../index.html"><img src="../../assets/images/logo/logo_color_transparent_png.png" alt="DigitalDash Logo"></a>
 		</div>
 		<ul>
-			<li><a href="../../index.html">Home</a></li>
-			<li><a href="../../digital-walks.html">Digital Walks</a></li>
-			<li><a href="../../about.html">About</a></li>
-			<li><a href="../../contact.html">Contact</a></li>
+			<li><a href="../../index.html" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+			<li><a href="../../digital-walks.html" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+			<li><a href="../../about.html" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+			<li><a href="../../contact.html" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 		</ul>
 		<div class="cta">
 			<?php if (isset($_SESSION['sign_in_page']) && $_SESSION['sign_in_page']): ?>
@@ -33,10 +58,10 @@
 					<div class="links">
 						<div>
 							<ul>
-								<li><a href="../../index.html">Home</a></li>
-								<li><a href="../../digital-walks.html">Digital Walks</a></li>
-								<li><a href="../../about.html">About</a></li>
-								<li><a href="../../contact.html">Contact</a></li>
+								<li><a href="../../index.html" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+								<li><a href="../../digital-walks.html" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+								<li><a href="../../about.html" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+								<li><a href="../../contact.html" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 							</ul>
 						</div>
 						<div>
@@ -69,15 +94,15 @@
 		</div>
 		<ul>
 			<?php if ($_SESSION['index'] === true): ?>
-				<li><a href="#">Home</a></li>
-				<li><a href="pages/digital-walks.php">Digital Walks</a></li>
-				<li><a href="pages/about.php">About</a></li>
-				<li><a href="pages/contact.php">Contact</a></li>
+				<li><a href="#" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+				<li><a href="pages/digital-walks.php" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+				<li><a href="pages/about.php" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+				<li><a href="pages/contact.php" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 			<?php else: ?>
-				<li><a href="../index.php">Home</a></li>
-				<li><a href="digital-walks.php">Digital Walks</a></li>
-				<li><a href="about.php">About</a></li>
-				<li><a href="contact.php">Contact</a></li>
+				<li><a href="../index.php" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+				<li><a href="digital-walks.php" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+				<li><a href="about.php" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+				<li><a href="contact.php" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 			<?php endif; ?>
 		</ul>
 		<div class="cta">
@@ -111,15 +136,15 @@
 						<div>
 							<ul>
 								<?php if ($_SESSION['index'] === true): ?>
-									<li><a href="#">Home</a></li>
-									<li><a href="pages/digital-walks.php">Digital Walks</a></li>
-									<li><a href="pages/about.php">About</a></li>
-									<li><a href="pages/contact.php">Contact</a></li>
+									<li><a href="#" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+									<li><a href="pages/digital-walks.php" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+									<li><a href="pages/about.php" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+									<li><a href="pages/contact.php" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 								<?php else: ?>
-									<li><a href="../index.php">Home</a></li>
-									<li><a href="digital-walks.php">Digital Walks</a></li>
-									<li><a href="about.php">About</a></li>
-									<li><a href="contact.php">Contact</a></li>
+									<li><a href="../index.php" <?php echo isActive('home', $current_page, $current_path) ? 'class="active"' : ''; ?>>Home</a></li>
+									<li><a href="digital-walks.php" <?php echo isActive('digital-walks', $current_page, $current_path) ? 'class="active"' : ''; ?>>Digital Walks</a></li>
+									<li><a href="about.php" <?php echo isActive('about', $current_page, $current_path) ? 'class="active"' : ''; ?>>About</a></li>
+									<li><a href="contact.php" <?php echo isActive('contact', $current_page, $current_path) ? 'class="active"' : ''; ?>>Contact</a></li>
 								<?php endif; ?>
 							</ul>
 						</div>
