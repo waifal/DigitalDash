@@ -9,6 +9,42 @@ function getLinkPath($page, $isLoggedIn, $isIndex)
 	return $isLoggedIn ? $basePath . $page . '.php' : $basePath . $page . '.html';
 }
 
+function getStaticPagePath($filename, $isLoggedIn, $isIndex)
+{
+	$currentPage = basename($_SERVER['PHP_SELF']);
+	if ($currentPage === "$filename.php") {
+		return "#";
+	}
+
+	if ($isIndex) {
+		return "pages/$filename.php";
+	}
+
+	if ($isLoggedIn) {
+		return "php/pages/$filename.php";
+	}
+
+	return "../../php/pages/$filename.php";
+}
+
+function getSignupLink($isLoggedIn, $isIndex)
+{
+	if ($isIndex || $isLoggedIn) {
+		return 'php/pages/signup.php';
+	}
+
+	return '../../php/pages/signup.php';
+}
+
+function getLoginLink($isLoggedIn, $isIndex)
+{
+	if ($isIndex || $isLoggedIn) {
+		return 'php/pages/login.php';
+	}
+
+	return '../../php/pages/login.php';
+}
+
 $exploreLinks = [
 	['digital-walks', 'Digital Walks'],
 	['about', 'About'],
@@ -58,8 +94,8 @@ $profileHref = $isLoggedIn ? '../pages/account-settings.php' : '../pages/signup.
 						<li><a href="<?= htmlspecialchars($profileHref) ?>">Account Settings</a></li>
 						<li><a href="<?= htmlspecialchars($signoutHref) ?>">Sign out</a></li>
 					<?php else: ?>
-						<li><a href="<?= htmlspecialchars($profileHref === 'php/pages/signup.php' ? 'php/pages/login.php' : $profileHref) ?>">Login</a></li>
-						<li><a href="php/pages/signup.php">Sign Up</a></li>
+						<li><a href="<?= htmlspecialchars(getLoginLink($isLoggedIn, $isIndex)) ?>">Login</a></li>
+						<li><a href="<?= htmlspecialchars(getSignupLink($isLoggedIn, $isIndex)) ?>">Sign Up</a></li>
 					<?php endif; ?>
 				</ul>
 			</div>
@@ -80,9 +116,9 @@ $profileHref = $isLoggedIn ? '../pages/account-settings.php' : '../pages/signup.
 			<small>&copy; <time datetime="2025">2025</time> DigitalDash. All Rights Reserved.</small>
 		</div>
 		<div class="footer-links">
-			<a href="php/pages/privacy-policy.php"><small>Privacy Policy</small></a>
+			<a href="<?= htmlspecialchars(getStaticPagePath('privacy-policy', $isLoggedIn, $isIndex)) ?>"><small>Privacy Policy</small></a>
 			<span></span>
-			<a href="php/pages/terms-and-conditions.php"><small>Terms &amp; Conditions</small></a>
+			<a href="<?= htmlspecialchars(getStaticPagePath('terms-and-conditions', $isLoggedIn, $isIndex)) ?>"><small>Terms &amp; Conditions</small></a>
 		</div>
 	</div>
 </footer>
