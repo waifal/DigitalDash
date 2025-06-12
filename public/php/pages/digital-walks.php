@@ -318,30 +318,29 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 </main>
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
-		const videos = document.querySelectorAll(".popular-content video");
+		const containers = document.querySelectorAll(".popular-content");
 
-		videos.forEach(video => {
-			video.addEventListener("mouseenter", () => {
-				video.currentTime = 0; // Reset the video before playing
-				video.play()
-					.catch(error => console.warn("Autoplay prevented:", error)); // Handles autoplay restrictions
+		containers.forEach(container => {
+			const video = container.querySelector("video");
 
-				// Stop after 5 seconds
-				video.previewTimeout = setTimeout(() => {
+			container.addEventListener("mouseenter", () => {
+				if (video) {
+					video.currentTime = 0;
+					video.play().catch(error => console.warn("Autoplay prevented:", error));
+
+					video.previewTimeout = setTimeout(() => {
+						video.pause();
+						video.currentTime = 0;
+					}, 5000);
+				}
+			});
+
+			container.addEventListener("mouseleave", () => {
+				if (video) {
+					clearTimeout(video.previewTimeout);
 					video.pause();
 					video.currentTime = 0;
-				}, 5000);
-			});
-
-			video.addEventListener("mouseleave", () => {
-				clearTimeout(video.previewTimeout); // Stops the timeout
-				video.pause();
-				video.currentTime = 0;
-			});
-
-			// Ensure user interaction flag if needed
-			video.addEventListener("click", () => {
-				video.setAttribute("played", "true");
+				}
 			});
 		});
 	});
