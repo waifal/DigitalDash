@@ -6,6 +6,15 @@ $isIndex = !empty($_SESSION['index']) && $_SESSION['index'] === true;
 function getLinkPath($page, $isLoggedIn, $isIndex)
 {
 	$basePath = $isIndex ? 'pages/' : ($isLoggedIn ? '' : '../../');
+
+	if (strpos($page, '#') !== false) {
+		$parts = explode('#', $page, 2);
+		$pageName = $parts[0];
+		$anchor = $parts[1];
+		$extension = $isLoggedIn ? '.php' : '.html';
+		return $basePath . $pageName . $extension . '#' . $anchor;
+	}
+
 	return $isLoggedIn ? $basePath . $page . '.php' : $basePath . $page . '.html';
 }
 
@@ -63,6 +72,7 @@ $profileHref = $isLoggedIn ? '../pages/account-settings.php' : '../pages/signup.
 ?>
 
 <footer id="footer">
+	<!-- Desktop Footer -->
 	<div class="footer-content">
 		<div class="flex-1">
 			<a href="<?= htmlspecialchars($logoHref) ?>">
@@ -119,6 +129,75 @@ $profileHref = $isLoggedIn ? '../pages/account-settings.php' : '../pages/signup.
 			<a href="<?= htmlspecialchars(getStaticPagePath('privacy-policy', $isLoggedIn, $isIndex)) ?>"><small>Privacy Policy</small></a>
 			<span></span>
 			<a href="<?= htmlspecialchars(getStaticPagePath('terms-and-conditions', $isLoggedIn, $isIndex)) ?>"><small>Terms &amp; Conditions</small></a>
+		</div>
+	</div>
+
+	<!-- Mobile Footer -->
+	<div id="mobile">
+		<div class="footer-content">
+			<!-- Logo -->
+			<div class="flex-1">
+				<a href="<?= htmlspecialchars($logoHref) ?>">
+					<img src="<?= htmlspecialchars($logoSrc) ?>" alt="DigitalDash logo">
+				</a>
+			</div>
+			<!-- Links -->
+			<div class="footer-grid">
+				<div>
+					<button data-accordion="true" onclick="initAccordion(this, 'link1', true, `
+						<ul>
+							<li><a href='<?= htmlspecialchars($logoHref) ?>'>Home</a></li>
+							<?php foreach ($exploreLinks as [$link, $name]): ?>
+								<li><a href='<?= htmlspecialchars(getLinkPath($link, $isLoggedIn, $isIndex)) ?>'><?= htmlspecialchars($name) ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					`)"><strong>Explore</strong> <i class="fa-solid fa-chevron-down"></i></button>
+				</div>
+				<div>
+					<button data-accordion="true" onclick="initAccordion(this, 'link2', true, `
+						<ul>
+							<?php foreach ($trailsLinks as [$link, $name]): ?>
+								<li><a href='<?= htmlspecialchars(getLinkPath($link, $isLoggedIn, $isIndex)) ?>'><?= htmlspecialchars($name) ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					`)">
+						<strong>Trails</strong> <i class="fa-solid fa-chevron-down"></i>
+					</button>
+				</div>
+				<div>
+					<button data-accordion="true" onclick="initAccordion(this, 'link3', true, `
+						<ul>
+							<?php if ($isLoggedIn): ?>
+								<li><a href='<?= htmlspecialchars($profileHref) ?>'>Account Settings</a></li>
+								<li><a href='<?= htmlspecialchars($signoutHref) ?>'>Sign out</a></li>
+							<?php else: ?>
+								<li><a href='<?= htmlspecialchars(getLoginLink($isLoggedIn, $isIndex)) ?>'>Login</a></li>
+								<li><a href='<?= htmlspecialchars(getSignupLink($isLoggedIn, $isIndex)) ?>'>Sign Up</a></li>
+							<?php endif; ?>
+						</ul>
+					`)"><strong>Account</strong> <i class="fa-solid fa-chevron-down"></i></button>
+				</div>
+				<div>
+					<strong>Follow Us</strong>
+					<div class="social-links">
+						<a href="https://github.com/DigitalDashNZ" target="_blank"><i class="bi bi-github"></i></a>
+						<a href="https://www.youtube.com/@DigitalDashNZ" target="_blank"><i class="bi bi-youtube"></i></a>
+						<a href="https://www.instagram.com/digitaldashnz/" target="_blank"><i class="bi bi-instagram"></i></a>
+						<a href="https://x.com/DigitalDashNZ" target="_blank"><i class="bi bi-twitter-x"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="footer-bottom">
+			<div class="copyright">
+				<small>&copy; <time datetime="2025">2025</time> DigitalDash. All Rights Reserved.</small>
+			</div>
+			<div class="footer-links">
+				<a href="<?= htmlspecialchars(getStaticPagePath('privacy-policy', $isLoggedIn, $isIndex)) ?>"><small>Privacy Policy</small></a>
+				<span></span>
+				<a href="<?= htmlspecialchars(getStaticPagePath('terms-and-conditions', $isLoggedIn, $isIndex)) ?>"><small>Terms &amp; Conditions</small></a>
+			</div>
 		</div>
 	</div>
 </footer>
