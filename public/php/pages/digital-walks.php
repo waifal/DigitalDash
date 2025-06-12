@@ -51,6 +51,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
+						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
 						<h2>...</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -79,6 +80,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
+						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
 						<h2>Taitua Arboretum</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -107,6 +109,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
+						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
 						<h2>Sanford Park</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -313,5 +316,35 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 		</section>
 	</section>
 </main>
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const videos = document.querySelectorAll(".popular-content video");
+
+		videos.forEach(video => {
+			video.addEventListener("mouseenter", () => {
+				video.currentTime = 0; // Reset the video before playing
+				video.play()
+					.catch(error => console.warn("Autoplay prevented:", error)); // Handles autoplay restrictions
+
+				// Stop after 5 seconds
+				video.previewTimeout = setTimeout(() => {
+					video.pause();
+					video.currentTime = 0;
+				}, 5000);
+			});
+
+			video.addEventListener("mouseleave", () => {
+				clearTimeout(video.previewTimeout); // Stops the timeout
+				video.pause();
+				video.currentTime = 0;
+			});
+
+			// Ensure user interaction flag if needed
+			video.addEventListener("click", () => {
+				video.setAttribute("played", "true");
+			});
+		});
+	});
+</script>
 
 <?php require_once(__DIR__ . '/../components/footer.inc.php'); ?>
