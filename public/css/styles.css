@@ -3,28 +3,53 @@
 
 
 
-.light {
-
-    --primary-clr: #ffffff;
+/* .light{
+     --primary-clr: #ffffff;
     --secondary-clr: #111111;
     --accent-clr: #2dc489;
-}
-
-.dark {
-    --primary-clr: #111111;
-    --secondary-clr: #ffffff;
-    --accent-clr: #2dc489;
-}
+} */
 :root {
-/*    
-    --nav-height: 70px;
-    --primary-clr: #111111;
-    --secondary-clr: #ffffff;
-    --accent-clr: #2dc489; */
+       --primary-clr: #ffffff;
+    --secondary-clr: #111111;
+    --accent-clr: #2dc489;
     --container-padding: 5rem 150px;
     --image-overlay: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
 }
 
+
+.theme-switch{
+  height: 100px;
+  width: 100px;
+  background-color: wheat;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+.theme-switch svg{
+  fill: var(--accent-clr);
+}
+.theme-switch svg:last-child{
+  display: none;
+}
+.darkmode .theme-switch svg:first-child{
+  display: none;
+}
+.darkmode .theme-switch svg:last-child{
+  display: block;
+}
+
+
+
+.darkmode{
+    --primary-clr: #111111;
+    --secondary-clr: #ffffff;
+    --accent-clr: #2dc489;
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
