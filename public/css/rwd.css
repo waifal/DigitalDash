@@ -198,7 +198,7 @@
 
 @media (max-width: 900px) {
     .popular-container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         row-gap: 3vh;
     }
 
@@ -225,7 +225,7 @@
         max-width: 100%;
     }
 
-    .auth__container>div{
+    .auth__container>div {
         min-width: unset;
         width: unset;
     }

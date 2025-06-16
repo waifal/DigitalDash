@@ -24,17 +24,6 @@
 		<link rel="stylesheet" href="../../css/rwd.css">
 		<link rel="stylesheet" href="../../css/account-settings.css">
 	<?php endif; ?>
-	<?php if (isset($_SESSION['digital_walks']) && $_SESSION['digital_walks'] === true || basename($_SERVER['PHP_SELF']) === 'digital-walks.php'): ?>
-		<link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-		<link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
-		<script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-		<?php if ($_SESSION['index'] === true): ?>
-			<script src="../js/videohandler.js"></script>
-		<?php else: ?>
-			<script src="../../js/videohandler.js"></script>
-		<?php endif; ?>
-	<?php endif; ?>
-
 	<?php if ($_SESSION['index'] === true): ?>
 		<script src="../js/scripts.js" type="module"></script>
 	<?php else: ?>

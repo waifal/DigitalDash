@@ -47,40 +47,11 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 			<br>
 			<!-- Content -->
 			<div class="popular-container">
-				<!-- Popular #1 -->
-				<div>
-					<div class="popular-content">
-						<div class="overlay"></div>
-						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
-						<h2>...</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
-						<div class="popular-banner">
-							<span><span>Top</span> <span>3</span></span>
-						</div>
-						<div class="button__container">
-							<!-- Play Button -->
-							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
-								<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
-                                    <div class='video-info'>
-                                        <div>
-                                            <h2>...</h2>
-                                            <ul>
-                                                <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                            </ul>    
-                                        </div>
-                                        <p></p>
-                                    </div>
-                                `)"><i class="fa-solid fa-play"></i> Play</button>
-						</div>
-					</div>
-				</div>
 				<!-- Popular #2 -->
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
-						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
+						<video src="../../assets/videos/previews/taitua.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/taitua.jpg"></video>
 						<h2>Taitua Arboretum</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -89,7 +60,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
-									<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+									<iframe src='https://www.youtube.com/embed/zcxXi3F9UOg?si=yWY7tYPuX_wKwQf-' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                     <div class='video-info'>
                                         <div>
                                             <h2>Taitua Arboretum</h2>
@@ -109,7 +80,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
-						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4"></video>
+						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/sandford_park.png"></video>
 						<h2>Sanford Park</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -152,43 +123,13 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 					<div class="video__section-content">
 						<!-- Video Cards -->
 						<div class="cards">
-							<!-- Card #1 -->
-							<div>
-								<div class="poster">
-									<img src="../../assets/images/backgrounds/green_trees_snowy_mountains_during_blue_sunny_cloudy_sky.jpeg" alt="Hamilton Gardens" loading="lazy">
-									<!-- Play Button -->
-									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
-                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
-                                                <div class='video-info'>
-                                                    <div>
-                                                        <h2>...</h2>
-                                                        <ul>
-                                                            <li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-                                                            <li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small></li>
-                                                            <li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-                                                        </ul>
-                                                    </div>
-                                                    <p></p>
-                                                </div>
-                                        `)"><i class="fa-regular fa-circle-play"></i></button>
-								</div>
-								<div class="context">
-									<h3>...</h3>
-									<ul>
-										<li><small><i class='fa-solid fa-location-dot'></i> New Zealand</small></li>
-										<li><small><i class='fa-solid fa-hourglass-start'></i> 15 Minutes</small>
-										</li>
-										<li><small><i class='fa-solid fa-image'></i> <span class='quality'>HD</span></small></li>
-									</ul>
-								</div>
-							</div>
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/mount_cook_in_new_zealand.jpeg" alt="Taitua Arboretum" loading="lazy">
+									<img src="../../assets/images/backgrounds/taitua.jpg" alt="Taitua Arboretum" loading="lazy">
 									<!-- Play Button -->
 									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
-                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                            <iframe src='https://www.youtube.com/embed/zcxXi3F9UOg?si=yWY7tYPuX_wKwQf-' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                                 <div class='video-info'>
                                                     <div>
                                                         <h2>Taitua Arboretum</h2>
@@ -215,7 +156,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #3 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/majestic_mountain_landscape_in_hooker_valley_new_zealand.jpeg" alt="Sandford Park" loading="lazy">
+									<img src="../../assets/images/backgrounds/sandford_park.png" alt="Sandford Park" loading="lazy">
 									<!-- Play Button -->
 									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
                                             <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
@@ -242,6 +183,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 									</ul>
 								</div>
 							</div>
+							<div></div>
 						</div>
 					</div>
 				</div>
@@ -282,7 +224,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 							<!-- Card #2 -->
 							<div>
 								<div class="poster">
-									<img src="../../assets/images/backgrounds/gorsa_bridge_en_norvege_vue_de_drone_chute_d_eau_montagne_pont.jpg" alt="Lake Ngaroto" loading="lazy">
+									<img src="../../assets/images/backgrounds/lake-ngaroto.jpg" alt="Lake Ngaroto" loading="lazy">
 									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal localVideo', `
 										<video class='player' src='../../assets/videos/hamilton_lake.mp4' controls autoplay type='video/mp4'>Your browser does not support this video.</video>
 											<div class='video-info'>
