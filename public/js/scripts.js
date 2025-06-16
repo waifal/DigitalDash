@@ -84,52 +84,6 @@ if (document.getElementById('loginfrm')) {
     new LoginFormValidator('loginfrm');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const videos = document.querySelectorAll('.video-background video');
-    if (!videos || videos.length === 0) return; // Guard clause if no videos found
-
-    let currentVideoIndex = 0;
-
-    function switchVideo() {
-        if (!videos[currentVideoIndex]) return; // Guard against undefined video
-        videos[currentVideoIndex].classList.remove('active');
-
-        setTimeout(() => {
-            videos[currentVideoIndex].currentTime = 0;
-
-            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-
-            // Start new video from beginning and show it
-            videos[currentVideoIndex].currentTime = 0;
-            videos[currentVideoIndex].play().catch((e) => {
-                if (e.name !== 'AbortError') {
-                    console.warn('Video play error:', e);
-                }
-            });
-            videos[currentVideoIndex].classList.add('active');
-        }, 1000);
-    }
-
-    if (videos[0]) {
-        videos[0].play().catch((e) => {
-            if (e.name !== 'AbortError') {
-                console.warn('Video play error:', e);
-            }
-        });
-
-        videos[0].classList.add('active');
-    }
-
-    videos.forEach((video, index) => {
-        if (index !== 0) {
-            video.pause();
-            video.currentTime = 0;
-        }
-    });
-
-    setInterval(switchVideo, 10000);
-});
-
 document.addEventListener("click", function (event) {
     const hbmContent = document.querySelector(".hbm-content");
     const overlay = document.querySelector("#hamburger .overlay");
@@ -244,54 +198,54 @@ document.addEventListener("DOMContentLoaded", handleAccount_Settings);
 //         if (Li.classList.contains("bi-brightness-low-fill")) {
 //             Li.classList.remove("bi-brightness-low-fill")
 //             Li.classList.add( "bi-moon-stars-fill")
-         
+
 //              logo.src = " assets/images/logo/logo_black_white.webp";
-             
+
 //         } 
 //         else {
 //               Li.classList.remove("bi-moon-stars-fill")
 //             Li.classList.add( "bi-brightness-low-fill")
 //               logo.src = " assets/images/logo/logo_color_transparent_png.png";
-    
-             
+
+
 //         }
 //     })
 // });
 
-    function changeTheme() {
-          let prefersDark = window.matchMedia('(prefers-color-scheme: light)').matches;
-      
-        //  let Li = document.querySelector(".bi")
-         let logo = document.getElementById("logo");
-     if (prefersDark) {
+function changeTheme() {
+    let prefersDark = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    //  let Li = document.querySelector(".bi")
+    let logo = document.getElementById("logo");
+    if (prefersDark) {
         // logo.src = "assets/images/logo/logo_black_white_green.webp";
         logo.src = "assets/images/logo/logo_black_white_green.webp";
-        } 
     }
+}
 
-    changeTheme();
+changeTheme();
 
-    const button = document.getElementById("theme-switcher");
-    let Li = document.querySelector(".bi")
-    let logo = document.querySelector(".logo-img");
-    let root = document.querySelector(":root");
+const button = document.getElementById("theme-switcher");
+let Li = document.querySelector(".bi")
+let logo = document.querySelector(".logo-img");
+let root = document.querySelector(":root");
 
-    button.addEventListener("click", (event) => {
-        console.log("Theme switcher has been clicked!");
-        root.classList.toggle("light")
-        if (Li.classList.contains("bi-brightness-low-fill")) {
-            Li.classList.remove("bi-brightness-low-fill")
-            Li.classList.add("bi-moon-stars-fill")
+button.addEventListener("click", (event) => {
+    console.log("Theme switcher has been clicked!");
+    root.classList.toggle("light")
+    if (Li.classList.contains("bi-brightness-low-fill")) {
+        Li.classList.remove("bi-brightness-low-fill")
+        Li.classList.add("bi-moon-stars-fill")
 
-            logo.src = " assets/images/logo/logo_black_white.webp";
+        logo.src = " assets/images/logo/logo_black_white.webp";
 
-        }
-        else {
-            Li.classList.remove("bi-moon-stars-fill")
-            Li.classList.add("bi-brightness-low-fill")
-            logo.src = " assets/images/logo/logo_color_transparent_png.png";
+    }
+    else {
+        Li.classList.remove("bi-moon-stars-fill")
+        Li.classList.add("bi-brightness-low-fill")
+        logo.src = " assets/images/logo/logo_color_transparent_png.png";
 
 
-        }
-    })
+    }
+})
 
