@@ -53,7 +53,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="overlay"></div>
 						<video src="../../assets/videos/previews/taitua.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/taitua.jpg"></video>
 						<h2>Taitua Arboretum</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
+						<img src="../../assets/images/logo/logo_color_transparent_logo.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
@@ -82,7 +82,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="overlay"></div>
 						<video src="../../assets/videos/previews/sandford_park.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/sandford_park.png"></video>
 						<h2>Sanford Park</h2>
-						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
+						<img src="../../assets/images/logo/logo_color_transparent_logo.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
 							<span><span>Top</span> <span>3</span></span>
 						</div>
