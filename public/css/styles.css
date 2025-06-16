@@ -1392,6 +1392,7 @@ div[data-access="false"]:hover::after {
 }
 
 .About .txt p {
+    display: flex;
     color: white;
     font-size: 1rem;
     position: absolute;
@@ -1417,28 +1418,34 @@ div[data-access="false"]:hover::after {
     max-height: 360px;
     max-width: 400px;
 }
-
 @media only screen and (max-width: 1024px) {
+    .About img {
+        height: 45%;
+        top: 40%;
+    }
+}
+@media only screen and (max-width: 900px) {
     .About h1 {
         left: 35%;
-        top: 20%;
+        top: 10%;
     }
 
     .About .txt p {
-        left: 15%;
-        top: 30%;
+        padding-left: 25px;
+        padding-right: 25px;
+        left: 12.5%;
+        top: 17.5%;
         width: 80%;
         font-size: 0.8rem;
     }
 
     .About img {
-        left: 15%;
-        top: 55%;
-        max-width: 80%;
+        left: 17.5%;
+        top: 47.5%;
+        max-width: 65%;
         height: auto;
     }
 }
-
 /* ================== Footer ================== */
 
 footer {
