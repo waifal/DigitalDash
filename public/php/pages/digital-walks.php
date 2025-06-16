@@ -80,7 +80,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 				<div>
 					<div class="popular-content">
 						<div class="overlay"></div>
-						<video src="../../assets/videos/previews/hamilton_lake_preview.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/sandford_park.png"></video>
+						<video src="../../assets/videos/previews/sandford_park.mp4" muted type="video/mp4" poster="../../assets/images/backgrounds/sandford_park.png"></video>
 						<h2>Sanford Park</h2>
 						<img src="../../assets/images/logo/logo_color_black_transparent_png.png" alt="DigitalDash Logo" draggable="false" loading="lazy">
 						<div class="popular-banner">
@@ -89,7 +89,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 						<div class="button__container">
 							<!-- Play Button -->
 							<button type="button" class='primary-btn' onclick="initModal(this, 'previewModal', `
-									<iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+									<iframe src='https://www.youtube.com/embed/tuP9uyswlAk?si=OU5ipOxQc-Nhvy46' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                     <div class='video-info'>
                                         <div>
                                             <h2>Sandford Park</h2>
@@ -159,7 +159,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 									<img src="../../assets/images/backgrounds/sandford_park.png" alt="Sandford Park" loading="lazy">
 									<!-- Play Button -->
 									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal', `
-                                            <iframe src='https://www.youtube.com/embed/1fkyWVtZ-Qs?si=vW0q_isVT0mTfX7v' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
+                                            <iframe src='https://www.youtube.com/embed/tuP9uyswlAk?si=OU5ipOxQc-Nhvy46' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' referrerpolicy='strict-origin-when-cross-origin' allowfullscreen></iframe>
                                                 <div class='video-info'>
                                                     <div>
                                                         <h2>Sandford Park</h2>
@@ -226,7 +226,7 @@ require_once(__DIR__ . '/../components/nav.inc.php');
 								<div class="poster">
 									<img src="../../assets/images/backgrounds/lake-ngaroto.jpg" alt="Lake Ngaroto" loading="lazy">
 									<button type="button" class="primary-btn" onclick="initModal(this, 'previewModal localVideo', `
-										<video class='player' src='../../assets/videos/hamilton_lake.mp4' controls autoplay type='video/mp4'>Your browser does not support this video.</video>
+										<video class='player' src='../../assets/videos/lake_ngaroto.mp4' controls autoplay type='video/mp4'>Your browser does not support this video.</video>
 											<div class='video-info'>
 												<div>
 													<h2>Lake Ngaroto</h2>
